@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE, CATEGORIES, SITE_CONFIG } from "@/lib/constants";
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 import { blogs } from "@/data/blogs";
 import { comparisons } from "@/data/comparisons";
 import { getBlogImageUrl } from "@/lib/blog-images";
@@ -14,7 +13,6 @@ import {
   HowToJsonLd,
 } from "@/components/seo/json-ld";
 import { CalculatorLayout } from "@/components/calculators/calculator-layout";
-import { ConverterLayout } from "@/components/converters/converter-layout";
 import { BlogArticle } from "@/components/blog/blog-article";
 import { ComparisonLayout } from "@/components/compare/comparison-layout";
 import { CategoryDetail } from "@/components/categories/category-detail";
@@ -23,7 +21,6 @@ const CUSTOM_PAGES = ["ai-token-cost-calculator"];
 
 const allSlugs = [
   ...calculators.map((c) => c.slug),
-  ...converters.map((c) => c.slug),
   ...blogs.map((b) => b.slug),
   ...comparisons.map((c) => c.slug),
   ...CATEGORIES.map((c) => c.slug),
@@ -40,12 +37,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const calculator = calculators.find((c) => c.slug === slug);
-  const converter = converters.find((c) => c.slug === slug);
   const blog = blogs.find((b) => b.slug === slug);
   const category = CATEGORIES.find((c) => c.slug === slug);
   const comparison = comparisons.find((c) => c.slug === slug);
 
-  if (!calculator && !converter && !blog && !category && !comparison) return {};
+  if (!calculator && !blog && !category && !comparison) return {};
 
   const url = `${SITE.url}/${slug}`;
 
@@ -120,7 +116,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
-  const def = calculator ?? converter!;
+  const def = calculator!;
 
   return {
     title: def.metaTitle,
@@ -147,12 +143,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function ToolSlugPage({ params }: PageProps) {
   const { slug } = await params;
   const calculator = calculators.find((c) => c.slug === slug);
-  const converter = converters.find((c) => c.slug === slug);
   const blog = blogs.find((b) => b.slug === slug);
   const category = CATEGORIES.find((c) => c.slug === slug);
   const comparison = comparisons.find((c) => c.slug === slug);
 
-  if (!calculator && !converter && !blog && !category && !comparison) {
+  if (!calculator && !blog && !category && !comparison) {
     notFound();
   }
 
@@ -202,18 +197,15 @@ export default async function ToolSlugPage({ params }: PageProps) {
     return <ComparisonLayout comparison={comparison} />;
   }
 
-  const def = calculator ?? converter!;
-  const isCalculator = !!calculator;
+  const def = calculator!;
   const categoryName = CATEGORIES.find((c) => c.slug === def.category)?.name || def.category;
 
-  const howToSteps = isCalculator && calculator
-    ? calculator.inputs.slice(0, 4).map((input, i) => ({
-        name: `Enter ${input.label}`,
-        text: `Provide the ${input.label.toLowerCase()} value${input.placeholder ? ` (e.g., ${input.placeholder})` : ""}.`,
-      })).concat([
-        { name: "Click Calculate", text: "Press the Calculate button to compute your results instantly." },
-      ])
-    : [];
+  const howToSteps = def.inputs.slice(0, 4).map((input, i) => ({
+    name: `Enter ${input.label}`,
+    text: `Provide the ${input.label.toLowerCase()} value${input.placeholder ? ` (e.g., ${input.placeholder})` : ""}.`,
+  })).concat([
+    { name: "Click Calculate", text: "Press the Calculate button to compute your results instantly." },
+  ]);
 
   return (
     <>
@@ -233,7 +225,7 @@ export default async function ToolSlugPage({ params }: PageProps) {
         name={def.name}
         description={def.description}
         url={url}
-        category={isCalculator ? "Calculator" : "Converter"}
+        category="Calculator"
       />
       {def.faqs && def.faqs.length > 0 && (
         <FAQJsonLd questions={def.faqs} url={url} />
@@ -241,16 +233,12 @@ export default async function ToolSlugPage({ params }: PageProps) {
       {howToSteps.length > 0 && (
         <HowToJsonLd
           name={`How to Use the ${def.name}`}
-          description={`Step-by-step guide for using the ${def.name} ${isCalculator ? "calculator" : "converter"} on Measurely.`}
+          description={`Step-by-step guide for using the ${def.name} calculator on Measurely.`}
           steps={howToSteps}
           url={url}
         />
       )}
-      {calculator ? (
-        <CalculatorLayout slug={slug} />
-      ) : (
-        <ConverterLayout slug={slug} />
-      )}
+      <CalculatorLayout slug={slug} />
     </>
   );
 }

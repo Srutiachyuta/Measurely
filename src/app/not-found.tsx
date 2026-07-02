@@ -59,7 +59,7 @@ export default function NotFound() {
           </div>
 
           <p className="mt-4 text-xs text-muted">
-            Try searching for a calculator or converter instead
+            Try searching for a calculator instead
           </p>
         </div>
       </div>

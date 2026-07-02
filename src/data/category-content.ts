@@ -41,10 +41,10 @@ export const categoryContent: Record<string, CategoryContent> = {
   },
   "unit-converters": {
     intro:
-      "Convert between any units of measurement with our comprehensive collection of unit converters. From everyday conversions like length, weight, and temperature to specialized converters for pressure, energy, and electrical units, these tools cover every measurement need. Each converter supports multiple units with metric prefixes for maximum flexibility.",
+      "Perform quick and accurate unit conversions with our measurement calculators. Convert between length, weight, temperature, pressure, energy, and electrical units using standard international formulas. Whether you need to convert metric to imperial units or apply metric prefixes, these tools deliver precise results in seconds.",
     faqs: [
-      { question: "How many units does each converter support?", answer: "Most converters support 10-20 units with common metric prefixes (milli, centi, kilo, etc.) for comprehensive coverage." },
       { question: "Are the conversion formulas accurate?", answer: "Yes, all conversions use standard international formulas and are verified for accuracy." },
+      { question: "What unit systems are supported?", answer: "We support metric and imperial units across all common measurement categories including length, weight, volume, temperature, pressure, and energy." },
     ],
     comparisonSlugs: [],
   },

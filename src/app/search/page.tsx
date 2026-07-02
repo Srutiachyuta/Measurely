@@ -60,7 +60,7 @@ export default function SearchPage() {
   return (
     <div className="min-h-screen">
       <BreadcrumbJsonLd items={[{ name: "Search Tools" }]} />
-      <WebPageJsonLd title="Search Tools & Articles | Measurely" description="Find calculators, converters, and articles across the site." url="https://www.measurely.in/search" />
+      <WebPageJsonLd title="Search Tools & Articles | Measurely" description="Find calculators and articles across the site." url="https://www.measurely.in/search" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <Breadcrumb items={breadcrumbItems} className="mb-6" />
         <motion.div
@@ -73,7 +73,7 @@ export default function SearchPage() {
             Search <span className="text-gradient">Tools & Articles</span>
           </h1>
           <p className="text-text-secondary max-w-2xl mx-auto text-lg">
-            Find calculators, converters, articles, and FAQs across the site.
+            Find calculators, articles, and FAQs across the site.
           </p>
         </motion.div>
 
@@ -86,7 +86,7 @@ export default function SearchPage() {
           <div className="relative flex-1 max-w-md">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4.5 w-4.5 text-muted" />
             <Input
-              placeholder="Search calculators, converters, articles..."
+              placeholder="Search calculators, articles..."
               value={query}
               onChange={(e) => {
                 setQuery(e.target.value);
@@ -151,7 +151,7 @@ export default function SearchPage() {
             </div>
             <p className="text-lg text-text-secondary font-medium">Start typing to search</p>
             <p className="text-sm text-muted mt-1">
-              Search across all calculators, converters, articles, and FAQs.
+              Search across all calculators, articles, and FAQs.
             </p>
           </motion.div>
         )}

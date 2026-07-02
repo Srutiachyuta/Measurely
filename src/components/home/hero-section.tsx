@@ -10,13 +10,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 import { CATEGORIES } from "@/lib/constants";
 import {
   Search,
   ArrowRight,
   Sparkles,
-  ArrowLeftRight,
+
   Calculator,
   Zap,
   Gem,
@@ -55,9 +54,8 @@ export function HeroSection() {
   const toolCards = useMemo(
     () => [
       { icon: Calculator, title: "Smart Calculators", desc: `${calculators.length}+ Tools`, delay: 0 },
-      { icon: ArrowLeftRight, title: "Unit Converters", desc: `${converters.length}+ Converters`, delay: 0.3 },
-      { icon: Zap, title: "Instant Results", desc: "Fast and Accurate", delay: 0.6 },
-      { icon: Gem, title: "Free Forever", desc: "100% Free", delay: 0.9 },
+      { icon: Zap, title: "Instant Results", desc: "Fast and Accurate", delay: 0.3 },
+      { icon: Gem, title: "Free Forever", desc: "100% Free", delay: 0.6 },
     ],
     [],
   );
@@ -66,7 +64,6 @@ export function HeroSection() {
   const stats = useMemo(
     () => [
       { value: `${calculators.length}+`, label: "Calculators" },
-      { value: `${converters.length}+`, label: "Converters" },
       { value: "100%", label: "Free to Use" },
       { value: "Instant", label: "Results" },
     ],
@@ -99,8 +96,8 @@ export function HeroSection() {
               style={{ animationDelay: "0.2s" }}
               className="animate-fade-in-up text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.05]"
             >
-              <span className="text-text">All Calculators & </span>
-              <span className="text-gradient">Unit Converters</span>
+              <span className="text-text">All </span>
+              <span className="text-gradient">Calculators</span>
               <br />
               <span className="text-text">in One Place</span>
             </h1>
@@ -109,7 +106,7 @@ export function HeroSection() {
               style={{ animationDelay: "0.3s" }}
               className="animate-fade-in-up mt-6 text-lg sm:text-xl text-text-secondary max-w-xl leading-relaxed"
             >
-              Solve everyday calculations instantly with hundreds of powerful calculators and converters. Free, fast, and accurate.
+              Solve everyday calculations instantly with hundreds of powerful free calculators. Fast, accurate, and easy to use.
             </p>
 
             <div
@@ -141,8 +138,8 @@ export function HeroSection() {
               <div className="relative max-w-md">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted" />
                 <Input
-                  placeholder="Search calculators, converters..."
-                  aria-label="Search calculators and converters"
+                  placeholder="Search calculators..."
+                  aria-label="Search calculators"
                   className="pl-12 h-14 text-base rounded-2xl border-border bg-surface-secondary/80 shadow-sm hover:shadow-md focus:shadow-md transition-all cursor-pointer"
                   readOnly
                   onClick={() => router.push("/search")}
@@ -156,7 +153,7 @@ export function HeroSection() {
             >
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-accent-green shadow-sm shadow-accent-green/50" />
-                 {calculators.length + converters.length}+ Tools
+                 {calculators.length}+ Tools
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary-500 shadow-sm shadow-primary-500/50" />
@@ -314,7 +311,7 @@ export function HeroSection() {
                     <div className="flex gap-2 mt-2.5">
                       {[
                         { label: "Calculate", color: "from-primary-500 to-accent-cyan" },
-                        { label: "Convert", color: "from-accent-cyan to-purple-500" },
+                        { label: "Instant", color: "from-accent-cyan to-purple-500" },
                       ].map((a) => (
                         <motion.div
                           key={a.label}
@@ -338,7 +335,6 @@ export function HeroSection() {
                 { card: toolCards[0], l: "62%", t: "5%", z: 20, dx: 6, dy: -4 },
                 { card: toolCards[1], l: "63%", t: "72%", z: 20, dx: -4, dy: 6 },
                 { card: toolCards[2], l: "6%", t: "74%", z: 20, dx: -6, dy: 4 },
-                { card: toolCards[3], l: "5%", t: "6%", z: 20, dx: 4, dy: -6 },
               ].map(({ card, l, t, dx, dy }, i) => {
                 const Icon = card.icon;
                 return (
@@ -389,17 +385,17 @@ export function HeroSection() {
             </div>
 
             {/* ── Bottom Stats Card ── */}
-            <motion.div
-              className="w-full max-w-lg rounded-[2rem] bg-gradient-to-br from-primary-400/30 via-accent-cyan/20 to-purple-500/30 p-[1.5px] shadow-2xl shadow-primary-500/10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.6 }}
-              whileHover={{ y: -4, boxShadow: "0 20px 60px rgba(99,102,241,0.2)" }}
-            >
-              <div className="size-full rounded-[calc(2rem-1.5px)] bg-surface/60 backdrop-blur-xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/10 dark:from-dark-900/50 dark:to-dark-900/10" />
-                <div className="absolute inset-0 rounded-[calc(2rem-1.5px)] ring-1 ring-inset ring-primary-500/10 dark:ring-primary-400/10" />
-                <div className="relative z-10 grid grid-cols-4 divide-x divide-primary-500/10 dark:divide-primary-400/10">
+              <motion.div
+                className="w-full max-w-lg rounded-[2rem] bg-gradient-to-br from-primary-400/30 via-accent-cyan/20 to-purple-500/30 p-[1.5px] shadow-2xl shadow-primary-500/10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                whileHover={{ y: -4, boxShadow: "0 20px 60px rgba(99,102,241,0.2)" }}
+              >
+                <div className="size-full rounded-[calc(2rem-1.5px)] bg-surface/60 backdrop-blur-xl overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/10 dark:from-dark-900/50 dark:to-dark-900/10" />
+                  <div className="absolute inset-0 rounded-[calc(2rem-1.5px)] ring-1 ring-inset ring-primary-500/10 dark:ring-primary-400/10" />
+                  <div className="relative z-10 grid grid-cols-3 divide-x divide-primary-500/10 dark:divide-primary-400/10">
                   {stats.map((stat, i) => (
                     <motion.div
                       key={i}
@@ -499,16 +495,16 @@ export function HeroSection() {
             </div>
 
             {/* Mobile stats */}
-            <motion.div
-              className="w-full max-w-xs rounded-2xl bg-gradient-to-br from-primary-400/30 via-accent-cyan/20 to-purple-500/30 p-[1.5px] shadow-xl shadow-primary-500/10"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <div className="size-full rounded-[calc(2rem-1.5px)] bg-surface/60 backdrop-blur-xl overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/10 dark:from-dark-900/50 dark:to-dark-900/10" />
-                <div className="absolute inset-0 rounded-[calc(2rem-1.5px)] ring-1 ring-inset ring-primary-500/10 dark:ring-primary-400/10" />
-                <div className="relative z-10 grid grid-cols-4 divide-x divide-primary-500/10 dark:divide-primary-400/10">
+              <motion.div
+                className="w-full max-w-xs rounded-2xl bg-gradient-to-br from-primary-400/30 via-accent-cyan/20 to-purple-500/30 p-[1.5px] shadow-xl shadow-primary-500/10"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+              >
+                <div className="size-full rounded-[calc(2rem-1.5px)] bg-surface/60 backdrop-blur-xl overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 to-white/10 dark:from-dark-900/50 dark:to-dark-900/10" />
+                  <div className="absolute inset-0 rounded-[calc(2rem-1.5px)] ring-1 ring-inset ring-primary-500/10 dark:ring-primary-400/10" />
+                  <div className="relative z-10 grid grid-cols-3 divide-x divide-primary-500/10 dark:divide-primary-400/10">
                   {stats.map((stat, i) => (
                     <div key={i} className="flex flex-col items-center py-3 px-1 text-center">
                       <span className="text-base font-bold text-gradient-cyan leading-none">{stat.value}</span>

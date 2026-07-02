@@ -5,10 +5,9 @@ import { FileText, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { getCategoryTheme } from "@/lib/card-theme";
 import type { CalculatorDefinition } from "@/types/calculators";
-import type { ConverterDefinition } from "@/types/converters";
 
 interface RelatedToolsProps {
-  tools: (CalculatorDefinition | ConverterDefinition)[];
+  tools: CalculatorDefinition[];
   maxCount?: number;
 }
 
@@ -25,8 +24,7 @@ export function RelatedTools({ tools, maxCount = 8 }: RelatedToolsProps) {
       </h3>
       <div className="space-y-1">
         {display.map((tool) => {
-          const category = "category" in tool ? tool.category : "unit-converters";
-          const theme = getCategoryTheme(category);
+          const theme = getCategoryTheme(tool.category);
           return (
             <Link
               key={tool.slug}

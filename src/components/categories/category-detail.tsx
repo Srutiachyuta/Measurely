@@ -28,7 +28,6 @@ import {
   Car,
   BarChart3,
   Calculator,
-  Repeat,
   ChevronRight,
 } from "lucide-react";
 
@@ -79,33 +78,7 @@ function getToolDescription(name: string): string {
     "GCF & LCM Calculator": "Find GCF and LCM of numbers",
     "Prime Number Calculator": "Check primality and find factors",
     "Statistics Calculator": "Compute statistical measures",
-    "Length Converter": "Convert between length units",
-    "Weight Converter": "Convert between weight units",
-    "Area Converter": "Convert between area units",
-    "Volume Converter": "Convert between volume units",
-    "Speed Converter": "Convert between speed units",
-    "Pressure Converter": "Convert between pressure units",
-    "Temperature Converter": "Convert between temperature scales",
-    "Energy Converter": "Convert between energy units",
-    "Time Converter": "Convert between time units",
-    "Data Storage Converter": "Convert data storage units",
-    "Fuel Economy Converter": "Convert fuel economy units",
-    "Angle Converter": "Convert between angle units",
-    "Density Converter": "Convert between density units",
-    "Frequency Converter": "Convert between frequency units",
-    "Power Converter": "Convert between power units",
-    "Current Converter": "Convert electric current units",
-    "Voltage Converter": "Convert electric voltage units",
-    "Resistance Converter": "Convert electrical resistance units",
-    "Capacitance Converter": "Convert capacitance units",
-    "Inductance Converter": "Convert inductance units",
-    "Force Converter": "Convert between force units",
-    "Magnetic Field Converter": "Convert magnetic field units",
-    "Concentration Converter": "Convert concentration units",
-    "Typography Converter": "Convert typography units",
-    "Shoe Size Converter": "Convert international shoe sizes",
-    "Clothing Size Converter": "Convert clothing size standards",
-    "Ring Size Converter": "Convert ring size measurements",
+
     "Age Calculator": "Calculate exact age in various units",
     "Date Calculator": "Add or subtract dates",
     "Days Between Dates": "Calculate days between two dates",
@@ -133,7 +106,7 @@ function getToolDescription(name: string): string {
     "Freelance Rate Calculator": "Determine your ideal hourly and project rates",
     "YouTube Money Calculator": "Estimate YouTube earnings based on views and engagement",
   };
-  return descriptions[name] || `Calculate and convert ${name.toLowerCase()}`;
+  return descriptions[name] || `Calculate ${name.toLowerCase()}`;
 }
 
 interface Props {
@@ -143,7 +116,6 @@ interface Props {
 export function CategoryDetail({ category }: Props) {
   const Icon = iconMap[category.icon] || Sparkles;
   const calculators = category.tools.filter((t) => t.isCalculator);
-  const converters = category.tools.filter((t) => t.isConverter);
 
   const breadcrumbItems: BreadcrumbItem[] = [
     { label: "Categories", href: "/categories" },
@@ -189,10 +161,6 @@ export function CategoryDetail({ category }: Props) {
               <Badge variant="info" size="sm">
                 <Calculator className="h-3 w-3 mr-1" />
                 {calculators.length} Calculators
-              </Badge>
-              <Badge variant="success" size="sm">
-                <Repeat className="h-3 w-3 mr-1" />
-                {converters.length} Converters
               </Badge>
             </div>
           </div>

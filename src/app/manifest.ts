@@ -2,9 +2,9 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Measurely - Free Online Calculators & Converters",
+    name: "Measurely - Free Online Calculators",
     short_name: "Measurely",
-    description: "500+ free online calculators and unit converters. BMI, EMI, percentage, length converter and more. No signup required.",
+    description: "Free online calculators for finance, health, math, engineering, and everyday life. No signup required.",
     start_url: "/",
     display: "standalone",
     background_color: "#fafafc",

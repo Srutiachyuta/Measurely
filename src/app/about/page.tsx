@@ -14,10 +14,10 @@ import { blogs } from "@/data/blogs";
 
 export const metadata: Metadata = {
   title: `About Us | ${SITE_CONFIG.name}`,
-  description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators and unit converters for everyone. Discover our story, values, team, and commitment to quality.`,
+    description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone. Discover our story, values, team, and commitment to quality.`,
   openGraph: {
     title: `About Us | ${SITE_CONFIG.name}`,
-    description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators and unit converters for everyone.`,
+    description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone.`,
     url: `${SITE_CONFIG.url}/about`,
     siteName: SITE_CONFIG.siteName,
     images: [{ url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`, width: 1200, height: 630, alt: `About ${SITE_CONFIG.name}` }],
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `About Us | ${SITE_CONFIG.name}`,
-    description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators and unit converters for everyone.`,
+    description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone.`,
     images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
   },
   alternates: { canonical: `${SITE_CONFIG.url}/about` },
   keywords: [
     "about measurely", "online calculators", "free tools", "measurement tools",
-    "achyutananda meher", "calculator platform", "unit converter website",
+    "achyutananda meher", "online calculator platform",
   ],
 };
 
@@ -39,7 +39,7 @@ const values = [
   {
     icon: Heart,
     title: "Free for Everyone",
-    description: "All our calculators and converters are completely free. No hidden charges, no subscription fees, no limits.",
+    description: "All our calculators are completely free. No hidden charges, no subscription fees, no limits.",
   },
   {
     icon: Target,
@@ -68,16 +68,14 @@ const values = [
   },
 ];
 
-const toolsCount = calculators.length + converters.length;
+const toolsCount = calculators.length;
 const blogPostsCount = blogs.length;
 const categorySet = new Set<string>();
 calculators.forEach(c => categorySet.add(c.category));
-converters.forEach(c => categorySet.add(c.category));
 const categoriesCount = categorySet.size;
 
 const stats = [
   { label: "Calculators", value: `${calculators.length}+` },
-  { label: "Converters", value: `${converters.length}+` },
   { label: "Blog Posts", value: `${blogPostsCount}+` },
   { label: "Categories", value: `${categoriesCount}` },
 ];
@@ -85,7 +83,7 @@ const stats = [
 const founder = {
   name: "Achyutananda Meher",
   role: "Founder & Developer",
-  bio: "Passionate about building accessible tools that simplify everyday calculations. With a vision to make accurate measurements available to everyone, founded Measurely to create a comprehensive collection of free calculators and converters.",
+  bio: "Passionate about building accessible tools that simplify everyday calculations. With a vision to make accurate measurements available to everyone, founded Measurely to create a comprehensive collection of free calculators.",
   avatar: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGkUmyFriaxMmxWv-RInt4b9BtLB97ZdTM56rH8WaW4IuH11nxRgCSkUyNBRGPWilRQpM3p0XpfqjcUy-2RfTOmd9GUDkB4qETwDEnvpf96XQaBwId9htY4UppcXsTaInUMSlOj3qYFP3KnnsmK5g-JJB6hlQBb3SiQJsqP4Oi7lAbvRBLYYM0UnZmjCQ/s1024/pic_3.png",
   initials: "AM",
 };
@@ -105,7 +103,7 @@ export default function AboutPage() {
       />
       <WebPageJsonLd
         title={`About Us | ${SITE_CONFIG.name}`}
-        description={`Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators and unit converters for everyone.`}
+        description={`Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone.`}
         url={`${SITE_CONFIG.url}/about`}
       />
       <div className="py-16 sm:py-24">
@@ -141,7 +139,7 @@ export default function AboutPage() {
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-text mb-4">Our Mission</h2>
             <p className="text-text-secondary leading-relaxed">
-              {SITE_CONFIG.name} is an all-in-one platform that provides calculators, converters, and smart tools
+              {SITE_CONFIG.name} is an all-in-one platform that provides calculators and smart tools
               designed to simplify everyday calculations. Our mission is to make accurate and easy-to-use tools
               accessible for everyone, everywhere.
             </p>
@@ -156,7 +154,7 @@ export default function AboutPage() {
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-text mb-4">Our Vision</h2>
             <p className="text-text-secondary leading-relaxed">
-              To build the most trusted online calculator and converter platform. We believe everyone deserves
+              To build the most trusted online calculator platform. We believe everyone deserves
               access to accurate, free calculation tools. Our vision is to simplify complex calculations and
               make measurement conversions accessible to all.
             </p>
@@ -171,13 +169,13 @@ export default function AboutPage() {
           <div className="mb-16 p-8 sm:p-10 rounded-3xl border border-primary-500/20 bg-gradient-to-br from-primary-500/5 to-accent-cyan/5 dark:from-primary-500/10 dark:to-accent-cyan/10">
             <h2 className="text-2xl font-bold text-text mb-4">Why We Built {SITE_CONFIG.name}</h2>
             <p className="text-text-secondary leading-relaxed mb-4">
-              The internet is full of calculators and converters, but most suffer from one or more problems:
+              The internet is full of online calculators, but most suffer from one or more problems:
               they are cluttered with intrusive ads, require registration, provide inaccurate results, or are
               limited to a narrow set of functions. We built {SITE_CONFIG.name} to solve these problems.
             </p>
             <p className="text-text-secondary leading-relaxed mb-4">
               Our goal is to create a comprehensive, trustworthy, and user-friendly platform where you can find
-              any calculator or converter you need, without distractions or barriers. Every tool on {SITE_CONFIG.name}
+              any calculator you need, without distractions or barriers. Every tool on {SITE_CONFIG.name}
               is designed with three principles in mind:
             </p>
             <ul className="space-y-3">
@@ -242,7 +240,7 @@ export default function AboutPage() {
                 {
                   icon: BookOpen,
                   title: "Comprehensive Collection",
-                  description: "With over 100 calculators and converters spanning finance, health, math, engineering, construction, and everyday life, we have one of the most extensive collections of free online tools available anywhere.",
+                  description: "With over 100 calculators spanning finance, health, math, engineering, construction, and everyday life, we have one of the most extensive collections of free online tools available anywhere.",
                 },
                 {
                   icon: Target,
@@ -298,7 +296,7 @@ export default function AboutPage() {
           <div className="mb-16">
             <h2 className="text-2xl font-bold text-text mb-4">Sources and References</h2>
             <p className="text-text-secondary leading-relaxed mb-4">
-              All calculators and converters on {SITE_CONFIG.name} use well-established mathematical formulas and
+              All calculators on {SITE_CONFIG.name} use well-established mathematical formulas and
               industry-standard conversion factors. Key sources include:
             </p>
             <ul className="space-y-2">
@@ -334,7 +332,7 @@ export default function AboutPage() {
           <div className="text-center p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-primary-500/5 to-accent-cyan/5 dark:from-primary-500/10 dark:to-accent-cyan/10 border border-primary-500/10">
             <h2 className="text-2xl sm:text-3xl font-bold text-text mb-3">Ready to Get Started?</h2>
             <p className="text-text-secondary mb-6 max-w-lg mx-auto">
-              Explore our collection of 100+ free calculators and converters.
+              Explore our collection of 100+ free calculators.
             </p>
             <Link
               href="/calculators"

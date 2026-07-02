@@ -13,7 +13,6 @@ import {
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { SITE_CONFIG } from "@/lib/constants";
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 import { RelatedTools } from "@/components/tool/related-tools";
 import { ToolFAQ } from "@/components/tool/tool-faq";
 import { ReadingProgress } from "@/components/ui/reading-progress";
@@ -26,7 +25,7 @@ interface Props {
 
 export function ComparisonLayout({ comparison }: Props) {
   const relatedToolDefs = comparison.relatedSlugs
-    .map((slug) => calculators.find((c) => c.slug === slug) ?? converters.find((c) => c.slug === slug))
+    .map((slug) => calculators.find((c) => c.slug === slug))
     .filter(Boolean);
 
   const breadcrumbItems: BreadcrumbItem[] = [

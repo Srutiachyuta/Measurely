@@ -261,7 +261,7 @@ export function WebApplicationJsonLd({
   name: string;
   description: string;
   url: string;
-  category: "Calculator" | "Converter";
+  category: "Calculator";
 }) {
   const schema = {
     "@context": "https://schema.org",

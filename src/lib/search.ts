@@ -1,5 +1,4 @@
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 import { blogs } from "@/data/blogs";
 import { CATEGORIES } from "@/lib/constants";
 
@@ -25,7 +24,7 @@ const synonymMap: Record<string, string[]> = {
   emi: ["equated monthly installment", "monthly payment", "installment"],
   salary: ["salaries", "take home", "net pay", "wages", "income", "paycheck", "compensation"],
   calculator: ["calculators", "calculate", "calculation", "calculating", "tool", "tools", "compute"],
-  converter: ["converters", "convert", "conversion", "converting", "transformer"],
+
   bmi: ["body mass index", "body fat", "weight"],
   tfsa: ["tax free savings account", "savings account", "contribution room"],
   rrsp: ["registered retirement savings plan", "retirement savings", "pension"],
@@ -161,46 +160,6 @@ export function buildSearchIndex(): SearchableItem[] {
         category: "FAQ",
         type: "faq",
         keywords: [faq.question, faq.answer, calc.name, calc.category],
-      });
-    }
-  }
-
-  for (const conv of converters) {
-    const id = `conv-${conv.slug}`;
-    if (seen.has(id)) continue;
-    seen.add(id);
-
-    const kws = [
-      conv.name,
-      conv.slug.replace(/-/g, " "),
-      conv.description,
-      "converter",
-      ...conv.units.slice(0, 5).map((u) => u.name),
-      ...conv.units.slice(0, 5).map((u) => u.symbol),
-    ];
-
-    index.push({
-      id,
-      title: conv.name,
-      description: conv.description,
-      href: `/${conv.slug}`,
-      category: "Unit Converters",
-      type: "tool",
-      keywords: kws,
-    });
-
-    for (const faq of conv.faqs || []) {
-      const faqId = `conv-faq-${conv.slug}-${faq.question.slice(0, 30)}`;
-      if (seen.has(faqId)) continue;
-      seen.add(faqId);
-      index.push({
-        id: faqId,
-        title: faq.question,
-        description: faq.answer,
-        href: `/${conv.slug}`,
-        category: "FAQ",
-        type: "faq",
-        keywords: [faq.question, faq.answer, conv.name, "converter"],
       });
     }
   }

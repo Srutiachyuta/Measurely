@@ -137,7 +137,7 @@ export function CategoryGrid({ showHeader = true }: { showHeader?: boolean }) {
                             {category.tools.length} tools
                           </span>
                           <span className="text-xs text-muted">
-                            Calculators & Converters
+                            Calculators
                           </span>
                         </div>
                       </div>

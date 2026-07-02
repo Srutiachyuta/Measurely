@@ -9,15 +9,15 @@ import { DISCLAIMER_BOTTOM as AD_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
   title: `Disclaimer | ${SITE_CONFIG.name}`,
-  description: `${SITE_CONFIG.name} Disclaimer — Important information about the use of our calculators, converters, and tools. Results are for informational and educational purposes only.`,
+  description: `${SITE_CONFIG.name} Disclaimer — Important information about the use of our calculators and tools. Results are for informational and educational purposes only.`,
   openGraph: {
     title: `Disclaimer | ${SITE_CONFIG.name}`,
-    description: `${SITE_CONFIG.name} Disclaimer — important information about the use of our calculators, converters, and tools.`,
+    description: `${SITE_CONFIG.name} Disclaimer — important information about the use of our calculators and tools.`,
     url: `${SITE_CONFIG.url}/disclaimer`,
   },
   twitter: {
     title: `Disclaimer | ${SITE_CONFIG.name}`,
-    description: `${SITE_CONFIG.name} Disclaimer — important information about the use of our calculators, converters, and tools.`,
+    description: `${SITE_CONFIG.name} Disclaimer — important information about the use of our calculators and tools.`,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/disclaimer` },
   keywords: [
@@ -41,7 +41,7 @@ export default function DisclaimerPage() {
       />
       <WebPageJsonLd
         title={`Disclaimer | ${SITE_CONFIG.name}`}
-        description={`${SITE_CONFIG.name} Disclaimer — important information about the use of our calculators, converters, and tools.`}
+        description={`${SITE_CONFIG.name} Disclaimer — important information about the use of our calculators and tools.`}
         url={`${SITE_CONFIG.url}/disclaimer`}
       />
       <div className="py-16 sm:py-24">
@@ -58,7 +58,7 @@ export default function DisclaimerPage() {
             <section>
               <h2 className="text-2xl font-bold text-text mb-4">General Information</h2>
               <p className="text-text-secondary leading-relaxed">
-                The calculators, converters, tools, and content provided on {SITE_CONFIG.name} are for general informational and educational purposes only.
+                The calculators, tools, and content provided on {SITE_CONFIG.name} are for general informational and educational purposes only.
                 While we strive to ensure the accuracy and reliability of all information presented, we make no representations or warranties of any kind, express or implied, regarding the completeness, accuracy, reliability, suitability, or availability of the results, content, or related graphics.
               </p>
               <p className="text-text-secondary leading-relaxed mt-3">
@@ -70,7 +70,7 @@ export default function DisclaimerPage() {
             <section>
               <h2 className="text-2xl font-bold text-text mb-4">Not Professional Advice</h2>
               <p className="text-text-secondary leading-relaxed">
-                The information provided by our calculators, converters, and tools should not be considered or used as a substitute for professional advice.
+                The information provided by our calculators and tools should not be considered or used as a substitute for professional advice.
                 You should always consult with a qualified professional for decisions that may impact your health, finances, legal rights, or safety.
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-1 mt-4">
@@ -78,7 +78,7 @@ export default function DisclaimerPage() {
                 <li><strong className="text-text">Health calculators</strong> (BMI, BMR, body fat, calorie, etc.) are for reference only and do not replace professional medical advice, diagnosis, or treatment.</li>
                 <li><strong className="text-text">Engineering calculators</strong> (Ohm&apos;s Law, voltage divider, etc.) are educational tools. Always verify with licensed professionals for real-world applications.</li>
                 <li><strong className="text-text">Construction calculators</strong> (concrete, paint, tile, roofing, etc.) provide material estimates. Actual requirements may vary due to site-specific conditions.</li>
-                <li><strong className="text-text">Unit converters</strong> use standard conversion factors but may exhibit minor rounding differences. Critical conversions should be independently verified.</li>
+
               </ul>
             </section>
 
@@ -91,7 +91,7 @@ export default function DisclaimerPage() {
               <ul className="list-disc pl-6 text-text-secondary space-y-1 mt-4">
                 <li>Results may contain rounding errors due to differences in precision handling.</li>
                 <li>Different calculation methods or conventions may yield slightly different results.</li>
-                <li>Currency converters use approximate exchange rates and may not reflect real-time market rates.</li>
+                <li>Currency exchange calculators use approximate exchange rates and may not reflect real-time market rates.</li>
                 <li>Tax calculators are based on applicable tax laws that may change. Always verify with current regulations.</li>
                 <li>We are not responsible for any losses, claims, or damages resulting from the use of our tools or reliance on our content.</li>
               </ul>

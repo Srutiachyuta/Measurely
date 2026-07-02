@@ -5,7 +5,6 @@ import { SectionHeader } from "./section-header";
 import { ToolCard } from "./tool-card";
 import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 import { getIconName } from "@/data/tool-registry";
 
 const RECENT_COUNT = 10;
@@ -60,22 +59,7 @@ const recentTools = (() => {
     description: c.description,
     isNew: true,
   })).reverse();
-  const convItems = converters.map((c) => ({
-    name: c.name,
-    slug: c.slug,
-    category: "Unit Conversion",
-    categorySlug: "unit-converters",
-    icon: getIconName(c.icon),
-    description: c.description,
-    isNew: true,
-  })).reverse();
-  const interleaved: any[] = [];
-  let ci = 0, vi = 0;
-  while (ci < calcItems.length || vi < convItems.length) {
-    if (ci < calcItems.length) interleaved.push(calcItems[ci++]);
-    if (vi < convItems.length) interleaved.push(convItems[vi++]);
-  }
-  const sliced = interleaved.slice(0, RECENT_COUNT - 2);
+  const sliced = calcItems.slice(0, RECENT_COUNT - 2);
   return [HOME_EQUITY_ENTRY, STUDENT_LOAN_ENTRY, ...sliced];
 })();
 

@@ -16,7 +16,7 @@ export function SearchBar({
   value,
   onChange,
   onSubmit,
-  placeholder = "Search calculators, converters...",
+  placeholder = "Search calculators...",
   className,
 }: SearchBarProps) {
   return (

@@ -12,10 +12,10 @@ const breadcrumbItems: BreadcrumbItem[] = [
 
 export const metadata: Metadata = {
   title: `All Categories | ${SITE_CONFIG.name}`,
-  description: `Browse all ${CATEGORIES.length} categories of calculators and unit converters. Find the right tool for finance, health, math, engineering and more.`,
+  description: `Browse all ${CATEGORIES.length} categories of calculators. Find the right tool for finance, health, math, engineering and more.`,
   openGraph: {
     title: `All Categories | ${SITE_CONFIG.name}`,
-    description: `Browse all ${CATEGORIES.length} categories of calculators and unit converters.`,
+    description: `Browse all ${CATEGORIES.length} categories of calculators.`,
     url: `${SITE_CONFIG.url}/categories`,
     siteName: SITE_CONFIG.siteName,
     images: [{ url: `${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`, width: 1200, height: 630, alt: `${SITE_CONFIG.name} Categories` }],
@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `All Categories | ${SITE_CONFIG.name}`,
-    description: `Browse all ${CATEGORIES.length} categories of calculators and unit converters.`,
+    description: `Browse all ${CATEGORIES.length} categories of calculators.`,
     images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
   },
   alternates: { canonical: `${SITE_CONFIG.url}/categories` },
-  keywords: ["calculator categories", "unit converter categories", "finance", "health", "math", "engineering", "construction"],
+  keywords: ["calculator categories", "finance", "health", "math", "engineering", "construction"],
 };
 
 export default function CategoriesPage() {
@@ -35,8 +35,8 @@ export default function CategoriesPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Categories" }]} />
-      <WebPageJsonLd title={`All Categories | ${SITE_CONFIG.name}`} description={`Browse all ${CATEGORIES.length} categories of calculators and unit converters.`} url={`${SITE_CONFIG.url}/categories`} />
-      <CollectionPageJsonLd title={`All Categories | ${SITE_CONFIG.name}`} description={`Browse all ${CATEGORIES.length} categories of calculators and unit converters.`} url={`${SITE_CONFIG.url}/categories`} />
+      <WebPageJsonLd title={`All Categories | ${SITE_CONFIG.name}`} description={`Browse all ${CATEGORIES.length} categories of calculators.`} url={`${SITE_CONFIG.url}/categories`} />
+      <CollectionPageJsonLd title={`All Categories | ${SITE_CONFIG.name}`} description={`Browse all ${CATEGORIES.length} categories of calculators.`} url={`${SITE_CONFIG.url}/categories`} />
       <ItemListJsonLd items={CATEGORIES.map((c) => ({ name: c.name, url: `${SITE_CONFIG.url}/${c.slug}` }))} url={`${SITE_CONFIG.url}/categories`} />
       <div className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,7 +49,7 @@ export default function CategoriesPage() {
             All <span className="text-gradient">Categories</span>
           </h1>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Explore all {CATEGORIES.length} categories and discover {totalTools} calculators and converters for every need.
+            Explore all {CATEGORIES.length} categories and discover {totalTools} calculators for every need.
           </p>
         </div>
         <CategoryGrid showHeader={false} />

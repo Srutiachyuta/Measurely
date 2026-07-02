@@ -5,7 +5,7 @@ export const SITE = {
   name: "Measurely",
   tagline: "Smart Tools for Smart Measurements",
   description:
-    "Measurely is a comprehensive collection of free online calculators, unit converters, and measurement tools for finance, health, math, engineering, and everyday life.",
+    "Measurely is a comprehensive collection of free online calculators and measurement tools for finance, health, math, engineering, and everyday life.",
   url: "https://measurely.in",
   locale: "en_US",
   siteName: "Measurely",
@@ -15,7 +15,6 @@ export const SITE = {
   author: "Measurely Team",
   keywords: [
     "calculators",
-    "unit converters",
     "math tools",
     "finance calculators",
     "health calculators",
@@ -37,7 +36,6 @@ export const SITE = {
 export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/", icon: "Home" },
   { label: "Calculators", href: "/calculators", icon: "Calculator" },
-  { label: "Converters", href: "/converters", icon: "Repeat" },
   { label: "Blog", href: "/blog", icon: "FileText" },
   { label: "About", href: "/about", icon: "Info" },
   { label: "Contact", href: "/contact", icon: "Mail" },
@@ -121,11 +119,11 @@ export const POPULAR_TOOLS = [
 export const FAQS: FAQItem[] = [
   {
     question: "What is Measurely?",
-    answer: "Measurely is a comprehensive collection of free online calculators, unit converters, and measurement tools covering finance, health, math, engineering, and everyday life. Our mission is to make calculations simple, accurate, and accessible to everyone.",
+    answer: "Measurely is a comprehensive collection of free online calculators and measurement tools covering finance, health, math, engineering, and everyday life. Our mission is to make calculations simple, accurate, and accessible to everyone.",
   },
   {
     question: "Are the calculators free to use?",
-    answer: "Yes, absolutely! All calculators and converters on Measurely are completely free to use. There are no hidden charges, subscription fees, or usage limits. We believe essential calculation tools should be accessible to everyone.",
+    answer: "Yes, absolutely! All calculators on Measurely are completely free to use. There are no hidden charges, subscription fees, or usage limits. We believe essential calculation tools should be accessible to everyone.",
   },
   {
     question: "How accurate are the calculations?",
@@ -137,7 +135,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: "How often are new calculators added?",
-    answer: "We add new calculators and converters regularly based on user requests and emerging needs. Check our 'Recently Added' section or follow us on social media to stay updated on the latest tools.",
+    answer: "We add new calculators regularly based on user requests and emerging needs. Check our 'Recently Added' section or follow us on social media to stay updated on the latest tools.",
   },
   {
     question: "Can I use Measurely on mobile devices?",

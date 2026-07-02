@@ -226,7 +226,7 @@ export function SearchCommand() {
       <DialogTitle className="sr-only">Search</DialogTitle>
       <CommandInput
         ref={inputRef}
-        placeholder="Search calculators, converters, articles..."
+        placeholder="Search calculators, articles..."
         className="text-base"
         onValueChange={setQuery}
       />

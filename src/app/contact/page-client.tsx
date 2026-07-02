@@ -25,7 +25,7 @@ const faqs = [
     a: "We typically respond within 24 hours during business days. For urgent matters, please use the email hello@measurely.in.",
   },
   {
-    q: "Can I suggest a new calculator or converter?",
+    q: "Can I suggest a new calculator?",
     a: "Absolutely! We welcome suggestions for new tools. Use the contact form or email us with your idea, and we'll consider it for our development roadmap.",
   },
   {
@@ -300,7 +300,7 @@ export function ContactPageClient() {
                 {
                   icon: MessageSquare,
                   title: "Suggest a Tool",
-                  description: "Need a calculator or converter we don't have yet? Send us your idea and we'll consider adding it to our roadmap.",
+                  description: "Need a calculator we don't have yet? Send us your idea and we'll consider adding it to our roadmap.",
                   email: "hello@measurely.in",
                 },
                 {

@@ -44,7 +44,6 @@ function WhatsAppIcon({ className }: { className?: string }) {
 const quickLinks = [
   { label: "Home", href: "/" },
   { label: "Calculators", href: "/calculators" },
-  { label: "Converters", href: "/converters" },
   { label: "Categories", href: "/categories" },
   { label: "Blog", href: "/blog" },
 ];

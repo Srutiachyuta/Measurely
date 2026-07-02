@@ -1,8 +1,6 @@
 import type { BlogPost } from "@/types";
 import type { CalculatorDefinition } from "@/types/calculators";
-import type { ConverterDefinition } from "@/types/converters";
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 
 const BLOG_CATEGORY_TO_TOOL_CATEGORY: Record<string, string> = {
   engineering: "engineering",
@@ -12,7 +10,7 @@ const BLOG_CATEGORY_TO_TOOL_CATEGORY: Record<string, string> = {
   finance: "finance",
   health: "health",
   math: "math",
-  "unit-conversion": "unit-converters",
+
   education: "",
   automotive: "automotive",
   business: "business",
@@ -119,36 +117,20 @@ export interface RelatedToolItem {
   description: string;
   category: string;
   icon: string;
-  isCalculator: boolean;
-  isConverter: boolean;
 }
 
 export function getRelatedTools(
   current: BlogPost,
   count: number = 6
 ): RelatedToolItem[] {
-  const allTools: (RelatedToolItem & { category: string; keywords?: string[] })[] = [
-    ...calculators.map((c) => ({
-      name: c.name,
-      slug: c.slug,
-      description: c.description,
-      category: c.category,
-      icon: c.icon.displayName || "Calculator",
-      keywords: [c.name, ...c.description.split(" ").slice(0, 10)],
-      isCalculator: true,
-      isConverter: false,
-    })),
-    ...converters.map((c) => ({
-      name: c.name,
-      slug: c.slug,
-      description: c.description,
-      category: "unit-converters",
-      icon: c.icon.displayName || "ArrowLeftRight",
-      keywords: [c.name, ...c.description.split(" ").slice(0, 10)],
-      isCalculator: false,
-      isConverter: true,
-    })),
-  ];
+  const allTools = calculators.map((c) => ({
+    name: c.name,
+    slug: c.slug,
+    description: c.description,
+    category: c.category,
+    icon: c.icon.displayName || "Calculator",
+    keywords: [c.name, ...c.description.split(" ").slice(0, 10)],
+  }));
 
   const scored = allTools.map((t) => ({
     tool: t,

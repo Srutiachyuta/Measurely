@@ -10,7 +10,7 @@ import { BlogPageClient } from "@/app/blog/blog-page-client";
 
 export const metadata: Metadata = {
   title: `Blog | ${SITE_CONFIG.name}`,
-  description: `Explore ${SITE_CONFIG.name}'s blog for articles about calculators, unit converters, measurement tips, financial planning, health metrics, and more.`,
+  description: `Explore ${SITE_CONFIG.name}'s blog for articles about calculators, measurement tips, financial planning, health metrics, and more.`,
   openGraph: {
     title: `Blog | ${SITE_CONFIG.name}`,
     description: `Explore ${SITE_CONFIG.name}'s blog for articles about calculators and measurement tools.`,

@@ -36,7 +36,7 @@ export interface BlogPost {
     bio?: string;
   };
   relatedSlugs: string[];
-  relatedTools?: { name: string; slug: string; type: "calculator" | "converter" }[];
+  relatedTools?: { name: string; slug: string; type: "calculator" }[];
   faqs?: { question: string; answer: string }[];
   tags: string[];
   metaTitle: string;

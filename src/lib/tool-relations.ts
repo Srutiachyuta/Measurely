@@ -1,14 +1,11 @@
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 import { blogs } from "@/data/blogs";
 import { getSlugCategory } from "@/data/tool-registry";
 import type { CalculatorDefinition } from "@/types/calculators";
-import type { ConverterDefinition } from "@/types/converters";
 import type { BlogPost } from "@/types";
 
 const CATEGORY_TO_BLOG: Record<string, string> = {
   "everyday-life": "daily-life",
-  "unit-converters": "unit-conversion",
   time: "",
 };
 
@@ -36,17 +33,6 @@ export function getRelatedToolsByCategory(
 ): CalculatorDefinition[] {
   const category = getSlugCategory(slug);
   const sameCat = calculators.filter(
-    (c) => c.slug !== slug && c.category === category
-  );
-  return deterministicShuffle(sameCat, slug).slice(0, maxCount);
-}
-
-export function getRelatedConvertersByCategory(
-  slug: string,
-  maxCount = 6
-): ConverterDefinition[] {
-  const category = getSlugCategory(slug);
-  const sameCat = converters.filter(
     (c) => c.slug !== slug && c.category === category
   );
   return deterministicShuffle(sameCat, slug).slice(0, maxCount);

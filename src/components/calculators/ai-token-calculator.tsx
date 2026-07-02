@@ -544,7 +544,7 @@ export function AITokenCalculator() {
           </div>
         )}
 
-        <ToolContentSections slug="ai-token-cost-calculator" type="calculator" />
+        <ToolContentSections slug="ai-token-cost-calculator" />
 
         {/* FAQ */}
         <div className="mt-8 bg-surface rounded-2xl border border-border p-5 sm:p-6">

@@ -35,7 +35,7 @@ export function PopularTools() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeader
             title="Popular Tools"
-            description="Most used calculators and converters"
+            description="Most used calculators"
             viewAllHref="/categories"
             viewAllLabel="See all tools"
           />
@@ -52,14 +52,14 @@ export function PopularTools() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           title="Popular Tools"
-          description="Most used calculators and converters"
+            description="Most used calculators"
           viewAllHref="/categories"
           viewAllLabel="See all tools"
         />
 
         <ErrorBoundary fallback={
           <div className="text-center py-12">
-            <p className="text-text-secondary">Browse our calculators and converters below.</p>
+            <p className="text-text-secondary">Browse our calculators below.</p>
           </div>
         }>
         <motion.div

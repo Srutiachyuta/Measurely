@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   House,
   Calculator,
-  ArrowLeftRight,
+
   Grid3X3,
   FileText,
   Info,
@@ -29,7 +29,7 @@ import { CategoriesDropdown } from "./categories-dropdown";
 const mobileIconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Home: House,
   Calculator,
-  Repeat: ArrowLeftRight,
+
   Grid3X3,
   FileText,
   Info,
@@ -163,7 +163,7 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
-          {/* Home, Calculators, Converters */}
+          {/* Home, Calculators */}
           {NAV_ITEMS.slice(0, 3).map((item) => {
             const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
             return (
@@ -348,7 +348,7 @@ export function Navbar() {
                     );
                   })}
 
-                  {/* Categories dropdown — directly below Converters */}
+                  {/* Categories dropdown */}
                   <motion.div
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}

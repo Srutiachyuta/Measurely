@@ -342,7 +342,7 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
         <AdSlot placement={CALCULATOR_BEFORE_FAQ} />
 
         <div data-tool-content>
-          <ToolContentSections slug={slug} type="calculator" />
+          <ToolContentSections slug={slug} />
         </div>
 
         {/* FAQ */}

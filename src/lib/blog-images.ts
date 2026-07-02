@@ -77,10 +77,7 @@ const slugImageMap: Record<string, { alt: string }> = {
   "percentage-calculator-everyday-uses": {
     alt: "Mathematical equations and formulas on a chalkboard",
   },
-  "complete-guide-to-unit-converters": {
-    alt: "Various measurement tools including ruler and caliper",
-  },
-  "measure-interpret-body-composition": {
+"measure-interpret-body-composition": {
     alt: "Person measuring body composition with fitness tracker",
   },
   "many-calories-need-each-day": {
@@ -118,12 +115,6 @@ const slugImageMap: Record<string, { alt: string }> = {
   },
   "calculate-hand-salary-tax-deductions": {
     alt: "Pay stub and salary breakdown document",
-  },
-  "essential-guide-exchange-rates": {
-    alt: "Various world currency notes and coins arrangement",
-  },
-  "convert-between-mpg-l100km-kml-more": {
-    alt: "Car dashboard showing fuel efficiency metrics",
   },
   "master-fractions-step-by-step-solutions": {
     alt: "Mathematical fractions illustrated with pizza slices",

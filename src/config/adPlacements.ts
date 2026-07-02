@@ -59,21 +59,6 @@ export const CALCULATOR_BEFORE_FAQ: AdPlacement = {
 // };
 
 // =============================================================================
-// CONVERTER PAGES  (/converters/[slug])
-// Max: 2 ads
-// =============================================================================
-export const CONVERTER_BELOW_CARD: AdPlacement = {
-  id: "converter-below-card",
-  type: "rectangle",
-  label: "300x250 Rectangle",
-};
-// export const CONVERTER_BEFORE_FAQ: AdPlacement = {
-//   id: "converter-before-faq",
-//   type: "banner",
-//   label: "728x90 Banner",
-// };
-
-// =============================================================================
 // BLOG LISTING  (/blog)
 // Max: 2 ads
 // =============================================================================
@@ -150,7 +135,6 @@ export const activePlacements: AdPlacement[] = [
   CATEGORY_TOP_BANNER,
   CALCULATOR_AFTER_RESULT,
   CALCULATOR_BEFORE_FAQ,
-  CONVERTER_BELOW_CARD,
   BLOG_AFTER_CONTENT,
   ABOUT_BOTTOM,
   CONTACT_BOTTOM,

@@ -9,15 +9,15 @@ import { TERMS_BOTTOM as AD_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
   title: `Terms of Service | ${SITE_CONFIG.name}`,
-  description: `${SITE_CONFIG.name} Terms of Service — Please read these terms carefully before using our calculators, converters, and website. Governs use, liability, and your legal rights.`,
+  description: `${SITE_CONFIG.name} Terms of Service — Please read these terms carefully before using our calculators and website. Governs use, liability, and your legal rights.`,
   openGraph: {
     title: `Terms of Service | ${SITE_CONFIG.name}`,
-    description: `${SITE_CONFIG.name} Terms of Service governing the use of our calculators, converters, and website services.`,
+    description: `${SITE_CONFIG.name} Terms of Service governing the use of our calculators and website services.`,
     url: `${SITE_CONFIG.url}/terms`,
   },
   twitter: {
     title: `Terms of Service | ${SITE_CONFIG.name}`,
-    description: `${SITE_CONFIG.name} Terms of Service governing the use of our calculators, converters, and website services.`,
+    description: `${SITE_CONFIG.name} Terms of Service governing the use of our calculators and website services.`,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/terms` },
   keywords: [
@@ -41,7 +41,7 @@ export default function TermsPage() {
       />
       <WebPageJsonLd
         title={`Terms of Service | ${SITE_CONFIG.name}`}
-        description={`${SITE_CONFIG.name} Terms of Service governing the use of our calculators, converters, and website services.`}
+        description={`${SITE_CONFIG.name} Terms of Service governing the use of our calculators and website services.`}
         url={`${SITE_CONFIG.url}/terms`}
       />
       <div className="py-16 sm:py-24">
@@ -63,7 +63,7 @@ export default function TermsPage() {
               </p>
               <p className="text-text-secondary leading-relaxed mt-3">
                 These Terms constitute a legally binding agreement between you (&ldquo;User&rdquo; or &ldquo;you&rdquo;) and {SITE_CONFIG.name} (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;).
-                By using our calculators, converters, tools, or any other content on this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms.
+                By using our calculators, tools, or any other content on this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms.
               </p>
             </section>
 
@@ -87,7 +87,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-text mb-4">Description of Service</h2>
               <p className="text-text-secondary leading-relaxed">
-                {SITE_CONFIG.name} provides free online calculators, unit converters, and measurement tools across various categories including finance, health, math, engineering, construction, and everyday life.
+                {SITE_CONFIG.name} provides free online calculators across various categories including finance, health, math, engineering, construction, and everyday life.
                 All tools are provided for informational and educational purposes only.
               </p>
               <p className="text-text-secondary leading-relaxed mt-3">

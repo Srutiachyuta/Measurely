@@ -34,7 +34,7 @@ import { NEWSLETTER_FORM } from "@/lib/constants";
 import type { BlogPost } from "@/types";
 
 const POPULAR_TAGS = [
-  "calculator", "finance", "health", "math", "converter",
+  "calculator", "finance", "health", "math",
   "engineering", "retirement", "investment", "tax", "mortgage",
   "fitness", "savings", "loans", "energy", "education",
 ];

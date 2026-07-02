@@ -9,7 +9,7 @@ import { PRIVACY_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
   title: `Privacy Policy | ${SITE_CONFIG.name}`,
-  description: `${SITE_CONFIG.name} Privacy Policy — Learn how we collect, use, disclose, and safeguard your personal information when you use our calculators, converters, and website.`,
+  description: `${SITE_CONFIG.name} Privacy Policy — Learn how we collect, use, disclose, and safeguard your personal information when you use our calculators and website.`,
   openGraph: {
     title: `Privacy Policy | ${SITE_CONFIG.name}`,
     description: `${SITE_CONFIG.name} Privacy Policy — how we collect, use, and protect your personal information.`,
@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-bold text-text mb-4">Introduction</h2>
               <p className="text-text-secondary leading-relaxed">
                 {SITE_CONFIG.name} (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting your privacy.
-                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our calculators, converters, and other tools.
+                This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our calculators and other tools.
               </p>
               <p className="text-text-secondary leading-relaxed mt-4">
                 By accessing or using {SITE_CONFIG.name}, you agree to the collection and use of information in accordance with this policy.
@@ -86,7 +86,7 @@ export default function PrivacyPolicyPage() {
               </ul>
               <p className="text-text-secondary leading-relaxed mt-3">
                 This information may include your name, email address, phone number, and any other details you choose to share with us.
-                We do not require you to create an account or provide personal information to use our calculators and converters.
+                We do not require you to create an account or provide personal information to use our calculators.
               </p>
 
               <h3 className="text-lg font-semibold text-text mb-2 mt-6">Information Collected Automatically</h3>
@@ -110,7 +110,7 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-bold text-text mb-4">How We Use Your Information</h2>
               <p className="text-text-secondary leading-relaxed">We use the information we collect for the following purposes:</p>
               <ul className="list-disc pl-6 text-text-secondary space-y-1 mt-2">
-                <li><strong className="text-text">Providing and improving our services:</strong> To operate our calculators, converters, and tools, and to enhance their functionality and user experience.</li>
+                <li><strong className="text-text">Providing and improving our services:</strong> To operate our calculators and tools, and to enhance their functionality and user experience.</li>
                 <li><strong className="text-text">Communication:</strong> To respond to your inquiries, support requests, and feedback. If you subscribe, we may send you newsletters or updates about new tools and features.</li>
                 <li><strong className="text-text">Analytics and performance:</strong> To analyze usage patterns, detect technical issues, and optimize the performance and reliability of our website.</li>
                 <li><strong className="text-text">Advertising:</strong> To serve relevant advertisements through Google AdSense and measure the effectiveness of ad campaigns. See our <Link href="/cookie-policy" className="text-primary-500 hover:text-primary-400 transition-colors">Cookie Policy</Link> for details.</li>
@@ -250,7 +250,7 @@ export default function PrivacyPolicyPage() {
                 If we become aware that we have collected personal information from a child without verification of parental consent, we will take steps to delete that information promptly.
               </p>
               <p className="text-text-secondary leading-relaxed mt-3">
-                Our calculators and converters are designed to be used by individuals of all ages without requiring any personal information.
+                Our calculators are designed to be used by individuals of all ages without requiring any personal information.
                 If a child uses our tools, no personal data is collected in the process.
               </p>
             </section>

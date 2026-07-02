@@ -1,6 +1,5 @@
 import type { LucideIcon } from "lucide-react";
 import { calculators } from "./calculators";
-import { converters } from "./converters";
 
 export interface CategoryToolEntry {
   name: string;
@@ -24,7 +23,6 @@ const CATEGORY_DISPLAY: Record<string, { name: string; icon: string; description
   finance: { name: "Finance Calculators", icon: "TrendingUp", description: "Financial planning, loans, investments, and tax calculators" },
   health: { name: "Health Calculators", icon: "Heart", description: "Health, fitness, and wellness calculators" },
   math: { name: "Math Calculators", icon: "Sigma", description: "Mathematical problem-solving tools" },
-  "unit-converters": { name: "Unit Converters", icon: "ArrowLeftRight", description: "Convert between different units of measurement" },
   time: { name: "Time Calculators", icon: "Clock", description: "Date and time calculation tools" },
   engineering: { name: "Engineering Calculators", icon: "Cpu", description: "Engineering and physics calculation tools" },
   construction: { name: "Construction Calculators", icon: "Hammer", description: "Construction and home improvement calculators" },
@@ -49,16 +47,7 @@ const allCalculatorEntries: CategoryToolEntry[] = calculators.map((c) => ({
   isConverter: false,
 }));
 
-const allConverterEntries: CategoryToolEntry[] = converters.map((c) => ({
-  name: c.name,
-  slug: c.slug,
-  icon: getIconName(c.icon),
-  description: c.description,
-  isCalculator: false,
-  isConverter: true,
-}));
-
-export const ALL_TOOLS: CategoryToolEntry[] = [...allCalculatorEntries, ...allConverterEntries];
+export const ALL_TOOLS: CategoryToolEntry[] = [...allCalculatorEntries];
 
 export const ALL_CATEGORIES: CategoryEntry[] = buildCategories();
 
@@ -75,19 +64,6 @@ function buildCategories(): CategoryEntry[] {
       description: c.description,
       isCalculator: true,
       isConverter: false,
-    });
-  }
-
-  for (const c of converters) {
-    const slug = "unit-converters";
-    if (!catMap.has(slug)) catMap.set(slug, []);
-    catMap.get(slug)!.push({
-      name: c.name,
-      slug: c.slug,
-      icon: getIconName(c.icon),
-      description: c.description,
-      isCalculator: false,
-      isConverter: true,
     });
   }
 
@@ -108,7 +84,7 @@ function buildCategories(): CategoryEntry[] {
   }
 
   return categories.sort((a, b) => {
-    const order = ["finance", "health", "math", "unit-converters", "time", "engineering", "construction", "everyday-life", "real-estate", "retirement", "automotive", "social-media", "business"];
+    const order = ["finance", "health", "math", "time", "engineering", "construction", "everyday-life", "real-estate", "retirement", "automotive", "social-media", "business"];
     return order.indexOf(a.slug) - order.indexOf(b.slug);
   });
 }
@@ -119,9 +95,6 @@ const slugCategoryCache = new Map<string, string>();
 for (const c of calculators) {
   slugCategoryCache.set(c.slug, c.category || "finance");
 }
-for (const c of converters) {
-  slugCategoryCache.set(c.slug, "unit-converters");
-}
 
 export function getSlugCategory(slug: string): string {
   return slugCategoryCache.get(slug) || "finance";
@@ -129,9 +102,6 @@ export function getSlugCategory(slug: string): string {
 
 const iconNameCache = new Map<string, string>();
 for (const c of calculators) {
-  iconNameCache.set(c.slug, getIconName(c.icon));
-}
-for (const c of converters) {
   iconNameCache.set(c.slug, getIconName(c.icon));
 }
 

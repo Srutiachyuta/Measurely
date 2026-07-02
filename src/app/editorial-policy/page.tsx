@@ -9,7 +9,7 @@ import { ABOUT_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
   title: `Editorial Policy | ${SITE_CONFIG.name}`,
-  description: `${SITE_CONFIG.name} editorial policy — how we create, review, and maintain accurate calculators, converters, and content.`,
+  description: `${SITE_CONFIG.name} editorial policy — how we create, review, and maintain accurate calculators and content.`,
   openGraph: {
     title: `Editorial Policy | ${SITE_CONFIG.name}`,
     description: `${SITE_CONFIG.name} editorial policy governing content accuracy and review processes.`,
@@ -47,7 +47,7 @@ export default function EditorialPolicyPage() {
               <h2 className="text-2xl font-bold text-text mb-4">Our Commitment to Accuracy</h2>
               <p className="text-text-secondary leading-relaxed">
                 At {SITE_CONFIG.name}, we are committed to providing accurate, reliable, and up-to-date 
-                calculators, converters, and educational content. This editorial policy outlines the 
+                calculators and educational content. This editorial policy outlines the 
                 standards and processes we follow to maintain the quality and trustworthiness of every 
                 tool and article on our platform.
               </p>
@@ -56,7 +56,7 @@ export default function EditorialPolicyPage() {
             <section>
               <h2 className="text-2xl font-bold text-text mb-4">Content Creation</h2>
               <p className="text-text-secondary leading-relaxed mb-4">
-                All calculators and converters are built using well-established mathematical formulas and 
+                All calculators are built using well-established mathematical formulas and 
                 industry-standard conversion factors. The key principles guiding content creation are:
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-2">
@@ -97,7 +97,7 @@ export default function EditorialPolicyPage() {
                 We believe in being transparent about how our tools work:
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-2">
-                <li>Every calculator and converter displays the formula or methodology it uses in the &ldquo;Formula Used&rdquo; or &ldquo;How the Conversion Works&rdquo; section.</li>
+                <li>Every calculator displays the formula or methodology it uses in the &ldquo;Formula Used&rdquo; or &ldquo;How It Works&rdquo; section.</li>
                 <li>Blog articles cite sources and reference the tools they discuss.</li>
                 <li>We clearly distinguish between informational content and professional advice through our disclaimers.</li>
                 <li>Any changes to our editorial policy will be reflected with an updated date at the top of this page.</li>

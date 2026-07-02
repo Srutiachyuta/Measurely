@@ -23,7 +23,7 @@ export function RelatedToolsSection({ current }: RelatedToolsSectionProps) {
             Related Tools
           </h2>
           <p className="text-sm text-text-secondary">
-            Try these helpful calculators and converters
+            Try these helpful calculators
           </p>
         </div>
       </div>

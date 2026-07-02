@@ -713,7 +713,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "What items are exempt from HST in Ontario?", answer: "Basic groceries, child care, prescription drugs, medical devices, educational services, and residential rent are generally exempt from HST in Ontario." },
       { question: "Is the HST rate the same across Canada?", answer: "No. Some provinces use HST (Ontario 13%, Quebec 14.975%), others use separate GST + PST, and Alberta has only 5% GST." },
     ],
-    relatedSlugs: ["tax-calculator", "salary-calculator", "percentage-calculator", "discount-calculator", "currency-converter"],
+    relatedSlugs: ["tax-calculator", "salary-calculator", "percentage-calculator", "discount-calculator"],
   },
   {
     icon: Receipt,
@@ -3582,7 +3582,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "What is the cost difference between Level 2 and DC fast charging?", answer: "Level 2 charging costs $0.10-$0.20/kWh at home. DC fast charging costs $0.30-$0.60/kWh. Fast charging is convenient but significantly more expensive." },
       { question: "How do I reduce EV charging costs?", answer: "Charge at home during off-peak hours, use solar panels, maintain proper tire pressure, drive efficiently, and minimize DC fast charging." },
     ],
-    relatedSlugs: ["fuel-cost-calculator", "loan-calculator", "currency-converter"],
+    relatedSlugs: ["fuel-cost-calculator", "loan-calculator", "percentage-calculator"],
   },
   {
     icon: BarChart3,
@@ -4512,7 +4512,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "Can businesses claim Input Tax Credits for HST?", answer: "Yes, registered businesses can claim ITCs to recover HST paid on business expenses. This means the business effectively pays HST only on the value they add." },
       { question: "Is the HST rate the same across all Canadian provinces?", answer: "No. Some provinces use HST (Ontario 13%, Quebec 14.975%, etc.), others use separate GST + PST, and Alberta has only 5% GST with no provincial sales tax." },
     ],
-    relatedSlugs: ["tax-calculator", "salary-calculator", "percentage-calculator", "discount-calculator", "currency-converter"],
+    relatedSlugs: ["tax-calculator", "salary-calculator", "percentage-calculator", "discount-calculator"],
   },
   {
     icon: DollarSign,

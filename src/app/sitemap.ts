@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE, CATEGORIES } from "@/lib/constants";
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 import { blogs } from "@/data/blogs";
 import { comparisons } from "@/data/comparisons";
 
@@ -15,7 +14,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/about`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
     { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${BASE_URL}/calculators`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
-    { url: `${BASE_URL}/converters`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${BASE_URL}/categories`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
     { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
@@ -47,13 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const converterPages = converters.map((conv) => ({
-    url: `${BASE_URL}/${conv.slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
   const comparisonPages = comparisons.map((comp) => ({
     url: `${BASE_URL}/${comp.slug}`,
     lastModified: now,
@@ -66,7 +57,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...blogPages,
     ...categoryPages,
     ...calculatorPages,
-    ...converterPages,
     ...comparisonPages,
   ];
 }
