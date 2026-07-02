@@ -71,13 +71,17 @@ const itemVariants = {
 
 export function RecentlyAdded() {
   return (
-    <section className="py-20 sm:py-28 bg-surface-secondary/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-20 sm:py-28 bg-gradient-to-br from-primary-500/[0.03] via-accent-cyan/[0.02] to-purple-500/[0.03] dark:from-primary-500/[0.05] dark:via-accent-cyan/[0.03] dark:to-purple-500/[0.05]">
+      <div className="absolute top-1/3 -left-32 w-72 h-72 bg-primary-500/10 dark:bg-primary-500/15 rounded-full blur-3xl animate-float pointer-events-none" style={{ animationDuration: "10s" }} />
+      <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-accent-cyan/10 dark:bg-accent-cyan/15 rounded-full blur-3xl animate-float pointer-events-none" style={{ animationDuration: "8s", animationDelay: "2s" }} />
+      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-purple-500/8 dark:bg-purple-500/12 rounded-full blur-3xl animate-float pointer-events-none" style={{ animationDuration: "12s", animationDelay: "1s" }} />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="Recently Added"
+          title={<span className="text-gradient-cyan">Recently Added</span>}
           description="New tools we have added to our collection"
           badge="New"
-          badgeVariant="success"
+          badgeVariant="gradient"
         />
 
         <ErrorBoundary fallback={

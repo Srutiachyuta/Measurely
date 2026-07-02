@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 
 interface SectionHeaderProps {
-  title: string;
+  title: string | React.ReactNode;
   description?: string;
   viewAllHref?: string;
   viewAllLabel?: string;
