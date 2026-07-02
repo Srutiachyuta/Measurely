@@ -5659,4 +5659,213 @@ export const calculators: CalculatorDefinition[] = [
     relatedSlugs: ["ev-charging-cost-calculator", "fuel-cost-calculator", "loan-calculator", "interest-calculator", "roi-calculator"],
     formula: "Year 1 Depreciation = Purchase Price × First-Year Rate × Condition × Mileage Adjustment. Subsequent years use a declining balance method where the rate reduces by 15% annually with a 5% floor.",
   },
+  {
+    icon: HandCoins,
+    name: "Severance Pay Calculator",
+    slug: "severance-pay-calculator",
+    category: "finance",
+    description: "Estimate your severance package after layoffs or termination including gross pay, taxes, PTO payout, and total exit compensation.",
+    metaTitle: "Severance Pay Calculator | Estimate Your Layoff Compensation (2026) | Measurely",
+    metaDescription: "Free severance pay calculator. Estimate your gross severance, net payment after taxes, PTO payout, and total exit compensation package. Plan your finances after a layoff with confidence.",
+    inputs: [
+      { label: "Annual Salary ($)", key: "annualSalary", type: "number", placeholder: "e.g., 75000", min: 1, step: 1000, defaultValue: 75000 },
+      { label: "Pay Frequency", key: "payFrequency", type: "select", options: [{ label: "Weekly (52 pay periods)", value: "weekly" }, { label: "Bi-Weekly (26 pay periods)", value: "biweekly" }, { label: "Semi-Monthly (24 pay periods)", value: "semimonthly" }, { label: "Monthly (12 pay periods)", value: "monthly" }], defaultValue: "biweekly" },
+      { label: "Years of Service", key: "yearsOfService", type: "number", placeholder: "e.g., 5", min: 0, step: 0.5, defaultValue: 5 },
+      { label: "Weeks of Pay Per Year of Service", key: "weeksPerYear", type: "number", placeholder: "e.g., 1", min: 0, step: 0.5, defaultValue: 1 },
+      { label: "Bonus Included?", key: "bonusIncluded", type: "radio", options: [{ label: "Yes", value: "yes" }, { label: "No", value: "no" }], defaultValue: "no" },
+      { label: "Bonus Amount ($)", key: "bonusAmount", type: "number", placeholder: "e.g., 5000", min: 0, step: 100, defaultValue: 0 },
+      { label: "Unused PTO Hours", key: "unusedPTO", type: "number", placeholder: "e.g., 80", min: 0, step: 1, defaultValue: 0 },
+      { label: "PTO Hourly Rate ($)", key: "ptoRate", type: "number", placeholder: "e.g., 36.06", min: 0, step: 0.01, defaultValue: 0 },
+      { label: "Estimated Tax Rate (%)", key: "taxRate", type: "number", placeholder: "e.g., 25", min: 0, max: 60, step: 0.5, defaultValue: 25 },
+      { label: "Other Exit Benefits ($)", key: "otherBenefits", type: "number", placeholder: "e.g., 2000", min: 0, step: 100, defaultValue: 0 },
+      { label: "State (Optional)", key: "state", type: "select", options: [{ label: "Select state...", value: "" }, { label: "California", value: "CA" }, { label: "Texas", value: "TX" }, { label: "New York", value: "NY" }, { label: "Florida", value: "FL" }, { label: "Illinois", value: "IL" }, { label: "Pennsylvania", value: "PA" }, { label: "Ohio", value: "OH" }, { label: "Georgia", value: "GA" }, { label: "North Carolina", value: "NC" }, { label: "Michigan", value: "MI" }], defaultValue: "" },
+    ],
+    compute: (inputs) => {
+      const salary = Number(inputs.annualSalary) || 0;
+      const years = Number(inputs.yearsOfService) || 0;
+      const weeksPerYear = Number(inputs.weeksPerYear) || 0;
+      const taxRate = Number(inputs.taxRate) || 0;
+      const bonusAmount = Number(inputs.bonusAmount) || 0;
+      const ptoHours = Number(inputs.unusedPTO) || 0;
+      const ptoRate = Number(inputs.ptoRate) || 0;
+      const otherBenefits = Number(inputs.otherBenefits) || 0;
+
+      const weeklySalary = salary / 52;
+      const grossSeverance = weeklySalary * weeksPerYear * years;
+      const bonusValue = inputs.bonusIncluded === "yes" ? bonusAmount : 0;
+      const ptoValue = ptoHours * ptoRate;
+      const totalBeforeTax = grossSeverance + bonusValue + ptoValue + otherBenefits;
+      const taxEstimate = totalBeforeTax * (taxRate / 100);
+      const netPay = totalBeforeTax - taxEstimate;
+      const totalExitPackage = netPay + ptoValue + bonusValue + otherBenefits;
+
+      const payPeriodMap: Record<string, string> = { weekly: "week", biweekly: "two weeks", semimonthly: "half-month", monthly: "month" };
+      const periodDesc = payPeriodMap[String(inputs.payFrequency)] || "pay period";
+
+      return [
+        { label: "Gross Severance", key: "grossSeverance", value: Math.round(grossSeverance * 100) / 100, unit: "$", color: "blue" },
+        { label: "Weekly Severance Amount", key: "weeklyAmount", value: Math.round(weeklySalary * weeksPerYear * years / Math.max(1, years)) / 100, unit: "$", color: "default" },
+        { label: "Estimated Tax", key: "taxEstimate", value: Math.round(taxEstimate * 100) / 100, unit: "$", color: "red" },
+        { label: "Net Severance Pay", key: "netPay", value: Math.round(netPay * 100) / 100, unit: "$", color: "green" },
+        { label: "PTO/Vacation Payout", key: "ptoValue", value: Math.round(ptoValue * 100) / 100, unit: "$", color: "amber" },
+        { label: "Bonus Value", key: "bonusValue", value: Math.round(bonusValue * 100) / 100, unit: "$", color: "default" },
+        { label: "Other Benefits", key: "otherBenefitsValue", value: Math.round(otherBenefits * 100) / 100, unit: "$", color: "default" },
+        { label: "Total Exit Compensation", key: "totalExitPackage", value: Math.round(totalExitPackage * 100) / 100, unit: "$", color: "green" },
+      ];
+    },
+    chart: (results) => ({
+      type: "doughnut",
+      data: {
+        labels: ["Gross Severance", "PTO Payout", "Bonus", "Other Benefits"],
+        datasets: [{
+          data: [
+            results.find(r => r.key === "grossSeverance")?.value || 0,
+            results.find(r => r.key === "ptoValue")?.value || 0,
+            results.find(r => r.key === "bonusValue")?.value || 0,
+            results.find(r => r.key === "otherBenefitsValue")?.value || 0,
+          ],
+          backgroundColor: ["rgba(99, 102, 241, 0.8)", "rgba(245, 158, 11, 0.8)", "rgba(34, 197, 94, 0.8)", "rgba(148, 163, 184, 0.8)"],
+          borderColor: ["rgba(99, 102, 241, 1)", "rgba(245, 158, 11, 1)", "rgba(34, 197, 94, 1)", "rgba(148, 163, 184, 1)"],
+          borderWidth: 2,
+        }],
+      },
+      options: { responsive: true, plugins: { legend: { position: "bottom" } } },
+    }),
+    example: {
+      inputs: { annualSalary: 75000, payFrequency: "biweekly", yearsOfService: 5, weeksPerYear: 1, bonusIncluded: "yes", bonusAmount: 5000, unusedPTO: 80, ptoRate: 36.06, taxRate: 25, otherBenefits: 2000, state: "" },
+      results: [],
+    },
+    faqs: [
+      { question: "What is severance pay?", answer: "Severance pay is compensation an employer provides to an employee upon termination of employment. It typically includes a lump sum payment based on years of service, salary, and may also include continued benefits, PTO payout, and other compensation." },
+      { question: "How many weeks of severance should I expect?", answer: "A common formula is one week of pay per year of service. However, some employers offer two weeks per year, or more for executives. The actual amount depends on company policy, employment contracts, and negotiation." },
+      { question: "Is severance legally required?", answer: "In the United States, severance pay is not legally required under federal law. However, some states have specific requirements, and severance may be mandated by employment contracts, company policies, or collective bargaining agreements." },
+      { question: "Is severance taxable?", answer: "Yes, severance pay is considered taxable income by the IRS. Employers typically withhold federal income tax, Social Security, and Medicare taxes. State income tax may also apply depending on your state of residence." },
+      { question: "Does unused PTO increase severance?", answer: "Yes, unused PTO is typically paid out separately from severance. Many states require employers to pay out accrued unused vacation time upon termination. This payout is in addition to any severance compensation." },
+      { question: "Can I negotiate my severance package?", answer: "Yes, severance packages are often negotiable. You can negotiate for more weeks of pay, extended health benefits, accelerated stock vesting, outplacement services, and a favorable reference. Having an attorney review the agreement can be beneficial." },
+      { question: "Will severance affect unemployment benefits?", answer: "Severance pay may affect unemployment benefits depending on state laws. Some states reduce unemployment benefits by the amount of severance received, while others allow you to receive both without reduction." },
+      { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on common severance formulas. Actual severance packages vary by employer policy, employment contracts, state laws, and individual circumstances. Use this as a planning tool and consult with an attorney for your specific situation." },
+    ],
+    relatedSlugs: ["annual-salary-calculator", "paycheck-calculator", "hourly-to-salary-calculator", "tax-calculator", "cash-flow-forecast-calculator"],
+    formula: "Gross Severance = (Annual Salary ÷ 52) × Weeks Per Year × Years of Service. Net Severance = Gross Severance + Bonus + PTO + Other Benefits − Taxes.",
+  },
+  {
+    icon: Landmark,
+    name: "Inheritance Tax Calculator",
+    slug: "inheritance-tax-calculator",
+    category: "finance",
+    description: "Estimate inheritance and estate taxes based on your jurisdiction, estate value, deductions, exemptions, and number of beneficiaries.",
+    metaTitle: "Inheritance Tax Calculator | Free Estate & Inheritance Tax Estimator (2026) | Measurely",
+    metaDescription: "Free inheritance tax calculator. Estimate estate taxes, inheritance tax liability, net inheritance, and beneficiary shares. Supports US, UK, Canada, Australia, and NZ tax rules.",
+    inputs: [
+      { label: "Country", key: "country", type: "select", options: [{ label: "United States", value: "US" }, { label: "United Kingdom", value: "UK" }, { label: "Canada", value: "CA" }, { label: "Australia", value: "AU" }, { label: "New Zealand", value: "NZ" }], defaultValue: "US" },
+      { label: "State/Province", key: "state", type: "select", options: [{ label: "Select state...", value: "" }, { label: "California", value: "CA" }, { label: "Texas", value: "TX" }, { label: "New York", value: "NY" }, { label: "Florida", value: "FL" }, { label: "Illinois", value: "IL" }, { label: "Pennsylvania", value: "PA" }, { label: "Ohio", value: "OH" }, { label: "Georgia", value: "GA" }, { label: "North Carolina", value: "NC" }, { label: "Michigan", value: "MI" }, { label: "Maryland", value: "MD" }, { label: "New Jersey", value: "NJ" }, { label: "Oregon", value: "OR" }, { label: "Ontario", value: "ON" }, { label: "British Columbia", value: "BC" }, { label: "Alberta", value: "AB" }], defaultValue: "" },
+      { label: "Total Estate Value ($)", key: "estateValue", type: "number", placeholder: "e.g., 2000000", min: 0, step: 10000, defaultValue: 2000000 },
+      { label: "Outstanding Debts ($)", key: "debts", type: "number", placeholder: "e.g., 50000", min: 0, step: 1000, defaultValue: 50000 },
+      { label: "Funeral Expenses ($)", key: "funeralExpenses", type: "number", placeholder: "e.g., 15000", min: 0, step: 1000, defaultValue: 15000 },
+      { label: "Charitable Donations ($)", key: "charitableDonations", type: "number", placeholder: "e.g., 100000", min: 0, step: 1000, defaultValue: 0 },
+      { label: "Spouse Exemption?", key: "spouseExemption", type: "radio", options: [{ label: "Yes", value: "yes" }, { label: "No", value: "no" }], defaultValue: "yes" },
+      { label: "Number of Beneficiaries", key: "numBeneficiaries", type: "number", placeholder: "e.g., 2", min: 1, max: 100, step: 1, defaultValue: 2 },
+      { label: "Lifetime Gifts Already Made ($)", key: "lifetimeGifts", type: "number", placeholder: "e.g., 50000", min: 0, step: 1000, defaultValue: 0 },
+      { label: "Other Allowable Deductions ($)", key: "otherDeductions", type: "number", placeholder: "e.g., 10000", min: 0, step: 1000, defaultValue: 0 },
+    ],
+    compute: (inputs) => {
+      const country = String(inputs.country) || "US";
+      const estateValue = Number(inputs.estateValue) || 0;
+      const debts = Number(inputs.debts) || 0;
+      const funeralExpenses = Number(inputs.funeralExpenses) || 0;
+      const charitableDonations = Number(inputs.charitableDonations) || 0;
+      const spouseExemption = String(inputs.spouseExemption) === "yes";
+      const numBeneficiaries = Math.max(1, Number(inputs.numBeneficiaries) || 1);
+      const lifetimeGifts = Number(inputs.lifetimeGifts) || 0;
+      const otherDeductions = Number(inputs.otherDeductions) || 0;
+
+      const totalDeductions = debts + funeralExpenses + charitableDonations + otherDeductions;
+      const grossEstate = estateValue;
+      const netEstate = Math.max(0, grossEstate - totalDeductions);
+
+      let taxExemption = 0;
+      let taxRate = 0;
+      let taxableEstate = 0;
+      let estimatedTax = 0;
+      let spouseDeduction = 0;
+
+      if (country === "US") {
+        taxExemption = spouseExemption ? 13610000 : 13610000;
+        spouseDeduction = spouseExemption ? netEstate : 0;
+        const taxableBeforeExemption = Math.max(0, netEstate - taxExemption);
+        taxableEstate = taxableBeforeExemption;
+        taxRate = 0.40;
+        estimatedTax = taxableEstate * taxRate;
+      } else if (country === "UK") {
+        const nilRateBand = 325000;
+        const residenceBand = spouseExemption ? 175000 : 0;
+        taxExemption = nilRateBand + residenceBand;
+        spouseDeduction = spouseExemption ? netEstate : 0;
+        taxableEstate = Math.max(0, netEstate - taxExemption);
+        taxRate = 0.40;
+        estimatedTax = taxableEstate * taxRate;
+      } else if (country === "CA") {
+        taxExemption = spouseExemption ? netEstate : 0;
+        spouseDeduction = spouseExemption ? netEstate : 0;
+        taxableEstate = spouseExemption ? 0 : netEstate * 0.5;
+        taxRate = 0.25;
+        estimatedTax = taxableEstate * taxRate;
+      } else {
+        taxExemption = spouseExemption ? netEstate : netEstate;
+        spouseDeduction = spouseExemption ? netEstate : 0;
+        taxableEstate = 0;
+        taxRate = 0;
+        estimatedTax = 0;
+      }
+
+      const totalTaxLiability = Math.max(0, estimatedTax);
+      const netInheritance = Math.max(0, netEstate - totalTaxLiability);
+      const perBeneficiary = numBeneficiaries > 0 ? netInheritance / numBeneficiaries : netInheritance;
+      const effectiveTaxRate = netEstate > 0 ? (totalTaxLiability / netEstate) * 100 : 0;
+
+      return [
+        { label: "Gross Estate", key: "grossEstate", value: Math.round(grossEstate * 100) / 100, unit: "$", color: "blue" },
+        { label: "Total Deductions", key: "totalDeductions", value: Math.round(totalDeductions * 100) / 100, unit: "$", color: "default" },
+        { label: "Taxable Estate", key: "taxableEstate", value: Math.round(taxableEstate * 100) / 100, unit: "$", color: "amber" },
+        { label: "Estimated Tax", key: "estimatedTax", value: Math.round(totalTaxLiability * 100) / 100, unit: "$", color: "red" },
+        { label: "Net Inheritance", key: "netInheritance", value: Math.round(netInheritance * 100) / 100, unit: "$", color: "green" },
+        { label: "Amount Per Beneficiary", key: "perBeneficiary", value: Math.round(perBeneficiary * 100) / 100, unit: "$", color: "green" },
+        { label: "Effective Tax Rate", key: "effectiveTaxRate", value: Math.round(effectiveTaxRate * 100) / 100, unit: "%", color: "default" },
+        { label: "Spouse Deduction", key: "spouseDeduction", value: Math.round(spouseDeduction * 100) / 100, unit: "$", color: "blue" },
+      ];
+    },
+    chart: (results) => ({
+      type: "doughnut",
+      data: {
+        labels: ["Net Inheritance", "Taxes", "Deductions"],
+        datasets: [{
+          data: [
+            results.find(r => r.key === "netInheritance")?.value || 0,
+            results.find(r => r.key === "estimatedTax")?.value || 0,
+            results.find(r => r.key === "totalDeductions")?.value || 0,
+          ],
+          backgroundColor: ["rgba(34, 197, 94, 0.8)", "rgba(239, 68, 68, 0.8)", "rgba(148, 163, 184, 0.8)"],
+          borderColor: ["rgba(34, 197, 94, 1)", "rgba(239, 68, 68, 1)", "rgba(148, 163, 184, 1)"],
+          borderWidth: 2,
+        }],
+      },
+      options: { responsive: true, plugins: { legend: { position: "bottom" } } },
+    }),
+    example: {
+      inputs: { country: "US", state: "", estateValue: 2000000, debts: 50000, funeralExpenses: 15000, charitableDonations: 100000, spouseExemption: "yes", numBeneficiaries: 2, lifetimeGifts: 50000, otherDeductions: 10000 },
+      results: [],
+    },
+    faqs: [
+      { question: "What is inheritance tax?", answer: "Inheritance tax is a tax paid by a person who inherits money or property from someone who has died. Unlike estate tax (which is paid by the estate), inheritance tax is paid by the beneficiary. Not all countries or states charge inheritance tax." },
+      { question: "Is inheritance tax the same as estate tax?", answer: "No, they differ. Estate tax is levied on the total value of the deceased person's estate before distribution to beneficiaries. Inheritance tax is paid by the beneficiary on what they receive. The US has a federal estate tax but no federal inheritance tax." },
+      { question: "Who is exempt from inheritance tax?", answer: "Spouses are typically exempt from inheritance tax in most jurisdictions. Other exemptions may include charities, minor children, and transfers below certain thresholds. Exemptions vary significantly by country and state." },
+      { question: "How is inheritance tax calculated?", answer: "Inheritance tax is calculated by determining the estate value, subtracting allowable deductions and exemptions, applying the applicable tax rate, and dividing remaining tax among beneficiaries based on their inheritance shares." },
+      { question: "Are inherited assets taxable?", answer: "Inherited assets are generally not subject to income tax. However, any income generated by inherited assets (such as interest, dividends, or rental income) is taxable. Capital gains tax may apply when you sell inherited assets." },
+      { question: "Can gifts reduce inheritance tax?", answer: "Yes, making lifetime gifts can reduce inheritance tax liability in many jurisdictions. Gifts made more than 7 years before death often fall outside the estate for tax purposes. Annual gift allowances also apply in many countries." },
+      { question: "Do all countries charge inheritance tax?", answer: "No. Many countries have abolished inheritance and estate taxes, including Australia, Canada, New Zealand, Sweden, and Russia. Others like the US and UK have significant exemptions before tax applies." },
+      { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on common tax rules for each jurisdiction. Actual tax liability depends on specific circumstances, state laws, and professional assessment. Use this as a planning tool and consult a tax professional." },
+    ],
+    relatedSlugs: ["net-worth-calculator", "retirement-calculator", "investment-return-calculator", "compound-interest-calculator", "tax-calculator"],
+    formula: "Taxable Estate = Gross Estate - Debts - Expenses - Exemptions. Tax = Taxable Estate × Applicable Tax Rate. Net Inheritance = Gross Estate - Deductions - Tax.",
+  },
 ];

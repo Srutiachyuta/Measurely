@@ -14125,6 +14125,566 @@ Most home equity loans allow early repayment without prepayment penalties, thoug
     metaDescription: "Learn how much home equity you can borrow in 2026. Free home equity loan calculator, LTV analysis, monthly payment estimates, and complete borrowing guide.",
     keywords: ["how much home equity can i borrow", "home equity loan calculator", "home equity calculator", "home equity borrowing", "home equity loan payment calculator", "how much equity can i borrow", "home equity estimator", "home equity payment calculator", "equity borrowing calculator", "home equity loan 2026"],
   },
+  {
+    slug: "how-is-severance-pay-calculated-after-a-layoff",
+    title: "How Is Severance Pay Calculated After a Layoff? (2026 Guide)",
+    excerpt: "Learn exactly how severance pay is calculated after a layoff in 2026. Understand severance formulas, tax implications, negotiation strategies, and use our free calculator to estimate your package.",
+    content: `## Introduction
+
+Losing your job through no fault of your own is one of the most stressful events in professional life. Between the emotional shock and financial uncertainty, understanding what you are entitled to can feel overwhelming. One of the first questions most employees ask after a layoff is: how is severance pay calculated?
+
+In 2026, the employment landscape continues to evolve. With shifting workplace norms, changing state regulations, and ongoing economic uncertainty, knowing how severance packages work has never been more important.
+
+This comprehensive guide explains everything you need to know about severance pay calculations. We will cover the standard formulas employers use, what factors influence your package, how taxes affect your payout, and practical strategies for maximizing your severance.
+
+Use our free <a href="/severance-pay-calculator">Severance Pay Calculator</a> to get an instant estimate of your severance package based on your salary, years of service, and other compensation.
+
+## What Is Severance Pay?
+
+Severance pay is financial compensation that employers provide to employees whose employment is terminated involuntarily. Unlike regular wages earned for work performed, severance is a separation benefit designed to help employees transition between jobs.
+
+Severance packages typically include one or more of the following components:
+- A lump sum cash payment based on salary and tenure
+- Continued health insurance coverage (COBRA subsidies)
+- Extended access to company benefits
+- Outplacement services and career counseling
+- Equity acceleration (stock vesting)
+- PTO/vacation time payout
+
+**Key point:** Severance pay is not the same as your final paycheck. Your final paycheck covers wages earned up to your last day of work. Severance is additional compensation provided as part of your separation agreement.
+
+The purpose of severance is twofold. First, it provides financial runway while you search for a new position. Second, it serves as consideration in exchange for signing a release of claims against the employer (a waiver of your right to sue).
+
+Severance packages are governed by the specific terms of your employment agreement, company policy, and in some cases, state law. While not required by federal law, severance is standard practice for most professional and corporate positions.
+
+## Who Qualifies for Severance?
+
+Not every terminated employee receives severance. Eligibility depends on several factors:
+
+**Employment classification:** Full-time regular employees are most likely to receive severance. Part-time, temporary, and contract workers are often excluded from severance policies.
+
+**Tenure:** Most companies require a minimum period of service before severance eligibility kicks in. This is typically 6 months to 1 year of continuous employment.
+
+**Reason for termination:** Severance is generally reserved for layoffs, reductions in force (RIF), and no-fault terminations. Employees fired for cause, misconduct, or poor performance rarely receive severance.
+
+**Employment agreements:** If your offer letter, employment contract, or employee handbook specifies severance terms, those contractual provisions govern your eligibility.
+
+**Company policy:** Large employers often have written severance policies that apply uniformly to all eligible employees. Smaller companies may handle severance on a case-by-case basis.
+
+**State laws:** Some states, such as New York and California, have specific rules about severance pay and WARN Act notifications for mass layoffs.
+
+**Key point:** Even if your employer does not have a formal severance policy, you can still request severance during the termination process. Many companies offer severance in exchange for signing a separation agreement, even when not strictly required.
+
+## How Employers Calculate Severance Packages
+
+The most common method for calculating severance pay uses a straightforward formula:
+
+**Formula: Severance = (Annual Salary ÷ 52) × Weeks of Pay Per Year of Service × Years of Service**
+
+Let us break this down:
+
+**Step 1: Calculate your weekly salary.**
+Divide your annual salary by 52 weeks.
+
+\$75,000 ÷ 52 = \$1,442.31 per week
+
+**Step 2: Multiply by your severance multiplier.**
+The multiplier is typically expressed as weeks of pay per year of service. The most common multiplier is 1 week per year of service.
+
+\$1,442.31 × 1 week × 5 years = \$7,211.54
+
+This means an employee earning \$75,000 annually with 5 years of service and a 1-week-per-year policy would receive approximately \$7,212 in gross severance.
+
+**Common severance formulas by company type:**
+- Standard formula: 1 week per year of service
+- Generous formula: 2 weeks per year of service
+- Executive formula: 1 month per year of service
+- Tech industry: Often 8-12 weeks base + 1-2 weeks per year
+
+Some employers use a tiered approach rather than a flat multiplier. For example:
+- 0-3 years: 2 weeks of pay
+- 4-6 years: 4 weeks of pay
+- 7-10 years: 8 weeks of pay
+- 10+ years: 12 weeks of pay + 1 additional week per year beyond 10
+
+**Important:** These are baseline formulas. Actual severance packages may include additional components beyond the cash calculation, which we cover in the next section.
+
+## What Is Included Besides Salary?
+
+Severance packages rarely consist of a simple cash payment. Understanding the full range of components helps you evaluate your total exit package.
+
+### PTO/Vacation Payout
+
+Unused paid time off (PTO) is typically paid out separately from severance. Several states, including California, Illinois, and Massachusetts, legally require employers to pay out accrued vacation time upon separation.
+
+The calculation is straightforward:
+
+**PTO Payout = Unused PTO Hours × Hourly Rate**
+
+For an employee with 80 unused PTO hours at \$36.06 per hour:
+80 × \$36.06 = \$2,884.80
+
+This payout is in addition to your severance and is subject to regular income tax withholding.
+
+### Bonuses
+
+Your severance agreement may include payment of earned but unpaid bonuses, prorated bonuses for the current performance period, or retention bonuses tied to the layoff.
+
+Some employers include a target bonus amount in the severance calculation itself, especially for executive-level positions.
+
+### Stock Options and Equity
+
+If you hold vested stock options, restricted stock units (RSUs), or other equity compensation, your severance agreement may specify:
+- Extended exercise periods for vested options
+- Accelerated vesting of unvested shares
+- Cash buyouts of underwater options
+
+Many tech companies offer accelerated equity vesting (e.g., 6-12 months of additional vesting) as part of their severance packages.
+
+### Benefits Continuation
+
+Health insurance continuation is one of the most valuable components of a severance package. Under COBRA, you can maintain your employer-sponsored health coverage for up to 18 months, but you typically pay the full premium.
+
+Severance agreements often include:
+- Employer-paid COBRA premiums for a defined period (e.g., 3-6 months)
+- Continuation of life insurance and disability coverage
+- Access to employee assistance programs (EAP)
+- Outplacement services including resume writing, career coaching, and job search support
+
+The value of benefits continuation can easily equal 20-40% of your cash severance amount.
+
+## How Severance Is Taxed
+
+Severance pay is considered taxable income by the Internal Revenue Service (IRS). Understanding the tax treatment helps you accurately estimate your net severance payment.
+
+**Federal income tax:** Employers must withhold federal income tax from severance payments at the supplemental wage rate. The IRS allows employers to use either the percentage method (flat 22% withholding for amounts under \$1 million) or the aggregate method (combined with regular wages).
+
+**Social Security and Medicare (FICA):** Severance is subject to Social Security tax at 6.2% (up to the annual wage base of \$176,100 in 2026) and Medicare tax at 1.45%. High earners may also be subject to the Additional Medicare Tax of 0.9% on earnings above \$200,000.
+
+**State income tax:** State tax treatment varies. Most states tax severance as regular income, but a few have specific rules. States like Texas, Florida, Nevada, and Washington have no state income tax, which means no state withholding on severance.
+
+**Estimated total withholding:**
+- Federal income tax: 22% (flat rate)
+- Social Security: 6.2%
+- Medicare: 1.45%
+- State income tax: 0-13.3% depending on state
+
+For an estimated tax rate of 25-35%, an \$8,000 gross severance would yield approximately \$5,200 to \$6,000 in net payment.
+
+**Important considerations:**
+- Severance may push you into a higher tax bracket for the year
+- You can adjust your W-4 withholding to account for the additional income
+- Severance may affect your eligibility for certain tax credits
+- Consult a tax professional for your specific situation
+
+Use our <a href="/severance-pay-calculator">Severance Pay Calculator</a> to see how taxes impact your net severance payment.
+
+## Can You Negotiate a Better Severance Package?
+
+Many employees do not realize that severance packages are almost always negotiable. Employers expect some degree of negotiation, and failing to ask can leave significant value on the table.
+
+**When to negotiate:**
+- When you have received the initial written severance offer
+- Before signing any release or waiver of claims
+- When you have leverage (e.g., specialized skills, knowledge of company operations, or protected characteristics)
+
+**What you can negotiate:**
+- More weeks of severance pay (ask for 1-4 additional weeks)
+- Extended health insurance coverage paid by employer
+- Accelerated stock vesting (RSUs, options)
+- Outplacement services (typically valued at \$2,000-$5,000)
+- Positive reference letter and agreed-upon separation language
+- Laptop or equipment retention
+- Career counseling and job search support
+
+**Effective negotiation strategies:**
+- Remain professional and non-confrontational
+- Present your case based on your contributions and tenure
+- Focus on a few key items rather than demanding everything
+- Get the offer in writing before signing anything
+- Ask for time to review (typically 21 days under the Older Workers Benefit Protection Act)
+- Consult with an employment attorney for packages over \$10,000
+
+**Common mistakes:**
+- Signing without reading the entire agreement
+- Not asking for more time to consider
+- Accepting the first verbal offer without written documentation
+- Failing to negotiate benefits continuation
+- Not understanding the tax implications
+
+## Common Mistakes Employees Make
+
+Understanding common pitfalls can help you avoid costly errors when evaluating and accepting a severance package.
+
+**Mistake 1: Signing too quickly.** You typically have 21-45 days to review a severance agreement under federal law. Use this time to understand the terms, consult with professionals, and negotiate improvements.
+
+**Mistake 2: Ignoring benefit continuation costs.** Healthcare coverage is expensive. COBRA premiums can cost \$600-\$1,200 per month for family coverage. Factor this into your financial planning.
+
+**Mistake 3: Not considering unemployment interaction.** Some states reduce unemployment benefits based on severance received. Check your state's rules before applying for unemployment.
+
+**Mistake 4: Forgetting about 401(k) and retirement accounts.** You may be eligible for continued contributions, loan repayment terms, or rollover options. Understand your retirement account options before making decisions.
+
+**Mistake 5: Overlooking non-compete and non-solicit clauses.** Many severance agreements include restrictive covenants that limit your future employment options. Review these carefully and negotiate reasonable terms.
+
+**Mistake 6: Miscalculating taxes.** Employees often underestimate the tax burden on severance payments. The 22% supplemental withholding may not cover your total tax liability, especially if you live in a high-tax state.
+
+**Mistake 7: Not using a severance calculator.** Rather than guessing your severance amount, use a reliable tool to estimate what you should expect based on industry standards and your specific situation.
+
+## How Our Severance Pay Calculator Works
+
+Our <a href="/severance-pay-calculator">Severance Pay Calculator</a> helps you estimate your total exit compensation quickly and accurately. Here is how it works:
+
+1. **Enter your annual salary** — Your current base salary before taxes and deductions.
+
+2. **Select your pay frequency** — Choose weekly, bi-weekly, semi-monthly, or monthly to match your current pay schedule.
+
+3. **Enter years of service** — Your total continuous employment with your current employer.
+
+4. **Set the severance multiplier** — The most common value is 1 week of pay per year of service. Some companies offer 2 weeks per year.
+
+5. **Include additional compensation** — Add bonuses, unused PTO hours (with hourly rate), and other exit benefits you expect to receive.
+
+6. **Set your estimated tax rate** — A typical rate is 22-30% depending on your income level and state of residence.
+
+7. **Click Calculate** — Instantly see your gross severance, estimated tax, net payment, PTO value, and total exit package.
+
+The calculator also displays visual breakdowns including a compensation pie chart, gross vs net comparison, payment timeline, benefit breakdown, and tax summary.
+
+**Example result for a typical employee:**
+- Annual salary: \$75,000
+- Years of service: 5
+- Severance multiplier: 1 week per year
+- Unused PTO: 80 hours at \$36.06/hr
+- Estimated tax rate: 25%
+- **Gross severance: \$7,211.54**
+- **PTO payout: \$2,884.80**
+- **Estimated tax: \$2,524.09**
+- **Net severance: \$7,572.25**
+- **Total exit package: \$10,096.50**
+
+## Frequently Asked Questions
+
+### What is severance pay?
+
+Severance pay is financial compensation employers provide to employees whose employment is terminated involuntarily. It is designed to ease the financial transition between jobs and typically includes a cash payment based on salary and tenure, along with benefits continuation and other components.
+
+### How is severance calculated?
+
+Severance is calculated using the formula: (Annual Salary ÷ 52) × Weeks of Pay Per Year of Service × Years of Service. For example, an employee earning \$75,000 with 5 years of service and a 1-week-per-year policy would receive approximately \$7,212 in gross severance.
+
+### Is severance taxable?
+
+Yes, severance pay is fully taxable as ordinary income. Employers must withhold federal income tax (typically 22% flat rate), Social Security (6.2%), Medicare (1.45%), and applicable state income tax. The total tax withholding typically ranges from 25% to 35% depending on your income and location.
+
+### Can severance be negotiated?
+
+Absolutely. Most employers expect some negotiation on severance packages. You can negotiate for more weeks of pay, extended health benefits, accelerated equity vesting, outplacement services, and other concessions. Always review the agreement carefully and consult an attorney for larger packages.
+
+### Does every employee receive severance?
+
+No. Severance is generally offered to regular full-time employees affected by layoffs or reductions in force. Part-time, temporary, and contract workers are often excluded. Employees terminated for cause rarely receive severance. However, you can always request severance during the separation process.
+
+### How does COBRA work with severance?
+
+Under COBRA, you have the right to continue your employer-sponsored health coverage for up to 18 months following termination. You typically pay the full premium plus a 2% administrative fee. Many employers include several months of paid COBRA coverage as part of their severance package.
+
+### Will severance affect my unemployment benefits?
+
+It depends on your state. Some states reduce unemployment benefits by the amount of severance allocated to the same period. Others allow you to receive both without reduction. Check your state's unemployment insurance rules for specific guidance.
+
+### What should I do before signing a severance agreement?
+
+Review the agreement carefully, understand all components including restrictive covenants, estimate the tax impact, negotiate for better terms if appropriate, consider consulting an employment attorney, and never sign under pressure. You generally have 21 days to review under federal law.`,
+    category: "Finance",
+    categorySlug: "finance",
+    publishedAt: "2026-07-02",
+    readingTime: 18,
+    featured: false,
+    popular: true,
+    image: "/images/blog/category-finance.svg",
+    author: {
+      name: "Achyutananda Meher",
+      avatar: "A",
+      role: "Founder",
+      bio: "Achyutananda Meher is the founder of Measurely. He created the platform to provide reliable financial calculators and guides that help employees make informed decisions about their compensation and career transitions.",
+    },
+    relatedSlugs: ["annual-salary-calculator", "paycheck-calculator", "hourly-to-salary-calculator", "tax-calculator", "cash-flow-forecast-calculator"],
+    relatedTools: [
+      { name: "Severance Pay Calculator", slug: "severance-pay-calculator", type: "calculator" },
+      { name: "Paycheck Calculator", slug: "paycheck-calculator", type: "calculator" },
+      { name: "Annual Salary Calculator", slug: "annual-salary-calculator", type: "calculator" },
+    ],
+    faqs: [
+      { question: "What is severance pay?", answer: "Severance pay is financial compensation employers provide to employees whose employment is terminated involuntarily. It is designed to ease the financial transition between jobs and typically includes a cash payment based on salary and tenure, along with benefits continuation and other components." },
+      { question: "How many weeks of severance should I expect?", answer: "A common formula is one week of pay per year of service. However, some employers offer two weeks per year, or more for executives. The actual amount depends on company policy, employment contracts, and negotiation." },
+      { question: "Is severance legally required?", answer: "In the United States, severance pay is not legally required under federal law. However, some states have specific requirements, and severance may be mandated by employment contracts, company policies, or collective bargaining agreements." },
+      { question: "Is severance taxable?", answer: "Yes, severance pay is considered taxable income by the IRS. Employers typically withhold federal income tax, Social Security, and Medicare taxes. State income tax may also apply depending on your state of residence." },
+      { question: "Does unused PTO increase severance?", answer: "Yes, unused PTO is typically paid out separately from severance. Many states require employers to pay out accrued unused vacation time upon termination. This payout is in addition to any severance compensation." },
+      { question: "Can I negotiate my severance package?", answer: "Yes, severance packages are often negotiable. You can negotiate for more weeks of pay, extended health benefits, accelerated stock vesting, outplacement services, and a favorable reference. Having an attorney review the agreement can be beneficial." },
+      { question: "Will severance affect unemployment benefits?", answer: "Severance pay may affect unemployment benefits depending on state laws. Some states reduce unemployment benefits by the amount of severance received, while others allow you to receive both without reduction." },
+      { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on common severance formulas. Actual severance packages vary by employer policy, employment contracts, state laws, and individual circumstances. Use this as a planning tool and consult with an attorney for your specific situation." },
+    ],
+    tags: ["severance pay", "severance calculator", "severance package", "layoff compensation", "severance pay calculation", "severance formula", "severance negotiation", "severance tax", "PTO payout", "employee severance rights", "termination pay", "severance agreement", "COBRA severance", "severance after layoff", "severance guide 2026"],
+    metaTitle: "How Is Severance Pay Calculated After a Layoff? (2026 Guide) | Measurely",
+    metaDescription: "Learn exactly how severance pay is calculated after a layoff in 2026. Understand severance formulas, tax implications, negotiation strategies, and use our free Severance Pay Calculator to estimate your package.",
+    keywords: ["how is severance pay calculated", "severance pay calculator", "severance package calculator", "layoff compensation calculator", "severance pay 2026", "severance formula", "severance negotiation", "severance tax", "severance pay after layoff", "severance package guide"],
+  },
+  {
+    slug: "how-inheritance-tax-works",
+    title: "How Inheritance Tax Works in 2026: Complete Guide",
+    excerpt: "Learn how inheritance tax works in 2026. Understand the difference between estate tax and inheritance tax, who pays, exemptions, deductions, and strategies to reduce tax liability. Free calculator included.",
+    content: `## Introduction
+
+Inheritance tax is one of the most misunderstood areas of personal finance. For families planning their estates and beneficiaries wondering what they will actually receive, the rules can seem complex and overwhelming. In 2026, with changing tax thresholds and evolving regulations across different countries, understanding how inheritance tax works has never been more important.
+
+Inheritance tax affects how much of an estate actually passes to heirs and beneficiaries. Without proper planning, a significant portion of what you intend to leave to loved ones could go to taxes. The good news is that with the right knowledge and tools, you can plan effectively and minimize the tax burden.
+
+This comprehensive guide explains what inheritance tax is, who pays it, how it differs from estate tax, what exemptions and deductions are available, and practical strategies for reducing inheritance tax legally.
+
+Use our free <a href="/inheritance-tax-calculator">Inheritance Tax Calculator</a> to estimate potential taxes based on your jurisdiction, estate value, and family situation.
+
+## What Is Inheritance Tax?
+
+Inheritance tax is a state-level tax imposed on the value of assets that a beneficiary receives from a deceased person's estate. Unlike an estate tax, which is levied on the total value of the estate before distribution, inheritance tax is paid by the individual beneficiary based on what they inherit.
+
+Currently, only six US states impose an inheritance tax: Iowa, Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania. The tax rate and exemption amount vary significantly by state and depend on the relationship between the beneficiary and the deceased.
+
+Internationally, inheritance tax rules vary widely. The United Kingdom charges inheritance tax at 40% on estates valued above £325,000. Canada does not have a formal inheritance tax but treats assets as sold at death through deemed disposition rules. Australia and New Zealand abolished inheritance tax decades ago.
+
+The amount of inheritance tax owed depends on several factors including the total value of inherited assets, the beneficiary's relationship to the deceased, applicable exemptions and deductions, and the jurisdiction's specific tax rules.
+
+**Key takeaway:** Inheritance tax is paid by beneficiaries on what they receive, not by the estate itself. Rates and rules vary significantly by jurisdiction.
+
+## Inheritance Tax vs Estate Tax
+
+Many people use the terms inheritance tax and estate tax interchangeably, but they refer to two distinct types of taxation.
+
+**Estate tax** is levied on the total value of a deceased person's estate before assets are distributed to beneficiaries. The estate itself is responsible for paying the tax. The federal government imposes an estate tax in the United States, and several states also levy their own estate taxes.
+
+**Inheritance tax** is paid by beneficiaries on the assets they inherit. The tax is calculated based on each beneficiary's share of the estate and their relationship to the deceased. Only a handful of US states impose inheritance taxes.
+
+**Key differences:**
+- Who pays: Estate tax is paid by the estate; inheritance tax is paid by the beneficiary
+- When paid: Estate tax is paid before distribution; inheritance tax is paid after receiving assets
+- Jurisdiction: The US has a federal estate tax but no federal inheritance tax
+- Exemptions: Estate tax has a high exemption threshold ($13.61 million in 2026); inheritance tax exemptions vary by state and relationship
+
+**Federal estate tax in 2026:** The federal estate tax exemption is approximately $13.61 million per individual (adjusted for inflation). Estates valued below this threshold owe no federal estate tax. For estates above the exemption, the tax rate is 40% on the excess amount. Portability allows a surviving spouse to use any unused exemption from the deceased spouse.
+
+**State-level estate taxes:** Several states impose their own estate taxes with lower exemption thresholds, including Massachusetts, Oregon, Washington, Minnesota, Illinois, New York, Vermont, Rhode Island, Connecticut, Maine, Hawaii, Delaware, and the District of Columbia.
+
+**Key takeaway:** Estate tax comes from the estate before you inherit. Inheritance tax comes from you after you inherit. The federal exemption is very high in 2026, meaning most estates owe no federal estate tax.
+
+## Who Pays Inheritance Tax?
+
+Inheritance tax liability depends on three primary factors: the jurisdiction where the deceased resided, the value of inherited assets, and the beneficiary's relationship to the deceased.
+
+**By relationship classification:**
+- Spouses: Generally exempt from inheritance tax in all states
+- Descendants (children, grandchildren): Typically receive the most favorable rates and highest exemptions
+- Ancestors (parents, grandparents): Usually taxed at moderate rates
+- Siblings: Often taxed at higher rates than direct descendants
+- Extended family and non-relatives: Typically face the highest tax rates with the lowest exemptions
+
+**Inheritance tax states (2026):**
+- Iowa: 0-15% rates, exemptions vary by relationship
+- Kentucky: 0-16% rates, spouse and children largely exempt
+- Maryland: 0-10% rates, state also has an estate tax
+- Nebraska: 1-18% rates, varies by relationship
+- New Jersey: 0-16% rates, Class A beneficiaries (spouse, children, parents) largely exempt
+- Pennsylvania: 0-15% rates, spouse exempt, children pay 4.5%
+
+**International perspective:**
+- United Kingdom: Inheritance tax at 40% on estates above £325,000
+- Canada: No inheritance tax; capital gains tax on deemed disposition at death
+- Australia: No inheritance tax (abolished 1979)
+- New Zealand: No inheritance tax (abolished 1992)
+
+**Key takeaway:** Spouses are universally exempt. Direct descendants (children) generally receive favorable treatment. Non-relatives typically face the highest inheritance tax rates.
+
+## How Tax Is Calculated
+
+The inheritance tax calculation follows a systematic process that accounts for the estate value, allowable deductions, applicable exemptions, and tax rates.
+
+**Step 1: Determine gross estate value.** This includes all assets owned by the deceased: real estate, bank accounts, investments, retirement accounts, vehicles, personal property, and life insurance proceeds (if payable to the estate).
+
+**Step 2: Subtract allowable deductions.** Common deductions include outstanding debts, funeral expenses, estate administration costs, charitable bequests, and certain medical expenses.
+
+**Step 3: Apply exemptions.** Each jurisdiction provides specific exemptions. The US federal estate tax exemption is $13.61 million in 2026. State exemptions vary widely from $1 million to $5.49 million.
+
+**Step 4: Calculate the taxable estate.** This is the gross estate minus deductions and exemptions.
+
+Taxable Estate = Gross Estate - Total Deductions - Available Exemptions
+
+**Step 5: Apply the tax rate.** The tax rate is applied to the taxable estate amount. Federal estate tax uses a flat 40% rate above the exemption. State rates vary from 0% to 20%.
+
+**Step 6: Calculate beneficiary shares.** After taxes and expenses are paid, the remaining estate is distributed to beneficiaries according to the will, trust, or intestacy laws.
+
+**Example calculation for a $5 million estate (US federal):**
+- Gross estate: $5,000,000
+- Deductions: $200,000 (debts, expenses, charity)
+- Net estate: $4,800,000
+- Federal exemption: $13,610,000
+- Taxable estate: $0 (below exemption threshold)
+- Federal estate tax: $0
+
+**Example calculation for a $2 million estate (UK):**
+- Gross estate: £2,000,000
+- Nil-rate band: £325,000
+- Residence nil-rate band: £175,000
+- Taxable estate: £1,500,000
+- Inheritance tax at 40%: £600,000
+- Net inheritance: £1,400,000
+
+**Key takeaway:** Most estates in the US owe no federal estate tax thanks to the high $13.61 million exemption. UK estates over £325,000 face a 40% inheritance tax.
+
+## Common Exemptions and Deductions
+
+Understanding available exemptions and deductions can significantly reduce inheritance or estate tax liability.
+
+**Marital deduction:** Assets transferred to a surviving spouse are generally exempt from estate and inheritance tax. This unlimited marital deduction applies at the federal level and in most states.
+
+**Charitable deduction:** Bequests to qualified charitable organizations are fully deductible from the estate value. This applies to both estate and inheritance tax calculations.
+
+**Annual gift exclusion:** In 2026, you can give up to $18,000 per year per recipient without triggering gift tax or using your lifetime exemption. This is an effective way to reduce your estate size over time.
+
+**Lifetime gift exemption:** The lifetime gift and estate tax exemption is unified at $13.61 million in 2026. Gifts exceeding the annual exclusion amount reduce this lifetime exemption.
+
+**Funeral and administration expenses:** Reasonable funeral costs, executor fees, legal fees, and estate administration expenses are deductible.
+
+**Debts and mortgages:** Outstanding debts, including mortgages, personal loans, and credit card balances, are deducted from the gross estate.
+
+**State-specific exemptions:** Each inheritance tax state provides unique exemptions. For example:
+- Pennsylvania: $3,500 exemption for transfers to surviving spouse
+- New Jersey: Class A beneficiaries (spouse, children, parents) are fully exempt
+- Maryland: $1,000 exemption for Class B beneficiaries
+
+**Key takeaway:** Maximize available exemptions and deductions to reduce tax liability. The marital deduction, charitable giving, and annual gift exclusions are powerful estate planning tools.
+
+## Ways to Reduce Inheritance Tax Legally
+
+Strategic estate planning can significantly reduce or eliminate inheritance tax liability. These strategies are legal and commonly used by estate planning professionals.
+
+**Make lifetime gifts.** The simplest way to reduce your estate is to give assets away during your lifetime. The annual gift exclusion of $18,000 per recipient ($36,000 for married couples) allows you to transfer significant wealth tax-free. Gifts made more than 7 years before death may also fall outside your estate for UK inheritance tax purposes.
+
+**Establish a trust.** Various trust structures can help reduce estate taxes. A bypass trust (credit shelter trust) allows married couples to maximize both federal exemptions. An irrevocable life insurance trust (ILIT) removes life insurance proceeds from your taxable estate. A charitable remainder trust (CRT) provides income during your lifetime with the remainder going to charity.
+
+**Use the marital deduction strategically.** For married couples in the US, portability allows the surviving spouse to use any unused federal exemption from the deceased spouse. Proper planning ensures both exemptions are fully utilized, potentially sheltering over $27 million from estate tax.
+
+**Make charitable bequests.** Donating to charity reduces the taxable value of your estate and provides a legacy that aligns with your values. Options include outright bequests, charitable trusts, and donor-advised funds.
+
+**Consider life insurance.** Life insurance proceeds paid to a properly structured irrevocable trust can provide tax-free liquidity to pay estate taxes without increasing the taxable estate.
+
+**Relocate to a tax-friendly jurisdiction.** If you live in a state with inheritance or estate tax, consider relocating to a state without these taxes. For international residents, choosing a country without inheritance tax can save substantial amounts.
+
+**Key takeaway:** Proactive estate planning can dramatically reduce inheritance tax. Annual gifting, trusts, charitable giving, and strategic use of exemptions are all effective legal strategies.
+
+## How Our Inheritance Tax Calculator Works
+
+Our <a href="/inheritance-tax-calculator">Inheritance Tax Calculator</a> helps you estimate potential estate and inheritance tax liability across multiple jurisdictions.
+
+1. **Select your country** — Choose from United States, United Kingdom, Canada, Australia, or New Zealand.
+
+2. **Enter the total estate value** — Include all assets: real estate, investments, cash, retirement accounts, and personal property.
+
+3. **Add deductions** — Enter outstanding debts, funeral expenses, charitable donations, and other allowable deductions.
+
+4. **Set spouse exemption** — Indicate whether a spouse exemption applies.
+
+5. **Enter number of beneficiaries** — The calculator divides the net inheritance among all beneficiaries.
+
+6. **Include lifetime gifts** — Gifts already made may affect available exemptions.
+
+7. **Click Calculate** — Instantly see gross estate, taxable estate, estimated tax, net inheritance, and per-beneficiary amounts.
+
+The calculator also displays visual breakdowns including estate allocation pie chart, net vs gross comparison, tax breakdown chart, deduction summary, and beneficiary distribution.
+
+**Example for a $15 million US estate with 3 beneficiaries:**
+- Gross estate: $15,000,000
+- Deductions: $200,000
+- Net estate: $14,800,000
+- Federal exemption: $13,610,000
+- Taxable estate: $1,190,000
+- Estimated tax at 40%: $476,000
+- Net inheritance: $14,324,000
+- Per beneficiary: $4,774,667
+
+**Example for a £1 million UK estate with 2 beneficiaries:**
+- Gross estate: £1,000,000
+- Nil-rate band: £325,000
+- Residence nil-rate band: £175,000
+- Taxable estate: £500,000
+- Inheritance tax at 40%: £200,000
+- Net inheritance: £800,000
+- Per beneficiary: £400,000
+
+## Frequently Asked Questions
+
+### What is inheritance tax?
+
+Inheritance tax is a state-level tax on assets inherited by beneficiaries. The tax is calculated based on the beneficiary's share of the estate and their relationship to the deceased. Currently, six US states impose inheritance taxes: Iowa, Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania.
+
+### Is inheritance tax the same as estate tax?
+
+No. Estate tax is levied on the total estate before distribution, while inheritance tax is paid by beneficiaries on what they receive. The US has a federal estate tax (exemption: ~$13.61M) but no federal inheritance tax. Some states impose one or both types of tax.
+
+### Who is exempt from inheritance tax?
+
+Spouses are universally exempt from inheritance tax in all states. Direct descendants (children) usually receive favorable rates or exemptions. Charitable organizations are also exempt. Exemptions for other relatives vary by state and jurisdiction.
+
+### How is inheritance tax calculated?
+
+Inheritance tax is calculated by determining the gross estate value, subtracting allowable deductions and exemptions, applying the applicable tax rate, and dividing remaining tax among beneficiaries based on their inheritance shares. The effective tax rate depends on the total taxable amount.
+
+### Are inherited assets taxable?
+
+Generally, inherited assets are not subject to income tax. However, any income those assets generate after inheritance (interest, dividends, rental income) is taxable to the beneficiary. Capital gains tax may apply when inherited assets are sold.
+
+### Can gifts reduce inheritance tax?
+
+Yes. Making gifts during your lifetime can reduce your taxable estate. In 2026, you can give $18,000 per person per year without using your lifetime exemption. In the UK, gifts made more than 7 years before death typically fall outside the estate for inheritance tax purposes.
+
+### Do all countries charge inheritance tax?
+
+No. Many countries have abolished inheritance and estate taxes, including Australia (1979), New Zealand (1992), Canada, Sweden, and Russia. The United States and the United Kingdom continue to impose these taxes, though with significant exemptions.
+
+### How accurate is this calculator?
+
+This calculator provides estimates based on common tax rules for each jurisdiction. Actual tax liability depends on specific circumstances, applicable state laws, and professional assessment. Use this as a planning tool and consult a qualified tax professional for your specific situation.`,
+    category: "Finance",
+    categorySlug: "finance",
+    publishedAt: "2026-07-02",
+    readingTime: 19,
+    featured: false,
+    popular: true,
+    image: "/images/blog/category-finance.svg",
+    author: {
+      name: "Achyutananda Meher",
+      avatar: "A",
+      role: "Founder",
+      bio: "Achyutananda Meher is the founder of Measurely. He created the platform to provide reliable financial calculators and guides that help individuals and families make informed decisions about estate planning and wealth management.",
+    },
+    relatedSlugs: ["net-worth-calculator", "retirement-calculator", "investment-return-calculator", "compound-interest-calculator", "tax-calculator"],
+    relatedTools: [
+      { name: "Inheritance Tax Calculator", slug: "inheritance-tax-calculator", type: "calculator" },
+      { name: "Net Worth Calculator", slug: "net-worth-calculator", type: "calculator" },
+      { name: "Retirement Calculator", slug: "retirement-calculator", type: "calculator" },
+    ],
+    faqs: [
+      { question: "What is inheritance tax?", answer: "Inheritance tax is a state-level tax on assets inherited by beneficiaries. The tax is calculated based on the beneficiary's share of the estate and their relationship to the deceased. Currently, six US states impose inheritance taxes: Iowa, Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania." },
+      { question: "Is inheritance tax the same as estate tax?", answer: "No. Estate tax is levied on the total estate before distribution, while inheritance tax is paid by beneficiaries on what they receive. The US has a federal estate tax (exemption: ~$13.61M) but no federal inheritance tax. Some states impose one or both types of tax." },
+      { question: "Who is exempt from inheritance tax?", answer: "Spouses are universally exempt from inheritance tax in all states. Direct descendants (children) usually receive favorable rates or exemptions. Charitable organizations are also exempt. Exemptions for other relatives vary by state." },
+      { question: "How is inheritance tax calculated?", answer: "Inheritance tax is calculated by determining the gross estate value, subtracting allowable deductions and exemptions, applying the applicable tax rate, and dividing remaining tax among beneficiaries based on their inheritance shares." },
+      { question: "Are inherited assets taxable?", answer: "Generally, inherited assets are not subject to income tax. However, any income those assets generate after inheritance (interest, dividends, rental income) is taxable to the beneficiary. Capital gains tax may apply when inherited assets are sold." },
+      { question: "Can gifts reduce inheritance tax?", answer: "Yes. Making gifts during your lifetime can reduce your taxable estate. In 2026, you can give $18,000 per person per year without using your lifetime exemption. UK gifts made more than 7 years before death typically fall outside the estate." },
+      { question: "Do all countries charge inheritance tax?", answer: "No. Many countries have abolished inheritance and estate taxes, including Australia (1979), New Zealand (1992), Canada, Sweden, and Russia. The US and UK continue to impose these taxes, though with significant exemptions." },
+      { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on common tax rules for each jurisdiction. Actual tax liability depends on specific circumstances, state laws, and professional assessment. Use this as a planning tool and consult a tax professional." },
+    ],
+    tags: ["inheritance tax", "estate tax", "inheritance tax calculator", "estate planning", "inheritance tax 2026", "estate tax exemption", "inheritance tax by state", "inheritance tax UK", "estate planning calculator", "inheritance tax explained", "how inheritance tax works", "tax planning", "wealth transfer", "beneficiary tax", "probate tax"],
+    metaTitle: "How Inheritance Tax Works in 2026: Complete Guide | Measurely",
+    metaDescription: "Learn how inheritance tax works in 2026. Understand estate tax vs inheritance tax, who pays, exemptions, deductions, and legal strategies to reduce tax. Free inheritance tax calculator included.",
+    keywords: ["how inheritance tax works", "inheritance tax 2026", "inheritance tax calculator", "estate tax vs inheritance tax", "inheritance tax explained", "estate planning", "inheritance tax by state", "inheritance tax UK", "inheritance tax exemption", "inheritance tax guide"],
+  },
 ];
 export const blogs = blogsData.sort((a, b) => {
   const cmp = b.publishedAt.localeCompare(a.publishedAt);

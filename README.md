@@ -1,6 +1,6 @@
 # Measurely
 
-**Smart Tools for Smart Measurements** — A comprehensive web application offering 95 free online calculators and unit converters, plus 90+ blog articles, built with Next.js 16.
+**Smart Tools for Smart Measurements** — A comprehensive web application offering 97 free online calculators and unit converters, plus 90+ blog articles, built with Next.js 16.
 
 > **URL:** [https://measurely.in](https://measurely.in)  
 > **Author:** Achyutananda Meher  
@@ -58,6 +58,8 @@ src/
 │   ├── contact/            # Contact form
 │   ├── search/             # Search results page
 │   ├── ai-token-cost-calculator/  # Custom AI cost calculator
+│   ├── severance-pay-calculator/  # Severance Pay Calculator
+│   ├── inheritance-tax-calculator/  # Inheritance Tax Calculator
 │   ├── legal pages         # privacy-policy, terms, disclaimer, etc.
 │   ├── layout.tsx          # Root layout (nav, footer, SEO, analytics)
 │   ├── page.tsx            # Homepage
@@ -77,9 +79,9 @@ src/
 │   └── tool-content.tsx    # Dynamic content sections on tool pages
 │
 ├── data/
-│   ├── calculators.ts      # 68 calculator definitions
+│   ├── calculators.ts      # 70 calculator definitions
 │   ├── converters.ts       # 27 converter definitions
-│   ├── blogs.ts            # 96 blog posts
+│   ├── blogs.ts            # 98 blog posts
 │   ├── tool-registry.ts    # Category display config + tool grouping
 │   └── ai-model-pricing.ts # 50+ AI model pricing data
 │
@@ -106,11 +108,11 @@ src/
 
 ### 95 Online Tools
 
-**68 Calculators** across 12 categories:
+**70 Calculators** across 12 categories:
 
 | Category | Tools |
 |---|---|
-| **Finance** | EMI, Loan, Mortgage, Interest, Compound Interest, SIP, SWP, FD, RD, GST, Tax, Salary, Paycheck, Home Affordability, Rent vs Buy, 401k, ROI, EV Charging, YouTube Money, Freelance Rate, TFSA, RRSP, Canada Mortgage Stress Test, Ontario Take Home Pay, GST/HST Ontario, 1099 Tax, Overtime Pay, Debt-to-Income, Canada Child Benefit, Ontario Severance, and more |
+| **Finance** | EMI, Loan, Mortgage, Interest, Compound Interest, SIP, SWP, FD, RD, GST, Tax, Salary, Paycheck, Home Affordability, Rent vs Buy, 401k, ROI, EV Charging, YouTube Money, Freelance Rate, TFSA, RRSP, Canada Mortgage Stress Test, Ontario Take Home Pay, GST/HST Ontario, 1099 Tax, Overtime Pay, Debt-to-Income, Canada Child Benefit, Ontario Severance, Severance Pay, Inheritance Tax, and more |
 | **Health** | BMI, BMR, Body Fat, Calorie, Water Intake, Pregnancy, Heart Rate, Ideal Weight |
 | **Math** | Percentage, Fraction, Scientific, Matrix, Equation Solver, GCF/LCM, Prime Number, Statistics |
 | **Time** | Age, Date, Days Between, Time Duration, Week, Month |
@@ -125,7 +127,7 @@ src/
 
 **27 Unit Converters:** Length, Weight, Area, Volume, Speed, Temperature, Pressure, Energy, Time, Data Storage, Fuel Economy, Angle, Density, Frequency, Power, Current, Voltage, Resistance, Capacitance, Inductance, Force, Magnetic Field, Concentration, Typography, Shoe Size, Clothing Size, Ring Size.
 
-### Blog (96 articles)
+### Blog (98 articles)
 - Full markdown content with SEO metadata
 - Categories: Finance, Health, Math, Engineering, Construction, etc.
 - Related tools & articles linking

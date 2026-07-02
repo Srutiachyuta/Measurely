@@ -224,6 +224,12 @@ const slugImageMap: Record<string, { alt: string }> = {
   "how-much-money-do-i-need-to-retire-early-in-india": {
     alt: "FIRE Number Calculator dashboard showing retirement chart, wealth growth graph, and financial independence planning for early retirement in India",
   },
+  "how-is-severance-pay-calculated-after-a-layoff": {
+    alt: "Employment termination and severance pay calculation documents with calculator and compensation breakdown",
+  },
+  "how-inheritance-tax-works": {
+    alt: "Family estate planning documents with inheritance tax calculator and wealth distribution chart",
+  },
 };
 
 const categoryAltFallbacks: Record<string, string> = {

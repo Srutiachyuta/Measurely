@@ -17,7 +17,7 @@ import { BlogArticle } from "@/components/blog/blog-article";
 import { ComparisonLayout } from "@/components/compare/comparison-layout";
 import { CategoryDetail } from "@/components/categories/category-detail";
 
-const CUSTOM_PAGES = ["ai-token-cost-calculator"];
+const CUSTOM_PAGES = ["ai-token-cost-calculator", "severance-pay-calculator", "inheritance-tax-calculator"];
 
 const allSlugs = [
   ...calculators.map((c) => c.slug),

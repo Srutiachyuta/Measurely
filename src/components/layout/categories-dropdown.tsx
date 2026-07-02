@@ -105,7 +105,7 @@ export function CategoriesDropdown() {
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
             style={{ width: "min(92vw, 1440px)" }}
-            className="absolute left-1/2 -translate-x-1/2 top-full mt-2 bg-white dark:bg-dark-800 rounded-[20px] shadow-xl shadow-black/8 dark:shadow-black/30 border border-border/40 z-50 max-h-[80vh] overflow-y-auto overflow-x-hidden"
+            className="fixed left-1/2 -translate-x-1/2 top-[calc(4rem+0.5rem)] mt-0 bg-white dark:bg-dark-800 rounded-[20px] shadow-xl shadow-black/8 dark:shadow-black/30 border border-border/40 z-50 max-h-[80vh] overflow-y-auto overflow-x-hidden"
             role="menu"
             aria-label="Categories"
           >
@@ -119,18 +119,13 @@ export function CategoriesDropdown() {
                     <div key={cat.slug} className="min-w-0 flex flex-col">
                       <Link
                         href={`/${cat.slug}`}
-                        className="group flex items-start gap-3 rounded-xl px-3 py-2 -mx-3 transition-all duration-200 hover:bg-primary-50/60 dark:hover:bg-primary-500/8"
+                        className="group flex items-center rounded-xl px-3 py-2 -mx-3 transition-all duration-200 hover:bg-primary-50/60 dark:hover:bg-primary-500/8"
                         onClick={close}
                         role="menuitem"
                       >
-                        {Icon && (
-                          <span className="flex items-center justify-center w-8 h-8 rounded-xl bg-surface dark:bg-dark-700 text-muted shrink-0 mt-0.5 group-hover:bg-primary-100 dark:group-hover:bg-primary-500/15 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-all duration-200">
-                            <Icon className="h-4 w-4" />
-                          </span>
-                        )}
-                        <span className="text-sm font-semibold text-text dark:text-dark-100 break-words leading-snug pt-0.5">{cat.name}</span>
+                        <span className="text-sm font-semibold text-text dark:text-dark-100 break-words leading-snug">{cat.name}</span>
                       </Link>
-                      <div className="mt-2 space-y-0.5 pl-11">
+                      <div className="mt-2 space-y-0.5">
                         {displayTools.map((tool) => (
                           <Link
                             key={tool.slug}
