@@ -7,7 +7,7 @@ import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { calculators } from "@/data/calculators";
 import { getIconName } from "@/data/tool-registry";
 
-const RECENT_COUNT = 10;
+const RECENT_COUNT = 12;
 
 const categoryDisplay: Record<string, string> = {
   finance: "Finance",
