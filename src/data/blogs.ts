@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/types";
+import { getPlaceholderImage, getBlogImageAlt } from "@/lib/blog-images";
 
 const blogsData: BlogPost[] = [
   // ==================== ENGINEERING ====================
@@ -14686,9 +14687,13 @@ This calculator provides estimates based on common tax rules for each jurisdicti
     keywords: ["how inheritance tax works", "inheritance tax 2026", "inheritance tax calculator", "estate tax vs inheritance tax", "inheritance tax explained", "estate planning", "inheritance tax by state", "inheritance tax UK", "inheritance tax exemption", "inheritance tax guide"],
   },
 ];
-export const blogs = blogsData.sort((a, b) => {
+export const blogs: BlogPost[] = blogsData.sort((a, b) => {
   const cmp = b.publishedAt.localeCompare(a.publishedAt);
   if (cmp !== 0) return cmp;
   return b.slug.localeCompare(a.slug);
-});
+}).map((post) => ({
+  ...post,
+  featuredImage: getPlaceholderImage(post.slug),
+  featuredImageAlt: getBlogImageAlt(post.slug, post.category),
+}));
 

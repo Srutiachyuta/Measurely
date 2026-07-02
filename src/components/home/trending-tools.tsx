@@ -71,10 +71,10 @@ export function TrendingTools() {
               const theme = getCategoryTheme(tool.categorySlug);
               return (
                 <motion.div key={tool.slug} variants={itemVariants}>
-                  <Link href={`/${tool.slug}`} className="group block">
+                  <Link href={`/${tool.slug}`} className="group block h-full">
                     <div
                       className={cn(
-                        "relative flex items-center gap-4 rounded-2xl border border-border/50",
+                        "relative flex items-center gap-4 rounded-2xl border border-border/50 h-full",
                         "bg-white/70 dark:bg-dark-800/40 backdrop-blur-sm p-4",
                         "transition-all duration-400",
                         "hover:shadow-xl hover:-translate-y-1.5 hover:bg-white/90 dark:hover:bg-dark-800/60",
@@ -90,8 +90,8 @@ export function TrendingTools() {
                         <tool.icon className="h-5 w-5" />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <h3 className="text-sm font-semibold text-text truncate group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                        <div className="flex items-center gap-2 min-w-0">
+                          <h3 className="text-sm font-semibold text-text line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-snug">
                             {tool.name}
                           </h3>
                           <Badge

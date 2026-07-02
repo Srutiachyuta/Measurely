@@ -36,7 +36,6 @@ const HOME_EQUITY_ENTRY = {
   categorySlug: "real-estate",
   icon: "House",
   description: "Estimate your available home equity, maximum borrowing amount, and monthly payments for a home equity loan.",
-  isNew: true,
 };
 
 const STUDENT_LOAN_ENTRY = {
@@ -46,7 +45,6 @@ const STUDENT_LOAN_ENTRY = {
   categorySlug: "finance",
   icon: "GraduationCap",
   description: "Estimate monthly payments, total interest, IBR, and forgiveness for student loans.",
-  isNew: true,
 };
 
 const recentTools = (() => {
@@ -57,7 +55,6 @@ const recentTools = (() => {
     categorySlug: c.category,
     icon: getIconName(c.icon),
     description: c.description,
-    isNew: true,
   })).reverse();
   const sliced = calcItems.slice(0, RECENT_COUNT - 2);
   return [HOME_EQUITY_ENTRY, STUDENT_LOAN_ENTRY, ...sliced];

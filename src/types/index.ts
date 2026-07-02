@@ -29,6 +29,8 @@ export interface BlogPost {
   featured: boolean;
   popular: boolean;
   image: string;
+  featuredImage?: string;
+  featuredImageAlt?: string;
   author: {
     name: string;
     avatar: string;

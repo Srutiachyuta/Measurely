@@ -14,8 +14,6 @@ interface Tool {
   icon: string;
   description: string;
   usageCount?: string;
-  isNew?: boolean;
-  isTrending?: boolean;
 }
 
 interface ToolGridProps {

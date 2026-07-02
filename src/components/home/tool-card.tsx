@@ -174,8 +174,6 @@ interface ToolCardProps {
   icon: string;
   description: string;
   usageCount?: string;
-  isNew?: boolean;
-  isTrending?: boolean;
   variant?: "default" | "compact" | "featured";
   className?: string;
 }
@@ -187,8 +185,6 @@ export function ToolCard({
   icon,
   description,
   usageCount,
-  isNew,
-  isTrending,
   variant = "default",
   className,
 }: ToolCardProps) {
@@ -226,21 +222,6 @@ export function ToolCard({
             )}
           />
 
-          {(isNew || isTrending) && (
-            <div className={cn(
-              "absolute z-10",
-              isCompact ? "top-3 right-3" : "top-3 sm:top-4 right-3 sm:right-4"
-            )}>
-              <Badge
-                variant={isNew ? "success" : "warning"}
-                size="sm"
-                className="shadow-sm"
-              >
-                {isNew ? "New" : "Trending"}
-              </Badge>
-            </div>
-          )}
-
           <div className={cn(
             "relative z-10",
             isCompact ? "flex items-center gap-4" : "flex items-start gap-4"
@@ -260,7 +241,7 @@ export function ToolCard({
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
                 <h3 className={cn(
-                  "font-semibold text-text truncate group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors",
+                  "font-semibold text-text group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-snug",
                   isCompact ? "text-sm" : "text-base"
                 )}>
                   {name}
