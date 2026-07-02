@@ -164,7 +164,7 @@ export function Navbar() {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-1">
           {/* Home, Calculators */}
-          {NAV_ITEMS.slice(0, 3).map((item) => {
+          {NAV_ITEMS.slice(0, 2).map((item) => {
             const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
             return (
               <Link
@@ -195,7 +195,7 @@ export function Navbar() {
           <CategoriesDropdown />
 
           {/* Blog, About, Contact */}
-          {NAV_ITEMS.slice(3).map((item) => {
+          {NAV_ITEMS.slice(2).map((item) => {
             const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
             return (
               <Link
@@ -300,7 +300,7 @@ export function Navbar() {
 
                 {/* Navigation items */}
                 <nav className="flex-1 px-3 pb-2 space-y-0.5">
-                  {NAV_ITEMS.slice(0, 3).map((item, index) => {
+                  {NAV_ITEMS.slice(0, 2).map((item, index) => {
                     const isActive = pathname === item.href;
                     const Icon = item.icon ? mobileIconMap[item.icon] : null;
                     return (
@@ -403,7 +403,7 @@ export function Navbar() {
                     </AnimatePresence>
                   </motion.div>
 
-                  {NAV_ITEMS.slice(3).map((item, index) => {
+                  {NAV_ITEMS.slice(2).map((item, index) => {
                     const isActive = pathname === item.href;
                     const Icon = item.icon ? mobileIconMap[item.icon] : null;
                     return (
