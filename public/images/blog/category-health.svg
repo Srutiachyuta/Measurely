@@ -1,0 +1,20 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d1b2e"/>
+      <stop offset="100%" style="stop-color:#5c1a3e"/>
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <g transform="translate(540,200) scale(2.8)">
+    <path d="M12 21c-4-4-8-6.5-8-10a5 5 0 0110-3 5 5 0 0110 3c0 3.5-4 6-8 10z" fill="none" stroke="white" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+  <text x="600" y="420" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="600" letter-spacing="0.5">Health</text>
+  <text x="600" y="458" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="system-ui, -apple-system, sans-serif" font-size="16" letter-spacing="1">MEASURELY</text>
+  <title>Health Blog Articles - Measurely</title>
+  <desc>Featured illustration for Health category blog posts on Measurely</desc>
+</svg>

@@ -1,0 +1,8 @@
+▲ Next.js 16.2.9 (Turbopack)
+- Local:         http://localhost:3333
+- Network:       http://192.168.1.11:3333
+✓ Ready in 422ms
+
+○ Compiling /calculators/[slug] ...
+ GET /calculators/emi-calculator 200 in 5.0s (next.js: 4.6s, generate-params: 400ms, application-code: 450ms)
+[?25h

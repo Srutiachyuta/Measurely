@@ -1,0 +1,148 @@
+# Measurely
+
+> Free online calculators, unit converters, and helpful guides for finance, health, math, engineering, and everyday life.
+
+## Website
+- Home: https://measurely.in/
+- Blog: https://measurely.in/blog
+- Calculators: https://measurely.in/calculators
+- Converters: https://measurely.in/converters
+- Categories: https://measurely.in/categories
+- Search: https://measurely.in/search
+- About: https://measurely.in/about
+- Contact: https://measurely.in/contact
+
+## Calculators — Finance
+- [EMI Calculator](https://measurely.in/emi-calculator): Calculate loan EMI, total interest, and payment schedule
+- [Loan Calculator](https://measurely.in/loan-calculator): Estimate monthly loan payments and total interest
+- [Mortgage Calculator](https://measurely.in/mortgage-calculator): Compare mortgage rates and monthly payments
+- [Interest Calculator](https://measurely.in/interest-calculator): Compute simple and compound interest
+- [Compound Interest Calculator](https://measurely.in/compound-interest-calculator): Calculate compound interest growth over time
+- [SIP Calculator](https://measurely.in/sip-calculator): Plan systematic investment plan returns
+- [SWP Calculator](https://measurely.in/swp-calculator): Calculate systematic withdrawal plan income
+- [FD Calculator](https://measurely.in/fd-calculator): Estimate fixed deposit maturity amount
+- [RD Calculator](https://measurely.in/rd-calculator): Calculate recurring deposit returns
+- [GST Calculator](https://measurely.in/gst-calculator): Compute GST amounts for goods and services
+- [Tax Calculator](https://measurely.in/tax-calculator): Estimate income tax liability
+- [Salary Calculator](https://measurely.in/salary-calculator): Calculate take-home salary and deductions
+- [Paycheck Calculator](https://measurely.in/paycheck-calculator): Estimate net pay after taxes and deductions
+- [ROI Calculator](https://measurely.in/roi-calculator): Calculate return on investment
+- [Freelance Rate Calculator](https://measurely.in/freelance-rate-calculator): Determine optimal freelance hourly rates
+
+## Calculators — Real Estate
+- [Home Affordability Calculator](https://measurely.in/home-affordability-calculator): Determine how much house you can afford
+- [Rent vs Buy Calculator](https://measurely.in/rent-vs-buy-calculator): Compare renting versus buying a home
+
+## Calculators — Retirement
+- [401(k) Retirement Calculator](https://measurely.in/401k-retirement-calculator): Project 401(k) savings growth for retirement
+
+## Calculators — Health
+- [BMI Calculator](https://measurely.in/bmi-calculator): Calculate body mass index
+- [BMR Calculator](https://measurely.in/bmr-calculator): Calculate basal metabolic rate
+- [Body Fat Calculator](https://measurely.in/body-fat-calculator): Estimate body fat percentage
+- [Calorie Calculator](https://measurely.in/calorie-calculator): Calculate daily calorie needs
+- [Water Intake Calculator](https://measurely.in/water-intake-calculator): Determine daily water intake needs
+- [Pregnancy Calculator](https://measurely.in/pregnancy-calculator): Estimate due date and pregnancy milestones
+- [Heart Rate Calculator](https://measurely.in/heart-rate-calculator): Calculate target heart rate zones
+- [Ideal Weight Calculator](https://measurely.in/ideal-weight-calculator): Estimate ideal body weight
+
+## Calculators — Math
+- [Percentage Calculator](https://measurely.in/percentage-calculator): Calculate percentages and ratios
+- [Fraction Calculator](https://measurely.in/fraction-calculator): Perform fraction arithmetic
+- [Scientific Calculator](https://measurely.in/scientific-calculator): Advanced scientific calculations
+- [Matrix Calculator](https://measurely.in/matrix-calculator): Perform matrix operations
+- [Equation Solver](https://measurely.in/equation-solver): Solve algebraic equations
+- [GCF & LCM Calculator](https://measurely.in/gcf-lcm-calculator): Find greatest common factor and least common multiple
+- [Prime Number Calculator](https://measurely.in/prime-number-calculator): Check prime numbers and generate primes
+- [Statistics Calculator](https://measurely.in/statistics-calculator): Calculate statistical measures
+
+## Calculators — Engineering
+- [Ohms Law Calculator](https://measurely.in/ohms-law-calculator): Calculate voltage, current, resistance, and power
+- [Voltage Divider Calculator](https://measurely.in/voltage-divider-calculator): Calculate voltage divider circuit values
+- [Power Calculator](https://measurely.in/power-calculator): Calculate electrical power consumption
+- [Resistor Calculator](https://measurely.in/resistor-calculator): Determine resistor values from color codes
+- [Watt Calculator](https://measurely.in/watt-calculator): Convert between watts, volts, amps, and ohms
+
+## Calculators — Construction
+- [Concrete Calculator](https://measurely.in/concrete-calculator): Estimate concrete volume needed
+- [Paint Calculator](https://measurely.in/paint-calculator): Calculate paint required for rooms
+- [Tile Calculator](https://measurely.in/tile-calculator): Estimate tiles needed for flooring
+- [Roofing Calculator](https://measurely.in/roofing-calculator): Calculate roofing materials needed
+- [Flooring Calculator](https://measurely.in/flooring-calculator): Estimate flooring material requirements
+
+## Calculators — Daily Life
+- [Discount Calculator](https://measurely.in/discount-calculator): Calculate sale prices and savings
+- [Tip Calculator](https://measurely.in/tip-calculator): Calculate restaurant tips and split bills
+- [Split Bill Calculator](https://measurely.in/split-bill-calculator): Divide expenses evenly among groups
+- [Fuel Cost Calculator](https://measurely.in/fuel-cost-calculator): Estimate fuel costs for trips
+- [Age Calculator](https://measurely.in/age-calculator): Calculate exact age in years, months, and days
+- [Date Calculator](https://measurely.in/date-calculator): Add or subtract days from dates
+- [Days Between Dates](https://measurely.in/days-between-dates): Calculate days between two dates
+- [Time Duration Calculator](https://measurely.in/time-duration-calculator): Calculate time between two timestamps
+- [Week Calculator](https://measurely.in/week-calculator): Calculate weeks between dates
+- [Month Calculator](https://measurely.in/month-calculator): Calculate months between dates
+
+## Calculators — Education
+- [GPA Calculator](https://measurely.in/gpa-calculator): Calculate grade point average
+- [CGPA Calculator](https://measurely.in/cgpa-calculator): Calculate cumulative grade point average
+- [Grade Calculator](https://measurely.in/grade-calculator): Calculate final grades and scores
+- [Marks Percentage Calculator](https://measurely.in/marks-percentage-calculator): Calculate exam percentage scores
+
+## Calculators — Automotive
+- [EV Charging Cost Calculator](https://measurely.in/ev-charging-cost-calculator): Calculate electric vehicle charging costs
+
+## Calculators — Social Media
+- [YouTube Money Calculator](https://measurely.in/youtube-money-calculator): Estimate YouTube earnings from views
+
+## Converters
+- [Currency Converter](https://measurely.in/currency-converter): Convert between world currencies
+- [Length Converter](https://measurely.in/length-converter): Convert between length and distance units
+- [Weight Converter](https://measurely.in/weight-converter): Convert between weight and mass units
+- [Area Converter](https://measurely.in/area-converter): Convert between area measurement units
+- [Volume Converter](https://measurely.in/volume-converter): Convert between volume and capacity units
+- [Speed Converter](https://measurely.in/speed-converter): Convert between speed and velocity units
+- [Temperature Converter](https://measurely.in/temperature-converter): Convert between temperature scales
+- [Pressure Converter](https://measurely.in/pressure-converter): Convert between pressure units
+- [Energy Converter](https://measurely.in/energy-converter): Convert between energy and work units
+- [Time Converter](https://measurely.in/time-converter): Convert between time units
+- [Data Storage Converter](https://measurely.in/data-storage-converter): Convert between data storage units
+- [Fuel Economy Converter](https://measurely.in/fuel-economy-converter): Convert between fuel efficiency units
+- [Angle Converter](https://measurely.in/angle-converter): Convert between angle measurement units
+- [Density Converter](https://measurely.in/density-converter): Convert between density units
+- [Frequency Converter](https://measurely.in/frequency-converter): Convert between frequency units
+- [Power Converter](https://measurely.in/power-converter): Convert between power measurement units
+- [Current Converter](https://measurely.in/current-converter): Convert between electric current units
+- [Voltage Converter](https://measurely.in/voltage-converter): Convert between electric potential units
+- [Resistance Converter](https://measurely.in/resistance-converter): Convert between electrical resistance units
+- [Capacitance Converter](https://measurely.in/capacitance-converter): Convert between capacitance units
+- [Inductance Converter](https://measurely.in/inductance-converter): Convert between inductance units
+- [Force Converter](https://measurely.in/force-converter): Convert between force units
+- [Magnetic Field Converter](https://measurely.in/magnetic-field-converter): Convert between magnetic field units
+- [Concentration Converter](https://measurely.in/concentration-converter): Convert between concentration units
+- [Typography Converter](https://measurely.in/typography-converter): Convert between typography units
+- [Shoe Size Converter](https://measurely.in/shoe-size-converter): Convert between international shoe sizes
+- [Clothing Size Converter](https://measurely.in/clothing-size-converter): Convert between international clothing sizes
+- [Ring Size Converter](https://measurely.in/ring-size-converter): Convert between ring size standards
+
+## Blog Categories
+- [Engineering](https://measurely.in/blog/category/engineering): Electrical engineering and electronics guides
+- [Construction](https://measurely.in/blog/category/construction): Construction and building material guides
+- [Real Estate](https://measurely.in/blog/category/real-estate): Real estate and property guides
+- [Daily Life](https://measurely.in/blog/category/daily-life): Everyday life tips and calculators
+- [Business](https://measurely.in/blog/category/business): Business and entrepreneurship guides
+- [Finance](https://measurely.in/blog/category/finance): Personal finance and investment guides
+- [Health](https://measurely.in/blog/category/health): Health and wellness guides
+- [Math](https://measurely.in/blog/category/math): Mathematics and formula guides
+- [Unit Conversion](https://measurely.in/blog/category/unit-conversion): Measurement and conversion guides
+- [Education](https://measurely.in/blog/category/education): Academic and learning guides
+- [Retirement](https://measurely.in/blog/category/retirement): Retirement planning guides
+- [Social Media](https://measurely.in/blog/category/social-media): Social media and content creation guides
+- [Automotive](https://measurely.in/blog/category/automotive): Automotive and EV guides
+
+## Policies
+- [Privacy Policy](https://measurely.in/privacy-policy)
+- [Terms and Conditions](https://measurely.in/terms-and-conditions)
+- [Cookie Policy](https://measurely.in/cookie-policy)
+- [Disclaimer](https://measurely.in/disclaimer)
+- [Editorial Policy](https://measurely.in/editorial-policy)
+- [Contact](https://measurely.in/contact)

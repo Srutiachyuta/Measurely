@@ -1,0 +1,389 @@
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+[browser] Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} (src\app\error.tsx:15:13)
+[browser] Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} (src\app\error.tsx:15:13)
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} {
+  digest: '4248454212'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+⨯ Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedToolCard (src\components\blog\related-tool-card.tsx:37:13)
+  35 |
+  36 |   return (
+> 37 |     <motion.div
+     |             ^
+  38 |       initial={{ opacity: 0, y: 20 }}
+  39 |       whileInView={{ opacity: 1, y: 0 }}
+  40 |       viewport={{ once: true }} {
+  digest: '878289863'
+}
+[browser] Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} (src\app\error.tsx:15:13)
+[browser] Error: Attempted to call createMotionComponent() from the server but createMotionComponent is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.
+    at RelatedArticleCard (src\components\blog\related-article-card.tsx:19:13)
+  17 |
+  18 |   return (
+> 19 |     <motion.div
+     |             ^
+  20 |       initial={{ opacity: 0, y: 20 }}
+  21 |       whileInView={{ opacity: 1, y: 0 }}
+  22 |       viewport={{ once: true }} (src\app\error.tsx:15:13)
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
+[browser] Uncaught Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function.
+    at eval (src\components\blog\related-articles-section.tsx:33:11)
+    at Array.map (<anonymous>:1:18)
+    at RelatedArticlesSection (src\components\blog\related-articles-section.tsx:32:19)
+    at RecommendationsSection (src\components\blog\recommendations-section.tsx:13:7)
+    at BlogArticle (src\components\blog\blog-article.tsx:251:13)
+    at ToolSlugPage (src\app\[slug]\page.tsx:192:9)
+  31 |       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  32 |         {articles.map((post, i) => (
+> 33 |           <RelatedArticleCard key={post.slug} post={post} index={i} />
+     |           ^
+  34 |         ))}
+  35 |       </div>
+  36 |     </section>
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] Uncaught Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function.
+    at eval (src\components\blog\related-articles-section.tsx:33:11)
+    at Array.map (<anonymous>:1:18)
+    at RelatedArticlesSection (src\components\blog\related-articles-section.tsx:32:19)
+    at RecommendationsSection (src\components\blog\recommendations-section.tsx:13:7)
+    at BlogArticle (src\components\blog\blog-article.tsx:251:13)
+    at ToolSlugPage (src\app\[slug]\page.tsx:192:9)
+  31 |       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  32 |         {articles.map((post, i) => (
+> 33 |           <RelatedArticleCard key={post.slug} post={post} index={i} />
+     |           ^
+  34 |         ))}
+  35 |       </div>
+  36 |     </section>
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
+[browser] Uncaught Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function.
+    at eval (src\components\blog\related-articles-section.tsx:33:11)
+    at Array.map (<anonymous>:1:18)
+    at RelatedArticlesSection (src\components\blog\related-articles-section.tsx:32:19)
+    at RecommendationsSection (src\components\blog\recommendations-section.tsx:13:7)
+    at BlogArticle (src\components\blog\blog-article.tsx:251:13)
+    at ToolSlugPage (src\app\[slug]\page.tsx:192:9)
+  31 |       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  32 |         {articles.map((post, i) => (
+> 33 |           <RelatedArticleCard key={post.slug} post={post} index={i} />
+     |           ^
+  34 |         ))}
+  35 |       </div>
+  36 |     </section>
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
+[browser] Uncaught Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function.
+    at eval (src\components\blog\related-articles-section.tsx:33:11)
+    at Array.map (<anonymous>:1:18)
+    at RelatedArticlesSection (src\components\blog\related-articles-section.tsx:32:19)
+    at RecommendationsSection (src\components\blog\recommendations-section.tsx:13:7)
+    at BlogArticle (src\components\blog\blog-article.tsx:251:13)
+    at ToolSlugPage (src\app\[slug]\page.tsx:192:9)
+  31 |       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  32 |         {articles.map((post, i) => (
+> 33 |           <RelatedArticleCard key={post.slug} post={post} index={i} />
+     |           ^
+  34 |         ))}
+  35 |       </div>
+  36 |     </section>
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] Uncaught Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function.
+    at eval (src\components\blog\related-articles-section.tsx:33:11)
+    at Array.map (<anonymous>:1:18)
+    at RelatedArticlesSection (src\components\blog\related-articles-section.tsx:32:19)
+    at RecommendationsSection (src\components\blog\recommendations-section.tsx:13:7)
+    at BlogArticle (src\components\blog\blog-article.tsx:251:13)
+    at ToolSlugPage (src\app\[slug]\page.tsx:192:9)
+  31 |       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+  32 |         {articles.map((post, i) => (
+> 33 |           <RelatedArticleCard key={post.slug} post={post} index={i} />
+     |           ^
+  34 |         ))}
+  35 |       </div>
+  36 |     </section>
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] Error: Element type is invalid. Received a promise that resolves to: undefined. Lazy element type must resolve to a class or function. (src\app\error.tsx:15:13)
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
+[browser] AdSense head tag doesn't support data-nscript attribute. (https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774:220:300)
