@@ -8,6 +8,7 @@ import {
   HowToJsonLd,
 } from "@/components/seo/json-ld";
 import { CdLadderCalculator } from "@/components/calculators/cd-ladder-calculator";
+import { CdLadderContent } from "@/components/calculators/cd-ladder-content";
 
 export const metadata: Metadata = {
   title: "CD Ladder Calculator | Free Certificate of Deposit Ladder Calculator (2026) | Measurely",
@@ -78,6 +79,7 @@ export default function CdLadderCalculatorPage() {
         url={`${SITE_CONFIG.url}/cd-ladder-calculator`}
       />
       <CdLadderCalculator />
+      <CdLadderContent />
     </>
   );
 }

@@ -8,6 +8,7 @@ import {
   HowToJsonLd,
 } from "@/components/seo/json-ld";
 import { EmergencyFundCalculator } from "@/components/calculators/emergency-fund-calculator";
+import { EmergencyFundContent } from "@/components/calculators/emergency-fund-content";
 
 export const metadata: Metadata = {
   title: "Emergency Fund Calculator | Free Emergency Savings Calculator (2026) | Measurely",
@@ -78,6 +79,7 @@ export default function EmergencyFundCalculatorPage() {
         url={`${SITE_CONFIG.url}/emergency-fund-calculator`}
       />
       <EmergencyFundCalculator />
+      <EmergencyFundContent />
     </>
   );
 }
