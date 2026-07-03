@@ -222,41 +222,57 @@ export function ToolCard({
             )}
           />
 
-          <div className={cn(
-            "relative z-10",
-            isCompact ? "flex items-center gap-4" : "flex items-start gap-4"
-          )}>
-            {/* Icon with gradient */}
-            <div
-              className={cn(
-                "shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300",
-                theme.iconGradient,
-                isCompact ? "w-10 h-10" : "w-11 h-11 sm:w-12 sm:h-12"
-              )}
-            >
-              <IconComponent className={cn(isCompact ? "h-4 w-4" : "h-5 w-5 sm:h-6 sm:w-6")} />
-            </div>
-
-            {/* Content */}
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-0.5">
-                <h3 className={cn(
-                  "font-semibold text-text group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-snug",
-                  isCompact ? "text-sm" : "text-base"
-                )}>
-                  {name}
-                </h3>
+          {isCompact ? (
+            /* Compact horizontal layout */
+            <div className="relative z-10 flex items-center gap-4">
+              <div
+                className={cn(
+                  "shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300",
+                  theme.iconGradient,
+                  "w-10 h-10"
+                )}
+              >
+                <IconComponent className="h-4 w-4" />
               </div>
-              {!isCompact && (
-                <p className="text-sm text-text-secondary leading-relaxed line-clamp-2">
-                  {description}
-                </p>
-              )}
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 min-w-0">
+                  <h3 className="text-sm font-semibold text-text line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-snug">
+                    {name}
+                  </h3>
+                </div>
+              </div>
+            </div>
+          ) : (
+            /* Standard vertical layout with uniform sizing */
+            <div className="relative z-10 flex flex-col h-full">
+              {/* Top row: Icon + Heart zone (already rendered outside) */}
+              <div className="flex items-start justify-between mb-3">
+                <div
+                  className={cn(
+                    "shrink-0 flex items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-sm group-hover:scale-110 group-hover:shadow-md transition-all duration-300",
+                    theme.iconGradient,
+                    "w-9 h-9 sm:w-10 sm:h-10"
+                  )}
+                >
+                  <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" />
+                </div>
+              </div>
 
-              <div className={cn(
-                "flex items-center justify-between",
-                isCompact ? "mt-0" : "mt-3.5"
+              {/* Title: 2 lines max, fixed min-height to reserve space */}
+              <h3 className={cn(
+                "font-semibold text-text group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-snug line-clamp-2 min-h-[2.75rem] sm:min-h-[3rem]",
+                "text-sm sm:text-base"
               )}>
+                {name}
+              </h3>
+
+              {/* Description: 2 lines max, fills remaining space */}
+              <p className="text-sm text-text-secondary leading-relaxed line-clamp-2 flex-1 mt-1.5">
+                {description}
+              </p>
+
+              {/* Bottom row: Badge + Arrow */}
+              <div className="flex items-center justify-between mt-auto pt-3">
                 <div className="flex items-center gap-2">
                   <Badge
                     variant="secondary"
@@ -276,14 +292,12 @@ export function ToolCard({
                 </div>
 
                 {/* Arrow on hover */}
-                {!isCompact && (
-                  <div className="flex items-center justify-center w-8 h-8 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-1 group-hover:translate-x-0 bg-primary-500/10 text-primary-500">
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </div>
-                )}
+                <div className="flex items-center justify-center w-8 h-8 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-x-1 group-hover:translate-x-0 bg-primary-500/10 text-primary-500">
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </Link>
       <button

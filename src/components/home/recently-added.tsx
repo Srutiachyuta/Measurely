@@ -29,25 +29,28 @@ function getCategoryDisplay(category: string): string {
   return categoryDisplay[category] || category.charAt(0).toUpperCase() + category.slice(1);
 }
 
-const HOME_EQUITY_ENTRY = {
-  name: "Home Equity Loan Calculator",
-  slug: "home-equity-loan-calculator",
-  category: "Real Estate",
-  categorySlug: "real-estate",
-  icon: "House",
-  description: "Estimate your available home equity, maximum borrowing amount, and monthly payments for a home equity loan.",
-};
-
-const STUDENT_LOAN_ENTRY = {
-  name: "Student Loan Repayment Calculator",
-  slug: "student-loan-repayment-calculator",
+const EMERGENCY_FUND_ENTRY = {
+  name: "Emergency Fund Calculator",
+  slug: "emergency-fund-calculator",
   category: "Finance",
   categorySlug: "finance",
-  icon: "GraduationCap",
-  description: "Estimate monthly payments, total interest, IBR, and forgiveness for student loans.",
+  icon: "Shield",
+  description: "Determine your ideal emergency fund based on monthly expenses, income stability, and risk profile with milestone tracking.",
 };
 
+const CD_LADDER_ENTRY = {
+  name: "CD Ladder Calculator",
+  slug: "cd-ladder-calculator",
+  category: "Finance",
+  categorySlug: "finance",
+  icon: "Layers",
+  description: "Build an optimized CD ladder strategy to maximize returns while maintaining liquidity with staggered maturity dates.",
+};
+
+const HARDCODED_SLUGS = new Set([EMERGENCY_FUND_ENTRY.slug, CD_LADDER_ENTRY.slug]);
+
 const recentTools = (() => {
+  const seen = new Set<string>(HARDCODED_SLUGS);
   const calcItems = calculators.map((c) => ({
     name: c.name,
     slug: c.slug,
@@ -55,9 +58,13 @@ const recentTools = (() => {
     categorySlug: c.category,
     icon: getIconName(c.icon),
     description: c.description,
-  })).reverse();
+  })).reverse().filter((c) => {
+    if (seen.has(c.slug)) return false;
+    seen.add(c.slug);
+    return true;
+  });
   const sliced = calcItems.slice(0, RECENT_COUNT - 2);
-  return [HOME_EQUITY_ENTRY, STUDENT_LOAN_ENTRY, ...sliced];
+  return [EMERGENCY_FUND_ENTRY, CD_LADDER_ENTRY, ...sliced];
 })();
 
 const itemVariants = {

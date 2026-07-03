@@ -8,6 +8,7 @@ import {
   HowToJsonLd,
 } from "@/components/seo/json-ld";
 import { InheritanceTaxCalculator } from "@/components/calculators/inheritance-tax-calculator";
+import { InheritanceTaxContent } from "@/components/calculators/inheritance-tax-content";
 
 export const metadata: Metadata = {
   title: "Inheritance Tax Calculator | Free Estate & Inheritance Tax Estimator (2026) | Measurely",
@@ -78,6 +79,7 @@ export default function InheritanceTaxCalculatorPage() {
         url={`${SITE_CONFIG.url}/inheritance-tax-calculator`}
       />
       <InheritanceTaxCalculator />
+      <InheritanceTaxContent />
     </>
   );
 }

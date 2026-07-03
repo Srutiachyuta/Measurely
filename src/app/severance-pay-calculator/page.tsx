@@ -8,6 +8,7 @@ import {
   HowToJsonLd,
 } from "@/components/seo/json-ld";
 import { SeveranceCalculator } from "@/components/calculators/severance-calculator";
+import { SeverancePayContent } from "@/components/calculators/severance-pay-content";
 
 export const metadata: Metadata = {
   title: "Severance Pay Calculator | Estimate Your Layoff Compensation (2026) | Measurely",
@@ -79,6 +80,7 @@ export default function SeverancePayCalculatorPage() {
         url={`${SITE_CONFIG.url}/severance-pay-calculator`}
       />
       <SeveranceCalculator />
+      <SeverancePayContent />
     </>
   );
 }

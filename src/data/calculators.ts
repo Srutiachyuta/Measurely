@@ -42,6 +42,8 @@ import {
   ChartLine,
   Banknote,
   Bot,
+  Shield,
+  Layers,
 } from "lucide-react";
 
 
@@ -5867,5 +5869,110 @@ export const calculators: CalculatorDefinition[] = [
     ],
     relatedSlugs: ["net-worth-calculator", "retirement-calculator", "investment-return-calculator", "compound-interest-calculator", "tax-calculator"],
     formula: "Taxable Estate = Gross Estate - Debts - Expenses - Exemptions. Tax = Taxable Estate × Applicable Tax Rate. Net Inheritance = Gross Estate - Deductions - Tax.",
+  },
+  {
+    icon: Shield,
+    name: "Emergency Fund Calculator",
+    slug: "emergency-fund-calculator",
+    category: "finance",
+    description: "Determine how much you need saved for emergencies based on your monthly expenses, income stability, and financial situation.",
+    metaTitle: "Emergency Fund Calculator | Free Emergency Savings Calculator (2026) | Measurely",
+    metaDescription: "Free emergency fund calculator. Determine how much you need in emergency savings based on your monthly expenses, income stability, dependents, and debt obligations. Personalized savings goal with milestone tracker.",
+    inputs: [
+      { label: "Monthly Essential Expenses", key: "monthlyExpenses", type: "number", placeholder: "e.g., 3000", min: 1, step: 100, defaultValue: 3000 },
+      { label: "Monthly Income", key: "monthlyIncome", type: "number", placeholder: "e.g., 5000", min: 1, step: 100, defaultValue: 5000 },
+      { label: "Employment Type", key: "employmentType", type: "select", options: [{ label: "Salaried", value: "salaried" }, { label: "Freelancer", value: "freelancer" }, { label: "Self-employed", value: "self-employed" }, { label: "Business Owner", value: "business-owner" }], defaultValue: "salaried" },
+      { label: "Job Stability", key: "jobStability", type: "select", options: [{ label: "High", value: "high" }, { label: "Medium", value: "medium" }, { label: "Low", value: "low" }], defaultValue: "medium" },
+      { label: "Existing Emergency Savings", key: "existingSavings", type: "number", placeholder: "e.g., 5000", min: 0, step: 100, defaultValue: 5000 },
+      { label: "Monthly Debt Payments", key: "monthlyDebtPayments", type: "number", placeholder: "e.g., 500", min: 0, step: 50, defaultValue: 500 },
+      { label: "Number of Dependents", key: "dependents", type: "number", placeholder: "e.g., 0", min: 0, max: 20, step: 1, defaultValue: 0 },
+      { label: "Health Insurance Status", key: "healthInsurance", type: "select", options: [{ label: "Insured", value: "yes" }, { label: "Uninsured", value: "no" }], defaultValue: "yes" },
+      { label: "Housing Status", key: "housingStatus", type: "select", options: [{ label: "Homeowner", value: "homeowner" }, { label: "Renter", value: "renter" }], defaultValue: "renter" },
+      { label: "Dual Income Household", key: "dualIncome", type: "select", options: [{ label: "Yes", value: "yes" }, { label: "No", value: "no" }], defaultValue: "yes" },
+      { label: "Monthly Savings Amount", key: "monthlySavings", type: "number", placeholder: "e.g., 500", min: 0, step: 50, defaultValue: 500 },
+      { label: "Expected Annual Return (%)", key: "annualReturn", type: "number", placeholder: "e.g., 4", min: 0, max: 100, step: 0.1, defaultValue: 4 },
+    ],
+    compute: (inputs) => {
+      const monthlyExpenses = Number(inputs.monthlyExpenses) || 0;
+      const existingSavings = Number(inputs.existingSavings) || 0;
+      const jobStability = String(inputs.jobStability || "medium");
+      const monthsMap: Record<string, number> = { high: 4, medium: 7, low: 10 };
+      const recommendedMonths = monthsMap[jobStability] || 6;
+      const targetFund = monthlyExpenses * recommendedMonths;
+      const remaining = Math.max(0, targetFund - existingSavings);
+      return [
+        { label: "Target Emergency Fund", key: "targetFund", value: targetFund, unit: "$", color: "blue" },
+        { label: "Recommended Months", key: "recommendedMonths", value: recommendedMonths, unit: "months", color: "default" },
+        { label: "Current Savings", key: "existingSavings", value: existingSavings, unit: "$", color: "green" },
+        { label: "Remaining Goal", key: "remainingGoal", value: remaining, unit: "$", color: "amber" },
+      ];
+    },
+    example: {
+      inputs: { monthlyExpenses: 3000, monthlyIncome: 5000, employmentType: "salaried", jobStability: "medium", existingSavings: 5000, monthlyDebtPayments: 500, dependents: 0, healthInsurance: "yes", housingStatus: "renter", dualIncome: "yes", monthlySavings: 500, annualReturn: 4 },
+      results: [],
+    },
+    faqs: [
+      { question: "How much emergency fund do I really need?", answer: "Financial experts typically recommend 3 to 6 months of essential expenses for stable employment, 6 to 9 months for moderate risk, and 9 to 12 months for self-employed or high-risk situations. Our calculator personalizes this based on your specific circumstances." },
+      { question: "Is six months of expenses enough?", answer: "Six months of essential expenses is a standard recommendation for salaried employees with stable jobs. However, freelancers, self-employed individuals, and those with lower job stability may need 9 to 12 months of coverage." },
+      { question: "Where should I keep my emergency savings?", answer: "Emergency savings should be kept in a liquid, low-risk account like a high-yield savings account (HYSA), money market account, or cash management account. These offer easy access and FDIC insurance while earning competitive interest." },
+      { question: "Should I invest my emergency fund?", answer: "No. Emergency funds should not be invested in volatile assets like stocks or crypto. The primary purpose is liquidity and capital preservation during emergencies. Keep funds in FDIC-insured savings accounts or money market accounts." },
+      { question: "What counts as an emergency?", answer: "An emergency is an unexpected, urgent expense such as job loss, medical emergency, urgent car repair, home appliance replacement, or unexpected travel. It should not include planned expenses like vacations or discretionary purchases." },
+      { question: "Can I build an emergency fund while paying off debt?", answer: "Yes, but prioritize strategically. Build a small starter emergency fund of $1,000-$2,000 first, then focus on high-interest debt, and finally build a full emergency fund while making minimum debt payments." },
+      { question: "How long does it take to build an emergency fund?", answer: "The timeline depends on your savings capacity and target amount. With consistent monthly savings, most people can build a 3-6 month emergency fund within 12-24 months. Our calculator provides a personalized timeline." },
+      { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on financial best practices and your personal inputs. Actual emergency fund needs may vary based on your specific financial situation, local cost of living, and personal risk tolerance." },
+    ],
+    relatedSlugs: ["budget-calculator", "retirement-calculator", "net-worth-calculator", "cash-flow-forecast-calculator", "compound-interest-calculator"],
+    formula: "Target Emergency Fund = Monthly Essential Expenses × Recommended Months. Recommended Months based on employment type, job stability, dependents, and other risk factors.",
+  },
+  {
+    icon: Layers,
+    name: "CD Ladder Calculator",
+    slug: "cd-ladder-calculator",
+    category: "finance",
+    description: "Build an optimized CD ladder strategy to maximize returns while maintaining liquidity with staggered maturity dates.",
+    metaTitle: "CD Ladder Calculator | Free Certificate of Deposit Ladder Calculator (2026) | Measurely",
+    metaDescription: "Free CD ladder calculator. Build a certificate of deposit ladder strategy to maximize returns. Compare 3-rung and 5-rung strategies with maturity calendar and growth projections.",
+    inputs: [
+      { label: "Total Investment", key: "totalInvestment", type: "number", placeholder: "e.g., 10000", min: 100, step: 500, defaultValue: 10000 },
+      { label: "Number of CDs", key: "numCds", type: "select", options: [{ label: "3-Rung Ladder", value: "3" }, { label: "5-Rung Ladder", value: "5" }], defaultValue: "3" },
+      { label: "Compounding", key: "compounding", type: "select", options: [{ label: "Daily", value: "365" }, { label: "Monthly", value: "12" }, { label: "Quarterly", value: "4" }, { label: "Annually", value: "1" }], defaultValue: "12" },
+      { label: "Reinvest at Maturity", key: "reinvest", type: "select", options: [{ label: "Yes", value: "yes" }, { label: "No", value: "no" }], defaultValue: "yes" },
+      { label: "Estimated Future Rate (%)", key: "futureRate", type: "number", placeholder: "e.g., 4.5", min: 0, max: 100, step: 0.1, defaultValue: 4 },
+      { label: "Tax Rate (%)", key: "taxRate", type: "number", placeholder: "e.g., 22", min: 0, max: 100, step: 0.1, defaultValue: 0 },
+    ],
+    compute: (inputs) => {
+      const total = Number(inputs.totalInvestment) || 10000;
+      const numCds = Number(inputs.numCds) || 3;
+      const perCd = total / numCds;
+      const terms = numCds === 3 ? [3, 6, 12] : [3, 6, 12, 24, 36];
+      const rates = numCds === 3 ? [3.5, 4.0, 4.5] : [3.0, 3.5, 4.0, 4.5, 5.0];
+      const totalInterest = terms.reduce((sum, t, i) => {
+        return sum + perCd * (Math.pow(1 + (rates[i] / 100) / 12, t) - 1);
+      }, 0);
+      const futureValue = total + totalInterest;
+      const effectiveYield = (Math.pow(futureValue / total, 12 / Math.max(...terms)) - 1) * 100;
+      return [
+        { label: "Total Investment", key: "totalInvestment", value: total, unit: "$", color: "blue" },
+        { label: "Total Interest", key: "totalInterest", value: Math.round(totalInterest * 100) / 100, unit: "$", color: "green" },
+        { label: "Total Future Value", key: "futureValue", value: Math.round(futureValue * 100) / 100, unit: "$", color: "green" },
+        { label: "Effective Yield", key: "effectiveYield", value: Math.round(effectiveYield * 100) / 100, unit: "%", color: "amber" },
+      ];
+    },
+    example: {
+      inputs: { totalInvestment: 10000, numCds: "3", compounding: "12", reinvest: "yes", futureRate: 4, taxRate: 0 },
+      results: [],
+    },
+    faqs: [
+      { question: "What is a CD ladder?", answer: "A CD ladder is a savings strategy where you split your money across multiple Certificates of Deposit with staggered maturity dates (e.g., 3-month, 6-month, 12-month). This gives you regular access to some of your money while earning higher rates on longer-term CDs." },
+      { question: "How many CDs should I include?", answer: "A 3-rung ladder (3, 6, 12 months) is ideal for beginners seeking liquidity. A 5-rung ladder (3, 6, 12, 24, 36 months) offers higher yield potential. Choose based on your liquidity needs and interest rate outlook." },
+      { question: "Is a CD ladder better than a savings account?", answer: "CD ladders typically offer higher interest rates than savings accounts, especially for longer terms. However, savings accounts offer instant liquidity without penalties. A CD ladder is better when you have a lump sum and want to maximize returns while maintaining periodic access." },
+      { question: "Can I withdraw money early?", answer: "Early withdrawal from a CD typically incurs a penalty (usually 3-12 months of interest). CD ladders mitigate this by ensuring some money matures regularly, reducing the need for early withdrawals." },
+      { question: "What happens when a CD matures?", answer: "When a CD matures, you can withdraw the principal and interest, or reinvest it into a new CD. With reinvestment enabled, the calculator projects growth by reinvesting at the estimated future rate." },
+      { question: "Are CD ladder returns guaranteed?", answer: "CD returns are guaranteed for the initial term at the stated interest rate (FDIC insured up to $250,000 per depositor per bank). Future reinvestment rates are not guaranteed and depend on market conditions." },
+      { question: "How often should I reinvest?", answer: "Reinvest each CD as it matures to maintain your ladder structure. This ensures you continuously benefit from prevailing interest rates while keeping your ladder strategy intact." },
+      { question: "Is this calculator accurate?", answer: "This calculator provides estimates based on the inputs you provide. Actual returns depend on the specific CD rates, compounding methods, and future rate changes. Use this as a planning tool." },
+    ],
+    relatedSlugs: ["compound-interest-calculator", "interest-calculator", "investment-return-calculator", "retirement-calculator", "net-worth-calculator"],
+    formula: "CD Value = P × (1 + r/n)^(n×t). Total = Sum of all CD values. Effective Yield = (FV / PV)^(1/years) - 1.",
   },
 ];
