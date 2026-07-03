@@ -100,9 +100,7 @@ export function ThirdPartyScripts({
       )}
 
       {prefs.marketing && (
-        <Script
-          id="adsense-script"
-          strategy="afterInteractive"
+        <script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774"
           async
           crossOrigin="anonymous"
