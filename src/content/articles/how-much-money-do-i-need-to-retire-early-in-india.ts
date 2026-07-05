@@ -118,6 +118,38 @@ It depends on your lifestyle, location, and family. Here are realistic scenarios
 7. <strong>Quitting too early.</strong> Have 2-3 years of expenses in liquid assets before leaving your job.
 8. <strong>Ignoring taxes.</strong> Equity LTCG above ₹1 lakh is taxed. Debt funds taxed at your slab. Plan your withdrawal strategy.
 
+## FIRE Movement in India: Strategies and Realities
+
+The FIRE movement has adapted significantly for Indian conditions.
+
+<strong>Indian FIRE is different from US FIRE.</strong> In the US, FIRE relies heavily on tax-advantaged retirement accounts (401k, IRA) and the 4% rule based on US market returns. In India, you depend more on equity mutual funds, PPF, EPF, and real estate. The 4% rule needs adjustment for Indian inflation (typically 5-7% vs US 2-3%).
+
+<strong>Realistic savings rates:</strong> Indian IT professionals earning ₹25-40 lakh/year can achieve a 50-60% savings rate by living frugally in their 20s and early 30s. A 25-year-old saving ₹1 lakh/month in equity mutual funds at 12% returns builds a ₹5+ crore corpus by age 45 — enough for a comfortable FIRE.
+
+<strong>The rental income strategy:</strong> Many Indian FIRE seekers prefer real estate for passive income. A fully paid-off flat generating ₹25,000-40,000/month in rent covers basic expenses, reducing the equity corpus needed. The downside: real estate is illiquid and concentrated.
+
+<strong>The coast FIRE approach:</strong> Instead of saving aggressively until retirement, reach a "coast number" where your existing investments grow to your target by traditional retirement age. Then switch to a lower-stress, lower-paying job that covers current expenses. This is increasingly popular among Indians in their 30s who want career flexibility.
+
+<strong>Geo-arbitrage:</strong> Retiring in a tier-2 or tier-3 city dramatically reduces your FIRE number. Moving from Bengaluru to Bhubaneswar or Mysore can cut expenses by 40-50%. Healthcare and education quality remain high, but housing, food, and transportation cost much less.
+
+<strong>The reality check:</strong> FIRE requires discipline most people underestimate. Market corrections, lifestyle inflation, health emergencies, and family obligations can derail the best plans. Build buffers: 2-3 years of expenses in debt instruments, separate education funds for children, and comprehensive health insurance.
+
+## Healthcare Costs in Early Retirement
+
+Medical inflation in India runs at 12-15% annually — far above general inflation. This is the single biggest risk in any early retirement plan.
+
+<strong>Health insurance is non-negotiable:</strong> A single hospitalization for a critical illness can cost ₹10-25 lakh. Without adequate coverage, your entire retirement corpus is at risk. Minimum recommendation: ₹10-15 lakh family floater plan for a couple, ₹20-25 lakh for a family of 4.
+
+<strong>Budgeting for healthcare in retirement:</strong> Set aside at least ₹50,000-1 lakh/year for health insurance premiums, plus ₹3-5 lakh/year for routine medical expenses, dental care, and eye care after age 60. These costs increase significantly with age.
+
+<strong>Super top-up plans:</strong> Consider a super top-up health insurance plan with a high deductible (₹5-10 lakh). These are much cheaper than comprehensive plans and cover catastrophic expenses. Use the base policy for smaller claims and the super top-up for major hospitalization.
+
+<strong>Ayushman Bharat and state schemes:</strong> If eligible, government health schemes like Ayushman Bharat (₹5 lakh coverage per family per year) provide a useful safety net. Combine with a private top-up plan for comprehensive coverage.
+
+<strong>Medical tourism within India:</strong> Major hospitals in tier-2 cities (Cuttack, Coimbatore, Indore) offer world-class treatment at 40-60% lower costs than metros. Factoring this into your retirement location decision can significantly reduce your healthcare budget.
+
+<strong>Critical illness insurance:</strong> A separate critical illness policy (₹10-25 lakh lump sum on diagnosis of cancer, heart attack, stroke) provides an additional layer of protection. Premiums are relatively low when purchased in your 30s — lock in early.
+
 ## Use Our FIRE Number Calculator
 
 Our <a href="/fire-number-calculator">FIRE Number Calculator</a> gives you personalized results. Enter your age, target retirement age, expenses, current savings, monthly investment, expected returns, and withdrawal rate.
@@ -158,7 +190,7 @@ At 6% inflation, expenses double every 12 years. ₹6L today = ₹12L in 12 year
     categorySlug: "retirement",
     publishedAt: "2026-06-25",
     updatedAt: "2026-06-25",
-    readingTime: 15,
+    readingTime: 22,
     featured: false,
     popular: true,
     image: "/blog/retirement-calculator.svg",
@@ -168,7 +200,7 @@ At 6% inflation, expenses double every 12 years. ₹6L today = ₹12L in 12 year
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to make complex financial calculations simple and accessible for everyone in India.",
     },
-    relatedSlugs: ["sip-calculator", "compound-interest-calculator", "home-equity-loan-calculator"],
+    relatedSlugs: ["sip-calculator", "compound-interest-calculator", "plan-systematic-withdrawals-retirement", "sip-vs-lumpsum-investing"],
     relatedTools: [
       { name: "FIRE Number Calculator", slug: "fire-number-calculator", type: "calculator" },
       { name: "SIP Calculator", slug: "sip-calculator", type: "calculator" },

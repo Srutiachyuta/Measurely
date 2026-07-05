@@ -54,7 +54,6 @@
 - [Equation Solver](https://measurely.in/equation-solver): Solve algebraic equations
 - [GCF & LCM Calculator](https://measurely.in/gcf-lcm-calculator): Find greatest common factor and least common multiple
 - [Prime Number Calculator](https://measurely.in/prime-number-calculator): Check prime numbers and generate primes
-- [Statistics Calculator](https://measurely.in/statistics-calculator): Calculate statistical measures
 
 ## Calculators — Engineering
 - [Ohms Law Calculator](https://measurely.in/ohms-law-calculator): Calculate voltage, current, resistance, and power

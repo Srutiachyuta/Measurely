@@ -145,6 +145,48 @@ A single number is just a data point. Track monthly and watch the trend, not the
 ### Confusing % with Mass
 You can have low body weight but high body fat percentage. Look at both percentage and fat mass in kg.
 
+## DEXA Scans vs Home Measurement Methods
+
+When it comes to measuring body composition, you have several options. Understanding the pros and cons of each helps you choose the right method for your needs and budget.
+
+<strong>DEXA scan (dual-energy X-ray absorptiometry):</strong> This is the gold standard. DEXA scans use low-dose X-rays to measure bone density, lean mass, and fat mass with high precision. They cost $50-$150 per scan and are available at medical imaging centers and some universities. DEXA is accurate to within 1-2% body fat and provides regional breakdowns (arms, legs, trunk). The downsides: cost, limited availability, and radiation exposure (though minimal).
+
+<strong>Hydrostatic weighing:</strong> You sit on a scale submerged in water, and body density is calculated from the difference between your land weight and underwater weight. Accuracy is comparable to DEXA (1-2% error). It's less common and can be uncomfortable. Costs $30-$60.
+
+<strong>Bod Pod (air displacement plethysmography):</strong> Similar principle to hydrostatic weighing but uses air instead of water. You sit in an egg-shaped chamber for a few minutes. Accuracy is within 2-3%. Cost is $40-$75. Found at some universities and fitness centers.
+
+<strong>Bioelectrical impedance analysis (BIA):</strong> Found in many home scales and handheld devices, BIA sends a tiny electrical current through your body and measures resistance. Accuracy varies widely — from 3-8% error depending on hydration, food intake, and device quality. Consistent conditions improve reliability, but BIA shouldn't be your sole method if you need precise tracking.
+
+<strong>Skinfold calipers:</strong> A trained professional pinches 3-7 sites on your body and measures subcutaneous fat thickness. Error is 3-4% with an experienced technician. Cost is low ($20-$40 for calipers). The main limitation is that accuracy depends heavily on the practitioner's skill.
+
+<strong>U.S. Navy Method (circumference-based):</strong> The method our calculator uses, with 3-4% error when measurements are taken correctly. It's free, requires only a tape measure, and can be done at home. Consistency in technique matters more than absolute accuracy — track the trend over time.
+
+## How Hydration Affects Body Fat Readings
+
+Hydration status can significantly impact body fat measurements, especially with certain methods. Understanding these effects helps you get more consistent results.
+
+<strong>BIA and hydration:</strong> Bioelectrical impedance is most affected by hydration. Since BIA measures electrical resistance through body water, dehydration makes tissues appear more resistant (higher fat reading) while overhydration makes them appear less resistant (lower fat reading). Readings can vary by 2-5% body fat depending on hydration status. Always measure under the same conditions — first thing in the morning, before drinking.
+
+<strong>Circumference methods and hydration:</strong> The U.S. Navy Method is less affected by hydration than BIA, but it's not immune. Dehydration can cause subtle changes in tissue pliability that affect waist and hip measurements. More importantly, dehydration affects water weight, which changes your total weight and therefore your fat mass calculations.
+
+<strong>Consistency is key:</strong> The single most important factor for reliable body fat tracking is measuring under the same conditions every time. Measure first thing in the morning, after using the bathroom, before eating or drinking, and record the conditions. If you're well-hydrated one day and dehydrated the next, the difference in readings could be misleading.
+
+<strong>Other factors affecting readings:</strong> Recent exercise causes fluid shifts and temporary changes in muscle size. Menstrual cycle causes hormonal water retention. High-sodium meals increase water retention for 24-48 hours. Large meals increase abdominal distension affecting waist measurements.
+
+## Combining Body Fat with Other Health Metrics
+
+Body fat percentage is powerful, but it's most useful when combined with other health indicators for a complete picture.
+
+<strong>BMI + body fat:</strong> Use both for a fuller assessment. Someone with a BMI of 27 (overweight) but body fat of 15% (athletic) is likely healthy — the extra weight is muscle. Someone with a "normal" BMI of 22 but body fat of 32% may have normal weight obesity, which carries significant health risks. Our <a href="/bmi-calculator">BMI calculator</a> and body fat calculator together give you both perspectives.
+
+<strong>Waist circumference:</strong> This simple measurement predicts visceral fat better than body fat percentage alone. A waist over 40 inches (102 cm) for men or 35 inches (88 cm) for women indicates elevated health risk regardless of body fat percentage. Measure at the navel level, relaxed, after exhaling.
+
+<strong>Blood markers:</strong> Body composition changes are most meaningful when correlated with blood work. Improving body fat percentage should lead to improvements in blood sugar, triglycerides, HDL cholesterol, and blood pressure over time. If your body fat is improving but blood markers aren't, other lifestyle factors (diet quality, stress, sleep) may need attention.
+
+<strong>Strength and performance metrics:</strong> Track your gym performance alongside body composition. Increasing strength while maintaining or reducing body fat suggests you're building muscle and losing fat simultaneously — the ideal scenario. Our <a href="/find-target-heart-rate-zones-optimal-fitness">heart rate zone guide</a> can help optimize your training.
+
+<strong>Progress photos and measurements:</strong> Photos at the same angle and lighting every 4 weeks provide visual evidence that numbers alone can't capture. Combine with tape measurements of chest, waist, hips, arms, and thighs for a complete tracking system.
+
 ## Conclusion
 
 Your body fat percentage tells you way more than the scale ever could. Understanding your body composition helps you make smarter decisions about nutrition, exercise, and overall health. Our <a href="/body-fat-calculator">body fat calculator</a> makes it easy with just a few measurements.
@@ -156,7 +198,7 @@ Start measuring. Stop guessing.`,
     categorySlug: "health",
     publishedAt: "2026-06-19",
     updatedAt: "2026-06-19",
-    readingTime: 12,
+    readingTime: 15,
     featured: false,
     popular: false,
     image: "/blog/body-fat-calculator.svg",
@@ -166,11 +208,13 @@ Start measuring. Stop guessing.`,
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to help people understand body composition, track fitness progress, and achieve their health goals with accurate body fat measurement tools.",
     },
-    relatedSlugs: ["bmi-understanding-your-body-mass-index", "bmr-and-weight-management", "daily-water-intake-guide"],
+    relatedSlugs: ["bmi-understanding-your-body-mass-index", "bmr-and-weight-management", "daily-water-intake-guide", "find-target-heart-rate-zones-optimal-fitness", "track-pregnancy-week-by-week"],
     relatedTools: [
       { name: "Body Fat Calculator", slug: "measure-interpret-body-composition", type: "calculator" },
       { name: "BMI Calculator", slug: "bmi-calculator", type: "calculator" },
       { name: "Calorie Calculator", slug: "many-calories-need-each-day", type: "calculator" },
+      { name: "Water Intake Calculator", slug: "water-intake-calculator", type: "calculator" },
+      { name: "Heart Rate Calculator", slug: "heart-rate-calculator", type: "calculator" },
     ],
     faqs: [
       { question: "What is a healthy body fat percentage?", answer: "For men, 10-20% is generally healthy while 6-13% is considered athletic. For women, 18-28% is healthy while 14-20% is considered athletic." },

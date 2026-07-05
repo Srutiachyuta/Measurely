@@ -52,7 +52,6 @@ import { master_greatest_common_factor_least_common } from "./articles/master-gr
 import { master_matrix_operations_step_by_step_solutions } from "./articles/master-matrix-operations-step-by-step-solutions";
 import { master_voltage_current_resistance_calculations } from "./articles/master-voltage-current-resistance-calculations";
 import { maximize_recurring_deposit_growth } from "./articles/maximize-recurring-deposit-growth";
-import { mean_median_mode_standard_deviation_more } from "./articles/mean-median-mode-standard-deviation-more";
 import { measure_interpret_body_composition } from "./articles/measure-interpret-body-composition";
 import { much_house_can_afford } from "./articles/much-house-can-afford";
 import { much_paint_need_project } from "./articles/much-paint-need-project";
@@ -129,7 +128,6 @@ const articles: BlogPost[] = [
   master_matrix_operations_step_by_step_solutions,
   master_voltage_current_resistance_calculations,
   maximize_recurring_deposit_growth,
-  mean_median_mode_standard_deviation_more,
   measure_interpret_body_composition,
   much_house_can_afford,
   much_paint_need_project,
@@ -208,7 +206,6 @@ export {
   master_matrix_operations_step_by_step_solutions,
   master_voltage_current_resistance_calculations,
   maximize_recurring_deposit_growth,
-  mean_median_mode_standard_deviation_more,
   measure_interpret_body_composition,
   much_house_can_afford,
   much_paint_need_project,

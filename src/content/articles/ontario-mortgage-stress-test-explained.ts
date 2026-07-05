@@ -131,6 +131,40 @@ Adding a co-borrower, working overtime, or taking on a second job can boost your
 
 Some lenders offer lower contract rates for variable-rate mortgages, which can reduce the stress-test qualifying rate since it is contract rate plus 2%.
 
+## Stress Test for Renewals vs New Mortgages
+
+The stress test applies differently depending on whether you're getting a new mortgage, renewing an existing one, or refinancing.
+
+<strong>New mortgage purchases:</strong> The stress test applies in full. You must qualify at the higher of the Bank of Canada's 5-year rate (5.25%) or your contract rate plus 2%. Both insured and uninsured mortgages are subject to this requirement. First-time buyers and move-up buyers face the same rules.
+
+<strong>Mortgage renewals with the same lender:</strong> The stress test does NOT apply. If you stay with your current lender and your mortgage is in good standing, you can renew without re-qualifying under the stress test. This is true even if your financial situation has changed since you originally qualified. You simply sign the renewal documents at the offered rate.
+
+<strong>Switching lenders at renewal:</strong> The stress test applies. If you want to switch to a different lender for a better rate at renewal, you must re-qualify under the stress test. This includes a full credit check, income verification, and debt service ratio calculation. Many borrowers are surprised to find they can't switch lenders even though they've been making payments on time.
+
+<strong>Refinancing:</strong> The stress test applies to refinances. If you want to access home equity or consolidate debt through a refinance, you must qualify at the stress test rate. Additionally, refinances are limited to 80% LTV for uninsured mortgages. If your current mortgage is uninsured, refinancing may trigger CMHC insurance requirements if you exceed 80% LTV.
+
+<strong>Porting a mortgage:</strong> If you sell your home and buy a new one, most lenders allow you to port your existing mortgage (transfer it to the new property). Porting generally doesn't require re-qualifying under the stress test if the mortgage amount remains the same. However, if you need to increase the mortgage for the new home, the additional amount must be stress-tested.
+
+<strong>Strategy:</strong> If you're approaching renewal, compare your existing lender's renewal offer with competitor rates. If the difference is significant, check whether you'd pass the stress test before initiating a switch. Sometimes a slightly higher rate with your current lender is better than failing the stress test with a new lender.
+
+## How to Qualify Despite the Stress Test
+
+If the stress test is limiting your borrowing power, several strategies can improve your qualification chances.
+
+<strong>Increase your down payment:</strong> A 20% down payment eliminates CMHC insurance costs and reduces your mortgage amount. Every additional 5% down reduces your monthly payment and improves your GDS and TDS ratios. Even moving from 5% to 10% down makes a meaningful difference in stress test qualification.
+
+<strong>Reduce or eliminate consumer debt:</strong> Credit card balances, car loans, and lines of credit directly increase your TDS ratio. Paying off a $10,000 car loan can improve your TDS by 2-3%, potentially pushing you below the 44% threshold. Lenders also consider the minimum payment on available credit — closing unused credit cards can help.
+
+<strong>Consider a longer amortization:</strong> For uninsured mortgages (20%+ down), a 30-year amortization reduces monthly payments compared to the standard 25 years. This lowers the stress-tested payment and improves your debt service ratios. The trade-off: you pay more interest over the life of the mortgage.
+
+<strong>Add a co-borrower:</strong> Including a spouse, partner, or family member with stable income on the mortgage application increases your qualifying income. Lenders typically require co-borrowers to be on title. Co-borrowers' existing debts are included in the TDS calculation, so choose someone with low debt levels.
+
+<strong>Choose a shorter term or variable rate:</strong> Variable-rate mortgages often have lower contract rates than fixed rates. Since the stress test uses contract rate plus 2%, a lower contract rate means a lower qualifying rate. A 5-year fixed at 4.5% requires qualifying at 6.5%, while a variable at 3.5% requires qualifying at 5.5% — a significant difference.
+
+<strong>Consider a private lender as a bridge:</strong> If you don't qualify with a traditional lender, a private mortgage (8-12% interest) can help you buy now. Plan to refinance with a traditional lender within 1-2 years after improving your credit or financial situation. Private mortgages are a temporary solution, not a long-term strategy.
+
+<strong>Use the FHSA and HBP:</strong> First-time buyers can use the First Home Savings Account (tax-deductible contributions, tax-free withdrawals) and the Home Buyers' Plan (up to $35,000 from RRSP) to maximize their down payment without triggering tax consequences.
+
 ## FAQs
 
 ### What is the current mortgage stress test rate in Canada?
@@ -172,7 +206,7 @@ By understanding your GDS and TDS ratios, knowing the qualifying rate, and plann
     categorySlug: "real-estate",
     publishedAt: "2026-06-17",
     updatedAt: "2026-06-17",
-    readingTime: 14,
+    readingTime: 22,
     featured: false,
     popular: false,
     image: "/blog/ontario-mortgage-stress-test-explained.svg",
@@ -182,7 +216,7 @@ By understanding your GDS and TDS ratios, knowing the qualifying rate, and plann
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. With a deep passion for financial literacy and data-driven tools, he created the platform to make complex tax and benefit calculations accessible to everyone in Canada and beyond.",
     },
-    relatedSlugs: ["tax-saving-tips-2026", "understanding-compound-interest", "complete-guide-to-emi-calculators"],
+    relatedSlugs: ["tax-saving-tips-2026", "understanding-compound-interest", "complete-guide-to-emi-calculators", "much-house-can-afford", "debt-to-income-ratio-mortgage-guide"],
     relatedTools: [
       { name: "Canada Mortgage Stress Test Calculator", slug: "canada-mortgage-stress-test-calculator", type: "calculator" },
       { name: "Home Affordability Calculator", slug: "home-affordability-calculator", type: "calculator" },

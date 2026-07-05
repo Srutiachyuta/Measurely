@@ -147,6 +147,48 @@ At 73, you must start withdrawing from traditional 401(k)s. Roth accounts skip R
 
 Compare strategies in our <a href="/sip-vs-lumpsum-investing">SIP vs lump sum guide</a>.
 
+<h2>Asset Allocation Within Your 401(k)</h2>
+
+What you invest in within your 401(k) matters as much as how much you contribute. Your asset allocation — the mix of stocks, bonds, and cash — determines both your growth potential and your risk level.
+
+<strong>Target-date funds:</strong> These are the default option in most 401(k) plans. They automatically adjust your allocation to become more conservative as you approach retirement. A 2060 target-date fund might hold 90% stocks and 10% bonds today, gradually shifting to 50/50 by 2060. They're a solid hands-off choice, but fees can be higher than building your own portfolio.
+
+<strong>Index funds:</strong> Low-cost index funds tracking the S&P 500 or total stock market are popular choices. With expense ratios as low as 0.03%, they let you keep more of your returns. Many experts recommend a three-fund portfolio: total US stock market, total international stock market, and total bond market.
+
+<strong>Company stock:</strong> Some plans let you buy company stock. Be careful — having both your income and your retirement savings tied to one company is risky. Enron and Lehman Brothers employees learned this the hard way. Limit company stock to 10-20% of your portfolio.
+
+<strong>Age-based allocation guidelines:</strong>
+- <strong>20s-30s:</strong> 80-100% stocks, 0-20% bonds — maximum growth, time to recover from downturns
+- <strong>40s:</strong> 60-80% stocks, 20-40% bonds — start adding stability
+- <strong>50s:</strong> 50-70% stocks, 30-50% bonds — capital preservation becomes important
+- <strong>60s+:</strong> 30-50% stocks, 50-70% bonds — income and stability prioritize growth
+
+<h2>401(k) Fees and How They Impact Growth</h2>
+
+Fees are the silent killer of retirement returns. Even a 1% fee difference can cost you hundreds of thousands of dollars over a career.
+
+<strong>Expense ratios:</strong> Every fund in your 401(k) charges an expense ratio — a percentage of assets deducted annually. An S&P 500 index fund might charge 0.03%, while an actively managed fund could charge 0.75-1.25%. On a $500,000 balance, that difference is $3,600 to $6,100 per year.
+
+<strong>The math on fees:</strong> Invest $500/month for 35 years at 7% return:
+- 0.05% fee: ~$887,000 final balance
+- 0.50% fee: ~$815,000 — you lose $72,000
+- 1.00% fee: ~$746,000 — you lose $141,000
+- 1.50% fee: ~$683,000 — you lose $204,000
+
+<strong>Administrative fees:</strong> Some plans charge annual administrative fees (recordkeeping, compliance) separate from fund expenses. These typically range from 0.1% to 0.5% of assets. Check your plan's fee disclosure document.
+
+<strong>What you can do:</strong> Choose low-cost index funds over actively managed funds when available. If your plan only has high-cost options, max out your contribution to get the match, then invest additional savings in a low-cost IRA. Consider lobbying your HR department to add better fund options.
+
+<h2>Backdoor Roth and Mega Backdoor Roth Strategies</h2>
+
+High earners face income limits for direct Roth IRA contributions. The backdoor Roth strategy offers a legal workaround.
+
+<strong>Backdoor Roth IRA:</strong> If your income exceeds the Roth IRA phase-out range ($146,000-$161,000 for single filers in 2025), you can still contribute by making a nondeductible traditional IRA contribution and converting it to a Roth IRA. There's no income limit on Roth conversions. This strategy is straightforward if you don't have existing pre-tax IRA balances, which would trigger the pro-rata rule.
+
+<strong>Mega backdoor Roth:</strong> This is a more powerful strategy available if your 401(k) plan allows after-tax contributions and either in-plan Roth conversions or in-service Roth rollovers. The mega backdoor lets you contribute up to the total 415(c) limit ($70,000 for 2025) minus your pre-tax contributions and employer match. For someone contributing $23,500 pre-tax with a $7,500 employer match, that's up to $39,000 in additional after-tax contributions that can be converted to Roth.
+
+<strong>Who should use these strategies:</strong> The backdoor Roth is for anyone above the Roth income limit who wants tax-free growth. The mega backdoor is for high savers who have maxed out their pre-tax 401(k) and traditional IRA and still want more Roth space. Both strategies require some administrative work but provide significant tax advantages over taxable investing.
+
 <h2>Related Tools</h2>
 
 - <a href="/401k">401(k) Retirement Calculator</a>
@@ -167,7 +209,7 @@ Start today. Your future self will thank you.`,
     categorySlug: "retirement",
     publishedAt: "2026-06-22",
     updatedAt: "2026-06-22",
-    readingTime: 8,
+    readingTime: 12,
     featured: false,
     popular: false,
     image: "/blog/401k-retirement-calculator.svg",
@@ -177,7 +219,7 @@ Start today. Your future self will thank you.`,
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to make retirement and investment calculations simple and accessible.",
     },
-    relatedSlugs: ["compound-interest-calculator", "sip-calculator", "roi-calculator"],
+    relatedSlugs: ["compound-interest-calculator", "sip-calculator", "roi-calculator", "understanding-compound-interest", "sip-vs-lumpsum-investing"],
     relatedTools: [
       { name: "401(k) Retirement Calculator", slug: "401k", type: "calculator" },
       { name: "Compound Interest Calculator", slug: "compound-interest-calculator", type: "calculator" },

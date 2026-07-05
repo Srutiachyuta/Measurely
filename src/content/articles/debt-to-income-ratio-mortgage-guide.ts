@@ -145,6 +145,29 @@ VA loans are the most flexible — for eligible veterans, active-duty members, a
 
 <strong>Bigger down payment:</strong> Smaller loan = lower monthly payment = lower front-end DTI.
 
+<strong>Debt consolidation:</strong> If you have multiple high-interest debts, consolidating them into a single lower-interest loan can reduce your total monthly debt payments and improve your back-end DTI.
+
+<strong>Increase your housing budget threshold:</strong> Consider a less expensive home. A lower purchase price means a smaller loan, lower monthly payments, and a better front-end DTI ratio. This is often the fastest way to improve your borrowing position.
+
+<strong>Pay off small debts first:</strong> Eliminating a $200/month car payment or $100/month credit card minimum has an outsized impact on your back-end DTI. Even paying off small recurring debts can push your ratio below lender thresholds.
+
+<strong>Avoid new debt before applying:</strong> Do not finance a car, furniture, or other large purchases within 3-6 months of your mortgage application. Even 0% financing agreements show up on your credit report as monthly payments that increase your DTI.
+
+## DTI Requirements for Different Loan Types: Quick Reference
+
+Different loan programs have different DTI thresholds. Here is a comparison to help you determine which programs you qualify for based on your ratios:
+
+| Loan Program | Max Front-End | Max Back-End | Best For | Down Payment |
+|---|---|---|---|---|
+| Conventional | 28% | 36-50% | Strong credit, 20% down | 3-20% |
+| FHA | 31% | 43-50% | First-time buyers, lower credit | 3.5% |
+| USDA | 29% | 41% | Rural buyers, no down payment | 0% |
+| VA | No limit | 41%+ | Veterans, active military | 0% |
+
+If your DTI falls within the standard limits for one or more programs, you are in excellent shape. If your DTI is slightly above standard limits, look into FHA or VA programs which offer more flexibility with compensating factors.
+
+<strong>Pro tip:</strong> Even if you qualify for a loan program with a high DTI, aim for a monthly payment that leaves you room in your budget for savings, emergencies, and lifestyle expenses. Just because a lender approves you for a certain amount does not mean you should borrow the maximum.
+
 ## Compensating Factors for High DTI
 
 Even if your DTI is above standard limits, you might still qualify with:
@@ -256,7 +279,7 @@ Our <a href="/debt-to-income-ratio-calculator-for-mortgage-approval">DTI Calcula
     categorySlug: "finance",
     publishedAt: "2026-06-19",
     updatedAt: "2026-06-19",
-    readingTime: 13,
+    readingTime: 15,
     featured: false,
     popular: false,
     image: "/blog/debt-to-income-ratio-mortgage-guide.svg",

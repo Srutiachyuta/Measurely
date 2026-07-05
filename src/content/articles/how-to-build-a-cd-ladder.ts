@@ -133,11 +133,54 @@ You get principal + interest. Withdraw, auto-renew, or manually reinvest into a 
 Each CD's rate is guaranteed for its term. Future reinvestment rates depend on market conditions.
 
 ### How often should I reinvest?
-As each CD matures. 3-rung ladder = reinvest every 3 months. 5-rung = reinvest as each rung matures.`,
+As each CD matures. 3-rung ladder = reinvest every 3 months. 5-rung = reinvest as each rung matures.
+
+## Tax Implications of CD Ladder Interest
+
+CD interest is not tax-free. The IRS treats it as ordinary income, so it gets added to your total taxable income and taxed at your marginal rate. This is an often-overlooked factor when calculating your true net return.
+
+<strong>How CD interest is taxed:</strong> When a CD matures, the bank sends you a 1099-INT form showing the interest earned. You report this on your tax return. There's no capital gains treatment — it's all ordinary income regardless of how long you held the CD.
+
+<strong>Tax impact by bracket:</strong> A 4.5% CD yield in the 22% tax bracket gives you an after-tax yield of just 3.51%. In the 32% bracket, that drops to 3.06%. Always calculate after-tax returns when comparing CD ladders to other investments. Our <a href="/cd-ladder-calculator">CD Ladder Calculator</a> includes a tax rate feature so you see your true net return.
+
+<strong>State and local taxes:</strong> CD interest is also taxable at the state and local level, unless you live in a state with no income tax (Texas, Florida, Nevada, etc.). This can add another 4-10% in tax depending on where you live.
+
+<strong>Tax-deferred accounts:</strong> Holding CDs inside an IRA or 401(k) defers the tax on interest until withdrawal. This can be beneficial if you expect to be in a lower tax bracket in retirement. However, CDs inside retirement accounts typically offer lower rates than taxable accounts.
+
+<strong>Tax-loss harvesting:</strong> Unlike stocks, CDs don't fluctuate in value (if held to maturity), so there's no opportunity for tax-loss harvesting. This is a disadvantage compared to bond funds for taxable accounts.
+
+## Laddering Strategies for Different Goals
+
+Not all CD ladders are created equal. The right strategy depends on what you're saving for.
+
+<strong>Emergency fund ladder:</strong> A 3-rung ladder using 3, 6, and 9-month CDs can work for a portion of your emergency savings. Keep 1-2 months of expenses in a high-yield savings account for immediate access, and ladder the rest. This gives you higher yields than a savings account while keeping money regularly accessible.
+
+<strong>Down payment ladder:</strong> Saving for a house in 2-3 years? Build a 5-rung ladder with 6, 12, 18, 24, and 30-month CDs. Time the maturities to coincide with when you expect to make an offer. This locks in rates and guarantees your principal — no market risk.
+
+<strong>Retirement income ladder:</strong> Retirees can use CD ladders as part of their fixed-income allocation. A 5-rung ladder with 1 through 5-year terms creates a regular income stream. As each CD matures, use the proceeds for living expenses or reinvest if not needed.
+
+<strong>Wedding or renovation ladder:</strong> For a goal 12-18 months away, use a shorter ladder: 3, 6, 9, and 12-month CDs. This ensures money is available when you need it while earning more than a savings account in the meantime.
+
+<strong>Barbell strategy:</strong> Put half your money in short-term CDs (3-6 months) and half in long-term CDs (2-5 years). The short end provides liquidity, the long end captures higher rates. When short CDs mature, decide whether to reinvest short or long based on current rates.
+
+## CD Ladder vs Bond Ladder
+
+CD ladders and bond ladders serve similar purposes but have important differences.
+
+<strong>Risk comparison:</strong> CDs are FDIC insured up to $250,000 per depositor per bank. Bonds carry credit risk — even government bonds can default in extreme scenarios. For principal protection, CDs win. For potentially higher yields, bonds (especially corporate) can offer more.
+
+<strong>Interest rate sensitivity:</strong> Bond prices fall when rates rise. If you need to sell a bond before maturity, you could lose principal. CDs have no market risk — you always get full principal plus interest at maturity (minus early withdrawal penalties). This makes CD ladders more predictable.
+
+<strong>Yield comparison:</strong> In 2026, a 5-year CD might yield 4.5-5.0% while a 5-year Treasury yields 4.0-4.5% and a 5-year investment-grade corporate bond yields 5.0-5.5%. CDs offer a middle ground — higher than Treasuries, lower than corporates, with FDIC protection.
+
+<strong>Liquidity:</strong> CDs have early withdrawal penalties (typically 3-12 months of interest). Bonds can be sold on the secondary market any time, possibly at a gain or loss. For true emergency access, bonds offer more flexibility.
+
+<strong>Which is right for you:</strong> Choose CD ladders if principal protection is paramount and you can commit to holding until maturity. Choose bond ladders if you need more flexibility, want potentially higher yields, or are investing larger amounts that exceed FDIC limits.
+`,
     category: "Finance",
     categorySlug: "finance",
     publishedAt: "2026-07-03",
-    readingTime: 18,
+    readingTime: 22,
     featured: false,
     popular: true,
     image: "/blog/cd-ladder-calculator.svg",
@@ -152,6 +195,8 @@ As each CD matures. 3-rung ladder = reinvest every 3 months. 5-rung = reinvest a
       { name: "CD Ladder Calculator", slug: "how-to-build-a-cd-ladder", type: "calculator" },
       { name: "Compound Interest Calculator", slug: "compound-interest-calculator", type: "calculator" },
       { name: "ROI Calculator", slug: "roi-calculator", type: "calculator" },
+      { name: "FD Calculator", slug: "fd-calculator", type: "calculator" },
+      { name: "Interest Calculator", slug: "interest-calculator", type: "calculator" },
     ],
     faqs: [
       { question: "What is a CD ladder?", answer: "A CD ladder is a savings strategy where you split your money across multiple Certificates of Deposit with staggered maturity dates (e.g., 3-month, 6-month, 12-month). This gives you regular access to some of your money while earning higher rates on longer-term CDs." },

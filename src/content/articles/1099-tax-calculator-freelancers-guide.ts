@@ -211,6 +211,50 @@ The US uses a progressive system — different slices of income get taxed at dif
 - <a href="/salary-calculator">Salary Calculator</a> — Compare freelance vs salaried income
 - <a href="/roi-calculator">ROI Calculator</a> — Measure returns on business investments
 
+<h2>Retirement Planning for Freelancers</h2>
+
+When you're self-employed, there's no employer-sponsored 401(k) with automatic payroll deductions. You have to create your own retirement plan. The good news: freelancers have access to powerful retirement vehicles with high contribution limits.
+
+<strong>SEP IRA (Simplified Employee Pension):</strong> This is the most popular retirement account for freelancers. You can contribute up to 25% of your net earnings from self-employment, capped at $70,000 for 2025. Contributions are tax-deductible and reduce your self-employment tax liability. The SEP IRA is easy to set up with any brokerage (Vanguard, Fidelity, Schwab) and has minimal paperwork.
+
+<strong>Example:</strong> Net profit of $80,000. SEP IRA contribution: $80,000 x 25% = $20,000 max (limited by $70,000 cap). That $20,000 deduction lowers your AGI from $80,000 to $60,000, saving about $4,400 in federal income tax (22% bracket) plus reducing your SE tax.
+
+<strong>Solo 401(k):</strong> Higher contribution limits than a SEP IRA if you want to save more. For 2025, you can contribute up to $23,500 as the employee (elective deferral) plus up to 25% of net earnings as the employer, for a total of up to $70,000 (or $77,500 if age 50+ with catch-up). You can also add a Roth option for after-tax savings. Solo 401(k)s require a bit more administration but offer the highest contribution potential.
+
+<strong>Solo 401(k) vs SEP IRA:</strong> Choose a SEP IRA for simplicity — one form to open, contributions are straightforward. Choose a Solo 401(k) if you want to maximize contributions (you can contribute more at lower income levels due to the employee deferral component) or want Roth options.
+
+<strong>Traditional IRA:</strong> If you can't max out a SEP or Solo 401(k), a traditional IRA ($7,000 for 2025, $8,000 if 50+) is a solid backup. The deduction may be limited if you or your spouse has a retirement plan at work, but many freelancers can deduct the full amount.
+
+<h2>Health Insurance Deduction for Self-Employed</h2>
+
+Health insurance is one of the biggest expenses for freelancers, and the IRS gives you a valuable deduction to offset it.
+
+<strong>The self-employed health insurance deduction:</strong> You can deduct 100% of your health insurance premiums (medical, dental, and long-term care) for yourself, your spouse, and your dependents. This is an above-the-line deduction — it reduces your AGI directly, unlike itemized medical deductions which are subject to the 7.5% floor.
+
+<strong>Qualifying for the deduction:</strong> You must have net profit from self-employment for the year. You cannot claim the deduction if you're eligible for an employer-subsidized health plan through your spouse's job. You take the deduction on Schedule 1 of Form 1040.
+
+<strong>What counts as premiums:</strong> Medical insurance premiums, dental insurance premiums, qualified long-term care insurance premiums (up to age-based limits), and Medicare Part B and D premiums. You can also deduct premiums paid during any month you were self-employed, even if you weren't self-employed for the full year.
+
+<strong>Interaction with other deductions:</strong> The self-employed health insurance deduction reduces your AGI, which can lower your modified AGI for Roth IRA eligibility and other phase-outs. However, the deduction cannot exceed your net profit from self-employment. If your net profit is $15,000 and premiums are $18,000, you can only deduct $15,000.
+
+<strong>Health Savings Account (HSA):</strong> If you have a high-deductible health plan, you can also contribute to an HSA. For 2025, the limits are $4,300 (individual) or $8,600 (family), plus $1,000 catch-up if 55+. HSA contributions are triple tax-advantaged: pre-tax going in, tax-free growth, tax-free withdrawals for qualified medical expenses.
+
+<h2>Record Keeping Best Practices</h2>
+
+Good record keeping isn't glamorous, but it's the difference between a smooth tax filing and an audit nightmare. The IRS requires you to keep records that support every deduction you claim.
+
+<strong>Digital vs paper records:</strong> Go digital. Scan all receipts and store them in cloud-based systems like Google Drive, Dropbox, or dedicated apps like QuickBooks Self-Employed, FreshBooks, or Wave. Digital records are searchable, won't get lost, and make it easy to provide documentation if audited.
+
+<strong>What to keep:</strong> All income records (1099 forms, invoices, payment receipts from Stripe/PayPal), expense receipts (even under $75 — the IRS doesn't require receipts for expenses under $75, but having them helps), mileage logs (date, destination, purpose, miles driven), bank and credit card statements, and previous tax returns. Keep everything for at least 3 years from the filing date, or 6 years if you underreported income by more than 25%.
+
+<strong>Mileage tracking:</strong> The 2025 standard mileage rate is $0.67 per mile. Track all business miles using a log or app (MileIQ, Stride, Everlance). Record the odometer reading at the start and end of each year. For mixed-use vehicles, only the business portion is deductible.
+
+<strong>Separation of accounts:</strong> Open a dedicated business bank account and credit card. Mixing personal and business transactions creates accounting headaches and increases audit risk. Pay all business expenses from the business account. Transfer money to yourself as an "owner's draw" for personal expenses.
+
+<strong>Quarterly check-ins:</strong> Set aside 15 minutes each quarter to review your books before estimated tax payments are due. This prevents surprises and lets you adjust withholding or payments if your income has changed significantly.
+
+<strong>Tools to use:</strong> Our <a href="/1099-tax-calculator-for-freelancers">1099 Tax Calculator</a> helps estimate your quarterly payments. Pair it with a good accounting tool and you'll have a system that runs smoothly year-round.
+
 <h2>The Bottom Line</h2>
 
 Freelancing is great, but tax compliance isn't optional. Nail your self-employment tax, make those quarterly payments, max out your Schedule C deductions, and plan your bracket position.
@@ -222,7 +266,7 @@ Go ahead, calculate your 1099 taxes and take control of your freelance finances.
     categorySlug: "business",
     publishedAt: "2026-06-21",
     updatedAt: "2026-06-21",
-    readingTime: 13,
+    readingTime: 16,
     featured: false,
     popular: true,
     image: "/blog/1099-tax-calculator-freelancers-guide.svg",

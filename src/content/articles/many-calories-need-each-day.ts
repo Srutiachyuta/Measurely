@@ -138,6 +138,53 @@ Two people eating the same number of calories can get very different results if 
 
 A 500-calorie deficit gives you about 0.5 kg loss per week. Faster is possible but usually means muscle loss, metabolic slowdown, and gaining it all back.
 
+## Macronutrient Distribution: Carbs, Protein, Fat
+
+Calories matter for weight change, but where those calories come from affects your energy, satiety, muscle preservation, and overall health. Getting the right macronutrient balance transforms a simple calorie target into a sustainable nutrition plan.
+
+<strong>Protein — the most important macro:</strong> Protein is critical for preserving muscle mass during weight loss and building muscle during a surplus. Aim for 1.6-2.2 grams per kg of body weight. For an 80 kg person, that's 128-176 grams of protein daily. Good sources: chicken breast, fish, eggs, Greek yogurt, cottage cheese, tofu, lentils, and protein supplements. Protein is also the most satiating macronutrient, helping you feel full on fewer calories.
+
+<strong>Carbohydrates — fuel for activity:</strong> Carbs are your body's preferred energy source, especially for exercise and brain function. Aim for 3-5 grams per kg of body weight for moderate activity, more for athletes. Focus on complex carbs: oats, quinoa, brown rice, sweet potatoes, whole grain bread, fruits, and vegetables. Fiber-rich carbs (minimum 25-35 grams daily) improve digestion and prolong fullness.
+
+<strong>Fats — essential for hormones:</strong> Dietary fat is necessary for hormone production, vitamin absorption, and cell membrane health. Aim for 0.8-1.0 grams per kg of body weight, or 20-35% of total calories. Prioritize unsaturated fats: olive oil, avocados, nuts, seeds, and fatty fish. Limit saturated and trans fats from processed foods.
+
+<strong>Sample distribution for a 2,000-calorie diet:</strong>
+- Protein: 150g (30% of calories, ~600 calories)
+- Carbs: 225g (45% of calories, ~900 calories)
+- Fat: 56g (25% of calories, ~500 calories)
+
+<strong>Adjusting for your goal:</strong> For weight loss, keep protein high and reduce carbs and fats proportionally. For muscle gain, increase carbs to fuel workouts and protein for recovery. For maintenance, balance all three based on your preferences and what keeps you satisfied.
+
+## Calorie Tracking Apps and Tools
+
+Consistency in tracking is more important than perfection. The right tools make calorie tracking easier and more accurate.
+
+<strong>MyFitnessPal:</strong> The most popular tracking app with a massive food database (including barcode scanning), restaurant entries, and recipe import. The free version is adequate for most people. Premium adds features like macro adjustments by meal, nutrient insights, and ad-free experience. The database includes user-submitted entries that can be inaccurate — verify entries when possible.
+
+<strong>MacroFactor:</strong> A more advanced option that uses your actual weight and food log data to dynamically adjust your calorie targets. It calculates your expenditure based on real-world data rather than static formulas. Subscription-based ($12/month) but offers the most science-backed approach.
+
+<strong>Cronometer:</strong> Focuses on micronutrients as well as calories and macros. Ideal if you want to track vitamins, minerals, and other nutrients beyond just calories. The food database is curated and more reliable than user-submitted databases.
+
+<strong>Lose It!:</strong> User-friendly app with AI-powered photo logging — snap a picture of your meal and it estimates calories. Less precise than manual logging but convenient. Good for beginners who find manual tracking overwhelming.
+
+<strong>Kitchen scale:</strong> The single most important physical tool for accurate tracking. A $15 digital kitchen scale is more accurate than measuring cups and spoons. Weigh foods in grams for the most precise logging. Volume measurements (cups, tablespoons) can be off by 25-50%.
+
+<strong>Weekly meal prep:</strong> Cook and portion your meals for the week ahead. This eliminates decision fatigue and impulse eating. Pre-portion snacks into single-serving bags or containers. Batch cooking 2-3 times per week makes tracking much simpler.
+
+## Eating Out: Estimating Calories at Restaurants
+
+Restaurant meals are one of the biggest challenges for calorie tracking. You don't control the ingredients, portion sizes, or cooking methods. But with a few strategies, you can make reasonable estimates.
+
+<strong>Use restaurant nutrition info:</strong> Most chain restaurants provide nutrition information on their websites or menus. Check before you go and plan your order. For independent restaurants, look for similar chain dishes as a reference point.
+
+<strong>Visual portion estimation:</strong> Learn to eyeball portions using everyday objects. A serving of meat (3-4 oz / 85-115g) is about the size of a deck of cards or your palm. A serving of carbs (1 cup cooked rice/pasta) is about the size of your fist. A serving of fat (1 tbsp oil/butter) is about the size of your thumb tip.
+
+<strong>Common restaurant calorie pitfalls:</strong> Salad dressings add 200-400 calories — ask for them on the side. Sauces and gravies add 100-300 calories per serving. Fried foods absorb 10-15% of their weight in oil. "Healthy" items like grain bowls and wraps often have hidden calories from oils, nuts, and sauces. Cocktails contain 150-300 calories each plus sugary mixers.
+
+<strong>Strategies for dining out:</strong> Order appetizers as main courses for smaller portions. Ask for half portions or split an entree. Request steamed vegetables instead of fries. Skip the bread basket before the meal. Drink water or unsweetened tea instead of soda or alcohol. Stop eating when you're 80% full rather than cleaning the plate.
+
+<strong>Best practice:</strong> When in doubt, overestimate restaurant calories by 20-30% to account for hidden fats and sugars. It's better to be slightly over your target than to unknowingly eat hundreds of extra calories. Log your best estimate and move on — perfection is less important than consistency over time.
+
 ## Conclusion
 
 Your daily calorie needs aren't some mystery. With the right formula and an honest look at your activity, you can figure out exactly what your body needs. Our <a href="/calorie-calculator">calorie calculator</a> gives you a science-backed, personalized target in seconds.
@@ -149,7 +196,7 @@ Stop guessing and start knowing.`,
     categorySlug: "health",
     publishedAt: "2026-06-19",
     updatedAt: "2026-06-19",
-    readingTime: 12,
+    readingTime: 15,
     featured: false,
     popular: true,
     image: "/blog/calorie-calculator.svg",
@@ -159,11 +206,13 @@ Stop guessing and start knowing.`,
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He built the platform to provide accurate calorie and nutrition tools that help people make informed dietary choices and achieve sustainable weight management.",
     },
-    relatedSlugs: ["bmr-and-weight-management", "bmi-understanding-your-body-mass-index", "daily-water-intake-guide"],
+    relatedSlugs: ["bmr-and-weight-management", "bmi-understanding-your-body-mass-index", "daily-water-intake-guide", "find-target-heart-rate-zones-optimal-fitness", "track-pregnancy-week-by-week"],
     relatedTools: [
       { name: "Calorie Calculator", slug: "many-calories-need-each-day", type: "calculator" },
       { name: "BMR Calculator", slug: "bmr-calculator", type: "calculator" },
       { name: "Body Fat Calculator", slug: "measure-interpret-body-composition", type: "calculator" },
+      { name: "Water Intake Calculator", slug: "water-intake-calculator", type: "calculator" },
+      { name: "Heart Rate Calculator", slug: "heart-rate-calculator", type: "calculator" },
     ],
     faqs: [
       { question: "What is the difference between BMR and TDEE?", answer: "BMR is the calories your body needs at complete rest. TDEE is your total daily energy expenditure including all activities. TDEE equals BMR multiplied by your activity factor." },

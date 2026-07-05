@@ -133,6 +133,50 @@ Only 3 years? Renting wins decisively. Transaction costs eat up any gains, and t
 - **Rent escalation** — Realistic future rent projections.
 - **Instant results** — Full comparison in seconds.
 
+## Time Value of Money in Purchase Decisions
+
+The time value of money (TVM) is the concept that a rupee today is worth more than a rupee tomorrow, because today's rupee can be invested to grow. This principle directly affects the rent vs buy decision in ways that aren't always obvious.
+
+### Why TVM Matters in Housing
+
+When you buy a home, you spend a large amount today (down payment) in exchange for future benefits (appreciation, equity, no rent payments). The TVM tells us that future benefits should be discounted relative to today's costs. A 20-year stream of benefits 10 years from now is worth significantly less than the same benefits received today.
+
+The calculator handles this automatically — it discounts future cash flows using your chosen investment return rate. But understanding the mechanics helps you make better assumptions.
+
+### Present Value of Rent Savings
+
+If your mortgage payment is ₹70,000 and comparable rent is ₹30,000, you save nothing on monthly cash flow (you're spending more). But as rent rises over time, the gap narrows. By year 10, rent might be ₹50,000 while your EMI stays fixed — you're now effectively saving ₹20,000/month in housing costs. Those future savings have a present value that the calculator computes based on your opportunity cost rate.
+
+### Discount Rate Sensitivity
+
+The discount rate you choose dramatically affects the result. Using an 8% discount rate vs a 12% rate can swing the decision by lakhs of rupees. A conservative investor might use an FD rate of 6-7% as their discount rate. An aggressive investor might use the expected stock market return of 10-12%. There's no single right answer — but the calculator lets you see how sensitive your decision is to this assumption.
+
+### Lump Sum vs Monthly Savings
+
+TVM also applies to how you compare savings. A ₹5,00,000 down payment saved today and invested at 10% becomes ₹12,97,000 after 10 years. But ₹5,000 per month saved (if renting is cheaper) invested at 10% becomes only about ₹10,00,000. The timing and size of cash flows matter enormously — and the calculator accounts for all of it.
+
+## Using a Comparison Calculator to Evaluate Options
+
+While the rent vs buy decision is the most common housing comparison, the same framework applies to many other financial choices. A good comparison calculator helps you evaluate trade-offs systematically.
+
+### What Makes a Good Comparison Calculator
+
+The best calculators go beyond simple math. They account for:
+- **All costs** — Not just the obvious ones, but taxes, insurance, maintenance, and opportunity costs
+- **Time horizon** — Short, medium, and long-term projections
+- **Assumption sensitivity** — How changes in interest rates, appreciation, or rent growth affect the outcome
+- **Scenario comparison** — Side-by-side views of different options
+
+### Applying the Framework Beyond Housing
+
+The same rent vs buy logic works for other decisions:
+- **Lease vs buy a car** — Compare lease payments to loan payments, residual value, and maintenance costs
+- **Equipment purchase vs rental** — For businesses deciding whether to buy or rent equipment
+- **Subscription vs one-time purchase** — Compare total cost of ownership over time
+- **Refinance analysis** — Compare your current mortgage to a refinanced option, factoring in closing costs and break-even periods
+
+Our <a href="/rent-vs-buy-calculator">Rent vs Buy Calculator</a> handles the housing comparison. For other financial comparisons, try our <a href="/loan-calculator">Loan Calculator</a>, <a href="/emi-calculator">EMI Calculator</a>, and <a href="/compound-interest-calculator">Compound Interest Calculator</a> to model different scenarios.
+
 ## Frequently Asked Questions
 
 ### Is renting or buying better?
@@ -181,7 +225,7 @@ Run your numbers with our <a href="/rent-vs-buy-calculator">Rent vs Buy Calculat
     categorySlug: "real-estate",
     publishedAt: "2026-06-22",
     updatedAt: "2026-06-22",
-    readingTime: 8,
+    readingTime: 13,
     featured: false,
     popular: false,
     image: "/blog/rent-vs-buy-calculator.svg",
@@ -191,7 +235,7 @@ Run your numbers with our <a href="/rent-vs-buy-calculator">Rent vs Buy Calculat
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to make financial calculations simple and accessible.",
     },
-    relatedSlugs: ["home-affordability-calculator", "mortgage-calculator", "loan-calculator"],
+    relatedSlugs: ["home-affordability-calculator", "mortgage-calculator", "loan-calculator", "complete-guide-to-emi-calculators", "debt-to-income-ratio-mortgage-guide"],
     relatedTools: [
       { name: "Rent vs Buy Calculator", slug: "which-option-saves-more-money", type: "calculator" },
       { name: "Home Affordability Calculator", slug: "much-house-can-afford", type: "calculator" },

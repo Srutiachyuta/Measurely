@@ -125,6 +125,37 @@ Every legitimate business expense reduces your taxable income. Keep records and 
 
 <strong>Claim credits.</strong> EITC, Child Tax Credit, and Saver's Credit directly reduce your tax bill.
 
+## Safe Harbor Rules for Estimated Tax Payments
+
+The safe harbor rule is your best friend for avoiding underpayment penalties, even if your income fluctuates wildly.
+
+<strong>How it works:</strong> Pay at least 100% of your prior year's total tax liability (110% if your AGI was over $150,000) through quarterly payments and withholding. If you meet this threshold, you won't owe any underpayment penalty — regardless of what your actual current-year tax turns out to be.
+
+<strong>Example:</strong> You owed $8,000 in tax last year. Your income doubles this year and actual tax is $15,000. If you pay $8,000 through quarterly estimated payments ($2,000 per quarter) — 100% of last year's tax — you avoid penalties. You'll owe the remaining $7,000 when you file, but no penalty for underpayment.
+
+<strong>Annualized income installment method:</strong> If your income is seasonal or uneven, use Form 2210 Schedule AI to calculate payments based on actual income each quarter. This can save penalties if you earned most of your income late in the year. For example, a freelancer who earns $10,000 in Q1 but $40,000 in Q4 can base Q1 and Q2 payments on lower actual income rather than 25% of annual projections.
+
+<strong>The 90% rule:</strong> The alternative to safe harbor is paying 90% of your current year's tax through quarterly payments and withholding. This works if your income is stable and predictable. For most freelancers, the prior-year safe harbor is simpler and safer.
+
+<strong>Penalty calculation:</strong> The IRS penalty is the federal short-term rate plus 3%, calculated on the underpaid amount for each day it's late. On a $5,000 underpayment for 6 months at 8%, that's about $200 — not huge, but avoidable with safe harbor planning.
+
+## State Estimated Tax Requirements
+
+Most states with income taxes require their own estimated tax payments. Don't forget state taxes when planning your quarterly payments.
+
+<strong>Which states require estimated taxes:</strong> All states with a personal income tax require estimated payments if you expect to owe more than their threshold (typically $500-$1,000). The nine states with no income tax — Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, and Wyoming — have no state estimated tax requirement.
+
+<strong>State payment schedules:</strong> Most states follow the federal due dates (April 15, June 15, September 15, January 15). However, some states have different schedules:
+- California: Same dates as federal
+- New York: Same dates as federal
+- Illinois: Same dates as federal
+- Massachusetts: Same dates as federal
+- A few states use different quarterly splits — check your state's tax agency website.
+
+<strong>Combined federal and state planning:</strong> Set aside 30-35% of freelance income for total taxes (federal + state + self-employment). In high-tax states like California (up to 13.3%), New York (up to 10.9%), or Oregon (up to 9.9%), the state portion adds significantly. In Texas or Florida, you only need to plan for federal taxes.
+
+<strong>State safe harbor rules:</strong> Most states have their own safe harbor rules, typically matching the federal 100%/110% of prior year tax. If you pay enough to meet both federal and state safe harbors, you avoid penalties at both levels.
+
 ## How Our Estimated Tax Calculator Works
 
 Our <a href="/estimated-tax-calculator-self-employed">Estimated Tax Calculator for Self-Employed</a> does all the heavy lifting:
@@ -167,7 +198,7 @@ Yes. Every dollar of expense reduces net income, lowering both SE tax (15.3% sav
     category: "Finance",
     categorySlug: "finance",
     publishedAt: "2026-06-28",
-    readingTime: 16,
+    readingTime: 22,
     featured: false,
     popular: true,
     image: "/blog/category-finance.svg",
@@ -177,7 +208,7 @@ Yes. Every dollar of expense reduces net income, lowering both SE tax (15.3% sav
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to help small business owners understand tax compliance, financial planning, and simplify complex calculations.",
     },
-    relatedSlugs: ["tax-saving-tips-2026", "understanding-compound-interest", "complete-guide-to-emi-calculators"],
+    relatedSlugs: ["tax-saving-tips-2026", "understanding-compound-interest", "complete-guide-to-emi-calculators", "1099-tax-calculator-freelancers-guide"],
     relatedTools: [
       { name: "Estimated Tax Calculator for Self-Employed", slug: "estimated-tax-calculator-self-employed", type: "calculator" },
       { name: "1099 Tax Calculator for Freelancers", slug: "1099-tax-calculator-for-freelancers", type: "calculator" },

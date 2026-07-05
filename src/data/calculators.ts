@@ -1741,7 +1741,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "What are equivalent fractions?", answer: "Fractions that represent the same value, like 1/2, 2/4, 4/8. Multiply or divide the numerator and denominator by the same number to find equivalents." },
       { question: "How do I compare fractions?", answer: "Convert to a common denominator or cross-multiply. The larger numerator after conversion indicates the larger fraction." },
     ],
-    relatedSlugs: ["percentage-calculator", "gcf-lcm-calculator", "statistics-calculator"],
+    relatedSlugs: ["percentage-calculator", "gcf-lcm-calculator"],
   },
   {
     icon: Calculator,
@@ -1764,7 +1764,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "What is the factorial function?", answer: "Factorial (n!) multiplies all positive integers from 1 to n. For example, 5! = 5 x 4 x 3 x 2 x 1 = 120." },
       { question: "How do I calculate percentages on a scientific calculator?", answer: "Enter the number, press the percentage key, or multiply by the percentage as a decimal." },
     ],
-    relatedSlugs: ["equation-solver", "matrix-calculator", "statistics-calculator"],
+    relatedSlugs: ["equation-solver", "matrix-calculator"],
   },
   {
     icon: Grid3x3,
@@ -1795,7 +1795,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "What is matrix addition?", answer: "Matrix addition adds corresponding elements. Both matrices must have exactly the same dimensions for addition to work." },
       { question: "How is scalar multiplication different from matrix multiplication?", answer: "Scalar multiplication multiplies each element by a single number. Matrix multiplication involves dot products of rows and columns." },
     ],
-    relatedSlugs: ["equation-solver", "scientific-calculator", "statistics-calculator"],
+    relatedSlugs: ["equation-solver", "scientific-calculator"],
   },
   {
     icon: FileX,
@@ -1848,7 +1848,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "Can an equation have no solution?", answer: "Yes, for linear equations where a=0 and b≠0 (like 0x + 5 = 0), there is no solution because no x satisfies the equation." },
       { question: "What is a double root?", answer: "A double root occurs when the discriminant is zero. Both roots are the same real number, and the parabola just touches the x-axis." },
     ],
-    relatedSlugs: ["matrix-calculator", "scientific-calculator", "statistics-calculator"],
+    relatedSlugs: ["matrix-calculator", "scientific-calculator"],
   },
   {
     icon: Ship,
@@ -1884,7 +1884,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "What is the Euclidean algorithm?", answer: "A method for finding GCF by repeatedly dividing: GCF(a, b) = GCF(b, a mod b) until b becomes zero. The last non-zero remainder is the GCF." },
       { question: "Can GCF and LCM be the same number?", answer: "Yes, when the two numbers are equal, the GCF and LCM are both equal to that number." },
     ],
-    relatedSlugs: ["fraction-calculator", "prime-number-calculator", "statistics-calculator"],
+    relatedSlugs: ["fraction-calculator", "prime-number-calculator"],
     formula: "GCD(a, b) = GCD(b, a mod b)",
   },
   {
@@ -1939,56 +1939,8 @@ export const calculators: CalculatorDefinition[] = [
       { question: "How many prime numbers are there?", answer: "There are infinitely many prime numbers, as proven by Euclid around 300 BCE. There are 25 primes under 100 and 168 under 1000." },
       { question: "What are twin primes?", answer: "Twin primes are pairs of primes that differ by 2, such as (3, 5), (11, 13), and (17, 19)." },
     ],
-    relatedSlugs: ["gcf-lcm-calculator", "fraction-calculator", "statistics-calculator"],
+    relatedSlugs: ["gcf-lcm-calculator", "fraction-calculator"],
     formula: "Check divisibility up to √n",
-  },
-  {
-    icon: BarChart3,
-    name: "Statistics Calculator",
-    slug: "statistics-calculator",
-    category: "math",
-    description: "Calculate mean, median, mode, and standard deviation for a set of numbers.",
-    metaTitle: "Statistics Calculator | Mean, Median, Mode, Standard Deviation",
-    metaDescription: "Free statistics calculator to compute mean, median, mode, range, variance, and standard deviation.",
-    inputs: [
-      { label: "Numbers", key: "numbers", type: "number", placeholder: "Comma separated, e.g., 1,2,3,4,5", defaultValue: 1 },
-    ],
-    compute: (inputs) => {
-      const nums = String(inputs.numbers).split(",").map(Number).filter(n => !isNaN(n));
-      if (nums.length === 0) return [];
-      const sorted = [...nums].sort((a,b) => a-b);
-      const mean = Math.round(nums.reduce((a,b) => a+b, 0)/nums.length*100)/100;
-      const mid = Math.floor(sorted.length/2);
-      const median = sorted.length % 2 ? sorted[mid] : Math.round((sorted[mid-1]+sorted[mid])/2*100)/100;
-      const freq = new Map<number, number>();
-      nums.forEach(v => freq.set(v, (freq.get(v)||0)+1));
-      const maxFreq = Math.max(...freq.values());
-      const modes = maxFreq > 1 ? [...freq.entries()].filter(([,c]) => c === maxFreq).map(([v]) => v).join(", ") : "None";
-      const variance = Math.round(nums.reduce((a,b) => a + Math.pow(b-mean,2), 0)/nums.length*100)/100;
-      const stdDev = Math.round(Math.sqrt(variance)*100)/100;
-      return [
-        { label: "Mean", key: "mean", value: mean, color: "blue" },
-        { label: "Median", key: "median", value: median, color: "green" },
-        { label: "Mode", key: "mode", value: modes, color: "amber" },
-        { label: "Range", key: "range", value: Math.round((sorted[sorted.length-1] - sorted[0])*100)/100, color: "default" },
-        { label: "Variance", key: "variance", value: variance, color: "default" },
-        { label: "Standard Deviation", key: "stdDev", value: stdDev, color: "default" },
-        { label: "Count", key: "count", value: nums.length, color: "default" },
-        { label: "Sum", key: "sum", value: Math.round(nums.reduce((a,b) => a+b, 0)*100)/100, color: "default" },
-      ];
-    },
-    example: { inputs: { numbers: "1,2,3,4,5" }, results: [] },
-    faqs: [
-      { question: "What is standard deviation?", answer: "A measure of how spread out numbers are from the mean. Lower values mean data is clustered around the mean." },
-      { question: "What is the difference between mean and median?", answer: "Mean is the arithmetic average. Median is the middle value. Median is less affected by outliers." },
-      { question: "What is the mode in statistics?", answer: "The mode is the value that appears most frequently in a dataset. A dataset may have one mode, multiple modes, or no mode if all values are unique." },
-      { question: "What is variance?", answer: "Variance measures how far each value in the dataset is from the mean. It is the average of squared differences from the mean." },
-      { question: "What is the range in statistics?", answer: "Range is the difference between the highest and lowest values in a dataset. It provides a simple measure of spread." },
-      { question: "When should I use median instead of mean?", answer: "Use median when data has outliers or is skewed, like income data where a few high earners skew the mean upward." },
-      { question: "What does a low standard deviation indicate?", answer: "A low standard deviation indicates that the data points tend to be close to the mean, showing consistency and low variability." },
-      { question: "What is the difference between population and sample statistics?", answer: "Population includes all members of a group. Sample is a subset. Sample formulas use n-1 denominator for unbiased estimates." },
-    ],
-    relatedSlugs: ["percentage-calculator", "gcf-lcm-calculator", "prime-number-calculator"],
   },
   {
     icon: Clock,

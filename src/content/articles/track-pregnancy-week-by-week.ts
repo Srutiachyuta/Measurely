@@ -146,6 +146,10 @@ If your pregnancy goes past 41 or 42 weeks, your provider may recommend inductio
 
 Tracking week by week builds that connection. Seeing how your baby's developing makes the journey feel real and exciting.
 
+### Nutritional Guidance
+
+Each trimester comes with different nutritional needs. In the first trimester, focus on folic acid and iron-rich foods to support neural tube development. The second trimester demands increased calcium and vitamin D for growing bones. By the third trimester, protein and omega-3 fatty acids become critical for brain development. Use our <a href="/many-calories-need-each-day">calorie calculator</a> and <a href="/bmi-understanding-your-body-mass-index">BMI tracker</a> alongside your pregnancy tracker to maintain healthy weight gain throughout your journey.
+
 ## Common Mistakes
 
 ### Using the Wrong Start Date
@@ -196,7 +200,7 @@ Calculate your due date today and start tracking your pregnancy journey with con
     categorySlug: "health",
     publishedAt: "2026-06-19",
     updatedAt: "2026-06-19",
-    readingTime: 12,
+    readingTime: 13,
     featured: false,
     popular: false,
     image: "/blog/pregnancy-calculator.svg",
@@ -206,7 +210,7 @@ Calculate your due date today and start tracking your pregnancy journey with con
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to provide expectant parents with reliable pregnancy tracking tools and week-by-week developmental guidance.",
     },
-    relatedSlugs: ["daily-water-intake-guide", "bmr-and-weight-management"],
+    relatedSlugs: ["daily-water-intake-guide", "bmr-and-weight-management", "bmi-understanding-your-body-mass-index", "many-calories-need-each-day"],
     relatedTools: [
       { name: "Pregnancy Calculator", slug: "track-pregnancy-week-by-week", type: "calculator" },
       { name: "Calorie Calculator", slug: "many-calories-need-each-day", type: "calculator" },

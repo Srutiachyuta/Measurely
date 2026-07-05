@@ -1,28 +1,10 @@
 # Measurely
 
-**Smart Tools for Smart Measurements** — A comprehensive web application offering 97 free online calculators and unit converters, plus 90+ blog articles, built with Next.js 16.
+**Smart Tools for Smart Measurements** — A comprehensive web application offering 77+ free online calculators, 27+ unit converters, and 70+ blog articles, built with Next.js 16. Visit us at [measurely.in](https://measurely.in).
 
-> **URL:** [https://measurely.in](https://measurely.in)  
 > **Author:** Achyutananda Meher  
-> **Location:** Bhubaneswar, Odisha, India
-
----
-
-## Tech Stack
-
-| Category | Technology | Version |
-|---|---|---|
-| **Framework** | Next.js | 16.2.9 |
-| **UI Library** | React | 19.2.4 |
-| **Language** | TypeScript | ^5 |
-| **Styling** | Tailwind CSS | ^4 |
-| **Charts** | Chart.js + react-chartjs-2 | 4.5.1 / 5.3.1 |
-| **Animation** | Framer Motion | 12.40.0 |
-| **Icons** | Lucide React | 1.18.0 |
-| **State** | Zustand | 5.0.14 |
-| **Theming** | next-themes | 0.4.6 |
-| **Components** | Radix UI (16 primitives) | — |
-| **Search** | cmdk (command palette) | 1.1.1 |
+> **Location:** Bhubaneswar, Odisha, India  
+> **Stack:** Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · Chart.js · Framer Motion · Radix UI · Zustand
 
 ---
 
@@ -35,7 +17,7 @@ npm run dev      # → http://localhost:3000
 
 | Script | Description |
 |---|---|
-| `npm run dev` | Start dev server (webpack) |
+| `npm run dev` | Start dev server (Turbopack) |
 | `npm run build` | Production build |
 | `npm start` | Start production server |
 | `npm run lint` | Run ESLint |
@@ -47,25 +29,18 @@ npm run dev      # → http://localhost:3000
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── [slug]/             # Dynamic tool pages (calculators + converters)
-│   ├── blog/               # Blog listing, posts, categories
+│   ├── [slug]/             # Dynamic tool + blog pages (~160+ routes)
+│   ├── blog/               # Blog listing page
 │   ├── calculators/        # All calculators listing
-│   ├── converters/         # All converters listing
 │   ├── categories/         # Category grid + detail pages
-│   ├── sruticheck/         # Admin panel (dashboard, CRUD, settings)
-│   ├── api/admin/          # Admin REST API (auth, CRUD, analytics)
-│   ├── about/              # About page
-│   ├── contact/            # Contact form
-│   ├── search/             # Search results page
-│   ├── ai-token-cost-calculator/  # Custom AI cost calculator
-│   ├── severance-pay-calculator/  # Severance Pay Calculator
-│   ├── inheritance-tax-calculator/  # Inheritance Tax Calculator
-│   ├── legal pages         # privacy-policy, terms, disclaimer, etc.
-│   ├── layout.tsx          # Root layout (nav, footer, SEO, analytics)
-│   ├── page.tsx            # Homepage
-│   ├── sitemap.ts          # Dynamic sitemap.xml
-│   ├── robots.ts           # robots.txt
-│   └── manifest.ts         # PWA manifest
+│   ├── compare/            # Comparison index + detail pages
+│   ├── search/             # Search results
+│   ├── about/, contact/, legal pages, etc.
+│   ├── ai-token-cost-calculator/  # Custom calculator pages
+│   ├── severance-pay-calculator/
+│   ├── inheritance-tax-calculator/
+│   ├── emergency-fund-calculator/
+│   └── cd-ladder-calculator/
 │
 ├── components/
 │   ├── calculators/        # Calculator form, results, chart, layout
@@ -79,25 +54,26 @@ src/
 │   └── tool-content.tsx    # Dynamic content sections on tool pages
 │
 ├── data/
-│   ├── calculators.ts      # 70 calculator definitions
+│   ├── calculators.ts      # 77 calculator definitions with compute logic
 │   ├── converters.ts       # 27 converter definitions
-│   ├── blogs.ts            # 98 blog posts
+│   ├── blogs.ts            # 70+ blog articles
+│   ├── comparisons.ts      # Tool comparisons
 │   ├── tool-registry.ts    # Category display config + tool grouping
 │   └── ai-model-pricing.ts # 50+ AI model pricing data
 │
 ├── lib/
-│   ├── constants.ts        # Site config, nav, social links, POPULAR_TOOLS
-│   ├── search.ts           # Full-text search engine (stemming, synonyms)
-│   ├── tool-content.ts     # Auto-generated content (formulas, benefits)
-│   ├── card-theme.ts       # Per-category color themes
+│   ├── constants.ts        # Site config, nav, social links, SEO defaults
+│   ├── tool-content.ts     # Dynamic content generation per calculator
 │   ├── blog-images.ts      # Blog image URL mapping
-│   ├── calculator-utils.ts
+│   ├── calculator-utils.ts # 960+ lines of math computation functions
 │   ├── converter-utils.ts  # Unit conversion math
-│   ├── admin-auth.ts       # JWT auth, 2FA, password hashing
-│   └── utils.ts            # cn(), formatNumber(), date helpers
+│   ├── search.ts           # Full-text search engine
+│   ├── card-theme.ts       # Per-category color themes
+│   └── admin-auth.ts       # JWT auth, 2FA, password hashing
 │
-├── hooks/                  # use-calculations, use-debounce, etc.
-├── types/                  # TypeScript interfaces for all data
+├── content/articles/       # 74 blog articles (TypeScript files)
+├── hooks/                  # React hooks
+├── types/                  # TypeScript interfaces
 └── config/
     └── adPlacements.ts     # Ad slot configuration
 ```
@@ -106,65 +82,48 @@ src/
 
 ## Features
 
-### 95 Online Tools
+### 77+ Calculators & 27+ Converters
 
-**70 Calculators** across 12 categories:
+**Calculators** span 12 categories: Finance, Health, Math, Time, Engineering, Construction, Everyday Life, Real Estate, Retirement, Automotive, Social Media, and Business.
 
-| Category | Tools |
-|---|---|
-| **Finance** | EMI, Loan, Mortgage, Interest, Compound Interest, SIP, SWP, FD, RD, GST, Tax, Salary, Paycheck, Home Affordability, Rent vs Buy, 401k, ROI, EV Charging, YouTube Money, Freelance Rate, TFSA, RRSP, Canada Mortgage Stress Test, Ontario Take Home Pay, GST/HST Ontario, 1099 Tax, Overtime Pay, Debt-to-Income, Canada Child Benefit, Ontario Severance, Severance Pay, Inheritance Tax, and more |
-| **Health** | BMI, BMR, Body Fat, Calorie, Water Intake, Pregnancy, Heart Rate, Ideal Weight |
-| **Math** | Percentage, Fraction, Scientific, Matrix, Equation Solver, GCF/LCM, Prime Number, Statistics |
-| **Time** | Age, Date, Days Between, Time Duration, Week, Month |
-| **Engineering** | Ohm's Law, Voltage Divider, Power, Resistor, Watt |
-| **Construction** | Concrete, Paint, Tile, Roofing, Flooring |
-| **Everyday Life** | Discount, Tip, Split Bill, Fuel Cost |
-| **Real Estate** | Mortgage, Home Affordability, Rent vs Buy |
-| **Retirement** | 401k, SWP |
-| **Automotive** | Fuel Cost, EV Charging Cost |
-| **Social Media** | YouTube Money |
-| **Business** | Freelance Rate, ROI |
+**Unit Converters:** Length, Weight, Area, Volume, Speed, Temperature, Pressure, Energy, Time, Data Storage, Fuel Economy, Angle, Density, Frequency, Power, Current, Voltage, Resistance, Capacitance, Inductance, Force, Magnetic Field, Concentration, Typography, Shoe Size, Clothing Size, Ring Size.
 
-**27 Unit Converters:** Length, Weight, Area, Volume, Speed, Temperature, Pressure, Energy, Time, Data Storage, Fuel Economy, Angle, Density, Frequency, Power, Current, Voltage, Resistance, Capacitance, Inductance, Force, Magnetic Field, Concentration, Typography, Shoe Size, Clothing Size, Ring Size.
-
-### Blog (98 articles)
-- Full markdown content with SEO metadata
-- Categories: Finance, Health, Math, Engineering, Construction, etc.
-- Related tools & articles linking
-- Reading time, author, tags
+### Blog (70+ articles)
+- Full HTML content with SEO metadata
+- Categories: Finance, Health, Math, Engineering, Construction, and more
+- Related tools and articles interlinking
+- Reading time, author profiles, tags
 - Social share buttons
+- Each article is 1,000–3,000+ words with comprehensive coverage
+
+### Dynamic Content Generation
+- Every calculator page features auto-generated content sections
+- Sections: Introduction, Why It Matters, When to Use, How It Works, Formula, How to Use, Example Calculation, Result Interpretation, Advantages, Limitations, Benefits, Common Mistakes, Expert Tips, Related Tools, Related Articles, FAQs, Conclusion
+- 51 calculators have detailed formula explanations
+- All calculators have 8+ FAQs with FAQ schema markup
 
 ### Admin Panel (`/sruticheck`)
-- **Auth:** JWT-based login with 2FA (TOTP), rate limiting, scrypt password hashing
-- **Dashboard:** Visitor stats, page views, device breakdown, countries
-- **Tools CRUD:** Add/edit/delete/clone calculators & converters
-- **Blogs CRUD:** Create/edit with draft/published/scheduled status
-- **Categories CRUD:** Manage tool categories
-- **Redirects:** Manage 301 redirects
-- **Ads:** Manage ad placements
-- **Media Library:** Upload images
-- **SEO:** Set default meta, OG image, verification codes
-- **Analytics:** Daily stats, top pages, search queries, ad revenue
-- **Users:** Admin user management
-- **Audit Logs:** Track admin actions
-- **Backup:** Export/import site data
-- **Newsletter:** Subscriber management
-- **Inquiries:** Contact form submissions
-- **Settings:** Site name, URL, GA/AdSense IDs, maintenance mode
+- JWT-based login with 2FA (TOTP), rate limiting, scrypt password hashing
+- Dashboard with visitor stats, page views, device breakdown, countries
+- CRUD for calculators, converters, blogs, categories
+- Redirect manager, ad placement manager, media library
+- SEO settings, analytics, user management, audit logs
+- Backup/export/import functionality
+- Newsletter subscriber management, contact form inquiries
 
 ### Search
-- **Cmd+K command palette** via cmdk
-- **Full-text search engine** with stemming, synonym expansion (50+ terms), scored results
+- Cmd+K command palette via cmdk
+- Full-text search engine with stemming and synonym expansion (50+ terms)
 - Searches calculators, converters, blogs, FAQs, and static pages
-- Search results page at `/search`
 
 ### SEO & Structured Data
-- Dynamic sitemap.xml
+- Dynamic sitemap.xml with all pages (static, calculators, converters, blogs, categories, comparisons, custom pages)
 - robots.txt with custom bot rules
-- JSON-LD: Website, Organization, WebPage, BreadcrumbList, FAQPage, HowTo, BlogPosting, WebApplication, CollectionPage, ItemList, AboutPage, ContactPage
-- Per-page OpenGraph + Twitter Card metadata
+- **13 JSON-LD schemas:** WebSite, Organization, WebPage, BreadcrumbList, FAQPage, HowTo, BlogPosting, WebApplication, CollectionPage, ItemList, AboutPage, ContactPage, Product
+- Per-page OpenGraph + Twitter Card metadata (`summary_large_image`)
 - Canonical URLs on all pages
-- Breadcrumbs (UI + structured data)
+- Breadcrumbs (UI + structured data) on every page
+- llms.txt for AI crawlers
 
 ### Theme
 - Dark/Light mode toggle via `next-themes`
@@ -174,9 +133,9 @@ src/
 ### Analytics & Ads
 - Google Analytics 4 (GA4)
 - Google Tag Manager (GTM)
-- Google AdSense
+- Google AdSense with verification
 - GDPR cookie consent banner (Accept/Reject/Customize)
-- Conditional loading based on consent
+- Conditional ad/tracker loading based on consent
 
 ### PWA
 - Web App Manifest with icons (96/192/512)
@@ -195,35 +154,17 @@ src/
 
 ## Data Model
 
-Each **calculator** includes: icon, name, slug, category, description, inputs (label/key/type/placeholder/default), compute function, optional chart config, example inputs, 7-8 FAQs, related slugs, full SEO metadata (metaTitle, metaDescription).
+Each **calculator** includes: icon, name, slug, category, description, inputs (label/key/type/placeholder/default), compute function, optional chart config, example inputs, 8-10 FAQs, related slugs, and full SEO metadata (metaTitle, metaDescription).
 
-Each **converter** includes: icon, name, slug, category (always "unit-converters"), description, unit definitions (multiplier or toBase/fromBase functions), popular conversions, FAQs, related slugs, SEO metadata.
+Each **converter** includes: icon, name, slug, category, description, unit definitions (multiplier or toBase/fromBase functions), popular conversions, FAQs, and related slugs.
 
-Each **blog post** includes: slug, title, excerpt, full markdown content, category, publishedAt, updatedAt, readingTime, featured/popular flags, image, author, related tools, FAQs, tags, SEO metadata.
+Each **blog post** includes: slug, title, excerpt, HTML content (1,000-3,000+ words), category, publishedAt/updatedAt dates, readingTime, featured/popular flags, image with alt text, author profile, related tools, FAQs, tags, and full SEO metadata.
 
 ---
 
 ## API Routes
 
-All under `/api/admin/`:
-- `auth/` — login, logout, me, 2FA setup/verify
-- `tools/` — CRUD + clone
-- `blogs/` — CRUD with status filtering
-- `categories/` — CRUD
-- `media/` — upload, delete
-- `redirects/` — CRUD
-- `ads/` — CRUD
-- `analytics/` — stats, page views, devices, countries
-- `homepage/` — get/update homepage sections
-- `inquiries/` — list, delete contact submissions
-- `newsletter/` — list subscribers
-- `settings/` — get/update site settings
-- `users/` — CRUD admin users
-- `stats/` — dashboard metrics
-- `audit-logs/` — filtered log viewer
-- `backup/` — export/import
-- `search/` — search analytics
-- `seo/` — SEO settings
+All under `/api/admin/`: auth, tools CRUD, blogs CRUD, categories CRUD, media library, redirects, ads, analytics, homepage sections, inquiries, newsletter, settings, users, stats, audit logs, backup, search analytics, and SEO settings.
 
 ---
 

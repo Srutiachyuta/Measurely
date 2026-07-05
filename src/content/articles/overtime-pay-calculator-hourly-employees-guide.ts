@@ -256,6 +256,54 @@ Track your hours weekly — not by pay period. Employers must calculate OT weekl
 - **Overtime Pay:** 10 × $30 ($20 × 1.5) = $300
 - **Total Pay:** $800 + $300 = **$1,100**
 
+## Overtime Recordkeeping Requirements
+
+Both employers and employees benefit from accurate overtime records. The FLSA requires employers to maintain specific records for all non-exempt workers.
+
+### What Employers Must Track
+
+The Department of Labor requires employers to keep records of:
+- **Daily and weekly hours worked** — Including start and end times, meal break periods, and total hours per day
+- **Regular hourly rate** — Any changes to pay rates must be documented
+- **Total compensation** — Straight-time and overtime pay broken out separately
+- **Pay period details** — Dates covered, pay date, and cumulative weekly totals
+
+### Record Retention
+
+Employers must keep payroll records for at least three years. Time cards, schedules, and work assignment sheets must be kept for at least two years. Records can be stored digitally but must be accessible for DOL inspection.
+
+### Best Practices for Employees
+
+Keep your own records too. Track your hours in a notebook, spreadsheet, or time-tracking app. Screenshot your time entries at the end of each week. If a dispute arises about unpaid overtime, having independent records gives you leverage.
+
+### What to Do If Your Employer Doesn't Track OT
+
+Some employers try to avoid overtime by asking employees to work "off the clock" or by not tracking hours beyond 40. This is illegal. You can file a complaint with the Wage and Hour Division of the Department of Labor without fear of retaliation.
+
+## Industry-Specific Overtime Rules
+
+While the FLSA provides the baseline, certain industries have unique overtime regulations that override the standard rules.
+
+### Healthcare and Nursing
+
+Hospitals and nursing homes can use an 8-and-80 system instead of the standard 40-hour week. Under this arrangement, overtime applies after 8 hours in a day or 80 hours in a 14-day period — whichever is more favorable to the employee. This accommodates the 12-hour shifts common in healthcare.
+
+### Transportation and Trucking
+
+Commercial motor vehicle drivers are exempt from standard FLSA overtime but may be covered by Motor Carrier Act exemptions. Short-haul drivers and those operating vehicles under 10,000 pounds often qualify for overtime. Long-haul truckers operating across state lines are typically exempt from overtime requirements.
+
+### Law Enforcement and Firefighters
+
+Public-sector police and fire departments often use special work period calculations. Firefighters typically use a 28-day work period where overtime kicks in after 212 hours. Law enforcement officers use a 28-day period with a 171-hour threshold. These adjusted thresholds recognize the irregular shift patterns in public safety.
+
+### Seasonal and Agricultural Workers
+
+Agricultural employees and certain seasonal workers have limited overtime protections under federal law. Some states have stepped in with their own agricultural overtime laws, phasing in coverage over several years. California, for example, now requires overtime for agricultural workers after 8 hours per day or 40 hours per week.
+
+### Tipped Employees
+
+Servers, bartenders, and other tipped workers have a lower direct cash wage but still earn overtime at 1.5 times their regular rate. The regular rate for tipped employees includes both the cash wage and the tip credit claimed by the employer. Calculating overtime for tipped workers requires careful tracking of both direct wages and tip credits.
+
 ## FAQs
 
 ### What is FLSA overtime?
@@ -300,7 +348,7 @@ Make sure you're getting paid fairly for every hour you put in.`,
     categorySlug: "business",
     publishedAt: "2026-06-20",
     updatedAt: "2026-06-20",
-    readingTime: 13,
+    readingTime: 16,
     featured: false,
     popular: false,
     image: "/blog/overtime-pay-calculator-hourly-employees-guide.svg",

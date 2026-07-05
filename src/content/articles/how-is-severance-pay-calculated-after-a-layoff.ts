@@ -117,6 +117,34 @@ Most people don't realize this: severance is almost always negotiable. Employers
 
 <strong>Strategy:</strong> Stay professional. Focus on your contributions. Pick a few key items. Get everything in writing. Ask for time to review (21 days under OWBPA). Consult an attorney for packages over $10,000.
 
+### Building Your Negotiation Leverage
+
+Timing and leverage are everything in severance negotiations. Your strongest position is before you sign the separation agreement.
+
+<strong>Know your worth:</strong> Research what others in your role and industry typically receive. Sites like Levels.fyi and Blind provide real severance data from tech companies. If you know the standard is 2 weeks per year and you're being offered 1, you have a concrete basis to ask for more.
+
+<strong>Understand company risk:</strong> Employers want a clean break with a signed release of claims. If your role involves sensitive information, client relationships, or specialized knowledge, your leverage increases. Companies pay more to avoid litigation risk and ensure smooth transitions.
+
+<strong>Frame your request professionally:</strong> Instead of demanding more, say: "I appreciate the offer. Based on my 8 years of contributions and the current job market, I was hoping for 12 weeks of severance rather than 8 to give me adequate time for a proper transition." Keep it collaborative, not confrontational.
+
+<strong>What to prioritize:</strong> Health insurance is often the most valuable negotiable item. COBRA coverage for a family can cost $1,200-$2,500/month. Getting 6 months of employer-paid COBRA is often worth more than an extra week of salary. After healthcare, focus on cash, then outplacement, then perks.
+
+<strong>Get it in writing:</strong> Once you negotiate terms, ensure everything is documented in the final separation agreement. Verbal promises during negotiation are not enforceable. Review the final document carefully before signing.
+
+## Tax Implications of Severance Pay
+
+Severance pay is treated as supplemental wages by the IRS, which means specific withholding rules apply.
+
+<strong>Federal withholding:</strong> The IRS requires employers to withhold federal income tax at a flat 22% on severance up to $1 million. Amounts above $1 million are withheld at 37%. This flat rate is different from your regular paycheck withholding, which uses your W-4 allowances. The 22% flat rate may not cover your actual tax liability if you're in a higher bracket.
+
+<strong>State tax withholding:</strong> Each state has its own rules. Some follow the federal flat-rate approach, others use your regular withholding tables. States without income tax (Texas, Florida, Nevada, Washington, Wyoming, South Dakota, Alaska, New Hampshire, Tennessee) won't withhold state tax on severance.
+
+<strong>Estimated tax payments:</strong> If your severance pushes you into a higher bracket or the 22% flat withholding is insufficient, you may need to make estimated tax payments to avoid underpayment penalties. Use our <a href="/estimated-tax-calculator-self-employed">Estimated Tax Calculator</a> to check if you need to make additional payments.
+
+<strong>401(k) implications:</strong> Severance pay is typically not eligible for direct 401(k) deferral since it's not considered compensation for retirement plan purposes in most cases. However, any severance contributed to a 401(k) under a safe harbor plan would be pre-tax. Check with your plan administrator.
+
+<strong>Unemployment tax interaction:</strong> Some states treat severance as wages for unemployment insurance purposes, which can delay or reduce UI benefits. For example, New York reduces UI by the weekly severance amount. California does not reduce UI for severance. Check your state's rules.
+
 ## Common Mistakes to Avoid
 
 1. <strong>Signing too quickly.</strong> You have 21-45 days to review. Use it.
@@ -177,7 +205,7 @@ Review carefully, understand restrictive covenants, estimate taxes, negotiate if
     category: "Finance",
     categorySlug: "finance",
     publishedAt: "2026-07-02",
-    readingTime: 18,
+    readingTime: 25,
     featured: false,
     popular: true,
     image: "/images/blog/category-finance.svg",

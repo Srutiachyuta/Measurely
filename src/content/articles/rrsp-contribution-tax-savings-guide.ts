@@ -142,6 +142,42 @@ Borrow to contribute, then use the refund to pay down the loan. Works best when 
 
 Expect a higher tax bracket next year? Contribute this year but claim the deduction next year. You get tax-deferred growth now and save at a higher rate later.
 
+## Home Buyers' Plan (HBP) and Lifelong Learning Plan (LLP)
+
+Your RRSP is not just for retirement — Canada allows tax-free withdrawals for two specific purposes.
+
+<strong>Home Buyers' Plan (HBP):</strong> First-time home buyers can withdraw up to $35,000 from their RRSP tax-free to buy or build a qualifying home. The withdrawn amount must be repaid to your RRSP over 15 years, starting the second year after withdrawal. If you buy with a spouse, each of you can withdraw $35,000, giving you up to $70,000 for a down payment.
+
+<strong>Qualifying for HBP:</strong>
+- You must be a first-time home buyer (not owned a home in the last 4 years)
+- You must have a written agreement to buy or build a qualifying home
+- You must intend to occupy the home as your principal residence within one year
+- The funds must remain in your RRSP for at least 90 days before withdrawal
+
+<strong>Lifelong Learning Plan (LLP):</strong> You can withdraw up to $10,000 per year (maximum $20,000 total) from your RRSP to finance full-time training or education for yourself or your spouse. Repayment also spans 10 years, starting the fifth year after your first withdrawal or two years after you stop being a full-time student.
+
+<strong>Important Notes:</strong>
+- Withdrawals under HBP and LLP are not taxable as income
+- Unrepaid amounts in any year are added to your taxable income for that year
+- You cannot make new contributions to your RRSP for the amount being repaid (but you do get deduction room for additional contributions)
+- Both programs have specific deadlines and paperwork — submit the correct forms with your tax return
+
+<strong>Strategy:</strong> If you are saving for a home down payment, use your RRSP as a saving vehicle specifically for the HBP withdrawal. Contribute during high-income years to get the tax deduction, then withdraw for the down payment. The tax refund can be added to your down payment savings.
+
+## RRSP Contribution Strategies for High Earners
+
+High-income earners benefit disproportionately from RRSP contributions because their marginal tax rates are highest. Here are advanced strategies for those earning over $150,000 annually.
+
+<strong>Maximize Deduction Room:</strong> At $200,000 earned income, 18% gives you $36,000 in new RRSP room — but the annual dollar limit caps at approximately $32,490 for 2026. Contribute the maximum every year to shield income from the top marginal bracket.
+
+<strong>Income Splitting Through Spousal RRSP:</strong> If one spouse earns significantly more, the higher earner contributes to a spousal RRSP in the lower earner's name. At retirement, withdrawals are taxed in the lower earner's hands, potentially saving thousands in tax. This is especially powerful when the lower-earning spouse has little or no pension income.
+
+<strong>Corporate RRSPs for Business Owners:</strong> If you own a corporation, consider setting up a group RRSP or Individual Pension Plan (IPP). IPPs allow higher contribution limits than regular RRSPs and are particularly beneficial for business owners over 50 who need to catch up on retirement savings.
+
+<strong>Carry Forward Deductions:</strong> If you expect to be in an even higher tax bracket next year (due to a bonus or promotion), consider contributing now but deferring the deduction to next year. Your money grows tax-sheltered in the RRSP, and you claim the deduction at a higher marginal rate.
+
+<strong>Integration with Other Accounts:</strong> High earners should also max out TFSA room ($7,000 for 2026), consider FHSA if saving for a home ($8,000 annual room), and look at non-registered investments for overflow savings beyond RRSP/TFSA limits.
+
 ## FAQs
 
 ### How is the RRSP tax refund calculated?
@@ -183,7 +219,7 @@ Use our <a href="/rrsp-contribution-tax-savings-calculator">RRSP Contribution Ta
     categorySlug: "finance",
     publishedAt: "2026-06-21",
     updatedAt: "2026-06-21",
-    readingTime: 14,
+    readingTime: 17,
     featured: false,
     popular: true,
     image: "/blog/rrsp-contribution-tax-savings-guide.svg",
@@ -193,7 +229,7 @@ Use our <a href="/rrsp-contribution-tax-savings-calculator">RRSP Contribution Ta
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. With a deep passion for financial literacy and data-driven tools, he created the platform to make complex tax and benefit calculations accessible to everyone in Canada and beyond.",
     },
-    relatedSlugs: ["tax-saving-tips-2026", "how-to-calculate-tfsa-contribution-room-canada", "understanding-compound-interest"],
+    relatedSlugs: ["tax-saving-tips-2026", "how-to-calculate-tfsa-contribution-room-canada", "understanding-compound-interest", "ontario-take-home-pay-after-tax-guide", "compound-interest-calculator"],
     relatedTools: [
       { name: "RRSP Contribution Tax Savings Calculator", slug: "rrsp-contribution-tax-savings-calculator", type: "calculator" },
       { name: "TFSA Contribution Room Calculator", slug: "tfsa-contribution-room-calculator-canada", type: "calculator" },

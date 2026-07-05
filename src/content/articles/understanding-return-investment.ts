@@ -195,6 +195,60 @@ Stock prices and real estate values fluctuate. Evaluate ROI over appropriate tim
 - <a href="/percentage-calculator">Percentage Calculator</a> — Quick percentages, increases, and decreases.
 - <a href="/sip-calculator">SIP Calculator</a> — Plan systematic investments for long-term wealth.
 
+## Risk-Adjusted Returns: Sharpe Ratio and Beyond
+
+ROI tells you how much you earned, but it doesn't tell you how much risk you took to earn it. Two investments can have the same ROI — one smooth and predictable, the other wild and volatile. Risk-adjusted metrics fill this gap.
+
+### Sharpe Ratio
+
+The Sharpe ratio measures excess return per unit of risk. The formula:
+
+**Sharpe Ratio = (Portfolio Return − Risk-Free Rate) / Standard Deviation of Returns**
+
+A Sharpe ratio above 1 is considered good, above 2 is great, and above 3 is excellent. If Investment A has a 12% return with 15% volatility and Investment B has a 10% return with 5% volatility, Investment B actually has a better Sharpe ratio — meaning you're getting more return for each unit of risk.
+
+### Maximum Drawdown
+
+This measures the largest peak-to-trough decline in your investment's value. A stock that drops 50% needs to gain 100% just to break even. When comparing two investments with similar ROI, the one with the smaller maximum drawdown is generally preferable — especially if you might need to sell during a downturn.
+
+### Sortino Ratio
+
+Similar to the Sharpe ratio, but it only considers downside volatility. Investors typically dislike losses more than they enjoy equivalent gains, making the Sortino ratio a more intuitive risk measure for most people.
+
+### Applying Risk-Adjusted Metrics
+
+Use these alongside ROI when evaluating any investment. A mutual fund with a 15% ROI and a Sharpe ratio of 1.2 may be a better choice than a stock with 18% ROI but a Sharpe ratio of 0.4. Our <a href="/roi-calculator">ROI Calculator</a> focuses on the return side — pair it with portfolio tracking tools to assess risk.
+
+## ROI vs IRR: When to Use Each
+
+ROI and Internal Rate of Return (IRR) are both profitability metrics, but they serve different purposes and can tell very different stories.
+
+### Key Differences
+
+| Aspect | ROI | IRR |
+|--------|-----|-----|
+| What it measures | Total return as percentage of cost | Annualized effective return |
+| Time value of money | Not considered | Fully accounted for |
+| Cash flow timing | Ignores timing | Depends on timing |
+| Multiple periods | Single calculation | Considers each cash flow |
+| Reinvestment assumption | None | Assumes reinvestment at IRR |
+
+### When to Use ROI
+
+Use ROI for simple, one-time investments where you put money in once and take it out once. Stock purchases, real estate flips, and marketing campaigns are classic examples. ROI is intuitive and easy to communicate.
+
+### When to Use IRR
+
+Use IRR for projects with multiple cash flows over time — rental properties with monthly income, business investments with ongoing revenue, or bonds with periodic coupon payments. IRR tells you the effective annual return considering when each cash flow occurs. A project where you receive most cash early has a higher IRR than one where cash comes late, even if total ROI is the same.
+
+### Practical Example
+
+You invest ₹10,00,000 in a project that returns ₹2,00,000 per year for 5 years (₹10,00,000 total). ROI = 0%. But IRR is actually 0% too because you exactly get your money back. Now consider a project that returns ₹5,00,000 in year 1 and nothing after — total ROI is still 0%, but IRR is about 41% because you get your capital back quickly. IRR captures what ROI misses.
+
+### Bottom Line
+
+Use ROI for quick comparisons and simple investments. Use IRR for detailed analysis of projects with uneven cash flows. Most financial professionals look at both metrics together for a complete picture.
+
 ## Frequently Asked Questions
 
 ### What is ROI?
@@ -230,7 +284,7 @@ Remember: ROI works best alongside other analyses that account for risk, time, a
     categorySlug: "business",
     publishedAt: "2026-06-22",
     updatedAt: "2026-06-22",
-    readingTime: 13,
+    readingTime: 17,
     featured: false,
     popular: false,
     image: "/blog/roi-calculator.svg",
@@ -240,7 +294,7 @@ Remember: ROI works best alongside other analyses that account for risk, time, a
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to make business and financial calculations simple and accessible for everyone.",
     },
-    relatedSlugs: ["compound-interest-calculator", "freelance-rate-calculator", "percentage-calculator", "profit-margin-calculator"],
+    relatedSlugs: ["compound-interest-calculator", "freelance-rate-calculator", "percentage-calculator", "price-services"],
     relatedTools: [
       { name: "ROI Calculator", slug: "understanding-return-investment", type: "calculator" },
       { name: "Compound Interest Calculator", slug: "compound-interest-calculator", type: "calculator" },

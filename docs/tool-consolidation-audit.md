@@ -65,7 +65,6 @@
 | 26 | equation-solver | Yes | 4 | **IMPROVE** | Has chart (graph). Niche academic. Add step-by-step solving display. |
 | 27 | gcf-lcm-calculator | No | 2 | **IMPROVE** | Simple but educational. Missing formula display (Euclidean algorithm). |
 | 28 | prime-number-calculator | No | 2 | **IMPROVE** | Thin. Missing prime factorization visualization. Would benefit from chart showing prime distribution. |
-| 29 | statistics-calculator | No | 1 | **IMPROVE** | Only 1 input (comma-separated dataset). Could add histogram chart, box plot. Currently very basic. |
 
 ### Time (6)
 
@@ -236,7 +235,6 @@
 | P1 | ideal-weight-calculator | Chart (formula comparison), formula display |
 | P1 | tax-calculator | Location selector, bracket logic |
 | P1 | salary-calculator | Location-aware deductions |
-| P1 | statistics-calculator | Histogram chart, box plot |
 | P1 | water-intake-calculator | Visual gauge, expand content |
 | P2 | fraction-calculator | Visual pie/bar output |
 | P2 | matrix-calculator | Step-by-step solution |

@@ -97,7 +97,6 @@ const toolIcons: Record<string, React.ElementType> = {
   "equation-solver": FileX,
   "gcf-lcm-calculator": Hash,
   "prime-number-calculator": Ship,
-  "statistics-calculator": BarChart3,
   "age-calculator": CalendarDays,
   "date-calculator": Calendar,
   "days-between-dates": CalendarDays,

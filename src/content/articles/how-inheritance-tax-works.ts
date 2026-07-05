@@ -109,6 +109,32 @@ Use every exemption and deduction you can. Marital and charitable deductions, pl
 
 Proactive planning can dramatically cut inheritance tax. Gifting, trusts, charities, and strategic exemption use all work.
 
+## State Inheritance Tax vs Federal Estate Tax
+
+These two taxes are completely separate and often confused. Understanding the difference is critical for effective estate planning.
+
+<strong>Federal estate tax:</strong> Levied on the total estate before distribution. The estate itself pays it. In 2026, the federal exemption is $13.61 million per individual. Estates below that pay zero. Above it, the excess is taxed at a flat 40%.
+
+<strong>State inheritance tax:</strong> Paid by individual beneficiaries on what they inherit. Only six US states impose it: Iowa, Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania. Rates depend on the beneficiary's relationship to the deceased.
+
+<strong>State estate taxes:</strong> Some states impose their own estate tax (paid by the estate) with much lower thresholds — Maryland ($5 million), Massachusetts ($1 million), Oregon ($1 million), Washington ($2.19 million), New York ($6.58 million), and several others. Maryland is unique in having both an estate tax and an inheritance tax.
+
+<strong>Key planning insight:</strong> Federal estate tax affects very few estates in 2026 due to the high exemption. State inheritance and estate taxes are much more likely to impact ordinary families. Your estate plan must address both, since strategies that reduce one may not help with the other.
+
+## Strategies to Minimize Inheritance Tax
+
+Beyond the core exemptions, these advanced strategies can further reduce inheritance tax exposure.
+
+<strong>Irrevocable Life Insurance Trust (ILIT):</strong> An ILIT owns your life insurance policy, keeping the death benefit out of your taxable estate. This is especially valuable in inheritance tax states, since proceeds pass directly to beneficiaries outside the probate estate.
+
+<strong>Qualified Personal Residence Trust (QPRT):</strong> Transfer your home into a trust while retaining the right to live there for a set term. After the term, the home passes to beneficiaries at a reduced gift tax value, removing future appreciation from your taxable estate.
+
+<strong>Family Limited Partnership (FLP):</strong> Pool family assets into a partnership where you hold general partner shares. Gift limited partnership interests to heirs at discounted values (typically 25-40% below market), reducing transfer tax exposure while maintaining control.
+
+<strong>Annual gifting programs:</strong> Use the $18,000 annual gift exclusion systematically. A couple gifting $36,000 per year to each of two children removes $720,000 from their estate over 10 years — completely tax-free.
+
+<strong>Charitable Remainder Trust (CRT):</strong> Donate appreciated assets to a CRT, receive income for life, with the remainder going to charity. You get a partial charitable deduction and remove the assets from your estate. The charity eventually receives the principal, and your beneficiaries avoid tax on those assets.
+
 ## How Our Inheritance Tax Calculator Works
 
 Our <a href="/inheritance-tax-calculator">Inheritance Tax Calculator</a> estimates estate and inheritance tax across multiple jurisdictions.
@@ -162,7 +188,7 @@ It gives estimates based on common rules. Actual liability depends on your speci
     category: "Finance",
     categorySlug: "finance",
     publishedAt: "2026-07-02",
-    readingTime: 19,
+    readingTime: 22,
     featured: false,
     popular: true,
     image: "/images/blog/category-finance.svg",

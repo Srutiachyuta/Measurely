@@ -6,6 +6,14 @@ import { comparisons } from "@/data/comparisons";
 
 const BASE_URL = SITE.url;
 
+const CUSTOM_PAGES = [
+  "ai-token-cost-calculator",
+  "severance-pay-calculator",
+  "inheritance-tax-calculator",
+  "emergency-fund-calculator",
+  "cd-ladder-calculator",
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -15,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${BASE_URL}/calculators`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
     { url: `${BASE_URL}/categories`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${BASE_URL}/compare`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.7 },
     { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
     { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
     { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
@@ -23,6 +32,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/editorial-policy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
     { url: `${BASE_URL}/search`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.3 },
   ];
+
+  const customPages = CUSTOM_PAGES.map((slug) => ({
+    url: `${BASE_URL}/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
   const blogPages = blogs.map((blog) => ({
     url: `${BASE_URL}/${blog.slug}`,
@@ -54,6 +70,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...customPages,
     ...blogPages,
     ...categoryPages,
     ...calculatorPages,

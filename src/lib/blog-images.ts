@@ -39,7 +39,6 @@ const slugAltMap: Record<string, string> = {
   "equation-solver-calculator": "Complex mathematical equations on a blackboard",
   "master-greatest-common-factor-least-common": "Number patterns and mathematical sequences",
   "check-list-generate-prime-numbers": "Visualization of prime numbers in number theory",
-  "mean-median-mode-standard-deviation-more": "Data analysis charts and statistical graphs",
   "calculate-exact-age-years-months-days-hours": "Calendar pages marking important dates",
   "add-subtract-find-date-differences-ease": "Wall calendar with date markings and planner",
   "days-between-calculator": "Calendar with days counted between marked dates",
@@ -73,8 +72,17 @@ const slugAltMap: Record<string, string> = {
   "how-inheritance-tax-works": "Family estate planning documents with inheritance tax calculator and wealth distribution chart",
 };
 
+const pngSlugs = new Set([
+  "how-to-build-a-cd-ladder",
+  "how-much-emergency-fund-should-i-have",
+  "how-is-severance-pay-calculated-after-a-layoff",
+  "how-inheritance-tax-works",
+  "how-to-pay-off-student-loans-faster-without-refinancing",
+]);
+
 export function getPlaceholderImage(slug: string): string {
-  return `/images/blog/placeholders/${slug}.svg`;
+  const ext = pngSlugs.has(slug) ? "png" : "svg";
+  return `/images/blog/placeholders/${slug}.${ext}`;
 }
 
 export function getBlogImageUrl(slug: string, _category: string): string {

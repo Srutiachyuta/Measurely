@@ -118,6 +118,44 @@ At 80 kg, Vikram is healthy across all measures. His large frame lets him carry 
 
 <strong>Confusing ideal weight with health.</strong> Your weight is just one piece. Sleep, stress, nutrition, and physical activity matter more than the number on the scale.
 
+## Waist-to-Hip Ratio as a Health Indicator
+
+While weight and BMI give you a general sense of health, waist-to-hip ratio (WHR) tells you something more specific — where your body stores fat. This matters because abdominal fat (apple shape) carries higher health risks than fat stored in hips and thighs (pear shape).
+
+<strong>How to measure:</strong> Measure your waist at the narrowest point (usually just above the belly button) and your hips at the widest point. Divide waist by hip circumference. For example, a 32-inch waist with 40-inch hips gives a WHR of 0.8.
+
+<strong>Healthy ranges:</strong> For women, a WHR below 0.85 is considered healthy. For men, below 0.90 is healthy. Above these thresholds indicates higher risk for heart disease, type 2 diabetes, and metabolic syndrome.
+
+<strong>WHR vs BMI:</strong> BMI doesn't distinguish between fat and muscle or account for fat distribution. Two people with the same BMI can have very different WHRs — one healthy, one at risk. WHR adds a critical dimension that BMI misses.
+
+<strong>How to improve your WHR:</strong> Since visceral fat responds well to lifestyle changes, a combination of moderate calorie deficit, regular cardiovascular exercise, and strength training can significantly reduce waist circumference even without dramatic weight loss.
+
+## Weight Fluctuations: What's Normal
+
+If your weight bounces around day to day, don't panic. Normal weight fluctuations of 1-3 kg (2-7 lbs) within a single week are common and usually have nothing to do with fat gain or loss.
+
+<strong>Causes of daily fluctuations:</strong> Water retention is the biggest culprit. High-sodium meals, carbohydrate intake, hormonal changes (especially for women), hydration levels, and even the time of day can shift the number on the scale by 1-2 kg. Food weight in your digestive system also adds temporary mass.
+
+<strong>Weighing best practices:</strong> Weigh yourself first thing in the morning, after using the bathroom, before eating or drinking, wearing minimal clothes. Use the same scale on a hard, level surface. This gives you the most consistent reading.
+
+<strong>Track trends, not daily numbers:</strong> Your true weight trend matters more than any single reading. Use a weight tracking app or spreadsheet to log weekly averages. A moving average smooths out daily noise and shows you the real direction. If the trend is stable or moving in your desired direction over 2-4 weeks, you're on track.
+
+<strong>When to be concerned:</strong> Unexplained weight loss of more than 5% of body weight in 6-12 months, or rapid weight gain with swelling, warrants a medical checkup. These can signal underlying health issues.
+
+## Setting Realistic Weight Goals
+
+Goal setting is where many weight management plans succeed or fail. Unrealistic targets lead to frustration and abandonment of healthy habits.
+
+<strong>The 1-2 pound rule:</strong> Aim for 0.5-1 kg (1-2 lbs) of weight loss per week. Faster loss is usually water weight or muscle loss, not sustainable fat loss. At this rate, you can lose 6-12 kg (13-26 lbs) in 3 months — a meaningful and visible change.
+
+<strong>Focus on process goals, not just outcome goals:</strong> Instead of "lose 10 kg," set goals like "walk 8,000 steps daily," "eat 5 servings of vegetables per day," or "strength train 3 times per week." Process goals are under your control and build lasting habits. Outcome goals follow naturally.
+
+<strong>Set milestone targets:</strong> Break a large goal into 2-3 kg increments. Each milestone feels achievable and worth celebrating. Losing 3 kg in a month feels more motivating than looking at a 15 kg mountain ahead.
+
+<strong>Adjust as you go:</strong> As you lose weight, your calorie needs decrease. Recalculate your targets using our <a href="/calorie-calculator">calorie calculator</a> every 4-6 weeks. What worked at 80 kg is too much at 70 kg.
+
+<strong>Health over aesthetics:</strong> The best weight for you is the weight where you feel energetic, sleep well, have good bloodwork, and can maintain without extreme effort. That number might be higher or lower than what magazines suggest.
+
 ## Conclusion
 
 Your ideal weight isn't a single number — it's a range based on your height, age, gender, body frame, and individual factors. Our <a href="/ideal-weight-calculator">ideal weight calculator</a> pulls from multiple validated formulas to give you the full picture.
@@ -127,7 +165,7 @@ Use it as a starting point, not a rigid target. Pair it with <a href="/bmi-calcu
     categorySlug: "health",
     publishedAt: "2026-06-19",
     updatedAt: "2026-06-19",
-    readingTime: 12,
+    readingTime: 16,
     featured: false,
     popular: false,
     image: "/blog/ideal-weight-calculator.svg",
@@ -137,11 +175,13 @@ Use it as a starting point, not a rigid target. Pair it with <a href="/bmi-calcu
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to help people understand healthy weight ranges, body composition, and evidence-based approaches to weight management.",
     },
-    relatedSlugs: ["bmi-understanding-your-body-mass-index", "bmr-and-weight-management", "daily-water-intake-guide"],
+    relatedSlugs: ["bmi-understanding-your-body-mass-index", "bmr-and-weight-management", "daily-water-intake-guide", "find-target-heart-rate-zones-optimal-fitness", "track-pregnancy-week-by-week"],
     relatedTools: [
       { name: "Ideal Weight Calculator", slug: "healthy-weight-height-age", type: "calculator" },
       { name: "BMI Calculator", slug: "bmi-calculator", type: "calculator" },
       { name: "Calorie Calculator", slug: "many-calories-need-each-day", type: "calculator" },
+      { name: "Water Intake Calculator", slug: "water-intake-calculator", type: "calculator" },
+      { name: "Body Fat Calculator", slug: "body-fat-calculator", type: "calculator" },
     ],
     faqs: [
       { question: "What is the most accurate formula for ideal weight?", answer: "There is no single most accurate formula. The Devine and Hamwi formulas are widely used clinically. The BMI-based method provides a healthy weight range. Each has strengths and limitations." },
