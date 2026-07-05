@@ -1,5 +1,5 @@
 import type { BlogPost } from "@/types";
-import { getPlaceholderImage, getBlogImageAlt } from "@/lib/blog-images";
+import { getBlogImageUrl, getBlogImageAlt } from "@/lib/blog-images";
 import articles from "@/content";
 
 const blogsData: BlogPost[] = articles;
@@ -10,6 +10,6 @@ export const blogs: BlogPost[] = blogsData.sort((a, b) => {
   return b.slug.localeCompare(a.slug);
 }).map((post) => ({
   ...post,
-  featuredImage: getPlaceholderImage(post.slug),
+  featuredImage: getBlogImageUrl(post.slug, post.category),
   featuredImageAlt: getBlogImageAlt(post.slug, post.category),
 }));

@@ -78,6 +78,11 @@ const pngSlugs = new Set([
   "how-is-severance-pay-calculated-after-a-layoff",
   "how-inheritance-tax-works",
   "how-to-pay-off-student-loans-faster-without-refinancing",
+  "how-much-does-ai-api-usage-cost-for-a-small-business",
+  "how-much-home-equity-can-i-borrow",
+  "how-much-money-do-i-need-to-retire-early-in-india",
+  "how-to-calculate-quarterly-estimated-taxes-for-self-employed",
+  "how-to-forecast-business-cash-flow-accurately-in-2026-2027",
 ]);
 
 export function getPlaceholderImage(slug: string): string {
@@ -85,12 +90,22 @@ export function getPlaceholderImage(slug: string): string {
   return `/images/blog/placeholders/${slug}.${ext}`;
 }
 
-export function getBlogImageUrl(slug: string, _category: string): string {
-  return getPlaceholderImage(slug);
+function categoryToSlug(category: string): string {
+  return category.toLowerCase().replace(/\s+/g, "-");
 }
 
-export function getBlogImageAlt(slug: string, _category: string): string {
-  return slugAltMap[slug] ?? "Featured image for blog article";
+export function getBlogImageUrl(slug: string, category: string): string {
+  if (pngSlugs.has(slug)) {
+    return getPlaceholderImage(slug);
+  }
+  return `/images/blog/category-${categoryToSlug(category)}.svg`;
+}
+
+export function getBlogImageAlt(slug: string, category: string): string {
+  if (pngSlugs.has(slug)) {
+    return slugAltMap[slug] ?? "Featured image for blog article";
+  }
+  return `${category} blog article illustration`;
 }
 
 export function getBlogImageDimensions(): { width: number; height: number } {
