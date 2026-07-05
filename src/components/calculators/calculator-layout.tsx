@@ -237,11 +237,13 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
             {isCalculating ? (
               <PremiumSkeleton variant="result" />
             ) : hasCalculated && results.length > 0 ? (
-              <CalculatorResults
-                results={results}
-                chart={chart}
-                onReset={handleReset}
-              />
+              <div role="status" aria-live="polite">
+                <CalculatorResults
+                  results={results}
+                  chart={chart}
+                  onReset={handleReset}
+                />
+              </div>
             ) : (
               <div className="bg-surface-secondary rounded-2xl border border-border p-8 text-center">
                 <CalcIcon className="h-10 w-10 text-muted mx-auto mb-3" />

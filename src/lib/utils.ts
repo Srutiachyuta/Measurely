@@ -115,7 +115,7 @@ export function generateMeta({
 }) {
   const siteName = "Measurely";
   const defaultImage = "/og-image.png";
-  const defaultUrl = "https://measurely.app";
+  const defaultUrl = "https://measurely.in";
 
   return {
     title,
@@ -134,7 +134,8 @@ export function generateMeta({
       card: "summary_large_image",
       title,
       description,
-      images: [image ?? defaultImage],
+      image: image ?? defaultImage,
+      creator: "@measurely",
     },
     ...(tags && { keywords: tags.join(", ") }),
     alternates: { canonical: url ?? defaultUrl },

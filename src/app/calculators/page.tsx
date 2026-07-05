@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     description:
       "Browse our complete collection of free online calculators.",
     images: [SITE.ogImage],
+    creator: SITE.twitterHandle,
   },
   alternates: { canonical: `${SITE.url}/calculators` },
   keywords: ["free online calculators", "financial calculators", "health calculators", "math calculators", "engineering calculators"],

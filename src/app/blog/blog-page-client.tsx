@@ -177,7 +177,7 @@ function NewsletterSidebar() {
           placeholder="Your email"
           className="w-full px-3 py-2.5 rounded-lg border border-border/60 bg-surface text-text placeholder:text-text-secondary/60 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/30 mb-2"
         />
-        {error && <p className="text-xs text-red-500 mb-2">{error}</p>}
+        {error && <p className="text-xs text-red-500 mb-2" role="alert">{error}</p>}
         <button
           type="submit" disabled={submitting}
           className="w-full py-2.5 rounded-lg bg-primary-600 text-white text-sm font-medium hover:bg-primary-700 disabled:opacity-50 transition-all flex items-center justify-center gap-1.5"
@@ -608,7 +608,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
                           className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-secondary transition-colors"
                         >
                           <div className="w-8 h-8 rounded-lg bg-surface-secondary overflow-hidden shrink-0">
-                            <Image src={getBlogImageUrl(post.slug, post.category)} alt="" width={32} height={32} className="object-cover w-full h-full" />
+                            <Image src={getBlogImageUrl(post.slug, post.category)} alt={post.title} width={32} height={32} className="object-cover w-full h-full" />
                           </div>
                           <div className="text-left min-w-0">
                             <p className="text-sm font-medium text-text line-clamp-1">{post.title}</p>
@@ -895,7 +895,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
                         <div className="w-10 h-10 rounded-lg bg-surface-secondary overflow-hidden shrink-0">
                           <Image
                             src={getBlogImageUrl(post.slug, post.category)}
-                            alt=""
+                            alt={post.title}
                             width={40}
                             height={40}
                             className="object-cover w-full h-full"

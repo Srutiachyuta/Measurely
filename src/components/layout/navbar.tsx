@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -126,6 +126,59 @@ export function Navbar() {
       document.body.style.overflow = "";
     }
     return () => { document.body.style.overflow = ""; };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      const main = document.getElementById("main-content");
+      if (main) main.setAttribute("aria-hidden", "true");
+    } else {
+      const main = document.getElementById("main-content");
+      if (main) main.removeAttribute("aria-hidden");
+    }
+  }, [mobileMenuOpen]);
+
+  const panelRef = useRef<HTMLDivElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      previousFocusRef.current = document.activeElement as HTMLElement;
+      setTimeout(() => {
+        const closeBtn = panelRef.current?.querySelector<HTMLElement>('[aria-label="Close menu"]');
+        closeBtn?.focus();
+      }, 50);
+    } else if (previousFocusRef.current) {
+      previousFocusRef.current.focus();
+      previousFocusRef.current = null;
+    }
+  }, [mobileMenuOpen]);
+
+  const handleKeyDown = useCallback((e: React.KeyboardEvent) => {
+    if (!mobileMenuOpen) return;
+    if (e.key !== "Tab") return;
+    const panel = panelRef.current;
+    if (!panel) return;
+
+    const focusable = panel.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    );
+    if (focusable.length === 0) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
   }, [mobileMenuOpen]);
 
   return (
@@ -274,15 +327,24 @@ export function Navbar() {
               transition={{ duration: 0.2 }}
               className="fixed inset-0 top-0 z-40 bg-black/20 dark:bg-black/40 lg:hidden"
               aria-hidden="true"
+              onClick={closeMenu}
             />
 
             {/* Panel */}
             <motion.div
+              ref={panelRef}
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
               className="fixed right-0 top-0 bottom-0 z-50 w-full max-w-sm bg-[#fcfcfd] dark:bg-dark-900 shadow-2xl shadow-black/10 dark:shadow-black/40 lg:hidden overflow-y-auto"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Navigation menu"
+              onKeyDown={(e) => {
+                if (e.key === "Escape") closeMenu();
+                handleKeyDown(e);
+              }}
             >
               <div className="flex flex-col h-full">
                 {/* Header */}

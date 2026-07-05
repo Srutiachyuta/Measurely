@@ -233,6 +233,8 @@ export function CalculatorResults({ results, chart, onReset, title = "Results" }
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
       ref={resultsRef}
+      role="status"
+      aria-live="polite"
     >
       <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-dark-800/80 border border-border/40 shadow-elevation-lg">
         <div className="absolute -top-24 -right-24 w-64 h-64 bg-gradient-to-br from-primary-500/10 to-accent-cyan/10 rounded-full blur-3xl pointer-events-none" />

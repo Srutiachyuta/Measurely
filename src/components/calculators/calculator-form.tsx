@@ -79,7 +79,7 @@ export function CalculatorForm({
               )}
             />
           </div>
-          {error && <p className="text-xs text-red-500 flex items-center gap-1 mt-1"><span className="inline-block w-1 h-1 rounded-full bg-red-500" />{error}</p>}
+          {error && <p className="text-xs text-red-500 flex items-center gap-1 mt-1" role="alert"><span className="inline-block w-1 h-1 rounded-full bg-red-500" />{error}</p>}
         </div>
       );
     }
@@ -112,7 +112,7 @@ export function CalculatorForm({
               ))}
             </SelectContent>
           </Select>
-          {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+          {error && <p className="text-xs text-red-500 mt-1" role="alert">{error}</p>}
         </div>
       );
     }
@@ -148,7 +148,7 @@ export function CalculatorForm({
               </label>
             ))}
           </div>
-          {error && <p className="text-xs text-red-500 mt-1">{error}</p>}
+          {error && <p className="text-xs text-red-500 mt-1" role="alert">{error}</p>}
         </div>
       );
     }
@@ -176,7 +176,7 @@ export function CalculatorForm({
             "font-mono"
           )}
         />
-        {error && <p className="text-xs text-red-500 flex items-center gap-1 mt-1"><span className="inline-block w-1 h-1 rounded-full bg-red-500" />{error}</p>}
+        {error && <p className="text-xs text-red-500 flex items-center gap-1 mt-1" role="alert"><span className="inline-block w-1 h-1 rounded-full bg-red-500" />{error}</p>}
       </div>
     );
   };

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
-import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/json-ld";
+import { BreadcrumbJsonLd, WebPageJsonLd, AboutPageJsonLd } from "@/components/seo/json-ld";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import type { BreadcrumbItem } from "@/types";
 import { AdSlot } from "@/components/AdSlot";
@@ -13,10 +13,10 @@ import { converters } from "@/data/converters";
 import { blogs } from "@/data/blogs";
 
 export const metadata: Metadata = {
-  title: `About Us | ${SITE_CONFIG.name}`,
-    description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone. Discover our story, values, team, and commitment to quality.`,
+  title: "About Us",
+  description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone. Discover our story, values, team, and commitment to quality.`,
   openGraph: {
-    title: `About Us | ${SITE_CONFIG.name}`,
+    title: "About Us",
     description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone.`,
     url: `${SITE_CONFIG.url}/about`,
     siteName: SITE_CONFIG.siteName,
@@ -24,9 +24,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `About Us | ${SITE_CONFIG.name}`,
+    title: "About Us",
     description: `Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone.`,
     images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
+    creator: SITE_CONFIG.twitterHandle,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/about` },
   keywords: [
@@ -106,6 +107,7 @@ export default function AboutPage() {
         description={`Learn about ${SITE_CONFIG.name} — our mission to provide free, accurate online calculators for everyone.`}
         url={`${SITE_CONFIG.url}/about`}
       />
+      <AboutPageJsonLd url={`${SITE_CONFIG.url}/about`} />
       <div className="py-16 sm:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={breadcrumbItems} className="mb-8" />

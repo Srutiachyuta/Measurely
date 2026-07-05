@@ -11,6 +11,7 @@ import {
   WebApplicationJsonLd,
   FAQJsonLd,
   HowToJsonLd,
+  BlogPostingJsonLd,
 } from "@/components/seo/json-ld";
 import { CalculatorLayout } from "@/components/calculators/calculator-layout";
 import { BlogArticle } from "@/components/blog/blog-article";
@@ -163,25 +164,15 @@ export default async function ToolSlugPage({ params }: PageProps) {
             { name: blog.title, url },
           ]}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "BlogPosting",
-              "@id": `${url}#blogposting`,
-              headline: blog.title,
-              description: blog.excerpt,
-              image: getBlogImageUrl(blog.slug, blog.category),
-              url,
-              datePublished: blog.publishedAt,
-              dateModified: blog.updatedAt || blog.publishedAt,
-              author: { "@type": "Person", name: blog.author.name },
-              publisher: { "@id": `${SITE.url}/#organization` },
-              mainEntityOfPage: { "@type": "WebPage", "@id": url },
-              keywords: blog.tags.join(", "),
-            }),
-          }}
+        <BlogPostingJsonLd
+          headline={blog.title}
+          description={blog.excerpt}
+          image={getBlogImageUrl(blog.slug, blog.category)}
+          url={url}
+          datePublished={blog.publishedAt}
+          dateModified={blog.updatedAt || blog.publishedAt}
+          authorName={blog.author.name}
+          tags={blog.tags}
         />
         {blog.faqs && blog.faqs.length > 0 && <FAQJsonLd questions={blog.faqs} url={url} />}
         <BlogArticle post={blog} blogs={blogs} />

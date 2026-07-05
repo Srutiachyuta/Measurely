@@ -37,10 +37,14 @@ export function CategoriesDropdown() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const containerRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   const isActive = pathname === "/categories";
 
-  const close = useCallback(() => setIsOpen(false), []);
+  const close = useCallback(() => {
+    setIsOpen(false);
+    triggerRef.current?.focus();
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -53,13 +57,30 @@ export function CategoriesDropdown() {
   }, [close]);
 
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) {
         close();
       }
+      if ((e.key === "ArrowDown" || e.key === "ArrowUp") && isOpen) {
+        e.preventDefault();
+        const items = containerRef.current?.querySelectorAll<HTMLElement>('[role="menuitem"]');
+        if (!items || items.length === 0) return;
+        const currentIndex = Array.from(items).findIndex((el) => el === document.activeElement);
+        const nextIndex = e.key === "ArrowDown"
+          ? (currentIndex + 1) % items.length
+          : (currentIndex - 1 + items.length) % items.length;
+        items[nextIndex]?.focus();
+      }
+      if ((e.key === "Home" || e.key === "End") && isOpen) {
+        e.preventDefault();
+        const items = containerRef.current?.querySelectorAll<HTMLElement>('[role="menuitem"]');
+        if (!items || items.length === 0) return;
+        if (e.key === "Home") items[0]?.focus();
+        else items[items.length - 1]?.focus();
+      }
     };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, close]);
 
   useEffect(() => {
@@ -78,6 +99,7 @@ export function CategoriesDropdown() {
       onMouseLeave={close}
     >
       <button
+        ref={triggerRef}
         className={cn(
           "relative px-3.5 py-2 text-sm font-semibold rounded-lg transition-all duration-200 inline-flex items-center gap-1",
           isActive || isOpen

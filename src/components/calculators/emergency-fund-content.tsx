@@ -216,12 +216,12 @@ const faqs = [
 ];
 
 const relatedCalculators = [
-  { name: "Savings Calculator", slug: "savings-calculator", description: "Plan your savings growth with compound interest projections and goal tracking." },
-  { name: "Budget Calculator", slug: "budget-calculator", description: "Create a detailed personal budget to track income, expenses, and savings goals." },
-  { name: "Debt Payoff Calculator", slug: "debt-payoff-calculator", description: "Compare debt payoff strategies and find the fastest way to become debt-free." },
-  { name: "Retirement Calculator", slug: "retirement-calculator", description: "Estimate how much you need to save for a comfortable retirement." },
-  { name: "Investment Calculator", slug: "investment-calculator", description: "Project investment growth and analyze compound returns over time." },
-  { name: "Net Worth Calculator", slug: "net-worth-calculator", description: "Track your total net worth by calculating assets minus liabilities." },
+  { name: "Compound Interest Calculator", slug: "compound-interest-calculator", description: "Plan your savings growth with compound interest projections and goal tracking." },
+  { name: "Cash Flow Forecast Calculator", slug: "cash-flow-forecast-calculator", description: "Create a detailed cash flow forecast to track income, expenses, and savings goals." },
+  { name: "Loan Calculator", slug: "loan-calculator", description: "Compare debt payoff strategies and find the fastest way to become debt-free." },
+  { name: "401k Calculator", slug: "401k", description: "Estimate how much you need to save for a comfortable retirement." },
+  { name: "ROI Calculator", slug: "roi-calculator", description: "Project investment growth and analyze compound returns over time." },
+  { name: "Home Equity Loan Calculator", slug: "home-equity-loan-calculator", description: "Track your total home equity by calculating assets minus liabilities." },
 ];
 
 export function EmergencyFundContent() {

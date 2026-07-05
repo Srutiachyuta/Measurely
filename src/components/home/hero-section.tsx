@@ -12,7 +12,7 @@ const chips = [
   { name: "BMI Calculator", slug: "bmi-calculator" },
   { name: "SIP Calculator", slug: "sip-calculator" },
   { name: "FD Calculator", slug: "fd-calculator" },
-  { name: "PPF Calculator", slug: "ppf-calculator" },
+  { name: "Tax Calculator", slug: "tax-calculator" },
   { name: "GST Calculator", slug: "gst-calculator" },
   { name: "Salary Calculator", slug: "salary-calculator" },
   { name: "Compound Interest", slug: "compound-interest-calculator" },

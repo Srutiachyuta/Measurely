@@ -5747,7 +5747,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "Will severance affect unemployment benefits?", answer: "Severance pay may affect unemployment benefits depending on state laws. Some states reduce unemployment benefits by the amount of severance received, while others allow you to receive both without reduction." },
       { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on common severance formulas. Actual severance packages vary by employer policy, employment contracts, state laws, and individual circumstances. Use this as a planning tool and consult with an attorney for your specific situation." },
     ],
-    relatedSlugs: ["annual-salary-calculator", "paycheck-calculator", "hourly-to-salary-calculator", "tax-calculator", "cash-flow-forecast-calculator"],
+    relatedSlugs: ["salary-calculator", "paycheck-calculator", "tax-calculator", "cash-flow-forecast-calculator"],
     formula: "Gross Severance = (Annual Salary ÷ 52) × Weeks Per Year × Years of Service. Net Severance = Gross Severance + Bonus + PTO + Other Benefits − Taxes.",
   },
   {
@@ -5867,7 +5867,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "Do all countries charge inheritance tax?", answer: "No. Many countries have abolished inheritance and estate taxes, including Australia, Canada, New Zealand, Sweden, and Russia. Others like the US and UK have significant exemptions before tax applies." },
       { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on common tax rules for each jurisdiction. Actual tax liability depends on specific circumstances, state laws, and professional assessment. Use this as a planning tool and consult a tax professional." },
     ],
-    relatedSlugs: ["net-worth-calculator", "retirement-calculator", "investment-return-calculator", "compound-interest-calculator", "tax-calculator"],
+    relatedSlugs: ["home-equity-loan-calculator", "401k", "roi-calculator", "compound-interest-calculator", "tax-calculator"],
     formula: "Taxable Estate = Gross Estate - Debts - Expenses - Exemptions. Tax = Taxable Estate × Applicable Tax Rate. Net Inheritance = Gross Estate - Deductions - Tax.",
   },
   {
@@ -5921,7 +5921,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "How long does it take to build an emergency fund?", answer: "The timeline depends on your savings capacity and target amount. With consistent monthly savings, most people can build a 3-6 month emergency fund within 12-24 months. Our calculator provides a personalized timeline." },
       { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on financial best practices and your personal inputs. Actual emergency fund needs may vary based on your specific financial situation, local cost of living, and personal risk tolerance." },
     ],
-    relatedSlugs: ["budget-calculator", "retirement-calculator", "net-worth-calculator", "cash-flow-forecast-calculator", "compound-interest-calculator"],
+    relatedSlugs: ["cash-flow-forecast-calculator", "401k", "home-equity-loan-calculator", "compound-interest-calculator"],
     formula: "Target Emergency Fund = Monthly Essential Expenses × Recommended Months. Recommended Months based on employment type, job stability, dependents, and other risk factors.",
   },
   {
@@ -5972,7 +5972,7 @@ export const calculators: CalculatorDefinition[] = [
       { question: "How often should I reinvest?", answer: "Reinvest each CD as it matures to maintain your ladder structure. This ensures you continuously benefit from prevailing interest rates while keeping your ladder strategy intact." },
       { question: "Is this calculator accurate?", answer: "This calculator provides estimates based on the inputs you provide. Actual returns depend on the specific CD rates, compounding methods, and future rate changes. Use this as a planning tool." },
     ],
-    relatedSlugs: ["compound-interest-calculator", "interest-calculator", "investment-return-calculator", "retirement-calculator", "net-worth-calculator"],
+    relatedSlugs: ["compound-interest-calculator", "interest-calculator", "roi-calculator", "401k", "home-equity-loan-calculator"],
     formula: "CD Value = P × (1 + r/n)^(n×t). Total = Sum of all CD values. Effective Yield = (FV / PV)^(1/years) - 1.",
   },
 ];

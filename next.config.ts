@@ -1,4 +1,9 @@
 import type { NextConfig } from "next";
+import withBundleAnalyzerImport from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = process.env.ANALYZE === "true"
+  ? withBundleAnalyzerImport({ enabled: true })
+  : (c: NextConfig) => c;
 
 const csp = [
   `default-src 'self'`,
@@ -50,4 +55,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

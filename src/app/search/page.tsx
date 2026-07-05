@@ -18,7 +18,11 @@ const breadcrumbItems: BreadcrumbItem[] = [
   { label: "Search", href: "/search" },
 ];
 
-const searchIndexItems = buildSearchIndex();
+let searchIndexItems: ReturnType<typeof buildSearchIndex> | null = null;
+function getSearchIndex() {
+  if (!searchIndexItems) searchIndexItems = buildSearchIndex();
+  return searchIndexItems;
+}
 
 export default function SearchPage() {
   const [query, setQuery] = useState("");
@@ -32,7 +36,7 @@ export default function SearchPage() {
   }, []);
 
   const results = useMemo(
-    () => searchIndexFn(query, searchIndexItems),
+    () => searchIndexFn(query, getSearchIndex()),
     [query]
   );
 
@@ -60,7 +64,7 @@ export default function SearchPage() {
   return (
     <div className="min-h-screen">
       <BreadcrumbJsonLd items={[{ name: "Search Tools" }]} />
-      <WebPageJsonLd title="Search Tools & Articles | Measurely" description="Find calculators and articles across the site." url="https://www.measurely.in/search" />
+      <WebPageJsonLd title="Search Tools & Articles | Measurely" description="Find calculators and articles across the site." url="https://measurely.in/search" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <Breadcrumb items={breadcrumbItems} className="mb-6" />
         <motion.div
@@ -94,6 +98,7 @@ export default function SearchPage() {
               }}
               className="pl-10 h-12 text-base"
               autoFocus
+              aria-label="Search calculators and articles"
             />
             {query && (
               <button

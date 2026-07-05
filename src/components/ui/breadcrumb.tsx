@@ -1,5 +1,3 @@
-"use client";
-
 import { forwardRef } from "react";
 import Link from "next/link";
 import { ChevronRight, Home, MoreHorizontal, Slash } from "lucide-react";

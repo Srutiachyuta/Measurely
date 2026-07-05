@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     title: `${SITE_CONFIG.name} - Free Online Calculators & Tools`,
     description: SITE_CONFIG.description + " Explore our collection of free calculators and financial tools.",
     images: [SITE_CONFIG.ogImage],
+    creator: SITE_CONFIG.twitterHandle,
   },
   alternates: { canonical: SITE_CONFIG.url },
   robots: { index: true, follow: true },

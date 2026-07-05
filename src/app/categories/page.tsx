@@ -25,6 +25,7 @@ export const metadata: Metadata = {
     title: `All Categories | ${SITE_CONFIG.name}`,
     description: `Browse all ${CATEGORIES.length} categories of calculators.`,
     images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
+    creator: SITE_CONFIG.twitterHandle,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/categories` },
   keywords: ["calculator categories", "finance", "health", "math", "engineering", "construction"],

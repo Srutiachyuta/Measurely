@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/constants";
-import { BreadcrumbJsonLd, WebPageJsonLd, CollectionPageJsonLd, ItemListJsonLd } from "@/components/seo/json-ld";
+import { BreadcrumbJsonLd, WebPageJsonLd, CollectionPageJsonLd, ItemListJsonLd, FAQJsonLd } from "@/components/seo/json-ld";
 import { Breadcrumb } from "@/components/ui/breadcrumb";
 import type { BreadcrumbItem } from "@/types";
 import { Badge } from "@/components/ui/badge";
@@ -142,6 +142,9 @@ export function CategoryDetail({ category }: Props) {
       <WebPageJsonLd title={`${category.name} | ${SITE_CONFIG.name}`} description={category.description} url={`${SITE_CONFIG.url}/${category.slug}`} />
       <CollectionPageJsonLd title={`${category.name} | ${SITE_CONFIG.name}`} description={category.description} url={`${SITE_CONFIG.url}/${category.slug}`} />
       <ItemListJsonLd items={category.tools.map((t) => ({ name: t.name, url: `${SITE_CONFIG.url}/${t.slug}` }))} url={`${SITE_CONFIG.url}/${category.slug}`} />
+      {categoryContent[category.slug]?.faqs && categoryContent[category.slug].faqs.length > 0 && (
+        <FAQJsonLd questions={categoryContent[category.slug].faqs} url={`${SITE_CONFIG.url}/${category.slug}`} />
+      )}
       <div className="py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Breadcrumb items={breadcrumbItems} className="mb-8" />

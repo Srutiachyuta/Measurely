@@ -426,6 +426,12 @@ export function AITokenCalculator() {
                   role="switch"
                   aria-checked={compareMode}
                   onClick={() => setCompareMode(!compareMode)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setCompareMode(!compareMode);
+                    }
+                  }}
                   className={cn(
                     "relative inline-flex h-6 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200",
                     compareMode ? "bg-primary-500" : "bg-surface-secondary"

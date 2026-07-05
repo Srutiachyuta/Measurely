@@ -161,7 +161,7 @@ export function ContactPageClient() {
             {/* Contact form */}
             <div className="lg:col-span-2">
               {submitted ? (
-                <div className="p-8 sm:p-12 rounded-3xl border border-border/60 bg-surface text-center">
+                <div className="p-8 sm:p-12 rounded-3xl border border-border/60 bg-surface text-center" role="status" aria-live="polite">
                   <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-accent-green/10 text-accent-green mx-auto mb-4">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
@@ -204,7 +204,7 @@ export function ContactPageClient() {
                         className="w-full h-11 rounded-xl border border-border/60 bg-surface-secondary px-4 text-sm text-text placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500 transition-all"
                         placeholder="John Doe"
                       />
-                      {errors.name && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{errors.name}</p>}
+                      {errors.name && <p className="text-xs text-red-500 mt-1 flex items-center gap-1" role="alert"><AlertCircle className="h-3 w-3" />{errors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-text mb-1.5">
@@ -218,7 +218,7 @@ export function ContactPageClient() {
                         className="w-full h-11 rounded-xl border border-border/60 bg-surface-secondary px-4 text-sm text-text placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500 transition-all"
                         placeholder="john@example.com"
                       />
-                      {errors.email && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{errors.email}</p>}
+                      {errors.email && <p className="text-xs text-red-500 mt-1 flex items-center gap-1" role="alert"><AlertCircle className="h-3 w-3" />{errors.email}</p>}
                     </div>
                   </div>
                   <div>
@@ -244,7 +244,7 @@ export function ContactPageClient() {
                       className="w-full rounded-xl border border-border/60 bg-surface-secondary px-4 py-3 text-sm text-text placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500 transition-all resize-none"
                       placeholder="Tell us what's on your mind..."
                     />
-                    {errors.message && <p className="text-xs text-red-500 mt-1 flex items-center gap-1"><AlertCircle className="h-3 w-3" />{errors.message}</p>}
+                    {errors.message && <p className="text-xs text-red-500 mt-1 flex items-center gap-1" role="alert"><AlertCircle className="h-3 w-3" />{errors.message}</p>}
                     <p className="text-xs text-muted mt-1 text-right">{formData.message.length}/2000</p>
                   </div>
                   <button
@@ -262,7 +262,7 @@ export function ContactPageClient() {
                     )}
                   </button>
                   {submitError && (
-                    <p className="text-xs text-red-500 flex items-center gap-1 justify-center">
+                    <p className="text-xs text-red-500 flex items-center gap-1 justify-center" role="alert">
                       <AlertCircle className="h-3 w-3" />
                       Submission failed. Please try again or email us directly at{' '}
                       <a href={`mailto:${CONTACT_INFO.supportEmail}`} className="underline hover:text-red-400">{CONTACT_INFO.supportEmail}</a>.

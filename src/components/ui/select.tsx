@@ -17,7 +17,7 @@ const SelectTrigger = forwardRef<
     ref={ref}
     className={cn(
       "flex h-10 w-full items-center justify-between rounded-xl border border-border bg-surface px-3.5 py-2 text-sm text-text placeholder:text-muted",
-      "focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500",
+      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/30 focus-visible:border-primary-500",
       "disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200",
       "[&>span]:line-clamp-1",
       className
@@ -110,7 +110,7 @@ const SelectItem = forwardRef<
     ref={ref}
     className={cn(
       "relative flex w-full cursor-default select-none items-center rounded-lg py-1.5 pl-8 pr-2 text-sm outline-none",
-      "focus:bg-surface-secondary focus:text-text",
+      "focus-visible:bg-surface-secondary focus-visible:text-text",
       "data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       "transition-colors",
       className
