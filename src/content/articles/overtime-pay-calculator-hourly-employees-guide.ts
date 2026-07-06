@@ -4,7 +4,15 @@ export const overtime_pay_calculator_hourly_employees_guide: BlogPost = {
     slug: "overtime-pay-calculator-hourly-employees-guide",
     title: "Overtime Pay Calculator for Hourly Employees: FLSA Rules and State Laws",
     excerpt: "Learn how FLSA overtime rules work, understand the difference between federal and state overtime laws, and calculate your overtime, double time, and gross pay accurately.",
-    content: `Overtime pay is one of the best protections hourly workers have in the US. The Fair Labor Standards Act (FLSA) sets the baseline — employers must pay **1.5 times your regular rate** for any hours past 40 in a workweek. State laws, union agreements, and specific situations can add more layers.
+    content: `## Key Takeaways
+
+- The FLSA mandates overtime at 1.5× your regular rate for all hours over 40 in a workweek, but state laws like California's can add daily overtime protections that are more generous.
+- Daily overtime (triggered after 8 hours in states like California) and weekly overtime (after 40 hours) do not double-count — the higher rate applies, but you get the benefit of whichever threshold is crossed first.
+- Exempt employees must pass the salary basis test ($684/week minimum), salary level test, and duties test — misclassification is a common and costly employer mistake.
+- The weighted average method must be used when you work two different jobs for the same employer at different pay rates in the same workweek.
+- Double time (2×) applies in specific situations — after 12 hours/day in California, on the 7th consecutive workday, and under certain union contracts or company policies.
+
+Overtime pay is one of the best protections hourly workers have in the US. The Fair Labor Standards Act (FLSA) sets the baseline — employers must pay **1.5 times your regular rate** for any hours past 40 in a workweek. State laws, union agreements, and specific situations can add more layers.
 
 Use the <a href="/overtime-pay-calculator-for-hourly-employees">Overtime Pay Calculator for Hourly Employees</a> to handle regular pay, overtime, double time, and gross pay for any pay period. Way faster than doing it by hand.
 
@@ -175,6 +183,8 @@ Working two different jobs for the same employer at different pay rates in the s
 3. Divide by total hours to get the blended rate
 4. Multiply overtime hours by 1.5× the blended rate
 
+This is especially relevant if you hold multiple hourly positions. Our <a href="/salary-calculator">Salary Calculator</a> helps you compare combined earnings across different roles.
+
 ### Weighted Average Example
 
 Say you work:
@@ -304,6 +314,33 @@ Agricultural employees and certain seasonal workers have limited overtime protec
 
 Servers, bartenders, and other tipped workers have a lower direct cash wage but still earn overtime at 1.5 times their regular rate. The regular rate for tipped employees includes both the cash wage and the tip credit claimed by the employer. Calculating overtime for tipped workers requires careful tracking of both direct wages and tip credits.
 
+## How to Track Your Overtime and Verify Your Pay
+
+If you are an hourly employee, taking ownership of your overtime tracking is the best way to ensure you are paid correctly.
+
+### Manual Tracking Methods
+
+- **Time journal** — Note your start time, end time, and break duration each day. Calculate daily and weekly totals to compare against your pay stub.
+- **Spreadsheet** — Create a simple weekly tracker with columns for date, start, end, break, daily hours, and running weekly total. Use formulas to automatically flag when weekly hours exceed 40 or daily hours exceed 8.
+- **Paper timesheet** — Keep your own copy of signed timesheets. If your employer uses electronic timekeeping, take a screenshot at the end of each week.
+
+### Red Flags to Watch For
+
+- Your employer asks you to work "off the clock" before or after your shift
+- Your time entries are edited without your knowledge
+- You are classified as exempt but your duties do not match the exemption criteria
+- Your pay stub shows straight time for all hours even when you worked over 40
+- You work through meal breaks because of workload pressure
+
+### What to Do If You Are Not Paid Correctly
+
+If you believe your employer has violated overtime laws:
+
+1. **Document everything** — Save your timesheets, pay stubs, schedules, and any communications about hours worked.
+2. **Ask your employer** — The issue may be an honest payroll error that can be corrected quickly.
+3. **File a complaint** — The Wage and Hour Division of the Department of Labor accepts complaints and can investigate on your behalf. You are protected from retaliation under the FLSA.
+4. **Consult an employment attorney** — Many employment lawyers offer free consultations and work on contingency for wage claims.
+
 ## FAQs
 
 ### What is FLSA overtime?
@@ -330,25 +367,31 @@ California requires OT after 8 hours/day and double time after 12 hours/day. Ala
 ### How is OT calculated when working multiple jobs or rates?
 Use the weighted average. Total weekly pay ÷ total hours worked = blended rate. Then apply 1.5× to OT hours.
 
-## Related Calculators
+### What should I do if my employer refuses to pay overtime?
+Document all hours worked, save your pay stubs and time records, file a complaint with the Department of Labor's Wage and Hour Division, and consult an employment attorney. Retaliation for complaining about unpaid overtime is illegal.
 
-- <a href="/overtime-pay-calculator-for-hourly-employees">Overtime Pay Calculator</a> — Calculate regular pay, overtime, double time, and gross pay instantly.
-- <a href="/salary-calculator">Salary Calculator</a> — Compare hourly pay to salaried positions and understand deductions.
-- <a href="/paycheck-calculator">Paycheck Calculator</a> — Estimate your take-home pay after federal and state taxes.
-- <a href="/tax-calculator">Tax Calculator</a> — Understand how overtime affects your annual tax bracket.
+### How does overtime affect my taxes?
+Overtime pay is fully taxable as regular income. Because overtime increases your total annual income, it may push you into a higher tax bracket. The additional tax is calculated on your total income, not just the overtime portion. Use our <a href="/tax-calculator">Tax Calculator</a> to estimate how overtime affects your annual tax liability.
 
-## Final Thoughts
+## Conclusion
 
-Whether you're an hourly worker checking your pay or an employer trying to stay compliant, getting overtime right matters. The FLSA gives you the baseline, but state laws — especially California's — can change the numbers significantly.
+Whether you are an hourly worker checking your pay or an employer trying to stay compliant, getting overtime right matters. The FLSA gives you the baseline, but state laws — especially California's — can change the numbers significantly. Understanding the difference between daily and weekly overtime, exempt and non-exempt classifications, and the weighted average method ensures you are paid — or pay — fairly for every hour worked.
 
-Our <a href="/overtime-pay-calculator-for-hourly-employees">Overtime Pay Calculator for Hourly Employees</a> handles regular pay, overtime at any multiplier, double time, and multiple pay period frequencies. Pair it with our <a href="/salary-calculator">Salary Calculator</a> and <a href="/paycheck-calculator">Paycheck Calculator</a> for the full picture.
+### Take Action Today
 
-Make sure you're getting paid fairly for every hour you put in.`,
+1. <strong>Calculate your overtime</strong> — Use our <a href="/overtime-pay-calculator-for-hourly-employees">Overtime Pay Calculator</a> to calculate your regular pay, overtime, double time, and gross pay for any pay period.
+2. <strong>Know your state's laws</strong> — Check whether your state has daily overtime rules, higher minimum wage thresholds, or additional protections beyond the FLSA.
+3. <strong>Track your hours weekly</strong> — Keep your own records of daily and weekly hours. Do not rely solely on your employer's timekeeping system.
+4. <strong>Verify your classification</strong> — If you are classified as exempt, confirm that your role passes all three exemption tests. Misclassification is grounds for a wage claim.
+5. <strong>Review every pay stub</strong> — Check that overtime hours are calculated at the correct rate. Discrepancies should be raised with your employer immediately.
+6. <strong>Estimate your tax impact</strong> — Use our <a href="/tax-calculator">Tax Calculator</a> to see how overtime earnings affect your annual tax bracket and plan your withholding accordingly.
+
+Pair our <a href="/overtime-pay-calculator-for-hourly-employees">Overtime Pay Calculator</a> with our <a href="/salary-calculator">Salary Calculator</a> to compare hourly and salaried positions, and use the <a href="/paycheck-calculator">Paycheck Calculator</a> to estimate your take-home pay after taxes and deductions. Make sure you are getting paid fairly for every hour you put in.`,
     category: "Business",
     categorySlug: "business",
     publishedAt: "2026-06-20",
-    updatedAt: "2026-06-20",
-    readingTime: 16,
+    updatedAt: "2026-07-06",
+    readingTime: 24,
     featured: false,
     popular: false,
     image: "/blog/overtime-pay-calculator-hourly-employees-guide.svg",
@@ -358,12 +401,13 @@ Make sure you're getting paid fairly for every hour you put in.`,
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. With a deep passion for financial literacy and data-driven tools, he created the platform to make complex tax and benefit calculations accessible to everyone in Canada and beyond.",
     },
-    relatedSlugs: ["salary-calculator", "paycheck-calculator", "tax-calculator", "freelance-rate-calculator"],
+    relatedSlugs: ["salary-calculator", "paycheck-calculator", "tax-calculator", "freelance-rate-calculator", "calculate-hand-salary-tax-deductions", "ontario-severance-pay-calculator-guide", "understanding-compound-interest", "complete-guide-calculating-take-home-pay"],
     relatedTools: [
       { name: "Overtime Pay Calculator for Hourly Employees", slug: "overtime-pay-calculator-for-hourly-employees", type: "calculator" },
       { name: "Salary Calculator", slug: "calculate-hand-salary-tax-deductions", type: "calculator" },
       { name: "Paycheck Calculator", slug: "paycheck-calculator", type: "calculator" },
       { name: "Tax Calculator", slug: "tax-calculator", type: "calculator" },
+      { name: "Freelance Rate Calculator", slug: "price-services", type: "calculator" },
     ],
     faqs: [
       { question: "What is FLSA overtime?", answer: "The Fair Labor Standards Act (FLSA) requires overtime at 1.5x the regular rate for all hours worked over 40 in a workweek. Some states also have daily overtime laws." },
@@ -374,9 +418,11 @@ Make sure you're getting paid fairly for every hour you put in.`,
       { question: "How is the overtime rate calculated for salaried non-exempt employees?", answer: "Divide the weekly salary by the number of hours it covers to get the regular rate, then multiply by 1.5 for overtime hours." },
       { question: "What states have daily overtime laws?", answer: "California requires overtime after 8 hours/day and double time after 12 hours/day. Alaska, Nevada, and some other states have similar daily overtime rules." },
       { question: "How is overtime calculated when an employee works multiple jobs/rates?", answer: "Use the weighted average of all regular rates. Total weekly pay divided by total hours worked gives the blended regular rate, then apply 1.5x to overtime hours." },
+      { question: "What should I do if my employer refuses to pay overtime?", answer: "Document all hours worked, file a complaint with the Department of Labor's Wage and Hour Division, and consult an employment attorney. Retaliation for complaining about unpaid overtime is illegal." },
+      { question: "How does overtime affect my taxes?", answer: "Overtime is fully taxable as regular income and may push you into a higher tax bracket. Use our Tax Calculator to estimate how overtime affects your annual tax liability." },
     ],
-    tags: ["overtime pay calculator", "FLSA overtime rules", "California overtime law", "overtime vs double time", "exempt vs non-exempt employees", "weighted average overtime", "daily overtime law", "hourly employee pay"],
+    tags: ["overtime pay calculator", "FLSA overtime rules", "California overtime law", "overtime vs double time", "exempt vs non-exempt employees", "weighted average overtime", "daily overtime law", "hourly employee pay", "overtime tracking", "wage and hour compliance"],
     metaTitle: "Overtime Pay Calculator: FLSA Rules and State Overtime Laws | Measurely",
-    metaDescription: "Calculate overtime pay with our free FLSA overtime calculator. Learn federal vs state overtime laws, daily vs weekly overtime, exempt vs non-exempt rules, and double time pay.",
-    keywords: ["overtime pay calculator", "FLSA overtime", "California overtime law", "overtime vs double time", "exempt vs non-exempt employees", "weighted average overtime rate", "daily overtime laws", "hourly employee gross pay"],
+    metaDescription: "Calculate overtime pay with our free FLSA overtime calculator. Learn federal vs state overtime laws, daily vs weekly overtime, exempt vs non-exempt rules, double time, and employee rights.",
+    keywords: ["overtime pay calculator", "FLSA overtime", "California overtime law", "overtime vs double time", "exempt vs non-exempt employees", "weighted average overtime rate", "daily overtime laws", "hourly employee gross pay", "overtime tracking", "wage claim"],
   };

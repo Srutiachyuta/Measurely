@@ -109,5 +109,5 @@ export function getBlogImageAlt(slug: string, category: string): string {
 }
 
 export function getBlogImageDimensions(): { width: number; height: number } {
-  return { width: 1200, height: 630 };
+  return { width: 1600, height: 900 };
 }

@@ -102,15 +102,6 @@ src/
 - 51 calculators have detailed formula explanations
 - All calculators have 8+ FAQs with FAQ schema markup
 
-### Admin Panel (`/sruticheck`)
-- JWT-based login with 2FA (TOTP), rate limiting, scrypt password hashing
-- Dashboard with visitor stats, page views, device breakdown, countries
-- CRUD for calculators, converters, blogs, categories
-- Redirect manager, ad placement manager, media library
-- SEO settings, analytics, user management, audit logs
-- Backup/export/import functionality
-- Newsletter subscriber management, contact form inquiries
-
 ### Search
 - Cmd+K command palette via cmdk
 - Full-text search engine with stemming and synonym expansion (50+ terms)

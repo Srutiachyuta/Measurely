@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         authors: [blog.author.name],
         tags: blog.tags,
         siteName: SITE.siteName,
-        images: [{ url: getBlogImageUrl(blog.slug, blog.category), width: 1200, height: 630, alt: blog.title }],
+        images: [{ url: getBlogImageUrl(blog.slug, blog.category), width: 1600, height: 900, alt: blog.title }],
       },
       twitter: {
         card: "summary_large_image",

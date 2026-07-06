@@ -6,7 +6,17 @@ export const track_pregnancy_week_by_week: BlogPost = {
     excerpt: "Calculate your estimated due date, track your pregnancy week by week, and understand the key milestones of each trimester with our comprehensive guide.",
     content: `Pregnancy spans roughly 40 weeks from the first day of your last menstrual period to delivery. One of the first questions every expectant parent asks: "When is my baby due?" Our <a href="/pregnancy-calculator">pregnancy calculator</a> helps answer that with precision, giving you an estimated due date and a week-by-week breakdown.
 
+What is a pregnancy due date calculator? A pregnancy due date calculator is a tool that estimates when your baby will be born based on the first day of your last menstrual period (LMP), your average cycle length, or known conception date. It uses established medical formulas like Naegele's Rule to provide a reliable reference point for your entire pregnancy journey, helping you plan prenatal care, track fetal development, and prepare for childbirth.
+
 Knowing your due date is about more than marking a calendar. It helps you plan prenatal appointments, schedule important tests and screenings, prepare for maternity leave, and track your baby's development. Only about 5% of babies are born exactly on their due date — but it's still a crucial reference point.
+
+## Key Takeaways
+
+- Your due date is calculated as 40 weeks (280 days) from the first day of your last menstrual period
+- Only 5% of babies arrive exactly on their due date — full term is 37 to 42 weeks
+- First-trimester ultrasound dating is more accurate than LMP-based calculation
+- Cycle length adjustments matter — a 35-day cycle shifts your due date by 7 days
+- Track your pregnancy week by week for better prenatal care, nutrition planning, and emotional connection
 
 ## How It Works
 
@@ -120,6 +130,15 @@ Ravi and Sunita know their conception date was June 10, 2026.
 
 This lines up closely with what Naegele's Rule would predict if the LMP was around May 27, 2026.
 
+### Example 4: IVF Pregnancy
+
+Meera had a blastocyst transfer (day 5 embryo) on May 1, 2026.
+
+- Transfer date: May 1, 2026
+- Add 261 days (40 weeks - 19 days for day-5 embryo): January 17, 2027
+
+IVF due dates are calculated differently because the conception date is precisely known.
+
 ## Benefits
 
 ### Early Planning and Preparation
@@ -172,6 +191,90 @@ If your provider gives you a different due date based on ultrasound, update your
 
 Every pregnancy is unique. The calculator gives general guidance, but always consult your healthcare provider for unusual symptoms, no matter what week you're in.
 
+### Not Preparing for the Full-Term Range
+
+Many parents fixate on their due date and feel anxious or disappointed if labor doesn't start that day. Remember that 37-42 weeks is normal. Use your due date as a planning tool, not a deadline.
+
+## Best Practices for a Healthy Pregnancy
+
+<strong>Start prenatal vitamins early.</strong> Folic acid (400-800 mcg daily) before conception and during early pregnancy significantly reduces the risk of neural tube defects. Start as soon as you plan to conceive.
+
+<strong>Stay hydrated.</strong> Aim for 8-10 glasses of water daily. Dehydration can trigger Braxton Hicks contractions and increase the risk of urinary tract infections. Use our <a href="/water-intake-calculator">water intake calculator</a> for personalized hydration targets.
+
+<strong>Monitor weight gain.</strong> Healthy weight gain depends on your pre-pregnancy BMI. Underweight women should gain 28-40 lbs, normal weight 25-35 lbs, overweight 15-25 lbs, and obese 11-20 lbs.
+
+<strong>Exercise regularly.</strong> Walking, swimming, and prenatal yoga are safe throughout pregnancy. Aim for 150 minutes of moderate exercise per week unless your doctor advises otherwise.
+
+<strong>Track fetal movements.</strong> By the third trimester, you should feel at least 10 movements in 2 hours. Contact your provider if movement decreases significantly.
+
+## Week-by-Week Milestones
+
+| Trimester | Weeks | Key Milestones |
+|-----------|-------|----------------|
+| First | 1-4 | Conception, implantation, positive pregnancy test |
+| First | 5-8 | Heartbeat detectable, limb buds form, brain develops |
+| First | 9-13 | Fingers and toes form, ultrasound visible, morning sickness peaks |
+| Second | 14-17 | Baby can suck thumb, gender identifiable, you may feel movement |
+| Second | 18-22 | Anatomy scan (most detailed ultrasound), baby hears sounds |
+| Second | 23-27 | Baby responds to noise, lungs develop rapidly, viability milestone |
+| Third | 28-32 | Baby opens eyes, bone marrow produces blood cells, kicks are strong |
+| Third | 33-36 | Baby settles into head-down position, lungs nearly mature |
+| Third | 37-40 | Full term — baby is ready, labor could start any day |
+
+## Nutrition by Trimester
+
+### First Trimester: Folate and Iron
+
+Focus on leafy greens, fortified cereals, beans, and citrus fruits. Folate prevents neural tube defects. Iron supports increased blood volume.
+
+### Second Trimester: Calcium and Vitamin D
+
+Baby's bones are growing rapidly. Dairy products, fortified plant milks, leafy greens, and safe sun exposure provide essential nutrients.
+
+### Third Trimester: Protein and Omega-3s
+
+Baby's brain is developing at peak speed. Lean meats, fish (low mercury), eggs, nuts, and seeds support cognitive development. DHA supplements are often recommended.
+
+## Understanding Pregnancy Symptoms by Trimester
+
+### First Trimester Symptoms
+
+The first trimester brings the most dramatic hormonal changes. Many women experience morning sickness, which despite its name can occur at any time of day. Fatigue is common as your body works hard to support the developing embryo. Breast tenderness and enlargement begin as early as week 4. Food aversions and cravings may develop, and frequent urination starts as the growing uterus presses on the bladder. Mood swings due to hormonal fluctuations are normal. Most first-trimester symptoms begin to subside around weeks 12-14 as the placenta takes over hormone production.
+
+### Second Trimester Symptoms
+
+The second trimester is often the most comfortable period of pregnancy. Morning sickness typically resolves, energy levels improve, and the risk of miscarriage drops significantly. You may experience round ligament pain as the uterus stretches, causing sharp pains on one side of the lower abdomen. Skin changes including the linea nigra (a dark line down the abdomen) and melasma (dark patches on the face) are common due to increased melanin production. You will likely feel your baby's first movements — described as fluttering or popping sensations — between weeks 16 and 22. Braxton Hicks contractions, practice contractions that are irregular and painless, may begin in the second trimester.
+
+### Third Trimester Symptoms
+
+The third trimester brings a new set of challenges as your body prepares for birth. Back pain is common due to the shifted center of gravity and loosening joints. Swelling in the feet, ankles, and hands occurs as fluid retention increases. Shortness of breath happens as the growing uterus pushes against the diaphragm. Heartburn and indigestion are frequent because pregnancy hormones relax the valve between the stomach and esophagus. Insomnia often develops due to physical discomfort, frequent urination, and anxiety about the upcoming birth. Braxton Hicks contractions become stronger and more frequent. Your body is preparing for labor, and these symptoms are all normal parts of the third trimester experience.
+
+## Preparing for Labor and Delivery
+
+### Signs of Labor
+
+Knowing the signs of labor helps you know when to contact your provider and head to the hospital. Regular contractions that grow stronger and closer together are the primary sign. True labor contractions do not go away with rest or position changes and typically last 30-70 seconds. Your water breaking (rupture of membranes) can feel like a gush or a steady trickle of fluid. The mucus plug (bloody show) may be discharged as the cervix begins to dilate. Lower back pain and pelvic pressure increase as the baby descends into the birth canal.
+
+### When to Go to the Hospital
+
+Contact your healthcare provider when contractions are 5 minutes apart, lasting 60 seconds, for at least 2 hours. For first-time mothers, labor typically lasts 12-24 hours from early labor to delivery. Go to the hospital immediately if your water breaks, you have heavy bleeding, you notice a significant decrease in fetal movement, or you have severe abdominal pain.
+
+### Creating a Birth Plan
+
+A birth plan helps communicate your preferences to your healthcare team. Consider your preferences for pain management (epidural, natural, or other options), who you want present during labor, your preferred positions for labor and delivery, preferences for immediate newborn care (skin-to-skin contact, delayed cord clamping), and feeding preferences (breastfeeding, formula, or combination). Remember that birth plans are guides, not rigid rules — flexibility is important as labor can be unpredictable.
+
+## The Role of the Partner During Pregnancy
+
+Partners play a crucial role throughout pregnancy and during labor. Attend prenatal appointments together to stay informed about your baby's development and ask questions as a team. Help track symptoms and milestones, and learn about the stages of labor so you can provide effective support. Prepare the nursery and manage household responsibilities as the pregnant partner's energy fluctuates. During labor, the partner can provide physical comfort through massage and counter-pressure, emotional support through encouragement and presence, and practical support by communicating with medical staff and tracking contraction timing.
+
+## Conclusion
+
+Your pregnancy due date is more than a date on the calendar — it's a roadmap for your entire pregnancy journey. Our <a href="/pregnancy-calculator">pregnancy calculator</a> gives you a reliable estimate based on established medical formulas, along with a week-by-week guide to your baby's development.
+
+Use this alongside regular prenatal care and open communication with your healthcare provider. For your overall health during pregnancy, monitor your <a href="/calorie-calculator">calorie needs</a>, stay hydrated with our <a href="/water-intake-calculator">water intake calculator</a>, and read our guides on <a href="/bmi-understanding-your-body-mass-index">BMI</a> and <a href="/bmr-and-weight-management">BMR</a> for maintaining a healthy pregnancy.
+
+Calculate your due date today and start tracking your pregnancy journey with confidence.
+
 ## FAQs
 
 ### How accurate is the pregnancy due date calculator?
@@ -189,18 +292,25 @@ Full term is 37 weeks to 42 weeks. Babies born at 39-40 weeks have the best heal
 ### How is the due date calculated for IVF pregnancies?
 It's calculated from the embryo transfer date plus the age of the embryo at transfer (typically 5 or 6 days for blastocyst transfer).
 
-## Final Thoughts
+### What is the difference between gestational age and fetal age?
+Gestational age is measured from your LMP (what providers use), while fetal age is measured from conception — about 2 weeks less. "12 weeks pregnant" means 12 weeks gestational age.
 
-Your pregnancy due date is more than a date on the calendar — it's a roadmap for your entire pregnancy journey. Our <a href="/pregnancy-calculator">pregnancy calculator</a> gives you a reliable estimate based on established medical formulas, along with a week-by-week guide to your baby's development.
+### When should I take a pregnancy test?
+Most home tests are accurate from the first day of a missed period. Some sensitive tests can detect pregnancy as early as 10-12 days after conception.
 
-Use this alongside regular prenatal care and open communication with your healthcare provider. For your overall health during pregnancy, monitor your <a href="/calorie-calculator">calorie needs</a>, stay hydrated with our <a href="/water-intake-calculator">water intake calculator</a>, and read our guides on <a href="/bmi-understanding-your-body-mass-index">BMI</a> and <a href="/bmr-and-weight-management">BMR</a> for maintaining a healthy pregnancy.
+### What prenatal screenings should I schedule?
+Nuchal translucency scan at 11-14 weeks, anatomy scan at 18-22 weeks, glucose tolerance test at 24-28 weeks. Your provider may recommend additional tests based on your age and risk factors.
 
-Calculate your due date today and start tracking your pregnancy journey with confidence.`,
+### How much weight should I gain during pregnancy?
+For women with normal BMI: 25-35 lbs. Underweight: 28-40 lbs. Overweight: 15-25 lbs. Obese: 11-20 lbs. Your doctor can give you personalized targets.
+
+### When should I go to the hospital for labor?
+Contact your provider when contractions are 5 minutes apart lasting 60 seconds for at least 2 hours, or if your water breaks. For first-time mothers, labor typically lasts 12-24 hours from early labor to delivery.`,
     category: "Health",
     categorySlug: "health",
     publishedAt: "2026-06-19",
-    updatedAt: "2026-06-19",
-    readingTime: 13,
+    updatedAt: "2026-07-06",
+    readingTime: 18,
     featured: false,
     popular: false,
     image: "/blog/pregnancy-calculator.svg",
@@ -210,11 +320,13 @@ Calculate your due date today and start tracking your pregnancy journey with con
       role: "Founder of Measurely",
       bio: "Achyutananda Meher is the founder of Measurely. He created the platform to provide expectant parents with reliable pregnancy tracking tools and week-by-week developmental guidance.",
     },
-    relatedSlugs: ["daily-water-intake-guide", "bmr-and-weight-management", "bmi-understanding-your-body-mass-index", "many-calories-need-each-day"],
+    relatedSlugs: ["daily-water-intake-guide", "bmr-and-weight-management", "bmi-understanding-your-body-mass-index", "many-calories-need-each-day", "calculate-exact-age-years-months-days-hours", "find-target-heart-rate-zones-optimal-fitness", "healthy-weight-height-age", "measure-interpret-body-composition"],
     relatedTools: [
       { name: "Pregnancy Calculator", slug: "track-pregnancy-week-by-week", type: "calculator" },
       { name: "Calorie Calculator", slug: "many-calories-need-each-day", type: "calculator" },
       { name: "Water Intake Calculator", slug: "water-intake-calculator", type: "calculator" },
+      { name: "BMI Calculator", slug: "bmi-understanding-your-body-mass-index", type: "calculator" },
+      { name: "BMR Calculator", slug: "bmr-and-weight-management", type: "calculator" },
     ],
     faqs: [
       { question: "How accurate is the pregnancy due date calculator?", answer: "The calculator is accurate within about 1-2 weeks for most women. First-trimester ultrasound dating is more precise than LMP-based calculation." },
@@ -222,9 +334,14 @@ Calculate your due date today and start tracking your pregnancy journey with con
       { question: "Can the due date change?", answer: "Yes, if an early ultrasound shows a significant discrepancy from the LMP-based date, healthcare providers will adjust the due date accordingly." },
       { question: "What is considered full term?", answer: "A pregnancy is considered full term between 37 weeks and 42 weeks. Babies born at 39-40 weeks have the best health outcomes." },
       { question: "How is the due date calculated for IVF pregnancies?", answer: "For IVF pregnancies, the due date is calculated from the embryo transfer date plus the age of the embryo at transfer (typically 5 or 6 days for blastocyst transfer)." },
+      { question: "What is the difference between gestational age and fetal age?", answer: "Gestational age is measured from the first day of your LMP and is what healthcare providers use. Fetal age is measured from conception and is about 2 weeks less." },
+      { question: "When can I take a pregnancy test?", answer: "Most home pregnancy tests are accurate from the first day of a missed period. Some sensitive tests can detect pregnancy hormones as early as 10-12 days after conception." },
+      { question: "How much weight should I gain during pregnancy?", answer: "For women with normal pre-pregnancy BMI: 25-35 lbs. Underweight: 28-40 lbs. Overweight: 15-25 lbs. Obese: 11-20 lbs. Consult your provider for personalized targets." },
+      { question: "What prenatal tests are important in each trimester?", answer: "First trimester: nuchal translucency scan (11-14 weeks). Second trimester: anatomy scan (18-22 weeks), glucose tolerance test (24-28 weeks). Third trimester: Group B strep test (36-37 weeks)." },
+      { question: "When should I go to the hospital for labor?", answer: "Contact your provider when contractions are 5 minutes apart, lasting 60 seconds, for at least 2 hours. Also go if your water breaks, you have heavy bleeding, or you notice decreased fetal movement." },
     ],
     tags: ["pregnancy", "due date", "pregnancy tracker", "trimester", "prenatal care", "baby development"],
-    metaTitle: "Pregnancy Due Date Calculator and Week-by-Week Guide | Measurely",
-    metaDescription: "Calculate your estimated due date, track your pregnancy week by week, and understand the key milestones of each trimester with our comprehensive guide.",
+    metaTitle: "Pregnancy Due Date Calculator & Week-by-Week Tracker | Measurely",
+    metaDescription: "Calculate your estimated due date and track your pregnancy week by week. Free pregnancy calculator with Naegele's Rule, trimester milestones, and prenatal care tips.",
     keywords: ["pregnancy due date calculator", "pregnancy week by week", "due date estimator", "pregnancy tracker", "Naegele's rule"],
   };
