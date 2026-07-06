@@ -305,10 +305,9 @@ export function Navbar() {
 
           {/* Mobile menu toggle */}
           <button
-            onClick={() => setMobileMenuOpen(true)}
-            onPointerDown={(e) => { if (e.pointerType === "touch") { e.preventDefault(); setMobileMenuOpen(true); } }}
-            className="lg:hidden tap-target flex h-9 w-9 items-center justify-center rounded-xl text-muted hover:text-text hover:bg-surface-secondary transition-all"
-            aria-label="Open menu"
+            onClick={() => setMobileMenuOpen(prev => !prev)}
+            className="lg:hidden tap-target relative z-50 flex h-9 w-9 items-center justify-center rounded-xl text-muted hover:text-text hover:bg-surface-secondary transition-all"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             <Menu className="h-4.5 w-4.5" />
           </button>
