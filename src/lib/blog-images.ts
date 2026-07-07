@@ -70,6 +70,8 @@ const slugAltMap: Record<string, string> = {
   "how-much-money-do-i-need-to-retire-early-in-india": "FIRE Number Calculator dashboard showing retirement chart, wealth growth graph, and financial independence planning for early retirement in India",
   "how-is-severance-pay-calculated-after-a-layoff": "Employment termination and severance pay calculation documents with calculator and compensation breakdown",
   "how-inheritance-tax-works": "Family estate planning documents with inheritance tax calculator and wealth distribution chart",
+  "how-salary-sacrifice-reduces-your-tax-bill": "Salary sacrifice benefits and savings guide showing UK payslip, pension icon, and tax savings chart",
+  "how-to-maximize-your-hsa-tax-benefits": "HSA tax savings calculator overview with medical savings card, investment chart, and retirement growth graph",
 };
 
 const pngSlugs = new Set([
@@ -83,6 +85,8 @@ const pngSlugs = new Set([
   "how-much-money-do-i-need-to-retire-early-in-india",
   "how-to-calculate-quarterly-estimated-taxes-for-self-employed",
   "how-to-forecast-business-cash-flow-accurately-in-2026-2027",
+  "how-salary-sacrifice-reduces-your-tax-bill",
+  "how-to-maximize-your-hsa-tax-benefits",
 ]);
 
 export function getPlaceholderImage(slug: string): string {

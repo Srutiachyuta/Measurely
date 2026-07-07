@@ -36,6 +36,8 @@ import { gst_hst_calculator_ontario_guide } from "./articles/gst-hst-calculator-
 import { healthy_weight_height_age } from "./articles/healthy-weight-height-age";
 import { how_inheritance_tax_works } from "./articles/how-inheritance-tax-works";
 import { how_is_severance_pay_calculated_after_a_layoff } from "./articles/how-is-severance-pay-calculated-after-a-layoff";
+import { how_salary_sacrifice_reduces_your_tax_bill } from "./articles/how-salary-sacrifice-reduces-your-tax-bill";
+import { how_to_maximize_your_hsa_tax_benefits } from "./articles/how-to-maximize-your-hsa-tax-benefits";
 import { how_much_does_ai_api_usage_cost_for_a_small_business } from "./articles/how-much-does-ai-api-usage-cost-for-a-small-business";
 import { how_much_emergency_fund_should_i_have } from "./articles/how-much-emergency-fund-should-i-have";
 import { how_much_home_equity_can_i_borrow } from "./articles/how-much-home-equity-can-i-borrow";
@@ -112,6 +114,8 @@ const articles: BlogPost[] = [
   healthy_weight_height_age,
   how_inheritance_tax_works,
   how_is_severance_pay_calculated_after_a_layoff,
+  how_salary_sacrifice_reduces_your_tax_bill,
+  how_to_maximize_your_hsa_tax_benefits,
   how_much_does_ai_api_usage_cost_for_a_small_business,
   how_much_emergency_fund_should_i_have,
   how_much_home_equity_can_i_borrow,
@@ -190,6 +194,8 @@ export {
   healthy_weight_height_age,
   how_inheritance_tax_works,
   how_is_severance_pay_calculated_after_a_layoff,
+  how_salary_sacrifice_reduces_your_tax_bill,
+  how_to_maximize_your_hsa_tax_benefits,
   how_much_does_ai_api_usage_cost_for_a_small_business,
   how_much_emergency_fund_should_i_have,
   how_much_home_equity_can_i_borrow,
