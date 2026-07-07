@@ -7,7 +7,7 @@ import { ErrorBoundary } from "@/components/ui/error-boundary";
 import { calculators } from "@/data/calculators";
 import { getIconName } from "@/data/tool-registry";
 
-const RECENT_COUNT = 12;
+const RECENT_COUNT = 16;
 
 const categoryDisplay: Record<string, string> = {
   finance: "Finance",
@@ -29,6 +29,33 @@ function getCategoryDisplay(category: string): string {
   return categoryDisplay[category] || category.charAt(0).toUpperCase() + category.slice(1);
 }
 
+const ROTH_CONVERSION_ENTRY = {
+  name: "Roth Conversion Tax Calculator",
+  slug: "roth-conversion-tax-calculator",
+  category: "Finance",
+  categorySlug: "finance",
+  icon: "Percent",
+  description: "Estimate federal and state tax due on a Roth IRA conversion, lifetime tax savings, break-even period, and retirement withdrawal comparison.",
+};
+
+const HSA_ENTRY = {
+  name: "HSA Tax Savings Calculator",
+  slug: "hsa-tax-savings-calculator",
+  category: "Finance",
+  categorySlug: "finance",
+  icon: "Heart",
+  description: "Estimate federal, state, and FICA tax savings from Health Savings Account contributions with investment growth projections.",
+};
+
+const SALARY_SACRIFICE_ENTRY = {
+  name: "Salary Sacrifice Calculator",
+  slug: "salary-sacrifice-calculator",
+  category: "Finance",
+  categorySlug: "finance",
+  icon: "PiggyBank",
+  description: "Estimate your UK tax and National Insurance savings from salary sacrifice arrangements including pension, EV, and cycle to work.",
+};
+
 const EMERGENCY_FUND_ENTRY = {
   name: "Emergency Fund Calculator",
   slug: "emergency-fund-calculator",
@@ -47,7 +74,13 @@ const CD_LADDER_ENTRY = {
   description: "Build an optimized CD ladder strategy to maximize returns while maintaining liquidity with staggered maturity dates.",
 };
 
-const HARDCODED_SLUGS = new Set([EMERGENCY_FUND_ENTRY.slug, CD_LADDER_ENTRY.slug]);
+const HARDCODED_SLUGS = new Set([
+  ROTH_CONVERSION_ENTRY.slug,
+  HSA_ENTRY.slug,
+  SALARY_SACRIFICE_ENTRY.slug,
+  EMERGENCY_FUND_ENTRY.slug,
+  CD_LADDER_ENTRY.slug,
+]);
 
 const recentTools = (() => {
   const seen = new Set<string>(HARDCODED_SLUGS);
@@ -63,8 +96,8 @@ const recentTools = (() => {
     seen.add(c.slug);
     return true;
   });
-  const sliced = calcItems.slice(0, RECENT_COUNT - 2);
-  return [EMERGENCY_FUND_ENTRY, CD_LADDER_ENTRY, ...sliced];
+  const sliced = calcItems.slice(0, RECENT_COUNT - 5);
+  return [ROTH_CONVERSION_ENTRY, HSA_ENTRY, SALARY_SACRIFICE_ENTRY, EMERGENCY_FUND_ENTRY, CD_LADDER_ENTRY, ...sliced];
 })();
 
 const itemVariants = {

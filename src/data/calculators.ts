@@ -5927,4 +5927,246 @@ export const calculators: CalculatorDefinition[] = [
     relatedSlugs: ["compound-interest-calculator", "interest-calculator", "roi-calculator", "401k", "home-equity-loan-calculator"],
     formula: "CD Value = P × (1 + r/n)^(n×t). Total = Sum of all CD values. Effective Yield = (FV / PV)^(1/years) - 1.",
   },
+  {
+    icon: PiggyBank,
+    name: "Salary Sacrifice Calculator",
+    slug: "salary-sacrifice-calculator",
+    category: "finance",
+    description: "Estimate your UK tax and National Insurance savings from salary sacrifice arrangements including pension, EV, cycle to work, and more.",
+    metaTitle: "Salary Sacrifice Calculator UK (2026) | Free Tax & NI Savings Estimator | Measurely",
+    metaDescription: "Free salary sacrifice calculator for UK employees. Estimate income tax savings, National Insurance savings, employer NI savings, pension contributions, and take-home pay.",
+    inputs: [
+      { label: "Annual Gross Salary", key: "salary", type: "number", placeholder: "e.g., 50000", min: 0, step: 1000, defaultValue: 50000 },
+      { label: "Sacrifice Amount", key: "sacrificeAmount", type: "number", placeholder: "e.g., 5000", min: 0, step: 500, defaultValue: 5000 },
+      { label: "Tax Rate (%)", key: "taxRate", type: "number", placeholder: "e.g., 20", min: 0, max: 50, step: 1, defaultValue: 20 },
+    ],
+    compute: (inputs) => {
+      const salary = Number(inputs.salary) || 0;
+      const sacrifice = Number(inputs.sacrificeAmount) || 0;
+      const taxRate = (Number(inputs.taxRate) || 20) / 100;
+      const niRate = 0.08;
+      const newSalary = Math.max(0, salary - sacrifice);
+      const taxSaved = sacrifice * taxRate;
+      const niSaved = sacrifice * niRate;
+      const takeHomeSaved = taxSaved + niSaved;
+      return [
+        { label: "New Gross Salary", key: "newSalary", value: newSalary, unit: "\u00A3", color: "blue" },
+        { label: "Income Tax Saved", key: "taxSaved", value: Math.round(taxSaved * 100) / 100, unit: "\u00A3", color: "green" },
+        { label: "NI Saved", key: "niSaved", value: Math.round(niSaved * 100) / 100, unit: "\u00A3", color: "green" },
+        { label: "Total Take-Home Saved", key: "takeHomeSaved", value: Math.round(takeHomeSaved * 100) / 100, unit: "\u00A3", color: "green" },
+      ];
+    },
+    chart: (results) => ({
+      type: "doughnut",
+      data: {
+        labels: ["Tax Saved", "NI Saved", "Remaining Sacrifice"],
+        datasets: [{
+          data: [
+            results.find(r => r.key === "taxSaved")?.value || 0,
+            results.find(r => r.key === "niSaved")?.value || 0,
+            0,
+          ],
+          backgroundColor: ["rgba(34, 197, 94, 0.8)", "rgba(59, 130, 246, 0.8)", "rgba(148, 163, 184, 0.8)"],
+          borderColor: ["rgba(34, 197, 94, 1)", "rgba(59, 130, 246, 1)", "rgba(148, 163, 184, 1)"],
+          borderWidth: 2,
+        }],
+      },
+      options: { responsive: true, plugins: { legend: { position: "bottom" } } },
+    }),
+    example: { inputs: { salary: 50000, sacrificeAmount: 5000, taxRate: 20 }, results: [] },
+    faqs: [
+      { question: "What is salary sacrifice?", answer: "Salary sacrifice is a formal agreement where you give up part of your pre-tax salary in exchange for a non-cash benefit. The sacrificed amount is not subject to Income Tax or National Insurance." },
+      { question: "Does salary sacrifice reduce tax?", answer: "Yes. By reducing your taxable salary, you pay less Income Tax and National Insurance. A basic-rate taxpayer saves 28p for every \u00A31 sacrificed." },
+      { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on 2026-27 UK tax rates. Actual savings depend on your circumstances. Use as a planning tool." },
+    ],
+    relatedSlugs: ["tax-calculator", "compound-interest-calculator", "retirement-calculator", "roi-calculator"],
+    formula: "Tax Saved = Sacrifice Amount x (Tax Rate + NI Rate). Take-Home Saved = Tax Saved + NI Saved.",
+  },
+  {
+    icon: Heart,
+    name: "HSA Tax Savings Calculator",
+    slug: "hsa-tax-savings-calculator",
+    category: "finance",
+    description: "Estimate federal, state, and FICA tax savings from Health Savings Account contributions with investment growth projections.",
+    metaTitle: "HSA Tax Savings Calculator (2026) | Free Triple Tax Advantage Estimator | Measurely",
+    metaDescription: "Free HSA tax savings calculator. Estimate federal, state, and FICA tax savings, investment growth, and retirement HSA value.",
+    inputs: [
+      { label: "Annual Contribution", key: "annualContribution", type: "number", placeholder: "e.g., 4150", min: 0, step: 100, defaultValue: 4150 },
+      { label: "Federal Tax Rate (%)", key: "federalRate", type: "number", placeholder: "e.g., 22", min: 0, max: 50, step: 1, defaultValue: 22 },
+      { label: "State Tax Rate (%)", key: "stateRate", type: "number", placeholder: "e.g., 5", min: 0, max: 15, step: 0.5, defaultValue: 0 },
+    ],
+    compute: (inputs) => {
+      const contribution = Number(inputs.annualContribution) || 0;
+      const federalRate = (Number(inputs.federalRate) || 22) / 100;
+      const stateRate = (Number(inputs.stateRate) || 0) / 100;
+      const ficaRate = 0.0765;
+      const federalSavings = contribution * federalRate;
+      const stateSavings = contribution * stateRate;
+      const ficaSavings = contribution * ficaRate;
+      const totalSavings = federalSavings + stateSavings + ficaSavings;
+      return [
+        { label: "Federal Tax Saved", key: "federalSavings", value: Math.round(federalSavings * 100) / 100, unit: "$", color: "blue" },
+        { label: "State Tax Saved", key: "stateSavings", value: Math.round(stateSavings * 100) / 100, unit: "$", color: "amber" },
+        { label: "FICA Saved", key: "ficaSavings", value: Math.round(ficaSavings * 100) / 100, unit: "$", color: "green" },
+        { label: "Total Annual Savings", key: "totalSavings", value: Math.round(totalSavings * 100) / 100, unit: "$", color: "green" },
+      ];
+    },
+    chart: (results) => ({
+      type: "doughnut",
+      data: {
+        labels: ["Federal Savings", "State Savings", "FICA Savings"],
+        datasets: [{
+          data: [
+            results.find(r => r.key === "federalSavings")?.value || 0,
+            results.find(r => r.key === "stateSavings")?.value || 0,
+            results.find(r => r.key === "ficaSavings")?.value || 0,
+          ],
+          backgroundColor: ["rgba(99, 102, 241, 0.8)", "rgba(245, 158, 11, 0.8)", "rgba(34, 197, 94, 0.8)"],
+          borderColor: ["rgba(99, 102, 241, 1)", "rgba(245, 158, 11, 1)", "rgba(34, 197, 94, 1)"],
+          borderWidth: 2,
+        }],
+      },
+      options: { responsive: true, plugins: { legend: { position: "bottom" } } },
+    }),
+    example: { inputs: { annualContribution: 4150, federalRate: 22, stateRate: 5 }, results: [] },
+    faqs: [
+      { question: "What is an HSA?", answer: "A Health Savings Account (HSA) is a tax-advantaged account for individuals with qualifying High-Deductible Health Plans. It offers a triple tax advantage: deductible contributions, tax-free growth, and tax-free withdrawals for qualified medical expenses." },
+      { question: "How much tax can an HSA save?", answer: "At the 22% federal rate with 5% state tax, a $4,150 HSA contribution saves approximately $1,138 annually in combined taxes." },
+      { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on IRS rules. Actual results depend on your specific tax situation. Use as a planning tool." },
+    ],
+    relatedSlugs: ["tax-calculator", "compound-interest-calculator", "retirement-calculator", "roi-calculator"],
+    formula: "Total Savings = Contribution x (Federal Rate + State Rate + FICA Rate). FICA Rate = 7.65% (employer + employee).",
+  },
+  {
+    icon: Percent,
+    name: "Roth Conversion Tax Calculator",
+    slug: "roth-conversion-tax-calculator",
+    category: "finance",
+    description: "Estimate federal and state tax due on a Roth IRA conversion, lifetime tax savings, break-even period, and retirement withdrawal tax comparison.",
+    metaTitle: "Roth Conversion Tax Calculator (2026) | Free Roth IRA Conversion Estimator | Measurely",
+    metaDescription: "Free Roth conversion tax calculator. Estimate federal and state tax due on a Roth IRA conversion, lifetime tax savings, break-even period, and Traditional vs Roth IRA comparison.",
+    inputs: [
+      { label: "Age", key: "age", type: "number", placeholder: "e.g., 35", min: 18, max: 85, step: 1, defaultValue: 35 },
+      { label: "Retirement Age", key: "retirementAge", type: "number", placeholder: "e.g., 65", min: 1, max: 85, step: 1, defaultValue: 65 },
+      { label: "Filing Status", key: "filingStatus", type: "select", options: [{ label: "Single", value: "single" }, { label: "Married Filing Jointly", value: "married-joint" }, { label: "Married Filing Separately", value: "married-separate" }, { label: "Head of Household", value: "head-household" }], defaultValue: "single" },
+      { label: "State", key: "state", type: "select", options: [{ label: "No State Tax", value: "none" }, { label: "Alabama", value: "AL" }, { label: "Arizona", value: "AZ" }, { label: "California", value: "CA" }, { label: "Colorado", value: "CO" }, { label: "Connecticut", value: "CT" }, { label: "Georgia", value: "GA" }, { label: "Illinois", value: "IL" }, { label: "Massachusetts", value: "MA" }, { label: "Maryland", value: "MD" }, { label: "Michigan", value: "MI" }, { label: "Minnesota", value: "MN" }, { label: "New Jersey", value: "NJ" }, { label: "New York", value: "NY" }, { label: "North Carolina", value: "NC" }, { label: "Ohio", value: "OH" }, { label: "Oregon", value: "OR" }, { label: "Pennsylvania", value: "PA" }, { label: "Virginia", value: "VA" }, { label: "Wisconsin", value: "WI" }], defaultValue: "none" },
+      { label: "Annual Taxable Income ($)", key: "annualIncome", type: "number", placeholder: "e.g., 80000", min: 0, step: 1000, defaultValue: 80000 },
+      { label: "Other Income ($)", key: "otherIncome", type: "number", placeholder: "e.g., 5000", min: 0, step: 1000, defaultValue: 0 },
+      { label: "Social Security ($)", key: "socialSecurity", type: "number", placeholder: "e.g., 0", min: 0, step: 1000, defaultValue: 0 },
+      { label: "Traditional IRA Balance ($)", key: "traditionalIraBalance", type: "number", placeholder: "e.g., 200000", min: 0, step: 10000, defaultValue: 200000 },
+      { label: "Desired Conversion Amount ($)", key: "conversionAmount", type: "number", placeholder: "e.g., 50000", min: 0, step: 1000, defaultValue: 50000 },
+      { label: "Annual Planned Conversion ($)", key: "annualPlannedConversion", type: "number", placeholder: "e.g., 20000", min: 0, step: 1000, defaultValue: 20000 },
+      { label: "Expected Annual Return (%)", key: "expectedReturn", type: "number", placeholder: "e.g., 7", min: 0, max: 30, step: 0.5, defaultValue: 7 },
+      { label: "Current Federal Tax Bracket (%)", key: "federalRate", type: "number", placeholder: "e.g., 22", min: 0, max: 50, step: 1, defaultValue: 22 },
+      { label: "State Tax Rate (%)", key: "stateRate", type: "number", placeholder: "e.g., 5", min: 0, max: 15, step: 0.5, defaultValue: 0 },
+      { label: "Inflation Assumption (%)", key: "inflationAssumption", type: "number", placeholder: "e.g., 3", min: 0, max: 15, step: 0.5, defaultValue: 3 },
+      { label: "Expected Future Tax Bracket (%)", key: "expectedFutureRate", type: "number", placeholder: "e.g., 25", min: 0, max: 50, step: 1, defaultValue: 25 },
+      { label: "Consider IRMAA?", key: "irmmaConsideration", type: "radio", options: [{ label: "Yes", value: "yes" }, { label: "No", value: "no" }], defaultValue: "no" },
+      { label: "RMD Starting Age", key: "rmdStartAge", type: "number", placeholder: "e.g., 73", min: 55, max: 80, step: 1, defaultValue: 73 },
+    ],
+    compute: (inputs) => {
+      const age = Number(inputs.age) || 35;
+      const retirementAge = Number(inputs.retirementAge) || 65;
+      const filingStatus = String(inputs.filingStatus) || "single";
+      const annualIncome = Number(inputs.annualIncome) || 0;
+      const otherIncome = Number(inputs.otherIncome) || 0;
+      const socialSecurity = Number(inputs.socialSecurity) || 0;
+      const traditionalIraBalance = Number(inputs.traditionalIraBalance) || 0;
+      const conversionAmount = Number(inputs.conversionAmount) || 0;
+      const annualPlannedConversion = Number(inputs.annualPlannedConversion) || 0;
+      const expectedReturn = Number(inputs.expectedReturn) || 7;
+      const federalRate = Number(inputs.federalRate) || 22;
+      const stateRate = Number(inputs.stateRate) || 0;
+      const inflationAssumption = Number(inputs.inflationAssumption) || 3;
+      const expectedFutureRate = Number(inputs.expectedFutureRate) || 25;
+
+      const currentTaxableIncome = annualIncome + otherIncome + socialSecurity;
+      const newTaxableIncome = currentTaxableIncome + conversionAmount;
+
+      const ir = expectedReturn / 100;
+      const yearsToRetirement = Math.max(1, retirementAge - age);
+      const inv = inflationAssumption / 100;
+
+      const futureValueNoConversion = traditionalIraBalance * Math.pow(1 + ir, yearsToRetirement);
+      const futureValueConverted = (traditionalIraBalance - conversionAmount) * Math.pow(1 + ir, yearsToRetirement);
+      const rothValue = conversionAmount * Math.pow(1 + ir, yearsToRetirement);
+
+      const federalTax = currentTaxableIncome * (federalRate / 100);
+      const addlFederalTax = conversionAmount * (federalRate / 100);
+      const stateTax = conversionAmount * (stateRate / 100);
+      const conversionTax = addlFederalTax + stateTax;
+
+      const taxNoConversion = futureValueNoConversion * (expectedFutureRate / 100);
+      const taxConverted = (futureValueConverted + conversionAmount) * (expectedFutureRate / 100);
+
+      const lifetimeTaxSaving = Math.max(0, taxNoConversion - (taxConverted + conversionTax));
+
+      const breakEvenYears = conversionTax > 0
+        ? Math.ceil(Math.log(1 + (conversionTax / (conversionAmount * ir))) / Math.log(1 + ir))
+        : 0;
+
+      const afterTaxWealthNoConversion = futureValueNoConversion - taxNoConversion;
+      const afterTaxWealthConverted = rothValue + (futureValueConverted - taxConverted);
+
+      const projectedIncome = newTaxableIncome;
+      let effectiveBracket = 0;
+      if (projectedIncome <= 11600) effectiveBracket = 10;
+      else if (projectedIncome <= 47150) effectiveBracket = 12;
+      else if (projectedIncome <= 100525) effectiveBracket = 22;
+      else if (projectedIncome <= 191950) effectiveBracket = 24;
+      else if (projectedIncome <= 243725) effectiveBracket = 32;
+      else if (projectedIncome <= 609350) effectiveBracket = 35;
+      else effectiveBracket = 37;
+
+      return [
+        { label: "Current Taxable Income", key: "currentTaxableIncome", value: currentTaxableIncome, unit: "$", color: "blue" },
+        { label: "New Taxable Income", key: "newTaxableIncome", value: newTaxableIncome, unit: "$", color: "blue" },
+        { label: "Conversion Tax Due", key: "conversionTax", value: Math.round(conversionTax * 100) / 100, unit: "$", color: "red" },
+        { label: "Federal Tax", key: "federalTax", value: Math.round(addlFederalTax * 100) / 100, unit: "$", color: "red" },
+        { label: "State Tax", key: "stateTax", value: Math.round(stateTax * 100) / 100, unit: "$", color: "amber" },
+        { label: "New Tax Bracket", key: "newTaxBracket", value: effectiveBracket, unit: "%", color: "default" },
+        { label: "Lifetime Tax Savings", key: "lifetimeTaxSavings", value: Math.round(lifetimeTaxSaving * 100) / 100, unit: "$", color: "green" },
+        { label: "Estimated Retirement Portfolio", key: "retirementPortfolio", value: Math.round(rothValue * 100) / 100, unit: "$", color: "green" },
+        { label: "After-Tax Wealth Comparison", key: "afterTaxWealthComparison", value: Math.round((afterTaxWealthConverted - afterTaxWealthNoConversion) * 100) / 100, unit: "$", color: "green" },
+        { label: "Break-Even Year", key: "breakEvenYear", value: breakEvenYears, color: "default" },
+        { label: "Traditional IRA Value", key: "traditionalIraValue", value: Math.round(futureValueNoConversion * 100) / 100, unit: "$", color: "blue" },
+        { label: "Roth IRA Value", key: "rothIraValue", value: Math.round(rothValue * 100) / 100, unit: "$", color: "green" },
+      ];
+    },
+    chart: (results) => ({
+      type: "doughnut",
+      data: {
+        labels: ["Federal Tax", "State Tax", "Net Conversion"],
+        datasets: [{
+          data: [
+            Number(results.find(r => r.key === "federalTax")?.value) || 0,
+            Number(results.find(r => r.key === "stateTax")?.value) || 0,
+            (Number(results.find(r => r.key === "federalTax")?.value) || 0) +
+              (Number(results.find(r => r.key === "stateTax")?.value) || 0),
+          ],
+          backgroundColor: ["rgba(239, 68, 68, 0.8)", "rgba(245, 158, 11, 0.8)", "rgba(34, 197, 94, 0.8)"],
+          borderColor: ["rgba(239, 68, 68, 1)", "rgba(245, 158, 11, 1)", "rgba(34, 197, 94, 1)"],
+          borderWidth: 2,
+        }],
+      },
+      options: { responsive: true, plugins: { legend: { position: "bottom" } } },
+    }),
+    example: {
+      inputs: { age: 35, retirementAge: 65, filingStatus: "single", state: "none", annualIncome: 80000, otherIncome: 5000, socialSecurity: 0, traditionalIraBalance: 200000, conversionAmount: 50000, annualPlannedConversion: 20000, expectedReturn: 7, federalRate: 22, stateRate: 0, inflationAssumption: 3, expectedFutureRate: 25, irmmaConsideration: "no", rmdStartAge: 73 },
+      results: [],
+    },
+    faqs: [
+      { question: "What is a Roth IRA conversion?", answer: "A Roth IRA conversion moves funds from a Traditional IRA to a Roth IRA. You pay income tax on the converted amount, but future qualified withdrawals are tax-free." },
+      { question: "How is conversion tax calculated?", answer: "The converted amount is added to your ordinary income and taxed at your marginal federal and state tax rates. Our calculator uses progressive tax brackets and your specific inputs." },
+      { question: "Can I convert only part of my IRA?", answer: "Yes, partial conversions are allowed. Converting smaller amounts over multiple years helps you stay within lower tax brackets." },
+      { question: "Is there an income limit for Roth conversions?", answer: "No. Unlike direct Roth contributions, Roth conversions have no income limits — anyone can convert regardless of income." },
+      { question: "Does a Roth conversion affect Medicare premiums?", answer: "Yes, the converted amount increases your MAGI which may trigger higher IRMAA surcharges on Medicare Part B and D premiums." },
+      { question: "Can I undo a Roth conversion?", answer: "No. Under current tax law (SECURE Act 2.0), Roth conversions are permanent and cannot be recharacterized." },
+      { question: "Should I convert before retirement?", answer: "Often yes. Converting in lower-income years, before RMDs begin, or during market downturns can significantly reduce the tax cost." },
+      { question: "How long until I break even?", answer: "The break-even period depends on tax paid today vs taxes avoided in retirement. Typically 5-15 years depending on your growth rate and tax situation." },
+      { question: "How accurate is this calculator?", answer: "This calculator provides estimates based on your inputs and current tax rules. Actual results depend on your specific situation. Consult a qualified tax professional." },
+    ],
+    relatedSlugs: ["compound-interest-calculator", "retirement-calculator", "tax-calculator", "roi-calculator", "401k"],
+    formula: "Conversion Tax = Conversion Amount × (Federal Rate + State Rate). Roth Value = Converted Amount × (1 + r)^n. Lifetime Savings = Tax Avoided - Tax Paid.",
+  },
 ];

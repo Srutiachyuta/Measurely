@@ -72,6 +72,7 @@ const slugAltMap: Record<string, string> = {
   "how-inheritance-tax-works": "Family estate planning documents with inheritance tax calculator and wealth distribution chart",
   "how-salary-sacrifice-reduces-your-tax-bill": "Salary sacrifice benefits and savings guide showing UK payslip, pension icon, and tax savings chart",
   "how-to-maximize-your-hsa-tax-benefits": "HSA tax savings calculator overview with medical savings card, investment chart, and retirement growth graph",
+  "best-time-to-do-a-roth-ira-conversion": "Roth conversion dashboard for smart retirement planning showing IRA comparison chart and investment growth projection",
 };
 
 const pngSlugs = new Set([
@@ -87,6 +88,7 @@ const pngSlugs = new Set([
   "how-to-forecast-business-cash-flow-accurately-in-2026-2027",
   "how-salary-sacrifice-reduces-your-tax-bill",
   "how-to-maximize-your-hsa-tax-benefits",
+  "best-time-to-do-a-roth-ira-conversion",
 ]);
 
 export function getPlaceholderImage(slug: string): string {
