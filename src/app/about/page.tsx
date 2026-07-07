@@ -83,7 +83,7 @@ const stats = [
 
 const founder = {
   name: "Achyutananda Meher",
-  role: "Founder & Developer",
+  role: "Founder & Author",
   bio: "Passionate about building accessible tools that simplify everyday calculations. With a vision to make accurate measurements available to everyone, founded Measurely to create a comprehensive collection of free calculators.",
   avatar: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjGkUmyFriaxMmxWv-RInt4b9BtLB97ZdTM56rH8WaW4IuH11nxRgCSkUyNBRGPWilRQpM3p0XpfqjcUy-2RfTOmd9GUDkB4qETwDEnvpf96XQaBwId9htY4UppcXsTaInUMSlOj3qYFP3KnnsmK5g-JJB6hlQBb3SiQJsqP4Oi7lAbvRBLYYM0UnZmjCQ/s1024/pic_3.png",
   initials: "AM",
@@ -212,6 +212,31 @@ export default function AboutPage() {
               <h3 className="text-xl font-bold text-text mb-1">{founder.name}</h3>
               <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mb-4">{founder.role}</p>
               <p className="text-text-secondary leading-relaxed">{founder.bio}</p>
+            </div>
+          </div>
+
+          {/* Team */}
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold text-text mb-8 text-center">Our Team</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { name: "Sritam Meher", role: "Developer", initials: "SM", bio: "The developer behind Measurely's technical architecture. Builds and maintains the platform to ensure smooth, reliable performance." },
+                { name: "Prasanna SAHU", role: "UI/UX Designer", initials: "PS", bio: "Crafts intuitive and clean interfaces that make complex calculations feel effortless. Focused on delivering a seamless user experience." },
+                { name: "Sruti Padhan", role: "Tools Researcher", initials: "SP", bio: "Researches and validates formulas, standards, and industry practices to ensure every calculator delivers accurate and trustworthy results." },
+              ].map((member) => (
+                <div key={member.name} className="p-6 rounded-3xl border border-border/60 bg-surface text-center">
+                  <div className="w-[90px] h-[90px] rounded-full bg-gradient-to-br from-accent-cyan to-accent-purple p-[3px] shadow-lg shadow-accent-cyan/20 mx-auto mb-4">
+                    <Avatar className="w-full h-full rounded-full overflow-hidden border-0">
+                      <AvatarFallback className="bg-gradient-to-br from-accent-cyan to-accent-purple text-white text-xl font-bold">
+                        {member.initials}
+                      </AvatarFallback>
+                    </Avatar>
+                  </div>
+                  <h3 className="text-lg font-bold text-text mb-1">{member.name}</h3>
+                  <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mb-3">{member.role}</p>
+                  <p className="text-sm text-text-secondary leading-relaxed">{member.bio}</p>
+                </div>
+              ))}
             </div>
           </div>
 

@@ -234,10 +234,10 @@ Start small. Convert just enough to fill your current bracket. Repeat annually. 
     popular: true,
     image: "/images/blog/category-finance.svg",
     author: {
-      name: "Alex Chen",
-      avatar: "AC",
-      role: "Senior Financial Analyst",
-      bio: "Alex Chen is a financial analyst with over a decade of experience in tax planning, retirement strategy, and investment analysis.",
+      name: "Achyutananda Meher",
+      avatar: "AM",
+      role: "Founder of Measurely",
+      bio: "Achyutananda Meher is the founder of Measurely. With a deep passion for financial literacy and data-driven tools, he created the platform to make complex tax and benefit calculations accessible to everyone in Canada and beyond.",
     },
     relatedSlugs: ["compound-interest-calculator", "retirement-calculator", "investment-return-calculator", "net-worth-calculator", "tax-calculator", "understanding-compound-interest", "401k-retirement-calculator", "tax-saving-tips-2026"],
     relatedTools: [
