@@ -12,6 +12,9 @@ const CUSTOM_PAGES = [
   "inheritance-tax-calculator",
   "emergency-fund-calculator",
   "cd-ladder-calculator",
+  "salary-sacrifice-calculator",
+  "hsa-tax-savings-calculator",
+  "roth-conversion-tax-calculator",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -6,7 +6,6 @@
 - Home: https://measurely.in/
 - Blog: https://measurely.in/blog
 - Calculators: https://measurely.in/calculators
-- Converters: https://measurely.in/converters
 - Categories: https://measurely.in/categories
 - Search: https://measurely.in/search
 - About: https://measurely.in/about
@@ -28,6 +27,7 @@
 - [Paycheck Calculator](https://measurely.in/paycheck-calculator): Estimate net pay after taxes and deductions
 - [ROI Calculator](https://measurely.in/roi-calculator): Calculate return on investment
 - [Freelance Rate Calculator](https://measurely.in/freelance-rate-calculator): Determine optimal freelance hourly rates
+- [Currency Converter](https://measurely.in/currency-converter): Convert between world currencies
 
 ## Calculators — Real Estate
 - [Home Affordability Calculator](https://measurely.in/home-affordability-calculator): Determine how much house you can afford
@@ -93,54 +93,22 @@
 ## Calculators — Social Media
 - [YouTube Money Calculator](https://measurely.in/youtube-money-calculator): Estimate YouTube earnings from views
 
-## Converters
-- [Currency Converter](https://measurely.in/currency-converter): Convert between world currencies
-- [Length Converter](https://measurely.in/length-converter): Convert between length and distance units
-- [Weight Converter](https://measurely.in/weight-converter): Convert between weight and mass units
-- [Area Converter](https://measurely.in/area-converter): Convert between area measurement units
-- [Volume Converter](https://measurely.in/volume-converter): Convert between volume and capacity units
-- [Speed Converter](https://measurely.in/speed-converter): Convert between speed and velocity units
-- [Temperature Converter](https://measurely.in/temperature-converter): Convert between temperature scales
-- [Pressure Converter](https://measurely.in/pressure-converter): Convert between pressure units
-- [Energy Converter](https://measurely.in/energy-converter): Convert between energy and work units
-- [Time Converter](https://measurely.in/time-converter): Convert between time units
-- [Data Storage Converter](https://measurely.in/data-storage-converter): Convert between data storage units
-- [Fuel Economy Converter](https://measurely.in/fuel-economy-converter): Convert between fuel efficiency units
-- [Angle Converter](https://measurely.in/angle-converter): Convert between angle measurement units
-- [Density Converter](https://measurely.in/density-converter): Convert between density units
-- [Frequency Converter](https://measurely.in/frequency-converter): Convert between frequency units
-- [Power Converter](https://measurely.in/power-converter): Convert between power measurement units
-- [Current Converter](https://measurely.in/current-converter): Convert between electric current units
-- [Voltage Converter](https://measurely.in/voltage-converter): Convert between electric potential units
-- [Resistance Converter](https://measurely.in/resistance-converter): Convert between electrical resistance units
-- [Capacitance Converter](https://measurely.in/capacitance-converter): Convert between capacitance units
-- [Inductance Converter](https://measurely.in/inductance-converter): Convert between inductance units
-- [Force Converter](https://measurely.in/force-converter): Convert between force units
-- [Magnetic Field Converter](https://measurely.in/magnetic-field-converter): Convert between magnetic field units
-- [Concentration Converter](https://measurely.in/concentration-converter): Convert between concentration units
-- [Typography Converter](https://measurely.in/typography-converter): Convert between typography units
-- [Shoe Size Converter](https://measurely.in/shoe-size-converter): Convert between international shoe sizes
-- [Clothing Size Converter](https://measurely.in/clothing-size-converter): Convert between international clothing sizes
-- [Ring Size Converter](https://measurely.in/ring-size-converter): Convert between ring size standards
-
 ## Blog Categories
-- [Engineering](https://measurely.in/blog/category/engineering): Electrical engineering and electronics guides
-- [Construction](https://measurely.in/blog/category/construction): Construction and building material guides
-- [Real Estate](https://measurely.in/blog/category/real-estate): Real estate and property guides
-- [Daily Life](https://measurely.in/blog/category/daily-life): Everyday life tips and calculators
-- [Business](https://measurely.in/blog/category/business): Business and entrepreneurship guides
-- [Finance](https://measurely.in/blog/category/finance): Personal finance and investment guides
-- [Health](https://measurely.in/blog/category/health): Health and wellness guides
-- [Math](https://measurely.in/blog/category/math): Mathematics and formula guides
-- [Unit Conversion](https://measurely.in/blog/category/unit-conversion): Measurement and conversion guides
-- [Education](https://measurely.in/blog/category/education): Academic and learning guides
-- [Retirement](https://measurely.in/blog/category/retirement): Retirement planning guides
-- [Social Media](https://measurely.in/blog/category/social-media): Social media and content creation guides
-- [Automotive](https://measurely.in/blog/category/automotive): Automotive and EV guides
+- [Engineering](https://measurely.in/engineering): Electrical engineering and electronics guides
+- [Construction](https://measurely.in/construction): Construction and building material guides
+- [Real Estate](https://measurely.in/real-estate): Real estate and property guides
+- [Daily Life](https://measurely.in/everyday-life): Everyday life tips and calculators
+- [Business](https://measurely.in/business): Business and entrepreneurship guides
+- [Finance](https://measurely.in/finance): Personal finance and investment guides
+- [Health](https://measurely.in/health): Health and wellness guides
+- [Math](https://measurely.in/math): Mathematics and formula guides
+- [Retirement](https://measurely.in/retirement): Retirement planning guides
+- [Social Media](https://measurely.in/social-media): Social media and content creation guides
+- [Automotive](https://measurely.in/automotive): Automotive and EV guides
 
 ## Policies
 - [Privacy Policy](https://measurely.in/privacy-policy)
-- [Terms and Conditions](https://measurely.in/terms-and-conditions)
+- [Terms and Conditions](https://measurely.in/terms)
 - [Cookie Policy](https://measurely.in/cookie-policy)
 - [Disclaimer](https://measurely.in/disclaimer)
 - [Editorial Policy](https://measurely.in/editorial-policy)
