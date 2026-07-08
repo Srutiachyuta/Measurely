@@ -1,0 +1,31 @@
+export { registerPlugin, getPlugins, getPlugin, getEnabledPlugins } from "./registry"
+export type { CmsPlugin } from "./types"
+
+import { registerPlugin } from "./registry"
+
+registerPlugin({ id: "dashboard", name: "Dashboard", description: "Site overview and quick stats", icon: "LayoutDashboard", href: "/admin", navOrder: 1, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "tools", name: "Tool Manager", description: "Create, edit and manage calculators", icon: "Calculator", href: "/admin/tools", navOrder: 2, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "articles", name: "Article Manager", description: "Write and manage blog articles", icon: "FileText", href: "/admin/articles", navOrder: 3, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "categories", name: "Categories", description: "Manage tool categories", icon: "FolderTree", href: "/admin/categories", navOrder: 4, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "tags", name: "Tags", description: "Manage content tags", icon: "Tags", href: "/admin/tags", navOrder: 5, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "authors", name: "Authors", description: "Manage author profiles", icon: "Users", href: "/admin/authors", navOrder: 6, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "seo", name: "SEO Manager", description: "Bulk meta tag management and duplicate detection", icon: "Search", href: "/admin/seo", navOrder: 7, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "media", name: "Media Library", description: "Upload and manage images", icon: "Image", href: "/admin/media", navOrder: 8, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "links", name: "Internal Links", description: "Manage related tools and detect orphan pages", icon: "Link", href: "/admin/links", navOrder: 9, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "redirects", name: "Redirects", description: "Manage 301/302 redirects", icon: "ArrowRightLeft", href: "/admin/redirects", navOrder: 10, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "schema", name: "Schema Manager", description: "JSON-LD schema templates and validation", icon: "Code", href: "/admin/schema", navOrder: 11, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "sitemap", name: "Sitemap", description: "XML sitemap browser and management", icon: "Map", href: "/admin/sitemap", navOrder: 12, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "search-console", name: "Search Console", description: "Track search queries and rankings", icon: "BarChart3", href: "/admin/search-console", navOrder: 13, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "analytics", name: "Analytics", description: "Page views and visitor analytics", icon: "TrendingUp", href: "/admin/analytics", navOrder: 14, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "search", name: "Site Search", description: "Full-text search across all content", icon: "Search", href: "/admin/search", navOrder: 15, enabled: true, version: "1.0.0", badge: "new" })
+registerPlugin({ id: "performance", name: "Performance", description: "Core Web Vitals and speed optimization", icon: "Zap", href: "/admin/performance", navOrder: 16, enabled: true, version: "1.0.0", badge: "new" })
+registerPlugin({ id: "adsense", name: "AdSense Manager", description: "Ad placement optimization and policy checks", icon: "DollarSign", href: "/admin/adsense", navOrder: 17, enabled: true, version: "1.0.0", badge: "new" })
+registerPlugin({ id: "html-sitemap", name: "HTML Sitemap", description: "Generate and preview HTML sitemap", icon: "Globe", href: "/admin/html-sitemap", navOrder: 13.5, enabled: true, version: "1.0.0", badge: "new" })
+registerPlugin({ id: "automation", name: "Automation", description: "Auto-generate sitemaps, breadcrumbs, and related content", icon: "Bot", href: "/admin/automation", navOrder: 18, enabled: true, version: "1.0.0", badge: "new" })
+registerPlugin({ id: "settings", name: "Settings", description: "Site-wide configuration", icon: "Settings", href: "/admin/settings", navOrder: 19, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "backup", name: "Backup & Restore", description: "Database backup and restore", icon: "Database", href: "/admin/backup", navOrder: 20, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "import-export", name: "Import & Export", description: "Import and export content", icon: "Upload", href: "/admin/import-export", navOrder: 21, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "bulk-operations", name: "Bulk Operations", description: "Bulk edit tools and articles", icon: "FolderKanban", href: "/admin/bulk-operations", navOrder: 22, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "build-status", name: "Build Status", description: "Build logs and deployment", icon: "Hammer", href: "/admin/build-status", navOrder: 23, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "error-log", name: "Error Log", description: "System error log viewer", icon: "AlertTriangle", href: "/admin/error-log", navOrder: 24, enabled: true, version: "1.0.0" })
+registerPlugin({ id: "audit", name: "Quality Audit", description: "SEO, content and accessibility audits", icon: "CheckSquare", href: "/admin/audit", navOrder: 25, enabled: true, version: "1.0.0" })

@@ -1,6 +1,6 @@
 # Measurely
 
-> Free online calculators, unit converters, and helpful guides for finance, health, math, engineering, and everyday life.
+> Free online calculators and helpful guides for finance, health, math, engineering, and everyday life.
 
 ## Website
 - Home: https://measurely.in/

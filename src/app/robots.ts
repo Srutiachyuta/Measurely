@@ -7,12 +7,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/search"],
+        disallow: ["/api/", "/_next/", "/search", "/admin"],
       },
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/search"],
+        disallow: ["/api/", "/_next/", "/search", "/admin"],
       },
       {
         userAgent: "Googlebot-Image",
@@ -22,7 +22,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/search"],
+        disallow: ["/api/", "/_next/", "/search", "/admin"],
       },
     ],
     sitemap: `${SITE.url}/sitemap.xml`,

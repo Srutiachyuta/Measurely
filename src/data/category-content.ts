@@ -39,15 +39,7 @@ export const categoryContent: Record<string, CategoryContent> = {
     ],
     comparisonSlugs: [],
   },
-  "unit-converters": {
-    intro:
-      "Perform quick and accurate unit conversions with our measurement calculators. Convert between length, weight, temperature, pressure, energy, and electrical units using standard international formulas. Whether you need to convert metric to imperial units or apply metric prefixes, these tools deliver precise results in seconds.",
-    faqs: [
-      { question: "Are the conversion formulas accurate?", answer: "Yes, all conversions use standard international formulas and are verified for accuracy." },
-      { question: "What unit systems are supported?", answer: "We support metric and imperial units across all common measurement categories including length, weight, volume, temperature, pressure, and energy." },
-    ],
-    comparisonSlugs: [],
-  },
+
   time: {
     intro:
       "Master time and date calculations with our time calculator suite. Calculate exact ages, find durations between dates or times, and perform date arithmetic. Whether you're planning an event, calculating project timelines, or tracking milestones, these tools provide precise results for all your time-based calculations.",

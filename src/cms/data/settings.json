@@ -1,0 +1,12 @@
+{
+  "siteName": "Measurely",
+  "siteUrl": "https://measurely.in",
+  "siteDescription": "Measurely is a comprehensive collection of free online calculators and measurement tools for finance, health, math, engineering, and everyday life.",
+  "twitterHandle": "@measurely",
+  "defaultOgImage": "/og-image.png",
+  "gaId": "",
+  "gtmId": "",
+  "adSenseSlotId": "",
+  "adminPassword": "admin123",
+  "disallowRobotsPaths": ["/api/", "/_next/", "/search"]
+}

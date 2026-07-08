@@ -22,7 +22,6 @@ const categoryDisplay: Record<string, string> = {
   automotive: "Automotive",
   "social-media": "Social Media",
   business: "Business",
-  "unit-converters": "Unit Conversion",
 };
 
 function getCategoryDisplay(category: string): string {

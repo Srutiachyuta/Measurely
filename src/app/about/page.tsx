@@ -9,7 +9,6 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ABOUT_BOTTOM } from "@/config/adPlacements";
 import { Heart, Target, Shield, Zap, Users, Globe, BookOpen, Star, Award, Lightbulb } from "lucide-react";
 import { calculators } from "@/data/calculators";
-import { converters } from "@/data/converters";
 import { blogs } from "@/data/blogs";
 
 export const metadata: Metadata = {

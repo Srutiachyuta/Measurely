@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { SITE_CONFIG } from "@/lib/constants";
 import type { BlogPost } from "@/types";
+import type { ContentBlock } from "@/cms/types/content";
+import { blocksToHtml } from "@/cms/types/content";
 import { formatDate } from "@/lib/utils";
 import { getBlogImageUrl, getBlogImageAlt } from "@/lib/blog-images";
 import { ShareButtons } from "@/components/blog/share-buttons";
@@ -102,9 +104,20 @@ function getNextPost(slug: string, blogs: BlogPost[]): BlogPost | null {
   return idx < blogs.length - 1 ? blogs[idx + 1] : null;
 }
 
+function parseContentBlocks(content: string): ContentBlock[] | null {
+  try {
+    const parsed = JSON.parse(content);
+    if (Array.isArray(parsed) && parsed.length > 0 && parsed[0].type) return parsed;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export function BlogArticle({ post, blogs }: { post: BlogPost; blogs: BlogPost[] }) {
-  const toc = generateToc(post.content);
-  const contentHtml = markdownToHtml(post.content);
+  const blocks = parseContentBlocks(post.content);
+  const toc = blocks ? [] : generateToc(post.content);
+  const contentHtml = blocks ? blocksToHtml(blocks) : markdownToHtml(post.content);
   const relatedPosts = getRelatedPosts(post, blogs);
   const prevPost = getPrevPost(post.slug, blogs);
   const nextPost = getNextPost(post.slug, blogs);

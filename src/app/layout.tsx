@@ -2,15 +2,10 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { SITE, DEFAULT_SEO } from "@/lib/constants";
 import { Providers } from "@/components/layout/providers";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-//import { InstallPrompt } from "@/components/pwa/install-prompt";
-import { ScrollToTop } from "@/components/layout/scroll-to-top";
-//import SearchCommand from "@/components/layout/search-command";
-import { SearchCommandLoader } from "@/components/layout/search-command-loader";
+import { SiteShell } from "@/components/layout/site-shell";
 import { WebsiteJsonLd, OrganizationJsonLd } from "@/components/seo/json-ld";
 import { Analytics } from "@/components/seo/analytics";
-import { ThirdPartyScripts, CookieConsentBanner } from "@/lib/thirdPartyScripts";
+import { ThirdPartyScripts } from "@/lib/thirdPartyScripts";
 import "./globals.css";
 
 const inter = Inter({
@@ -116,15 +111,7 @@ export default function RootLayout({
             gtmId={process.env.NEXT_PUBLIC_GTM_ID}
             adSenseSlotId={process.env.NEXT_PUBLIC_ADSENSE_SLOT_ID}
           />
-          <ScrollToTop />
-          <Navbar />
-          <main id="main-content" className="flex-1 pt-16" role="main" tabIndex={-1}>
-            {children}
-          </main>
-          <Footer />
-          <SearchCommandLoader />
-          {/*<InstallPrompt />*/}
-          <CookieConsentBanner />
+          <SiteShell>{children}</SiteShell>
         </Providers>
       </body>
     </html>
