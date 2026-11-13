@@ -1,15 +1,9 @@
 import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/constants";
 import { BreadcrumbJsonLd, WebPageJsonLd } from "@/components/seo/json-ld";
-import { HeroSection } from "@/components/home/hero-section";
+import { HeroSection } from "@/components/home/premium-hero";
+import { EditorialHome } from "@/components/home/editorial-home";
 
-import { CategoryGrid } from "@/components/home/category-grid";
-import { FeaturedCalculators } from "@/components/home/featured-calculators";
-import { TrendingTools } from "@/components/home/trending-tools";
-import { RecentlyAdded } from "@/components/home/recently-added";
-
-import { Newsletter } from "@/components/newsletter";
-import { FAQSection } from "@/components/home/faq-section";
 
 
 export const metadata: Metadata = {
@@ -41,15 +35,7 @@ export default function HomePage() {
       <WebPageJsonLd title={SITE_CONFIG.name} description={SITE_CONFIG.description} url={SITE_CONFIG.url} />
       <HeroSection />
 
-      <RecentlyAdded />
-      <CategoryGrid />
-      <FeaturedCalculators />
-      <TrendingTools />
-
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <Newsletter variant="fullwidth" />
-      </section>
-      <FAQSection />
+      <EditorialHome />
      
     </>
   );

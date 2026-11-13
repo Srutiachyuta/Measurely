@@ -45,6 +45,33 @@ async function main() {
   assert.equal(value("loan-calculator", {loanAmount: 1000, interestRate: 12, loanTerm: 12, termType: "months"}, "monthlyPayment"), 88.85);
   assert.equal(value("sip-calculator", {monthlyInvestment: 1000, expectedReturn: 0, tenure: 1, tenureType: "years"}, "maturityValue"), 12000);
   const math = load(path.join(root, "src/lib/math-expression"));
+  const units = load(path.join(root, "src/data/unit-converter"));
+  assert.equal(units.convertUnit(1,"length","ft","in"),12);
+  assert.equal(units.convertUnit(1,"length","mi","m"),1609.344);
+  assert.equal(units.convertUnit(1,"mass","lb","kg"),0.45359237);
+  assert.equal(units.convertUnit(1,"area","acre","m²"),4046.8564224);
+  assert.equal(units.convertUnit(1,"volume","L","mL"),1000);
+  assert.equal(units.convertUnit(36,"speed","km/h","m/s"),10);
+  assert.equal(units.convertUnit(0,"temperature","°C","°F"),32);
+  assert.equal(units.convertUnit(-40,"temperature","°F","°C"),-40);
+  assert.equal(units.convertUnit(0,"temperature","K","°C"),-273.15);
+  assert.equal(units.convertUnit(0,"mass","kg","lb"),0);
+  for (const [group, {units: options}] of Object.entries(units.UNIT_GROUPS)) {
+    for (const from of options) for (const to of options) {
+      const converted=units.convertUnit(100,group,from.value,to.value);
+      const roundTrip=units.convertUnit(converted,group,to.value,from.value);
+      assert.ok(Math.abs(roundTrip-100)<1e-7,`Unit round trip: ${group}, ${from.value}, ${to.value}`);
+    }
+  }
+  assert.throws(()=>units.convertUnit(1,"length","kg","m"));
+  assert.throws(()=>units.convertUnit(-1,"mass","kg","lb"));
+  assert.throws(()=>units.convertUnit(-1,"temperature","K","°C"));
+  assert.throws(()=>units.convertUnit(Infinity,"length","m","ft"));
+  assert.throws(()=>units.convertUnit(Number.MAX_VALUE,"length","km","cm"));
+  assert.ok(!tools.some(tool=>tool.slug==="watt-calculator"));
+  assert.ok(tools.some(tool=>tool.slug==="unit-converter"));
+  assert.equal(value("power-calculator", {power:"",voltage:12,current:2,resistance:""}, "power"),24);
+  assert.throws(()=>find("power-calculator").compute({power:24,voltage:12,current:3,resistance:""}));
   assert.equal(math.evaluateExpression("2^3^2"), 512);
   assert.equal(math.evaluateExpression("-2^2"), -4);
   assert.equal(math.evaluateExpression("sin(30)", true), 0.5);

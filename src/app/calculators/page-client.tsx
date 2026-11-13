@@ -1,204 +1,27 @@
 "use client";
-
-import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
-import { Search, SlidersHorizontal, Calculator } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ToolCard } from "@/components/home/tool-card";
-import { Breadcrumb } from "@/components/ui/breadcrumb";
-import type { BreadcrumbItem } from "@/types";
+import { useMemo, useState, useSyncExternalStore } from "react";
+import { Search, X, ArrowRight, Bookmark } from "lucide-react";
+import Link from "next/link";
 import { calculators } from "@/data/calculators";
-import { ErrorBoundary } from "@/components/ui/error-boundary";
+import { ALL_CATEGORIES } from "@/data/tool-registry";
+import { ToolCard } from "@/components/home/tool-card";
 
-const breadcrumbItems: BreadcrumbItem[] = [
-  { label: "Calculators" },
-];
-
-const CATEGORY_LABELS: Record<string, string> = {
-  finance: "Finance",
-  health: "Health",
-  math: "Math",
-  time: "Time",
-  engineering: "Engineering",
-  construction: "Construction",
-  "everyday-life": "Everyday Life",
-  "real-estate": "Real Estate",
-  retirement: "Retirement",
-  automotive: "Automotive",
-  "social-media": "Social Media",
-  business: "Business",
-};
-
-const CATEGORIES = [
-  { label: "All", value: "all" },
-  ...Array.from(new Set(calculators.map((c) => c.category)))
-    .filter(Boolean)
-    .sort()
-    .map((cat) => ({
-      label: CATEGORY_LABELS[cat] || cat.charAt(0).toUpperCase() + cat.slice(1),
-      value: cat,
-    })),
-];
-
+function subscribeToLocation(callback:()=>void){window.addEventListener("popstate",callback);return ()=>window.removeEventListener("popstate",callback);}
 export function CalculatorsPageClient() {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState("all");
-  const [page, setPage] = useState(0);
-  const perPage = 12;
-
-  const filtered = useMemo(() => {
-    let result = calculators;
-    if (!result || !Array.isArray(result)) return [];
-    if (result.length === 0) return [];
-    if (category !== "all") {
-      result = result.filter((c) => c && c.category === category);
-    }
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      result = result.filter(
-        (c) =>
-          c && (
-            (c.name && c.name.toLowerCase().includes(q)) ||
-            (c.description && c.description.toLowerCase().includes(q))
-          )
-      );
-    }
+  const query = useSyncExternalStore(subscribeToLocation,()=>new URLSearchParams(window.location.search).get("q")||" ",()=>" ");
+  const [search,setSearch]=useState<string|null>(null);
+  const [category,setCategory]=useState("all");
+  const [sort,setSort]=useState("recommended");
+  const [limit,setLimit]=useState(18);
+  const [favoritesOnly,setFavoritesOnly]=useState(false);
+  const favoriteSnapshot=useSyncExternalStore(callback=>{window.addEventListener("measurelyFavoritesChanged",callback);window.addEventListener("storage",callback);return()=>{window.removeEventListener("measurelyFavoritesChanged",callback);window.removeEventListener("storage",callback);};},()=>{try{return localStorage.getItem("measurely-favorite-tools")||"[]";}catch{return "[]";}},()=>"[]");
+  const favorites=useMemo(()=>{try{const parsed:unknown=JSON.parse(favoriteSnapshot);return Array.isArray(parsed)?parsed.filter(entry=>typeof entry==="string"):[];}catch{return [];}},[favoriteSnapshot]);
+  const term=search??query.trim();
+  const filtered=useMemo(()=>{
+    const result=calculators.filter(tool=>(category==="all"||tool.category===category)&&(!favoritesOnly||favorites.includes(tool.slug))&&`${tool.name} ${tool.description}`.toLowerCase().includes(term.trim().toLowerCase()));
+    if(sort==="az")result.sort((a,b)=>a.name.localeCompare(b.name));
     return result;
-  }, [category, search]);
-
-  const paginated = useMemo(
-    () => filtered.slice(0, (page + 1) * perPage),
-    [filtered, page]
-  );
-
-  const totalPages = Math.ceil(filtered.length / perPage);
-
-  return (
-    <div className="min-h-screen bg-surface-secondary">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
-        <Breadcrumb items={breadcrumbItems} className="mb-6" />
-        {/* Header */}
-        <ErrorBoundary fallback={
-          <div className="text-center py-16">
-            <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary-500/10 mx-auto mb-4">
-              <Calculator className="h-7 w-7 text-primary-500" />
-            </div>
-            <h2 className="text-xl font-semibold text-text mb-2">Calculators</h2>
-            <p className="text-text-secondary">Browse our complete collection of free online calculators.</p>
-          </div>
-        }>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="text-center mb-10"
-        >
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500/10 to-primary-600/5 dark:from-primary-500/20 dark:to-primary-600/10 text-primary-600 dark:text-primary-400 mx-auto mb-4">
-            <Calculator className="h-8 w-8" />
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-text mb-3">All Calculators</h1>
-          <p className="text-text-secondary max-w-2xl mx-auto text-lg leading-relaxed">
-            Browse our complete collection of free online calculators covering finance, health, math, time, engineering, construction, and everyday life.
-          </p>
-        </motion.div>
-
-        {/* Search and filters */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.3 }}
-          className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-8"
-        >
-          <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4.5 w-4.5 text-muted" />
-            <Input
-              placeholder="Search calculators..."
-              aria-label="Search calculators"
-              value={search}
-              onChange={(e) => {
-                setSearch(e.target.value);
-                setPage(0);
-              }}
-              className="pl-10 h-11"
-            />
-          </div>
-          <div className="overflow-x-auto w-full sm:w-auto scrollbar-hide">
-            <Tabs value={category} onValueChange={(v) => { setCategory(v); setPage(0); }}>
-              <TabsList className="w-max">
-                {CATEGORIES.map((cat) => (
-                  <TabsTrigger key={cat.value} value={cat.value} className="whitespace-nowrap">
-                    {cat.label}
-                  </TabsTrigger>
-                ))}
-              </TabsList>
-            </Tabs>
-          </div>
-        </motion.div>
-
-        {/* Results */}
-        {filtered.length === 0 ? (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-20"
-          >
-            <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-surface-secondary mx-auto mb-4">
-              <SlidersHorizontal className="h-8 w-8 text-muted" />
-            </div>
-            <p className="text-lg text-text-secondary font-medium">No calculators found</p>
-            <p className="text-sm text-muted mt-1">Try adjusting your search or filter</p>
-          </motion.div>
-        ) : (
-          <>
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={{
-                hidden: {},
-                visible: { transition: { staggerChildren: 0.04 } },
-              }}
-              className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
-            >
-              {paginated.map((calc, i) => (
-                <motion.div
-                  key={calc.slug}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.03, duration: 0.3 }}
-                >
-                  <ToolCard
-                    name={calc.name}
-                    slug={calc.slug}
-                    category={calc.category.charAt(0).toUpperCase() + calc.category.slice(1)}
-                    categorySlug={calc.category}
-                    icon={calc.icon.displayName || "Calculator"}
-                    description={calc.description}
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {paginated.length < filtered.length && (
-              <div className="text-center mt-10">
-                <button
-                  onClick={() => setPage((p) => p + 1)}
-                  className="inline-flex items-center justify-center rounded-xl border border-border bg-surface px-6 py-3 text-sm font-medium text-text hover:bg-surface-secondary hover:border-primary-500/30 transition-all duration-200 shadow-sm"
-                >
-                  Show More ({filtered.length - paginated.length} remaining)
-                </button>
-              </div>
-            )}
-
-            {totalPages > 1 && (
-              <p className="text-center text-sm text-muted mt-4">
-                Showing {paginated.length} of {filtered.length} calculators
-              </p>
-            )}
-          </>
-        )}
-        </ErrorBoundary>
-      </div>
-    </div>
-  );
+  },[category,term,sort,favoritesOnly,favorites]);
+  const reset=()=>{setSearch("");setCategory("all");setFavoritesOnly(false);setLimit(18);};
+  return <div className="catalog-page"><div className="editorial-container editorial-section"><p className="eyebrow">The calculator library</p><div className="catalog-heading"><div><h1>Good tools. Clear answers.</h1><p>Find the right calculator, get a useful result, and carry on with your day.</p></div><Link href="/saved" className="text-link"><Bookmark size={17}/> Your saved results</Link></div><div className="catalog-layout"><aside className="catalog-sidebar" aria-label="Filter by category"><h2>Browse by topic</h2><button className={category==="all"?"selected":""} onClick={()=>{setCategory("all");setLimit(18);}} aria-pressed={category==="all"}><span>All calculators</span><span>{calculators.length}</span></button>{ALL_CATEGORIES.map(item=><button key={item.slug} className={category===item.slug?"selected":""} onClick={()=>{setCategory(item.slug);setLimit(18);}} aria-pressed={category===item.slug}><span>{item.name.replace(" Calculators","")}</span><span>{item.tools.length}</span></button>)}<div className="catalog-sidebar-note"><h3>One converter. Six jobs.</h3><p>Switch between metric and imperial measurements.</p><Link href="/unit-converter">Try unit converter <ArrowRight size={15}/></Link></div></aside><section className="catalog-results" aria-label="Calculator results"><div className="catalog-toolbar"><div className="catalog-search"><Search size={18}/><input aria-label="Search calculators" placeholder="Search by name or task..." value={term} onChange={event=>{setSearch(event.target.value);setLimit(18);}}/>{term&&<button aria-label="Clear search" onClick={()=>setSearch("")}><X size={17}/></button>}</div><label className="catalog-sort"><span className="sr-only">Sort calculators</span><select value={sort} onChange={event=>setSort(event.target.value)}><option value="recommended">Default order</option><option value="az">Name: A–Z</option></select></label></div><div className="catalog-result-meta"><p role="status">{filtered.length} {filtered.length===1?"calculator":"calculators"}{category!=="all"&&` in ${ALL_CATEGORIES.find(item=>item.slug===category)?.name.replace(" Calculators","")}`}</p><button onClick={()=>{setFavoritesOnly(value=>!value);setLimit(18);}} aria-pressed={favoritesOnly}><Bookmark size={14} fill={favoritesOnly?"currentColor":"none"}/> Favorites only</button></div>{filtered.length?<><div className="catalog-grid">{filtered.slice(0,limit).map(tool=><ToolCard key={tool.slug} name={tool.name} slug={tool.slug} description={tool.description} category={tool.category} categorySlug={tool.category} icon={tool.icon.displayName||"Calculator"}/>)}</div>{filtered.length>limit&&<button className="catalog-load-more" onClick={()=>setLimit(value=>value+18)}>Show more calculators <span>{filtered.length-limit} remaining</span><ArrowRight size={16}/></button>}</>:<div className="catalog-empty"><Search size={28}/><h2>No calculators found</h2><p>Try a broader search, choose another topic or clear your filters.</p><button className="solid-link" onClick={reset}>Clear all filters</button></div>}</section></div></div></div>;
 }

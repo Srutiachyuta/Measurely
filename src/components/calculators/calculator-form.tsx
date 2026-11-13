@@ -14,6 +14,7 @@ import {
 import { Calculator, RotateCcw } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { CalculatorDefinition, CalculatorInput } from "@/types/calculators";
+import { UNIT_GROUPS, type UnitGroup } from "@/data/unit-converter";
 
 interface CalculatorFormProps {
   definition: CalculatorDefinition;
@@ -114,7 +115,7 @@ export function CalculatorForm({
               <SelectValue placeholder={input.placeholder || "Select..."} />
             </SelectTrigger>
             <SelectContent>
-              {input.options?.map((opt) => (
+              {(definition.slug === "unit-converter" && ["from", "to"].includes(input.key) ? UNIT_GROUPS[values.group as UnitGroup]?.units : input.options)?.map((opt) => (
                 <SelectItem key={opt.value} value={opt.value}>
                   {opt.label}
                 </SelectItem>
