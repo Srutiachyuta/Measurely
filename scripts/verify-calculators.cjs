@@ -45,6 +45,21 @@ async function main() {
   assert.equal(value("loan-calculator", {loanAmount: 1000, interestRate: 12, loanTerm: 12, termType: "months"}, "monthlyPayment"), 88.85);
   assert.equal(value("sip-calculator", {monthlyInvestment: 1000, expectedReturn: 0, tenure: 1, tenureType: "years"}, "maturityValue"), 12000);
   const math = load(path.join(root, "src/lib/math-expression"));
+  const configSource = ts.transpileModule(fs.readFileSync(path.join(root,"next.config.ts"),"utf8"), {compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText;
+  const readConfig = env => {
+    const exports = {};
+    vm.runInNewContext(configSource, {exports,process:{env},require:name=>{assert.equal(name,"@next/bundle-analyzer");return ()=>config=>config;}});
+    return exports.default;
+  };
+  const longSha="407984f933536b50e2076cc070b431f89fad1caf";
+  assert.equal(readConfig({VERCEL_GIT_COMMIT_SHA:longSha}).deploymentId,longSha.slice(0,32));
+  assert.equal(readConfig({GITHUB_SHA:longSha}).deploymentId.length,32);
+  assert.equal(readConfig({NEXT_DEPLOYMENT_ID:"custom-id",VERCEL_GIT_COMMIT_SHA:longSha}).deploymentId,"custom-id");
+  assert.equal(readConfig({NEXT_DEPLOYMENT_ID:"x".repeat(100)}).deploymentId.length,32);
+  assert.equal(readConfig({}).deploymentId,undefined);
+  const hostingConfig=JSON.parse(fs.readFileSync(path.join(root,"vercel.json"),"utf8"));
+  assert.equal(hostingConfig.installCommand,"npm ci");
+  assert.equal(hostingConfig.buildCommand,"npm run build");
   const workerHandlers = new Map();
   const deletedCaches = [];
   vm.runInNewContext(fs.readFileSync(path.join(root,"public/sw.js"),"utf8"), {

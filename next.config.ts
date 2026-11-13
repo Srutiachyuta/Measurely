@@ -19,7 +19,7 @@ const csp = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
-  deploymentId: process.env.NEXT_DEPLOYMENT_ID || process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA,
+  deploymentId: (process.env.NEXT_DEPLOYMENT_ID || process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA)?.slice(0, 32),
   distDir: process.env.MEASURELY_BUILD_DIR || ".next",
   allowedDevOrigins: ["192.168.1.11", "192.168.1.4"],
   images: {
@@ -49,12 +49,6 @@ const nextConfig: NextConfig = {
       {
         source: "/api/cms/:path*",
         headers: [{ key: "Cache-Control", value: "private, no-store" }, { key: "X-Robots-Tag", value: "noindex, nofollow" }],
-      },
-      {
-        source: "/_next/static/:path*",
-        headers: [
-          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
-        ],
       },
       {
         source: "/:slug(emi-calculator|loan-calculator|bmi-calculator|age-calculator|length-converter|weight-converter|temperature-converter|currency-converter|percentage-calculator|gst-calculator|sip-calculator|fd-calculator)",
