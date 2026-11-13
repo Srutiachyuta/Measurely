@@ -87,7 +87,15 @@ const cmsOnlyArticles: BlogPost[] = cmsArticles
     featuredImageAlt: getBlogImageAlt(a.slug, a.category),
   }));
 
-export const blogs: BlogPost[] = [...merged, ...cmsOnlyArticles].sort((a, b) => {
+// Retire the outdated 2026 tax guide without allowing CMS overrides to republish it.
+export const blogs: BlogPost[] = [...merged, ...cmsOnlyArticles]
+  .filter(post => post.slug !== "tax-saving-tips-2026")
+  .map(post => ({
+    ...post,
+    content: post.content.replaceAll('href="/tax-saving-tips-2026"', 'href="/tax-calculator"'),
+    relatedSlugs: post.relatedSlugs.filter(slug => slug !== "tax-saving-tips-2026"),
+    relatedTools: post.relatedTools?.filter(tool => tool.slug !== "tax-saving-tips-2026"),
+  })).sort((a, b) => {
   const cmp = b.publishedAt.localeCompare(a.publishedAt);
   if (cmp !== 0) return cmp;
   return b.slug.localeCompare(a.slug);

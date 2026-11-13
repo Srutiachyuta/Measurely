@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 };
 
 export default function CategoriesPage() {
-  const totalTools = CATEGORIES.reduce((sum, c) => sum + c.tools.length, 0);
+
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Categories" }]} />
@@ -50,7 +50,7 @@ export default function CategoriesPage() {
             All <span className="text-gradient">Categories</span>
           </h1>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Explore all {CATEGORIES.length} categories and discover {totalTools} calculators for every need.
+            Explore calculators by topic and find the right tool for your task.
           </p>
         </div>
         <CategoryGrid showHeader={false} />

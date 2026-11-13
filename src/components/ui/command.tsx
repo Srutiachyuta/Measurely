@@ -25,7 +25,7 @@ Command.displayName = CommandPrimitive.displayName;
 function CommandDialog({ children, ...props }: DialogProps) {
   return (
     <Dialog {...props}>
-     <DialogContent className="overflow-hidden p-0 shadow-glass-lg">
+     <DialogContent className="search-dialog overflow-hidden p-0 shadow-glass-lg max-w-[calc(100vw-2rem)] sm:max-w-lg">
   <DialogTitle className="sr-only">
     Search
   </DialogTitle>
@@ -42,12 +42,12 @@ const CommandInput = forwardRef<
   ElementRef<typeof CommandPrimitive.Input>,
   ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => (
-  <div className="flex items-center border-b border-border px-3" cmdk-input-wrapper="">
+  <div className="search-input-wrapper flex items-center border-b border-border pl-4 pr-12 transition-colors" cmdk-input-wrapper="">
     <Search className="mr-2 h-4 w-4 shrink-0 opacity-50" />
     <CommandPrimitive.Input
       ref={ref}
       className={cn(
-        "flex h-11 w-full rounded-lg bg-transparent py-3 text-sm outline-none placeholder:text-muted disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-11 w-full rounded-lg bg-transparent py-3 text-sm outline-none focus-visible:outline-none focus-visible:ring-0 placeholder:text-muted disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}

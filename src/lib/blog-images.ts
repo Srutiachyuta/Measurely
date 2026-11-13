@@ -1,3 +1,6 @@
+import imageManifest from "@/data/article-image-manifest.json";
+const articleImages: Record<string, {src: string; alt: string; width: number; height: number}> = imageManifest;
+
 const slugAltMap: Record<string, string> = {
   "master-voltage-current-resistance-calculations": "Close-up of an electronic circuit board with microchips and components",
   "precision-voltage-division-circuits": "Electronic circuit board with resistors and capacitors",
@@ -101,6 +104,7 @@ function categoryToSlug(category: string): string {
 }
 
 export function getBlogImageUrl(slug: string, category: string): string {
+  if (articleImages[slug]) return articleImages[slug].src;
   if (pngSlugs.has(slug)) {
     return getPlaceholderImage(slug);
   }
@@ -108,6 +112,7 @@ export function getBlogImageUrl(slug: string, category: string): string {
 }
 
 export function getBlogImageAlt(slug: string, category: string): string {
+  if (articleImages[slug]) return articleImages[slug].alt;
   if (pngSlugs.has(slug)) {
     return slugAltMap[slug] ?? "Featured image for blog article";
   }

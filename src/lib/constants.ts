@@ -9,7 +9,7 @@ export const SITE = {
   url: "https://measurely.in",
   locale: "en_US",
   siteName: "Measurely",
-  siteLogo: "/logo-light.webp",
+  siteLogo: "/brand/measurely-logo-v2.png",
   ogImage: "/og-image.png",
   twitterHandle: "@measurely",
   author: "Measurely Team",

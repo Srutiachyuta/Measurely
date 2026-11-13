@@ -11,7 +11,6 @@ import {
   CalendarDays,
   TrendingUp,
   Flame,
-  Eye,
   BookOpen,
   Mail,
   Send,
@@ -39,7 +38,7 @@ const POPULAR_TAGS = [
   "fitness", "savings", "loans", "energy", "education",
 ];
 
-const TRENDING_VIEWS = ["12K", "8.5K", "7.2K", "6.8K", "5.1K", "4.9K", "4.2K", "3.8K"];
+
 
 const categoryIconMap: Record<string, React.ElementType> = {
   finance: TrendingUp,
@@ -100,11 +99,11 @@ interface BlogPageClientProps {
 
 function PopularCategories() {
   const cats = [
-    { name: "Finance", slug: "finance", count: "24+" },
-    { name: "Health", slug: "health", count: "18+" },
-    { name: "Math", slug: "math", count: "15+" },
-    { name: "Engineering", slug: "engineering", count: "12+" },
-    { name: "Unit Conversion", slug: "unit-conversion", count: "20+" },
+    { name: "Finance", slug: "finance" },
+    { name: "Health", slug: "health" },
+    { name: "Math", slug: "math" },
+    { name: "Engineering", slug: "engineering" },
+    { name: "Unit Conversion", slug: "unit-conversion" },
   ];
   return (
     <div className="space-y-2">
@@ -115,7 +114,6 @@ function PopularCategories() {
           className="flex items-center justify-between p-2.5 rounded-xl hover:bg-surface-secondary transition-colors group"
         >
           <span className="text-sm text-text group-hover:text-primary-600 transition-colors">{cat.name}</span>
-          <span className="text-xs text-text-secondary/60">{cat.count}</span>
         </Link>
       ))}
     </div>
@@ -175,7 +173,7 @@ function NewsletterSidebar() {
           type="email" value={email}
           onChange={(e) => { setEmail(e.target.value); setError(""); }}
           placeholder="Your email"
-          className="w-full px-3 py-2.5 rounded-lg border border-border/60 bg-surface text-text placeholder:text-text-secondary/60 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/30 mb-2"
+          className="w-full px-3 py-2.5 rounded-lg border border-border/60 bg-surface text-text placeholder:text-text-secondary/60 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border mb-2"
         />
         {error && <p className="text-xs text-red-500 mb-2" role="alert">{error}</p>}
         <button
@@ -225,12 +223,12 @@ function ArticleCard({ post, index }: { post: BlogPost; index: number }) {
         href={`/${post.slug}`}
         className="group block rounded-2xl border border-border/60 bg-surface hover:shadow-xl hover:shadow-primary-500/5 hover:-translate-y-1 transition-all duration-300 overflow-hidden"
       >
-        <div className="relative h-48 sm:h-52 overflow-hidden bg-surface-secondary">
+        <div className="relative aspect-[16/9] overflow-hidden bg-surface-secondary">
           <Image
             src={imgSrc}
             alt={imgAlt}
             fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
+            className="object-contain transition-transform duration-700 group-hover:scale-110"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             loading="lazy"
           />
@@ -302,7 +300,7 @@ function FeaturedArticleCard({ post }: { post: BlogPost }) {
               src={imgSrc}
               alt={imgAlt}
               fill
-              className="object-cover transition-transform duration-700 group-hover:scale-110"
+              className="object-contain transition-transform duration-700 group-hover:scale-110"
               sizes="(max-width: 768px) 100vw, 40vw"
               priority
             />
@@ -367,12 +365,12 @@ function TrendingCard({ post, index }: { post: BlogPost; index: number }) {
         href={`/${post.slug}`}
         className="group block rounded-2xl border border-border/60 bg-surface hover:shadow-lg hover:shadow-primary-500/5 hover:-translate-y-0.5 transition-all duration-300 overflow-hidden"
       >
-        <div className="relative h-36 overflow-hidden bg-surface-secondary">
+        <div className="relative aspect-[16/9] overflow-hidden bg-surface-secondary">
           <Image
             src={imgSrc}
             alt={imgAlt}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-contain transition-transform duration-500 group-hover:scale-105"
             sizes="280px"
             loading="lazy"
           />
@@ -382,11 +380,7 @@ function TrendingCard({ post, index }: { post: BlogPost; index: number }) {
               <Flame className="h-2.5 w-2.5" /> Trending
             </span>
           </div>
-          <div className="absolute bottom-2 left-2 right-2">
-            <span className="inline-flex items-center gap-1 text-[10px] text-white/80 bg-black/30 backdrop-blur-sm px-1.5 py-0.5 rounded-full">
-              <Eye className="h-2.5 w-2.5" /> {TRENDING_VIEWS[index % TRENDING_VIEWS.length]} views
-            </span>
-          </div>
+
         </div>
         <div className="p-3.5">
           <div className="flex items-center gap-2 mb-1.5">
@@ -555,7 +549,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
           >
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary-500/10 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 text-sm font-medium mb-6 border border-primary-500/20">
               <Sparkles className="h-4 w-4" />
-              <span>{blogs.length} Articles & Guides</span>
+              <span>Practical Articles & Guides</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
@@ -577,7 +571,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
                   onFocus={() => { if (query.trim()) setShowSuggestions(true); }}
                   placeholder="Search articles..."
                   aria-label="Search articles"
-                  className="w-full pl-12 pr-10 py-3.5 rounded-2xl border border-border/60 bg-surface/80 backdrop-blur-sm text-text placeholder:text-text-secondary/40 focus:outline-none focus:ring-2 focus:ring-primary-500/30 focus:border-primary-500/50 transition-all shadow-lg shadow-primary-500/5"
+                  className="w-full pl-12 pr-10 py-3.5 rounded-2xl border border-border/60 bg-surface/80 backdrop-blur-sm text-text placeholder:text-text-secondary/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border focus-visible:border-muted transition-all shadow-lg shadow-primary-500/5"
                 />
                 {isSearching && (
                   <button
@@ -608,7 +602,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
                           className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-surface-secondary transition-colors"
                         >
                           <div className="w-8 h-8 rounded-lg bg-surface-secondary overflow-hidden shrink-0">
-                            <Image src={getBlogImageUrl(post.slug, post.category)} alt={post.title} width={32} height={32} className="object-cover w-full h-full" />
+                            <Image src={getBlogImageUrl(post.slug, post.category)} alt={post.title} width={32} height={32} className="object-contain w-full h-full" />
                           </div>
                           <div className="text-left min-w-0">
                             <p className="text-sm font-medium text-text line-clamp-1">{post.title}</p>
@@ -638,10 +632,6 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
 
             {/* Stats */}
             <div className="flex items-center justify-center gap-6 text-sm text-text-secondary">
-              <span className="flex items-center gap-1.5">
-                <BookOpen className="h-4 w-4 text-primary-500" />
-                {blogs.length} articles
-              </span>
               {lastUpdated && (
                 <span className="flex items-center gap-1.5">
                   <CalendarDays className="h-4 w-4 text-primary-500" />
@@ -847,7 +837,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
                       onChange={(e) => { setQuery(e.target.value); setShowSuggestions(true); }}
                       placeholder="Search..."
                       aria-label="Search articles"
-                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-border/60 bg-surface text-text placeholder:text-text-secondary/40 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/30 transition-all"
+                      className="w-full pl-9 pr-3 py-2 rounded-xl border border-border/60 bg-surface text-text placeholder:text-text-secondary/40 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border transition-all"
                     />
                   </div>
                 </div>
@@ -898,7 +888,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
                             alt={post.title}
                             width={40}
                             height={40}
-                            className="object-cover w-full h-full"
+                            className="object-contain w-full h-full"
                           />
                         </div>
                         <div className="min-w-0">

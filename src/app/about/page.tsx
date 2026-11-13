@@ -8,8 +8,8 @@ import { AdSlot } from "@/components/AdSlot";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { ABOUT_BOTTOM } from "@/config/adPlacements";
 import { Heart, Target, Shield, Zap, Users, Globe, BookOpen, Star, Award, Lightbulb } from "lucide-react";
-import { calculators } from "@/data/calculators";
-import { blogs } from "@/data/blogs";
+
+
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -64,20 +64,8 @@ const values = [
   {
     icon: Globe,
     title: "Global Reach",
-    description: "Serving users in over 100 countries. Support for multiple languages, currencies, and measurement systems.",
+    description: "Accessible online, with tools for different currencies and measurement systems.",
   },
-];
-
-const toolsCount = calculators.length;
-const blogPostsCount = blogs.length;
-const categorySet = new Set<string>();
-calculators.forEach(c => categorySet.add(c.category));
-const categoriesCount = categorySet.size;
-
-const stats = [
-  { label: "Calculators", value: `${calculators.length}+` },
-  { label: "Blog Posts", value: `${blogPostsCount}+` },
-  { label: "Categories", value: `${categoriesCount}` },
 ];
 
 const founder = {
@@ -124,16 +112,6 @@ export default function AboutPage() {
               Our mission is to simplify complex calculations and make measurement conversions
               accessible to all — from students and professionals to DIY enthusiasts and everyday users.
             </p>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-16 max-w-2xl mx-auto">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center p-6 rounded-2xl border border-border/60 bg-surface-secondary/50 dark:bg-dark-800/30">
-                <div className="text-2xl sm:text-3xl font-bold text-gradient mb-1">{stat.value}</div>
-                <div className="text-sm text-text-secondary">{stat.label}</div>
-              </div>
-            ))}
           </div>
 
           {/* Mission */}
@@ -266,7 +244,7 @@ export default function AboutPage() {
                 {
                   icon: BookOpen,
                   title: "Comprehensive Collection",
-                  description: "With over 100 calculators spanning finance, health, math, engineering, construction, and everyday life, we have one of the most extensive collections of free online tools available anywhere.",
+                  description: "Our collection covers finance, health, math, engineering, construction, and everyday life, with free tools in one place.",
                 },
                 {
                   icon: Target,
@@ -306,7 +284,7 @@ export default function AboutPage() {
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               {[
                 { title: "Always Free", description: "Every tool on this platform costs nothing. No subscriptions, no paywalls, no hidden charges — forever." },
-                { title: "100+ Tools in One Place", description: "From finance to fitness, engineering to construction, all your calculation needs covered under a single roof." },
+                { title: "Useful Tools in One Place", description: "From finance to fitness, engineering to construction, all your calculation needs covered under a single roof." },
                 { title: "Built for Real People", description: "Clean, distraction-free interfaces designed for quick results. No clutter, no confusion." },
                 { title: "Regularly Updated", description: "We add new tools and refine existing ones based on real user feedback and emerging needs." },
               ].map((item) => (
@@ -358,7 +336,7 @@ export default function AboutPage() {
           <div className="text-center p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-primary-500/5 to-accent-cyan/5 dark:from-primary-500/10 dark:to-accent-cyan/10 border border-primary-500/10">
             <h2 className="text-2xl sm:text-3xl font-bold text-text mb-3">Ready to Get Started?</h2>
             <p className="text-text-secondary mb-6 max-w-lg mx-auto">
-              Explore our collection of 100+ free calculators.
+              Explore our collection of free calculators.
             </p>
             <Link
               href="/calculators"

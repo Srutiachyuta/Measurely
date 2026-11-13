@@ -26,7 +26,10 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
-    return [{ source: "/watt-calculator", destination: "/power-calculator", permanent: true }];
+    return [
+      { source: "/watt-calculator", destination: "/power-calculator", permanent: true },
+      { source: "/tax-saving-tips-2026", destination: "/tax-calculator", statusCode: 301 },
+    ];
   },
   async headers() {
     return [

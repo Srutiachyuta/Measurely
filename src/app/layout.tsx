@@ -36,12 +36,12 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-16x16.png?v=measurely-v2", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png?v=measurely-v2", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png?v=measurely-v2", sizes: "48x48", type: "image/png" },
     ],
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png?v=measurely-v2", sizes: "180x180", type: "image/png" },
     ],
   },
   other: {
@@ -71,17 +71,17 @@ export default function RootLayout({
       <head>
         <script id="measurely-adsense" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774" crossOrigin="anonymous" />
         <link rel="manifest" href="/manifest.webmanifest" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=measurely-v2" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=measurely-v2" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=measurely-v2" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=measurely-v2" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content={SITE.name} />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="application-name" content={SITE.name} />
-        <meta name="msapplication-TileColor" content="#6366f1" />
-        <meta name="msapplication-TileImage" content="/icon-192.png" />
+        <meta name="msapplication-TileColor" content="#005d50" />
+        <meta name="msapplication-TileImage" content="/icon-192.png?v=measurely-v2" />
         <meta name="theme-color" content="#6366f1" />
         <meta name="google-adsense-account" content="ca-pub-8154961694177774" />
         <WebsiteJsonLd />

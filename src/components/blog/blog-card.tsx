@@ -27,12 +27,12 @@ export function BlogCard({ post }: BlogCardProps) {
         href={`/${post.slug}`}
         className="group block rounded-2xl border border-border/60 bg-surface hover:shadow-elevation-md transition-all duration-300 overflow-hidden"
       >
-        <div className="relative h-44 sm:h-48 overflow-hidden bg-surface-secondary">
+        <div className="relative aspect-[16/9] overflow-hidden bg-surface-secondary">
           <Image
             src={imgSrc}
             alt={imgAlt}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className="object-contain transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             loading="lazy"
           />
@@ -96,7 +96,7 @@ export function FeaturedBlogCard({ post }: FeaturedBlogCardProps) {
               src={imgSrc}
               alt={imgAlt}
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-contain transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 640px) 100vw, 40vw"
               priority
             />

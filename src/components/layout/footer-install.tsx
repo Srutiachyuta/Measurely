@@ -63,18 +63,18 @@ export function FooterInstall() {
       <div className="flex items-center gap-3 p-4 sm:p-5 rounded-2xl border border-green-500/20 bg-green-500/[0.04]">
         <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-dark-800">
           <Image
-            src="/logo-light.webp"
+            src="/brand/measurely-logo-v2.png"
             alt="Measurely logo"
             width={40}
-            height={11}
-            className="block dark:hidden h-[11px] w-auto object-contain"
+            height={40}
+            className="block dark:hidden h-10 w-auto object-contain"
           />
           <Image
-            src="/logo-dark.webp"
+            src="/brand/measurely-logo-v2.png"
             alt="Measurely logo"
             width={40}
-            height={11}
-            className="hidden dark:block h-[11px] w-auto object-contain"
+            height={40}
+            className="hidden dark:block h-10 w-auto object-contain"
           />
         </div>
         <div className="flex-1 min-w-0">
@@ -91,18 +91,18 @@ export function FooterInstall() {
       <div className="flex items-center gap-4 flex-1 min-w-0">
         <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white dark:bg-dark-800 border border-border/40">
           <Image
-            src="/logo-light.webp"
+            src="/brand/measurely-logo-v2.png"
             alt="Measurely logo"
             width={44}
-            height={12}
-            className="block dark:hidden h-[12px] w-auto object-contain"
+            height={44}
+            className="block dark:hidden h-11 w-auto object-contain"
           />
           <Image
-            src="/logo-dark.webp"
+            src="/brand/measurely-logo-v2.png"
             alt="Measurely logo"
             width={44}
-            height={12}
-            className="hidden dark:block h-[12px] w-auto object-contain"
+            height={44}
+            className="hidden dark:block h-11 w-auto object-contain"
           />
         </div>
         <div>
