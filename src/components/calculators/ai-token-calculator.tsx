@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useState, useMemo } from "react";
 import { Check, ChevronsUpDown, Info, Zap, BarChart3, Plus, Minus, ArrowLeftRight, DollarSign, TrendingUp, Cpu } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -142,7 +144,7 @@ export function AITokenCalculator() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-muted mb-6">
-          <a href="/" className="hover:text-text transition-colors">Home</a>
+          <Link href="/" className="hover:text-text transition-colors">Home</Link>
           <span>/</span>
           <span className="text-text">AI Token Cost Calculator</span>
         </nav>

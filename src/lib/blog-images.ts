@@ -92,7 +92,7 @@ const pngSlugs = new Set([
 ]);
 
 export function getPlaceholderImage(slug: string): string {
-  const ext = pngSlugs.has(slug) ? "png" : "svg";
+  const ext = pngSlugs.has(slug) ? "webp" : "svg";
   return `/images/blog/placeholders/${slug}.${ext}`;
 }
 

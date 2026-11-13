@@ -10,9 +10,9 @@ export const master_greatest_common_factor_least_common: BlogPost = {
 - The LCM is the smallest number divisible by all inputs — critical for synchronizing schedules, finding common denominators, and engineering applications.
 - Four primary methods exist: prime factorization, listing factors/multiples, Euclidean algorithm (most efficient for large numbers), and the ladder/cake method.
 - The relationship GCF × LCM = a × b provides a built-in sanity check for any pair of positive integers.
-- Our <a href="/gcf-calculator">GCF Calculator</a> and <a href="/lcm-calculator">LCM Calculator</a> handle numbers up to 10 digits with full step-by-step solutions.
+- Our <a href="/gcf-lcm-calculator">GCF Calculator</a> and <a href="/gcf-lcm-calculator">LCM Calculator</a> handle numbers up to 10 digits with full step-by-step solutions.
 
-GCF and LCM — you probably remember these from school, but they actually show up in real life more than you'd think. Whether you are simplifying fractions, scheduling recurring events, organizing group activities, or dividing resources into equal portions, these two concepts are indispensable tools. Our <a href="/gcf-calculator">GCF Calculator</a> and <a href="/lcm-calculator">LCM Calculator</a> find them instantly, whether you are working with two numbers or a whole list.
+GCF and LCM — you probably remember these from school, but they actually show up in real life more than you'd think. Whether you are simplifying fractions, scheduling recurring events, organizing group activities, or dividing resources into equal portions, these two concepts are indispensable tools. Our <a href="/gcf-lcm-calculator">GCF Calculator</a> and <a href="/gcf-lcm-calculator">LCM Calculator</a> find them instantly, whether you are working with two numbers or a whole list.
 
 Understanding GCF and LCM builds a solid foundation for algebra, number theory, and practical problem-solving across many fields. In this guide, we explore multiple calculation methods, walk through detailed examples, examine real-world applications, and show you how to use our calculator to verify your work and learn along the way.
 
@@ -244,7 +244,7 @@ A warehouse receives shipments of product A every 9 days and product B every 12 
 
 ## How to Use Our Calculator
 
-Using our <a href="/gcf-calculator">GCF Calculator</a> and <a href="/lcm-calculator">LCM Calculator</a> is straightforward:
+Using our <a href="/gcf-lcm-calculator">GCF Calculator</a> and <a href="/gcf-lcm-calculator">LCM Calculator</a> is straightforward:
 
 1. **Enter the numbers** — two or more, separated by commas
 2. **Pick what to find** — GCF, LCM, or both
@@ -277,7 +277,7 @@ The calculator handles numbers up to 10 digits and displays all intermediate ste
 
 ## Conclusion
 
-GCF and LCM appear far more often than most people realize — simplifying fractions, planning schedules, dividing resources evenly, and even in engineering and music. Our <a href="/gcf-calculator">GCF Calculator</a> and <a href="/lcm-calculator">LCM Calculator</a> provide instant answers with complete step-by-step solutions. For more math tools, explore the <a href="/master-fractions-step-by-step-solutions">Fraction Calculator</a>, the <a href="/master-advanced-math">Scientific Calculator</a>, and the <a href="/percentage-calculator">Percentage Calculator</a>.
+GCF and LCM appear far more often than most people realize — simplifying fractions, planning schedules, dividing resources evenly, and even in engineering and music. Our <a href="/gcf-lcm-calculator">GCF Calculator</a> and <a href="/gcf-lcm-calculator">LCM Calculator</a> provide instant answers with complete step-by-step solutions. For more math tools, explore the <a href="/master-fractions-step-by-step-solutions">Fraction Calculator</a>, the <a href="/master-advanced-math-trig-logs-exponents-more">Scientific Calculator</a>, and the <a href="/percentage-calculator">Percentage Calculator</a>.
 
 ## Frequently Asked Questions
 
@@ -285,7 +285,7 @@ GCF and LCM appear far more often than most people realize — simplifying fract
 GCF is the largest number that divides all given numbers. LCM is the smallest number that all given numbers divide into. They are connected by the formula GCF × LCM = a × b. GCF finds the biggest common divisor while LCM finds the smallest common multiple.
 
 ### How do I find the GCF of large numbers?
-Use the Euclidean algorithm, which uses repeated division and converges quickly regardless of size. Our <a href="/gcf-calculator">GCF Calculator</a> does this automatically and shows each step of the process.
+Use the Euclidean algorithm, which uses repeated division and converges quickly regardless of size. Our <a href="/gcf-lcm-calculator">GCF Calculator</a> does this automatically and shows each step of the process.
 
 ### Can GCF and LCM be the same?
 Only when all numbers are equal. For example, GCF(5, 5) = LCM(5, 5) = 5. For different numbers, GCF is always smaller than LCM because the GCF cannot exceed the smallest input while the LCM must be at least as large as the largest input.
@@ -313,7 +313,7 @@ Yes. If one number is a multiple of the other, the LCM is the larger number. For
 
 ## Ready to Calculate?
 
-Stop doing manual GCF and LCM calculations. Try our <a href="/gcf-calculator">GCF Calculator</a> and <a href="/lcm-calculator">LCM Calculator</a> now for instant, accurate results with full step-by-step explanations. Whether you are a student learning number theory, a teacher preparing lessons, or a professional solving real-world problems, our tools save you time and help you get the right answer every time.`,
+Stop doing manual GCF and LCM calculations. Try our <a href="/gcf-lcm-calculator">GCF Calculator</a> and <a href="/gcf-lcm-calculator">LCM Calculator</a> now for instant, accurate results with full step-by-step explanations. Whether you are a student learning number theory, a teacher preparing lessons, or a professional solving real-world problems, our tools save you time and help you get the right answer every time.`,
     category: "Math",
     categorySlug: "math",
     publishedAt: "2026-03-15",

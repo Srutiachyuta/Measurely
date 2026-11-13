@@ -9,13 +9,14 @@ export function HsaTaxSavingsContent() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-border/60">
       <article className="prose-content max-w-none">
+        <p className="mb-4 text-sm text-muted">2026 limits verified against <a href="https://www.irs.gov/irb/2025-21_IRB" className="underline" target="_blank" rel="noopener noreferrer">IRS Revenue Procedure 2025-19</a>. Examples using $4,150 are illustrative contributions, not the current maximum.</p>
         <h2 className="text-2xl font-bold text-text mt-0">How to Maximize Your HSA Tax Benefits in 2026</h2>
 
         <div className="p-4 rounded-2xl bg-primary-50 dark:bg-primary-500/10 border border-primary-200/50 dark:border-primary-500/20 mb-6">
-          <p className="text-sm font-medium text-primary-800 dark:text-primary-200 mb-1"><strong>Quick Answer:</strong> A Health Savings Account (HSA) offers a triple tax advantage: tax-deductible contributions, tax-free growth, and tax-free withdrawals for qualified medical expenses. In 2026, you can contribute up to $4,150 (individual) or $8,300 (family), plus a $1,000 catch-up if you are 55+. Maximizing your HSA can save you hundreds in taxes annually and build a significant retirement healthcare fund.</p>
+          <p className="text-sm font-medium text-primary-800 dark:text-primary-200 mb-1"><strong>Quick Answer:</strong> A Health Savings Account (HSA) offers a triple tax advantage: tax-deductible contributions, tax-free growth, and tax-free withdrawals for qualified medical expenses. In 2026, you can contribute up to $4,400 (individual) or $8,750 (family), plus a $1,000 catch-up if you are 55+. Maximizing your HSA can save you hundreds in taxes annually and build a significant retirement healthcare fund.</p>
         </div>
 
-        <p className="text-text-secondary leading-relaxed mb-4">Health Savings Accounts (HSAs) are widely considered the most tax-advantaged account available to Americans — even more than 401(k)s and IRAs. The reason is the "triple tax advantage": contributions are tax-deductible, growth is tax-free, and withdrawals for qualified medical expenses are tax-free.</p>
+        <p className="text-text-secondary leading-relaxed mb-4">Health Savings Accounts (HSAs) are widely considered the most tax-advantaged account available to Americans — even more than 401(k)s and IRAs. The reason is the &quot;triple tax advantage&quot;: contributions are tax-deductible, growth is tax-free, and withdrawals for qualified medical expenses are tax-free.</p>
 
         <p className="text-text-secondary leading-relaxed mb-4">Despite this powerful tax treatment, millions of eligible Americans do not fully utilize their HSAs. Many contribute only enough to cover current medical expenses, missing out on the long-term investing potential. In 2026, with rising healthcare costs and updated IRS contribution limits, understanding how to maximize your HSA tax benefits is more valuable than ever.</p>
 
@@ -31,7 +32,7 @@ export function HsaTaxSavingsContent() {
 
         <p className="text-text-secondary leading-relaxed mb-4">An HSA is a personal savings account designed to help you pay for qualified medical expenses with significant tax advantages. Unlike Flexible Spending Accounts (FSAs), HSA funds roll over year to year and never expire. You own the account — it stays with you even if you change employers or health plans.</p>
 
-        <p className="text-text-secondary leading-relaxed mb-4">To open and contribute to an HSA, you must be enrolled in a qualifying High-Deductible Health Plan (HDHP). For 2026, an HDHP is defined as a plan with a minimum deductible of $1,650 (individual) or $3,300 (family). You must also not be enrolled in Medicare and cannot be claimed as a dependent on someone else's tax return.</p>
+        <p className="text-text-secondary leading-relaxed mb-4">To open and contribute to an HSA, you must be enrolled in a qualifying High-Deductible Health Plan (HDHP). For 2026, an HDHP is defined as a plan with a minimum deductible of $1,700 (individual) or $3,400 (family). You must also not be enrolled in Medicare and cannot be claimed as a dependent on someone else&apos;s tax return.</p>
 
         <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/20 mb-6">
           <p className="text-sm font-medium text-amber-800 dark:text-amber-200"><strong>Key Takeaway:</strong> To use an HSA, you need a qualifying HDHP. Once enrolled, you can contribute pre-tax dollars, invest them, and withdraw tax-free for medical expenses at any time.</p>
@@ -43,9 +44,9 @@ export function HsaTaxSavingsContent() {
 
         <ul className="space-y-1.5 list-disc list-inside mb-4">
           <li className="text-text-secondary">Enrolled in a qualifying High-Deductible Health Plan (HDHP)</li>
-          <li className="text-text-secondary">Not covered by any other non-HDHP health plan (including a spouse's plan)</li>
+          <li className="text-text-secondary">Not covered by any other non-HDHP health plan (including a spouse&apos;s plan)</li>
           <li className="text-text-secondary">Not enrolled in Medicare (Parts A, B, or C)</li>
-          <li className="text-text-secondary">Cannot be claimed as a dependent on someone else's tax return</li>
+          <li className="text-text-secondary">Cannot be claimed as a dependent on someone else&apos;s tax return</li>
           <li className="text-text-secondary">No general-purpose FSA or HRA that pays for medical expenses before the deductible is met</li>
         </ul>
 
@@ -102,13 +103,13 @@ export function HsaTaxSavingsContent() {
           <li className="text-text-secondary"><strong className="text-text">At minimum, contribute enough to cover your expected annual medical expenses</strong> — If you cannot max out, at least fund the account enough to pay for doctor visits, prescriptions, and other predictable costs.</li>
         </ol>
 
-        <p className="text-text-secondary leading-relaxed mb-4">For 2026, IRS limits are $4,150 for individual coverage and $8,300 for family coverage. If you are 55 or older, you can contribute an additional $1,000 catch-up contribution. These limits include both your contributions and any employer contributions.</p>
+        <p className="text-text-secondary leading-relaxed mb-4">For 2026, IRS limits are $4,400 for individual coverage and $8,750 for family coverage. If you are 55 or older, you can contribute an additional $1,000 catch-up contribution. These limits include both your contributions and any employer contributions.</p>
 
         <h3 className="text-xl font-bold text-text mt-8 mb-3">Should You Invest Your HSA?</h3>
 
         <p className="text-text-secondary leading-relaxed mb-4">Many HSA account holders keep their balance in cash, earning minimal interest. While this is fine for short-term medical expenses, it misses the most powerful part of the HSA — tax-free investment growth.</p>
 
-        <p className="text-text-secondary leading-relaxed mb-4">The strategy used by savvy HSA investors is often called "invest and reimburse later":</p>
+        <p className="text-text-secondary leading-relaxed mb-4">The strategy used by savvy HSA investors is often called &quot;invest and reimburse later&quot;:</p>
 
         <ol className="space-y-1.5 list-inside mb-4">
           <li className="text-text-secondary">Max out your HSA contributions each year</li>
@@ -172,7 +173,7 @@ export function HsaTaxSavingsContent() {
               </tr>
               <tr className="border-b border-border/60">
                 <td className="text-text-secondary py-2.5 pr-4 font-semibold text-text">2026 Contribution Limit</td>
-                <td className="text-text-secondary py-2.5 pr-4">$4,150/$8,300</td>
+                <td className="text-text-secondary py-2.5 pr-4">$4,400/$8,750</td>
                 <td className="text-text-secondary py-2.5 pr-4">$3,200</td>
                 <td className="text-text-secondary py-2.5 pr-4">Unlimited</td>
               </tr>
@@ -322,7 +323,7 @@ export function HsaTaxSavingsContent() {
 
         <p className="text-text-secondary leading-relaxed mb-4">The key to maximizing HSA benefits is to treat it as a long-term investment account, not just a checking account for medical bills. Contribute the maximum, invest the balance, keep receipts for medical expenses, and let compounding work its magic over decades.</p>
 
-        <p className="text-text-secondary leading-relaxed mb-4"><strong>Ready to estimate your HSA tax savings?</strong> Use our <Link href="/hsa-tax-savings-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">free HSA Tax Savings Calculator</Link> to see your annual savings, projected growth, and lifetime tax benefit. Then explore our <Link href="/retirement-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Retirement Calculator</Link>, <Link href="/compound-interest-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Compound Interest Calculator</Link>, and <Link href="/net-worth-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Net Worth Calculator</Link> for a complete financial picture.</p>
+        <p className="text-text-secondary leading-relaxed mb-4"><strong>Ready to estimate your HSA tax savings?</strong> Use our <Link href="/hsa-tax-savings-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">free HSA Tax Savings Calculator</Link> to see your annual savings, projected growth, and lifetime tax benefit. Then explore our Retirement Calculator, <Link href="/compound-interest-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Compound Interest Calculator</Link>, and Net Worth Calculator for a complete financial picture.</p>
 
         <div className="p-4 text-xs text-muted bg-surface-secondary rounded-xl border border-border/60 mt-8">
           <strong className="text-text">Disclaimer:</strong> This calculator provides estimates for illustrative purposes only. Actual tax savings depend on your individual circumstances, tax filing status, and current IRS rules. Always consult a qualified tax advisor or financial professional before making decisions about HSA contributions and investments.

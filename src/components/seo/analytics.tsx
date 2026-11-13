@@ -10,6 +10,9 @@ export function Analytics() {
 
   useEffect(() => {
     if (!GA_ID || typeof window === "undefined" || typeof window.gtag !== "function") return;
+    try {
+      if (!JSON.parse(localStorage.getItem("cookiePreferences") || "null")?.analytics) return;
+    } catch { return; }
     window.gtag("config", GA_ID, {
       page_path: pathname,
     });

@@ -165,12 +165,12 @@ export function ContactPageClient() {
                   <div className="flex items-center justify-center w-16 h-16 rounded-2xl bg-accent-green/10 text-accent-green mx-auto mb-4">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
-                  <h2 className="text-2xl font-bold text-text mb-2">Message Sent!</h2>
+                  <h2 className="text-2xl font-bold text-text mb-2">Message request sent</h2>
                   <p className="text-text-secondary mb-2">
                     Thank you for reaching out, {formData.name}. We&apos;ll respond within 24 hours.
                   </p>
                   <p className="text-sm text-text-secondary mb-6">
-                    A copy has been sent to our team. If you don&apos;t hear back, please send a direct email to{' '}
+                    Delivery could not be confirmed here. If you don&apos;t hear back, please send a direct email to{' '}
                     <a href={`mailto:${CONTACT_INFO.supportEmail}`} className="text-primary-500 hover:text-primary-400 transition-colors">{CONTACT_INFO.supportEmail}</a>.
                   </p>
                   <button

@@ -283,7 +283,7 @@ Ready to take control of your finances? Here is your step-by-step action plan:
 
 1. <strong>Calculate your current take-home</strong> — Use our <a href="/salary-calculator">Salary Calculator</a> with your current CTC and deductions to see where you stand.
 2. <strong>Compare tax regimes</strong> — Run both old and new regime scenarios using our <a href="/tax-calculator">Tax Calculator</a> to find which saves you more.
-3. <strong>Optimize your deductions</strong> — Review your 80C, 80D, and NPS contributions before the end of the financial year. Use our <a href="/ppf-calculator">PPF Calculator</a> and <a href="/sip-calculator">SIP Calculator</a> to plan your investments.
+3. <strong>Optimize your deductions</strong> — Review your 80C, 80D, and NPS contributions before the end of the financial year. Use our PPF Calculator and <a href="/sip-calculator">SIP Calculator</a> to plan your investments.
 4. <strong>Plan for the future</strong> — Use your actual take-home pay to build a budget and investment strategy. Check out our <a href="/fd-calculator">FD Calculator</a> for fixed deposit planning and <a href="/understanding-compound-interest">Understanding Compound Interest</a> to see how your savings can grow over time.
 
 Take the first step toward financial clarity today. Calculate your in-hand salary, optimize your taxes, and build a financial plan based on what you actually earn — not what your offer letter says.`,

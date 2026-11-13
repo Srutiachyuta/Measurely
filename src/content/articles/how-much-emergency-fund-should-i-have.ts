@@ -270,7 +270,7 @@ Your emergency fund target isn't static. You might reduce it when:
 
 An emergency fund is the foundation of financial security. It protects you from debt, reduces stress, and gives you the confidence to handle life's surprises. The right amount depends on your personal situation — use our calculator to find your target, then start building one month at a time.
 
-Our <a href="/emergency-fund-calculator">Emergency Fund Calculator</a> gives you a personalized savings target. Also explore our <a href="/budget-calculator">Budget Calculator</a>, <a href="/debt-payoff-calculator">Debt Payoff Calculator</a>, and <a href="/compound-interest-calculator">Compound Interest Calculator</a> for complete financial planning. Start building your safety net today.
+Our <a href="/emergency-fund-calculator">Emergency Fund Calculator</a> gives you a personalized savings target. Also explore our Budget Calculator, Debt Payoff Calculator, and <a href="/compound-interest-calculator">Compound Interest Calculator</a> for complete financial planning. Start building your safety net today.
 
 ## FAQs
 

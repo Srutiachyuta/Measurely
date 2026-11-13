@@ -11,10 +11,10 @@ import { comparisons } from "@/data/comparisons";
 import type { BreadcrumbItem } from "@/types";
 
 export const metadata: Metadata = {
-  title: `Compare Financial & Health Tools | Side-by-Side Comparisons | ${SITE_CONFIG.name}`,
+  title: `Compare Financial & Health Tools | Side-by-Side Comparisons`,
   description: "Compare financial and health tools side by side — SIP vs FD, BMI vs Body Fat, Old vs New Tax Regime, and more. Make informed decisions with our comparison guides.",
   openGraph: {
-    title: `Compare Financial & Health Tools | ${SITE_CONFIG.name}`,
+    title: `Compare Financial & Health Tools`,
     description: "Side-by-side comparisons of financial and health tools — SIP vs FD, BMI vs Body Fat, Old vs New Tax Regime, and more.",
     url: `${SITE_CONFIG.url}/compare`,
     siteName: SITE_CONFIG.siteName,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Compare Financial & Health Tools | ${SITE_CONFIG.name}`,
+    title: `Compare Financial & Health Tools`,
     description: "Side-by-side comparisons of financial and health tools.",
     images: [SITE_CONFIG.ogImage],
     creator: SITE_CONFIG.twitterHandle,

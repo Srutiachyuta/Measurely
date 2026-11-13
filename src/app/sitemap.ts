@@ -6,44 +6,25 @@ import { comparisons } from "@/data/comparisons";
 
 const BASE_URL = SITE.url;
 
-const CUSTOM_PAGES = [
-  "ai-token-cost-calculator",
-  "severance-pay-calculator",
-  "inheritance-tax-calculator",
-  "emergency-fund-calculator",
-  "cd-ladder-calculator",
-  "salary-sacrifice-calculator",
-  "hsa-tax-savings-calculator",
-  "roth-conversion-tax-calculator",
-];
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+
 
   const staticPages = [
-    { url: BASE_URL, lastModified: now, changeFrequency: "daily" as const, priority: 1.0 },
-    { url: `${BASE_URL}/about`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
-    { url: `${BASE_URL}/calculators`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.9 },
-    { url: `${BASE_URL}/categories`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.8 },
-    { url: `${BASE_URL}/compare`, lastModified: now, changeFrequency: "weekly" as const, priority: 0.7 },
-    { url: `${BASE_URL}/contact`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${BASE_URL}/privacy-policy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
-    { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
-    { url: `${BASE_URL}/disclaimer`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
-    { url: `${BASE_URL}/cookie-policy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
-    { url: `${BASE_URL}/editorial-policy`, lastModified: now, changeFrequency: "yearly" as const, priority: 0.5 },
-    { url: `${BASE_URL}/search`, lastModified: now, changeFrequency: "monthly" as const, priority: 0.3 },
+    { url: BASE_URL, changeFrequency: "daily" as const, priority: 1.0 },
+    { url: `${BASE_URL}/about`, changeFrequency: "monthly" as const, priority: 0.8 },
+    { url: `${BASE_URL}/blog`, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${BASE_URL}/calculators`, changeFrequency: "weekly" as const, priority: 0.9 },
+    { url: `${BASE_URL}/categories`, changeFrequency: "weekly" as const, priority: 0.8 },
+    { url: `${BASE_URL}/compare`, changeFrequency: "weekly" as const, priority: 0.7 },
+    { url: `${BASE_URL}/contact`, changeFrequency: "monthly" as const, priority: 0.7 },
+    { url: `${BASE_URL}/privacy-policy`, changeFrequency: "yearly" as const, priority: 0.5 },
+    { url: `${BASE_URL}/terms`, changeFrequency: "yearly" as const, priority: 0.5 },
+    { url: `${BASE_URL}/disclaimer`, changeFrequency: "yearly" as const, priority: 0.5 },
+    { url: `${BASE_URL}/cookie-policy`, changeFrequency: "yearly" as const, priority: 0.5 },
+    { url: `${BASE_URL}/editorial-policy`, changeFrequency: "yearly" as const, priority: 0.5 },
   ];
 
-  const customPages = CUSTOM_PAGES.map((slug) => ({
-    url: `${BASE_URL}/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
-
-  const blogPages = blogs.map((blog) => ({
+const blogPages = blogs.map((blog) => ({
     url: `${BASE_URL}/${blog.slug}`,
     lastModified: blog.updatedAt ? new Date(blog.updatedAt) : new Date(blog.publishedAt),
     changeFrequency: "monthly" as const,
@@ -52,31 +33,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const categoryPages = CATEGORIES.map((cat) => ({
     url: `${BASE_URL}/${cat.slug}`,
-    lastModified: now,
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }));
 
   const calculatorPages = calculators.map((calc) => ({
     url: `${BASE_URL}/${calc.slug}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
   const comparisonPages = comparisons.map((comp) => ({
     url: `${BASE_URL}/${comp.slug}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
 
-  return [
+  const pages: MetadataRoute.Sitemap = [
     ...staticPages,
-    ...customPages,
     ...blogPages,
     ...categoryPages,
     ...calculatorPages,
     ...comparisonPages,
   ];
+  return [...new Map(pages.map(page => [page.url, page])).values()];
 }

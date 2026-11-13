@@ -28,9 +28,9 @@ function LoginGate({ children }: { children: React.ReactNode }) {
             <p className="text-dark-400 text-sm mt-1">Measurely Admin Panel</p>
           </div>
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault()
-              if (!login(password)) setError(true)
+              if (!await login(password)) setError(true)
             }}
           >
             <div className="mb-4">
@@ -43,8 +43,7 @@ function LoginGate({ children }: { children: React.ReactNode }) {
                   onChange={(e) => { setPassword(e.target.value); setError(false) }}
                   className="w-full pl-10 pr-4 py-2.5 bg-dark-700 border border-dark-600 rounded-lg text-white placeholder-dark-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                   placeholder="Enter admin password"
-                  autoFocus
-                />
+                    />
               </div>
               {error && <p className="text-red-400 text-sm mt-2">Invalid password</p>}
             </div>
@@ -84,7 +83,7 @@ function Sidebar({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
     <>
       {open && (
-        <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={onClose} />
+        <button type="button" aria-label="Close navigation" className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={onClose} />
       )}
       <aside
         className={`fixed top-0 left-0 z-50 h-full w-64 bg-dark-900 border-r border-dark-800 transform transition-transform duration-200 ease-in-out lg:translate-x-0 ${

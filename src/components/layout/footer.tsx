@@ -40,6 +40,7 @@ function WhatsAppIcon({ className }: { className?: string }) {
 }
 
 const quickLinks = [
+  { label: "Saved calculations", href: "/saved" },
   { label: "Home", href: "/" },
   { label: "Calculators", href: "/calculators" },
   { label: "Categories", href: "/categories" },

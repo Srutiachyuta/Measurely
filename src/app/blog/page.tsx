@@ -9,7 +9,7 @@ import { blogs } from "@/data/blogs";
 import { BlogPageClient } from "@/app/blog/blog-page-client";
 
 export const metadata: Metadata = {
-  title: `Blog | ${SITE_CONFIG.name}`,
+  title: `Blog`,
   description: `Explore ${SITE_CONFIG.name}'s blog for articles about calculators, measurement tips, financial planning, health metrics, and more.`,
   openGraph: {
     title: "Blog",

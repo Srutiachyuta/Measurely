@@ -8,7 +8,7 @@ export const calculate_electric_vehicle_charging_expenses: BlogPost = {
 
 What is an EV charging cost calculator? An EV charging cost calculator is a tool that estimates how much it costs to charge an electric vehicle based on your battery size, charger type, electricity rate, and charging efficiency. It compares home charging versus public fast charging, accounts for time-of-use rates, and shows you exactly how much you save compared to a gasoline vehicle — helping you make informed decisions about your EV ownership costs.
 
-Our <a href="/ev-charging-calculator">EV Charging Cost Calculator</a> sorts through all of it and gives you a real estimate.
+Our <a href="/ev-charging-cost-calculator">EV Charging Cost Calculator</a> sorts through all of it and gives you a real estimate.
 
 The basic formula is simple:
 
@@ -233,7 +233,7 @@ Public charging rates vary dramatically by network, location, and time of day. A
 
 <strong>Schedule charging during off-peak hours.</strong> Set your car to start charging at 11 PM or later. Most EVs have built-in scheduling, and many utilities offer significant rate discounts for overnight charging.
 
-<strong>Monitor your charging costs.</strong> Use our <a href="/ev-charging-calculator">EV Charging Cost Calculator</a> to track your actual costs. Compare against your utility bill to ensure you're getting the expected savings.
+<strong>Monitor your charging costs.</strong> Use our <a href="/ev-charging-cost-calculator">EV Charging Cost Calculator</a> to track your actual costs. Compare against your utility bill to ensure you're getting the expected savings.
 
 <strong>Plan road trips around charging.</strong> Use apps like PlugShare and A Better Routeplanner to find reliable charging stations along your route. Plan charging stops every 150-200 miles on highway trips.
 
@@ -255,7 +255,7 @@ Public charging rates vary dramatically by network, location, and time of day. A
 
 **Step 5:** Calculate your efficiency. Most EVs get 3-4 mi/kWh in mixed driving. Use 3.5 mi/kWh as a baseline if unsure.
 
-**Step 6:** Use our calculator. Enter all the data into our <a href="/ev-charging-calculator">EV Charging Cost Calculator</a> for precise estimates.
+**Step 6:** Use our calculator. Enter all the data into our <a href="/ev-charging-cost-calculator">EV Charging Cost Calculator</a> for precise estimates.
 
 **Step 7:** Iterate with different scenarios. Try "what if" analysis — what happens if rates go up 10%? What if you switch to DC charging more often? Understanding the sensitivity of your costs to different variables helps you make better long-term decisions.
 
@@ -308,7 +308,7 @@ EVs have significantly lower maintenance costs — no oil changes, no transmissi
 
 EV charging is way cheaper than gas — but the exact amount depends on where and when you charge. Home charging is the clear winner at 50-70% less than public fast charging. With smart scheduling and the right electricity plan, you can maximize your savings and drive for pennies per mile.
 
-Our <a href="/ev-charging-calculator">EV Charging Cost Calculator</a> gives you straight answers. Also explore our <a href="/fuel-calculator">Fuel Calculator</a> for gas car comparisons, <a href="/power-calculator">Power Calculator</a> for electrical usage, and our <a href="/plan-road-trip-budget-accurately">Road Trip Budget Calculator</a> for complete travel planning. Start calculating and see what you could save by switching to electric.`,
+Our <a href="/ev-charging-cost-calculator">EV Charging Cost Calculator</a> gives you straight answers. Also explore our <a href="/fuel-cost-calculator">Fuel Calculator</a> for gas car comparisons, <a href="/power-calculator">Power Calculator</a> for electrical usage, and our <a href="/plan-road-trip-budget-accurately">Road Trip Budget Calculator</a> for complete travel planning. Start calculating and see what you could save by switching to electric.`,
     category: "Automotive",
     categorySlug: "automotive",
     publishedAt: "2026-06-22",

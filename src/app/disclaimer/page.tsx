@@ -8,15 +8,15 @@ import { AdSlot } from "@/components/AdSlot";
 import { DISCLAIMER_BOTTOM as AD_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
-  title: `Disclaimer | ${SITE_CONFIG.name}`,
+  title: `Disclaimer`,
   description: `${SITE_CONFIG.name} Disclaimer — Important information about the use of our calculators and tools. Results are for informational and educational purposes only.`,
   openGraph: {
-    title: `Disclaimer | ${SITE_CONFIG.name}`,
+    title: `Disclaimer`,
     description: `${SITE_CONFIG.name} Disclaimer — important information about the use of our calculators and tools.`,
     url: `${SITE_CONFIG.url}/disclaimer`,
   },
   twitter: {
-    title: `Disclaimer | ${SITE_CONFIG.name}`,
+    title: `Disclaimer`,
     description: `${SITE_CONFIG.name} Disclaimer — important information about the use of our calculators and tools.`,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/disclaimer` },

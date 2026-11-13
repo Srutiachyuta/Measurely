@@ -153,7 +153,7 @@ export default function BuildAndGit() {
             </div>
             <pre className="p-4 text-xs font-mono text-dark-300 overflow-x-auto max-h-96 overflow-y-auto">
               {buildLog.length === 0 ? (
-                <span className="text-dark-500">No build output yet. Click "Build Now" to start.</span>
+                <span className="text-dark-500">No build output yet. Click &quot;Build Now&quot; to start.</span>
               ) : (
                 buildLog.map((line, i) => (
                   <div key={i} className={`${line.startsWith("[ERROR]") ? "text-red-400" : line.startsWith("[SUCCESS]") ? "text-green-400" : line.startsWith("[INFO]") ? "text-blue-400" : ""}`}>{line}</div>
@@ -213,7 +213,7 @@ export default function BuildAndGit() {
             ) : (
               <div className="divide-y divide-dark-700/50">
                 {gitStatus.files.map((f, i) => (
-                  <div key={i} className="flex items-center justify-between p-3 hover:bg-dark-800/30 transition-colors cursor-pointer" onClick={() => showDiff(f.file)}>
+                  <div key={i} role="button" tabIndex={0} onKeyDown={event => {if(event.key === "Enter" || event.key === " ") {event.preventDefault(); void showDiff(f.file);}}} className="flex items-center justify-between p-3 hover:bg-dark-800/30 transition-colors cursor-pointer" onClick={() => showDiff(f.file)}>
                     <div className="flex items-center gap-3 min-w-0">
                       <span className={`text-[10px] font-medium px-1.5 py-0.5 rounded flex-shrink-0 ${statusColors[f.status] || "text-dark-400 bg-dark-700"}`}>
                         {statusLabels[f.status] || f.status}

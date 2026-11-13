@@ -323,10 +323,10 @@ export function InheritanceTaxCalculator() {
   const isNoTaxCountry = inputs.country === "AU" || inputs.country === "NZ";
 
   return (
-    <div className="min-h-screen bg-background" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <nav className="flex items-center gap-2 text-sm text-muted mb-6">
-          <a href="/calculators" className="hover:text-text transition-colors">Calculators</a>
+          <Link href="/calculators" className="hover:text-text transition-colors">Calculators</Link>
           <span>/</span>
           <span className="text-text">Inheritance Tax Calculator</span>
         </nav>
@@ -375,7 +375,7 @@ export function InheritanceTaxCalculator() {
                       <SelectValue placeholder="Select..." />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">Select...</SelectItem>
+                      <SelectItem value="none">No selection</SelectItem>
                       <SelectItem value="CA">California</SelectItem>
                       <SelectItem value="TX">Texas</SelectItem>
                       <SelectItem value="NY">New York</SelectItem>
@@ -393,22 +393,22 @@ export function InheritanceTaxCalculator() {
 
                 <div className="space-y-1.5 sm:col-span-2">
                   <Label htmlFor="estateValue" className="text-sm font-medium text-text">Total Estate Value ($)<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="estateValue" type="number" placeholder="e.g., 2000000" min={0} step={10000} value={inputs.estateValue} onChange={(e) => handleChange("estateValue", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="estateValue" type="number" placeholder="e.g., 2000000" min={0} step={10000} value={inputs.estateValue} onChange={(e) => handleChange("estateValue", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="debts" className="text-sm font-medium text-text">Outstanding Debts ($)</Label>
-                  <Input id="debts" type="number" placeholder="e.g., 50000" min={0} step={1000} value={inputs.debts} onChange={(e) => handleChange("debts", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="debts" type="number" placeholder="e.g., 50000" min={0} step={1000} value={inputs.debts} onChange={(e) => handleChange("debts", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="funeralExpenses" className="text-sm font-medium text-text">Funeral Expenses ($)</Label>
-                  <Input id="funeralExpenses" type="number" placeholder="e.g., 15000" min={0} step={1000} value={inputs.funeralExpenses} onChange={(e) => handleChange("funeralExpenses", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="funeralExpenses" type="number" placeholder="e.g., 15000" min={0} step={1000} value={inputs.funeralExpenses} onChange={(e) => handleChange("funeralExpenses", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="charitableDonations" className="text-sm font-medium text-text">Charitable Donations ($)</Label>
-                  <Input id="charitableDonations" type="number" placeholder="e.g., 100000" min={0} step={1000} value={inputs.charitableDonations} onChange={(e) => handleChange("charitableDonations", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="charitableDonations" type="number" placeholder="e.g., 100000" min={0} step={1000} value={inputs.charitableDonations} onChange={(e) => handleChange("charitableDonations", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -431,17 +431,17 @@ export function InheritanceTaxCalculator() {
 
                 <div className="space-y-1.5">
                   <Label htmlFor="numBeneficiaries" className="text-sm font-medium text-text">Number of Beneficiaries</Label>
-                  <Input id="numBeneficiaries" type="number" placeholder="e.g., 2" min={1} max={100} step={1} value={inputs.numBeneficiaries} onChange={(e) => handleChange("numBeneficiaries", e.target.value === "" ? 1 : Math.max(1, Number(e.target.value)))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="numBeneficiaries" type="number" placeholder="e.g., 2" min={1} max={100} step={1} value={inputs.numBeneficiaries} onChange={(e) => handleChange("numBeneficiaries", e.target.value === "" ? 1 : Math.max(1, Number(e.target.value)))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="lifetimeGifts" className="text-sm font-medium text-text">Lifetime Gifts Made ($)</Label>
-                  <Input id="lifetimeGifts" type="number" placeholder="e.g., 50000" min={0} step={1000} value={inputs.lifetimeGifts} onChange={(e) => handleChange("lifetimeGifts", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="lifetimeGifts" type="number" placeholder="e.g., 50000" min={0} step={1000} value={inputs.lifetimeGifts} onChange={(e) => handleChange("lifetimeGifts", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="otherDeductions" className="text-sm font-medium text-text">Other Allowable Deductions ($)</Label>
-                  <Input id="otherDeductions" type="number" placeholder="e.g., 10000" min={0} step={1000} value={inputs.otherDeductions} onChange={(e) => handleChange("otherDeductions", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="otherDeductions" type="number" placeholder="e.g., 10000" min={0} step={1000} value={inputs.otherDeductions} onChange={(e) => handleChange("otherDeductions", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
               </div>
 

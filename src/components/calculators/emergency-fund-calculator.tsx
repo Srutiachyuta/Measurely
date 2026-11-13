@@ -386,7 +386,7 @@ export function EmergencyFundCalculator() {
   const isValid = inputs.monthlyExpenses > 0 && inputs.monthlyIncome > 0;
 
   return (
-    <div className="min-h-screen bg-background" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <nav className="flex items-center gap-2 text-sm text-muted mb-6">
           <Link href="/calculators" className="hover:text-text transition-colors">Calculators</Link>
@@ -420,12 +420,12 @@ export function EmergencyFundCalculator() {
                     Monthly Essential Expenses ($)<span className="text-red-400 ml-0.5">*</span>
                     <TooltipProvider><Tooltip><TooltipTrigger><Info className="w-3.5 h-3.5 inline ml-1 text-muted" /></TooltipTrigger><TooltipContent>Rent, food, utilities, insurance, transport, minimum debt payments</TooltipContent></Tooltip></TooltipProvider>
                   </Label>
-                  <Input id="monthlyExpenses" type="number" placeholder="e.g., 3000" min={1} step={100} value={inputs.monthlyExpenses} onChange={(e) => handleChange("monthlyExpenses", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="monthlyExpenses" type="number" placeholder="e.g., 3000" min={1} step={100} value={inputs.monthlyExpenses} onChange={(e) => handleChange("monthlyExpenses", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="monthlyIncome" className="text-sm font-medium text-text">Monthly Income ($)<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="monthlyIncome" type="number" placeholder="e.g., 5000" min={1} step={100} value={inputs.monthlyIncome} onChange={(e) => handleChange("monthlyIncome", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="monthlyIncome" type="number" placeholder="e.g., 5000" min={1} step={100} value={inputs.monthlyIncome} onChange={(e) => handleChange("monthlyIncome", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -465,17 +465,17 @@ export function EmergencyFundCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="existingSavings" className="text-sm font-medium text-text">Existing Emergency Savings ($)</Label>
-                  <Input id="existingSavings" type="number" placeholder="e.g., 5000" min={0} step={100} value={inputs.existingSavings} onChange={(e) => handleChange("existingSavings", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="existingSavings" type="number" placeholder="e.g., 5000" min={0} step={100} value={inputs.existingSavings} onChange={(e) => handleChange("existingSavings", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="monthlyDebtPayments" className="text-sm font-medium text-text">Monthly Debt Payments ($)</Label>
-                  <Input id="monthlyDebtPayments" type="number" placeholder="e.g., 500" min={0} step={50} value={inputs.monthlyDebtPayments} onChange={(e) => handleChange("monthlyDebtPayments", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="monthlyDebtPayments" type="number" placeholder="e.g., 500" min={0} step={50} value={inputs.monthlyDebtPayments} onChange={(e) => handleChange("monthlyDebtPayments", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="dependents" className="text-sm font-medium text-text">Number of Dependents</Label>
-                  <Input id="dependents" type="number" placeholder="e.g., 0" min={0} max={20} step={1} value={inputs.dependents} onChange={(e) => handleChange("dependents", e.target.value === "" ? 0 : Math.max(0, Number(e.target.value)))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="dependents" type="number" placeholder="e.g., 0" min={0} max={20} step={1} value={inputs.dependents} onChange={(e) => handleChange("dependents", e.target.value === "" ? 0 : Math.max(0, Number(e.target.value)))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -540,12 +540,12 @@ export function EmergencyFundCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="monthlySavings" className="text-sm font-medium text-text">Monthly Savings Amount ($)</Label>
-                  <Input id="monthlySavings" type="number" placeholder="e.g., 500" min={0} step={50} value={inputs.monthlySavings} onChange={(e) => handleChange("monthlySavings", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="monthlySavings" type="number" placeholder="e.g., 500" min={0} step={50} value={inputs.monthlySavings} onChange={(e) => handleChange("monthlySavings", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="annualReturn" className="text-sm font-medium text-text">Expected Annual Return (%) <span className="text-muted font-normal">(optional)</span></Label>
-                  <Input id="annualReturn" type="number" placeholder="e.g., 4" min={0} max={100} step={0.1} value={inputs.annualReturn} onChange={(e) => handleChange("annualReturn", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="annualReturn" type="number" placeholder="e.g., 4" min={0} max={100} step={0.1} value={inputs.annualReturn} onChange={(e) => handleChange("annualReturn", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
               </div>
 

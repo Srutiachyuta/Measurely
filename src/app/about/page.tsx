@@ -44,12 +44,12 @@ const values = [
   {
     icon: Target,
     title: "Accuracy First",
-    description: "Every formula is verified and tested for precision. We use industry-standard algorithms for reliable results.",
+    description: "We use established formulas and explain their assumptions. Results are estimates; please report unexpected outputs so they can be reviewed.",
   },
   {
     icon: Shield,
     title: "Privacy Protected",
-    description: "We don't track your calculations. Your privacy is our priority — no accounts needed, no data stored.",
+    description: "Calculators do not require an account. Recent tools and optional saved calculations are stored in your browser; analytics and ads follow your cookie preferences.",
   },
   {
     icon: Zap,

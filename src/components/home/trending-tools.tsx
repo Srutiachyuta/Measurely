@@ -21,15 +21,15 @@ import {
 } from "lucide-react";
 
 const trendingTools = [
-  { name: "SIP Calculator", slug: "sip-calculator", icon: TrendingUp, category: "Finance", trend: "+28%", categorySlug: "finance" },
-  { name: "BMI Calculator", slug: "bmi-calculator", icon: Heart, category: "Health", trend: "+22%", categorySlug: "health" },
-  { name: "EMI Calculator", slug: "emi-calculator", icon: Calculator, category: "Finance", trend: "+18%", categorySlug: "finance" },
-  { name: "Percentage Calculator", slug: "percentage-calculator", icon: Percent, category: "Math", trend: "+15%", categorySlug: "math" },
-  { name: "Compound Interest", slug: "compound-interest-calculator", icon: BarChart3, category: "Finance", trend: "+12%", categorySlug: "finance" },
-  { name: "Age Calculator", slug: "age-calculator", icon: Clock, category: "Time", trend: "+10%", categorySlug: "time" },
-  { name: "TFSA Contribution Room", slug: "tfsa-contribution-room-calculator-canada", icon: PiggyBank, category: "Finance", trend: "+35%", categorySlug: "finance" },
-  { name: "Ontario Take-Home Pay", slug: "ontario-take-home-pay-calculator-after-tax", icon: DollarSign, category: "Finance", trend: "+25%", categorySlug: "finance" },
-  { name: "Ontario Severance Pay", slug: "ontario-severance-pay-calculator", icon: HandCoins, category: "Business", trend: "+18%", categorySlug: "business" },
+  { name: "SIP Calculator", slug: "sip-calculator", icon: TrendingUp, category: "Finance", categorySlug: "finance" },
+  { name: "BMI Calculator", slug: "bmi-calculator", icon: Heart, category: "Health", categorySlug: "health" },
+  { name: "EMI Calculator", slug: "emi-calculator", icon: Calculator, category: "Finance", categorySlug: "finance" },
+  { name: "Percentage Calculator", slug: "percentage-calculator", icon: Percent, category: "Math", categorySlug: "math" },
+  { name: "Compound Interest", slug: "compound-interest-calculator", icon: BarChart3, category: "Finance", categorySlug: "finance" },
+  { name: "Age Calculator", slug: "age-calculator", icon: Clock, category: "Time", categorySlug: "time" },
+  { name: "TFSA Contribution Room", slug: "tfsa-contribution-room-calculator-canada", icon: PiggyBank, category: "Finance", categorySlug: "finance" },
+  { name: "Ontario Take-Home Pay", slug: "ontario-take-home-pay-calculator-after-tax", icon: DollarSign, category: "Finance", categorySlug: "finance" },
+  { name: "Ontario Severance Pay", slug: "ontario-severance-pay-calculator", icon: HandCoins, category: "Business", categorySlug: "business" },
 ];
 
 const containerVariants = {
@@ -50,9 +50,9 @@ export function TrendingTools() {
     <section className="py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
-          title="Trending Now"
-          description="Most popular tools among our users this week"
-          badge="Trending"
+          title="Useful starting points"
+          description="A curated selection for common calculations"
+          badge="Explore"
           badgeVariant="warning"
         />
 
@@ -109,12 +109,12 @@ export function TrendingTools() {
                         </div>
                         <div className="flex items-center gap-1.5 mt-1">
                           <Eye className="h-3 w-3 text-text-secondary/50" />
-                          <span className="text-xs text-text-secondary">Trending this week</span>
+                          <span className="text-xs text-text-secondary">Explore this calculator</span>
                         </div>
                       </div>
                       <Badge variant="warning" size="sm" className="shrink-0 shadow-sm">
                         <TrendingUp className="h-3 w-3 mr-0.5" />
-                        {tool.trend}
+                        Open tool
                       </Badge>
                     </div>
                   </Link>

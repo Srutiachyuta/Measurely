@@ -58,7 +58,7 @@ import {
   Heart,
   Bot,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const iconMap: Record<string, React.ElementType> = {
   TrendingUp, Percent, ArrowLeftRight, Receipt, PiggyBank,
@@ -188,6 +188,14 @@ export function ToolCard({
   className,
 }: ToolCardProps) {
   const [isFavorited, setIsFavorited] = useState(false);
+  useEffect(() => {
+    const refresh = () => {
+      try { const saved: unknown = JSON.parse(localStorage.getItem("measurely-favorite-tools") || "[]"); setIsFavorited(Array.isArray(saved) && saved.includes(slug)); } catch { setIsFavorited(false); }
+    };
+    const timer = setTimeout(refresh, 0);
+    window.addEventListener("measurelyFavoritesChanged", refresh);
+    return () => { clearTimeout(timer); window.removeEventListener("measurelyFavoritesChanged", refresh); };
+  }, [slug]);
   const IconComponent = toolIcons[slug] || iconMap[icon] || Calculator;
   const href = `/${slug}`;
   const theme = getCategoryTheme(slugToCategorySlug(slug));
@@ -304,7 +312,12 @@ export function ToolCard({
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();
-          setIsFavorited(!isFavorited);
+          try {
+            const value: unknown = JSON.parse(localStorage.getItem("measurely-favorite-tools") || "[]");
+            const saved = Array.isArray(value) ? value.filter(entry => typeof entry === "string") : [];
+            localStorage.setItem("measurely-favorite-tools", JSON.stringify(isFavorited ? saved.filter(entry => entry !== slug) : [...new Set([...saved, slug])]));
+            window.dispatchEvent(new Event("measurelyFavoritesChanged"));
+          } catch { setIsFavorited(false); }
         }}
         className={cn(
           "absolute top-4 right-4 flex items-center justify-center w-7 h-7 rounded-lg transition-all duration-200 z-20",
@@ -312,6 +325,7 @@ export function ToolCard({
           isFavorited && "text-red-500"
         )}
         aria-label={isFavorited ? "Remove from favorites" : "Add to favorites"}
+        aria-pressed={isFavorited}
       >
         <Heart
           className={cn(

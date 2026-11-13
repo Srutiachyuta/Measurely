@@ -338,10 +338,10 @@ export function SeveranceCalculator() {
   const isValid = inputs.annualSalary > 0 && inputs.yearsOfService > 0 && inputs.weeksPerYear > 0;
 
   return (
-    <div className="min-h-screen bg-background" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <nav className="flex items-center gap-2 text-sm text-muted mb-6">
-          <a href="/calculators" className="hover:text-text transition-colors">Calculators</a>
+          <Link href="/calculators" className="hover:text-text transition-colors">Calculators</Link>
           <span>/</span>
           <span className="text-text">Severance Pay Calculator</span>
         </nav>
@@ -369,7 +369,7 @@ export function SeveranceCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5 sm:col-span-2">
                   <Label htmlFor="annualSalary" className="text-sm font-medium text-text">Annual Salary ($)<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="annualSalary" type="number" placeholder="e.g., 75000" min={1} step={1000} value={inputs.annualSalary} onChange={(e) => handleChange("annualSalary", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="annualSalary" type="number" placeholder="e.g., 75000" min={1} step={1000} value={inputs.annualSalary} onChange={(e) => handleChange("annualSalary", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -389,12 +389,12 @@ export function SeveranceCalculator() {
 
                 <div className="space-y-1.5">
                   <Label htmlFor="yearsOfService" className="text-sm font-medium text-text">Years of Service<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="yearsOfService" type="number" placeholder="e.g., 5" min={0} step={0.5} value={inputs.yearsOfService} onChange={(e) => handleChange("yearsOfService", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="yearsOfService" type="number" placeholder="e.g., 5" min={0} step={0.5} value={inputs.yearsOfService} onChange={(e) => handleChange("yearsOfService", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="weeksPerYear" className="text-sm font-medium text-text">Weeks Per Year of Service<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="weeksPerYear" type="number" placeholder="e.g., 1" min={0} step={0.5} value={inputs.weeksPerYear} onChange={(e) => handleChange("weeksPerYear", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="weeksPerYear" type="number" placeholder="e.g., 1" min={0} step={0.5} value={inputs.weeksPerYear} onChange={(e) => handleChange("weeksPerYear", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -417,27 +417,27 @@ export function SeveranceCalculator() {
 
                 <div className="space-y-1.5">
                   <Label htmlFor="bonusAmount" className="text-sm font-medium text-text">Bonus Amount ($)</Label>
-                  <Input id="bonusAmount" type="number" placeholder="e.g., 5000" min={0} step={100} value={inputs.bonusAmount} disabled={inputs.bonusIncluded !== "yes"} onChange={(e) => handleChange("bonusAmount", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono disabled:opacity-50" />
+                  <Input onKeyDown={handleKeyDown} id="bonusAmount" type="number" placeholder="e.g., 5000" min={0} step={100} value={inputs.bonusAmount} disabled={inputs.bonusIncluded !== "yes"} onChange={(e) => handleChange("bonusAmount", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono disabled:opacity-50" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="unusedPTO" className="text-sm font-medium text-text">Unused PTO Hours</Label>
-                  <Input id="unusedPTO" type="number" placeholder="e.g., 80" min={0} step={1} value={inputs.unusedPTO} onChange={(e) => handleChange("unusedPTO", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="unusedPTO" type="number" placeholder="e.g., 80" min={0} step={1} value={inputs.unusedPTO} onChange={(e) => handleChange("unusedPTO", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="ptoRate" className="text-sm font-medium text-text">PTO Hourly Rate ($)</Label>
-                  <Input id="ptoRate" type="number" placeholder="e.g., 36.06" min={0} step={0.01} value={inputs.ptoRate} onChange={(e) => handleChange("ptoRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="ptoRate" type="number" placeholder="e.g., 36.06" min={0} step={0.01} value={inputs.ptoRate} onChange={(e) => handleChange("ptoRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="taxRate" className="text-sm font-medium text-text">Estimated Tax Rate (%)</Label>
-                  <Input id="taxRate" type="number" placeholder="e.g., 25" min={0} max={60} step={0.5} value={inputs.taxRate} onChange={(e) => handleChange("taxRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="taxRate" type="number" placeholder="e.g., 25" min={0} max={60} step={0.5} value={inputs.taxRate} onChange={(e) => handleChange("taxRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="otherBenefits" className="text-sm font-medium text-text">Other Exit Benefits ($)</Label>
-                  <Input id="otherBenefits" type="number" placeholder="e.g., 2000" min={0} step={100} value={inputs.otherBenefits} onChange={(e) => handleChange("otherBenefits", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="otherBenefits" type="number" placeholder="e.g., 2000" min={0} step={100} value={inputs.otherBenefits} onChange={(e) => handleChange("otherBenefits", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">

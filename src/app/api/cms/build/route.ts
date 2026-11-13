@@ -1,7 +1,11 @@
 import { NextResponse } from "next/server"
 import { execSync } from "child_process"
+import { requireCms } from "@/cms/lib/server-auth"
 
-export async function POST() {
+export async function POST(request: Request) {
+  const denied = await requireCms(request)
+  if (denied) return denied
+  if (process.env.CMS_ALLOW_SERVER_OPERATIONS !== "true") return NextResponse.json({ error: "Server builds are disabled. Build through your development workflow." }, { status: 403 })
   try {
     const output = execSync("npm run build 2>&1", {
       cwd: process.cwd(),

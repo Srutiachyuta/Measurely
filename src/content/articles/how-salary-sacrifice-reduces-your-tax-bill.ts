@@ -209,7 +209,7 @@ Our <a href="/salary-sacrifice-calculator">Salary Sacrifice Calculator</a> estim
 - Estimated pension at retirement (age 68, 5% return): \u00A3324,000+
 - Effective cost to you: \u00A31,800/year for \u00A34,000 in pension
 
-Pair the results with our <a href="/income-tax-calculator">Income Tax Calculator</a>, <a href="/take-home-pay-calculator">Take Home Pay Calculator</a>, and <a href="/pension-calculator">Pension Calculator</a> for a complete picture of your UK finances.
+Pair the results with our <a href="/tax-calculator">Income Tax Calculator</a>, <a href="/salary-calculator">Take Home Pay Calculator</a>, and Pension Calculator for a complete picture of your UK finances.
 
 ## Frequently Asked Questions
 
@@ -249,7 +249,7 @@ Salary sacrifice is one of the most effective ways to reduce your tax bill while
 
 The key is understanding your personal tax position, choosing the right benefit, and being aware of the trade-offs with statutory payments and borrowing capacity. For most employees, the savings far outweigh the drawbacks.
 
-<strong>Ready to see your potential savings?</strong> Use our free <a href="/salary-sacrifice-calculator">Salary Sacrifice Calculator</a> to estimate your tax and NI savings instantly. Then explore our <a href="/income-tax-calculator">Income Tax Calculator</a>, <a href="/take-home-pay-calculator">Take Home Pay Calculator</a>, <a href="/pension-calculator">Pension Calculator</a>, <a href="/retirement-calculator">Retirement Calculator</a>, <a href="/net-worth-calculator">Net Worth Calculator</a>, <a href="/compound-interest-calculator">Compound Interest Calculator</a>, and <a href="/budget-calculator">Budget Calculator</a> for a complete picture of your finances.`,
+<strong>Ready to see your potential savings?</strong> Use our free <a href="/salary-sacrifice-calculator">Salary Sacrifice Calculator</a> to estimate your tax and NI savings instantly. Then explore our <a href="/tax-calculator">Income Tax Calculator</a>, <a href="/salary-calculator">Take Home Pay Calculator</a>, Pension Calculator, Retirement Calculator, Net Worth Calculator, <a href="/compound-interest-calculator">Compound Interest Calculator</a>, and Budget Calculator for a complete picture of your finances.`,
     category: "Finance",
     categorySlug: "finance",
     publishedAt: "2026-07-07",

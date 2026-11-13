@@ -363,7 +363,7 @@ export function RothConversionTaxContent() {
                   <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-slate-500 to-slate-600 flex items-center justify-center text-white text-xs font-bold">H</div>
                   <h3 className="text-sm font-semibold text-text">Inheritance and Estate Planning</h3>
                 </div>
-                <p className="text-xs text-muted leading-relaxed">Roth IRAs are powerful estate planning tools. Heirs who inherit a Roth IRA can take tax-free distributions over their lifetime (under the SECURE Act's 10-year rule), whereas inherited Traditional IRA distributions are fully taxable. Converting to Roth not only benefits you but also leaves a tax-free legacy for your beneficiaries. This can be especially valuable if you plan to leave retirement accounts to children who are in their peak earning years.</p>
+                <p className="text-xs text-muted leading-relaxed">Roth IRAs are powerful estate planning tools. Heirs who inherit a Roth IRA can take tax-free distributions over their lifetime (under the SECURE Act&apos;s 10-year rule), whereas inherited Traditional IRA distributions are fully taxable. Converting to Roth not only benefits you but also leaves a tax-free legacy for your beneficiaries. This can be especially valuable if you plan to leave retirement accounts to children who are in their peak earning years.</p>
               </div>
             </div>
           </div>
@@ -461,7 +461,7 @@ export function RothConversionTaxContent() {
                   <span className="text-lg shrink-0 mt-0.5">👨‍👩‍👧‍👦</span>
                   <div>
                     <p className="text-sm font-semibold text-text mb-1">Use the Spousal IRA Strategy</p>
-                    <p className="text-xs text-muted leading-relaxed">If you are married and have both Traditional and Roth IRAs, consider converting each spouse's accounts separately. You can optimize each spouse's bracket filling independently. A non-working spouse can also convert based on the couple's joint filing status.</p>
+                    <p className="text-xs text-muted leading-relaxed">If you are married and have both Traditional and Roth IRAs, consider converting each spouse&apos;s accounts separately. You can optimize each spouse&apos;s bracket filling independently. A non-working spouse can also convert based on the couple&apos;s joint filing status.</p>
                   </div>
                 </div>
               </div>
@@ -490,7 +490,7 @@ export function RothConversionTaxContent() {
                 The Roth Conversion Tax Calculator is provided for informational and educational purposes only. It produces estimates based on current federal income tax brackets and standard tax rules and should not be considered as professional tax advice, financial planning guidance, or a substitute for consultation with qualified professionals.
               </p>
               <p>
-                Tax laws are complex, vary by state and locality, and are subject to change. This calculator may not account for all factors that could affect your actual tax liability, including the Net Investment Income Tax (NIIT), Alternative Minimum Tax (AMT), state and local income taxes, Medicare IRMAA surcharges, the pro-rata rule for after-tax IRA basis, the impact of Roth conversions on financial aid eligibility, or specific provisions of your employer's retirement plan.
+                Tax laws are complex, vary by state and locality, and are subject to change. This calculator may not account for all factors that could affect your actual tax liability, including the Net Investment Income Tax (NIIT), Alternative Minimum Tax (AMT), state and local income taxes, Medicare IRMAA surcharges, the pro-rata rule for after-tax IRA basis, the impact of Roth conversions on financial aid eligibility, or specific provisions of your employer&apos;s retirement plan.
               </p>
               <p>
                 We strongly recommend consulting with a licensed tax professional, certified financial planner, or retirement planning specialist who is familiar with your specific financial situation before making any Roth conversion decisions. The accuracy of the calculator depends on the accuracy of the information you provide, and actual tax results may vary based on your complete tax picture.

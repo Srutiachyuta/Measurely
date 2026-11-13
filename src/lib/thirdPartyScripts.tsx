@@ -42,6 +42,7 @@ function writePreferences(
   localStorage.setItem(PREFERENCES_KEY, JSON.stringify(prefs));
   localStorage.setItem(VISITED_KEY, "true");
   window.dispatchEvent(new CustomEvent(UPDATE_EVENT));
+  if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: prefs.analytics ? "granted" : "denied", ad_storage: prefs.marketing ? "granted" : "denied", ad_user_data: prefs.marketing ? "granted" : "denied", ad_personalization: prefs.marketing ? "granted" : "denied" });
 }
 
 /* ------------------------------------------------------------------ */
@@ -100,7 +101,10 @@ export function ThirdPartyScripts({
       )}
 
       {prefs.marketing && (
-        <script
+        <Script
+          id="measurely-adsense"
+          strategy="afterInteractive"
+          onReady={() => { (window as {measurelyAdsReady?: boolean}).measurelyAdsReady = true; window.dispatchEvent(new Event("measurelyAdsReady")); }}
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774"
           async
           crossOrigin="anonymous"

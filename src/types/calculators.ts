@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-export type CalculatorInputType = "number" | "select" | "radio" | "date" | "time";
+export type CalculatorInputType = "text" | "number" | "select" | "radio" | "date" | "time";
 
 export interface CalculatorOption {
   label: string;

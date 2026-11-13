@@ -8,15 +8,15 @@ import { AdSlot } from "@/components/AdSlot";
 import { PRIVACY_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
-  title: `Privacy Policy | ${SITE_CONFIG.name}`,
+  title: `Privacy Policy`,
   description: `${SITE_CONFIG.name} Privacy Policy — Learn how we collect, use, disclose, and safeguard your personal information when you use our calculators and website.`,
   openGraph: {
-    title: `Privacy Policy | ${SITE_CONFIG.name}`,
+    title: `Privacy Policy`,
     description: `${SITE_CONFIG.name} Privacy Policy — how we collect, use, and protect your personal information.`,
     url: `${SITE_CONFIG.url}/privacy-policy`,
   },
   twitter: {
-    title: `Privacy Policy | ${SITE_CONFIG.name}`,
+    title: `Privacy Policy`,
     description: `${SITE_CONFIG.name} Privacy Policy — how we collect, use, and protect your personal information.`,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/privacy-policy` },

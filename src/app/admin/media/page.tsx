@@ -127,7 +127,7 @@ export default function MediaLibrary() {
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {filtered.map((item) => (
-            <div key={item.id} className="group relative bg-dark-800/50 border border-dark-700 rounded-xl overflow-hidden cursor-pointer"
+            <div role="button" tabIndex={0} onKeyDown={event => {if(event.key === "Enter" || event.key === " ") {event.preventDefault();setSelected(selected === item.id ? null : item.id);}}} aria-label={"Select " + item.filename} key={item.id} className="group relative bg-dark-800/50 border border-dark-700 rounded-xl overflow-hidden cursor-pointer"
               onClick={() => setSelected(selected === item.id ? null : item.id)}>
               <div className="aspect-square bg-dark-900 flex items-center justify-center overflow-hidden">
                 {item.url ? (
@@ -153,7 +153,7 @@ export default function MediaLibrary() {
               </div>
 
               {selected === item.id && (
-                <div className="absolute inset-0 bg-dark-900/95 p-3 flex flex-col justify-end gap-2" onClick={(e) => e.stopPropagation()}>
+                <div role="presentation" className="absolute inset-0 bg-dark-900/95 p-3 flex flex-col justify-end gap-2" onClick={(e) => e.stopPropagation()}>
                   <input type="text" value={item.altText} onChange={(e) => updateAlt(item.id, e.target.value)}
                     placeholder="ALT text..." className="w-full px-2 py-1.5 bg-dark-800 border border-dark-700 rounded text-white text-xs focus:outline-none focus:ring-1 focus:ring-primary-500" />
                   <p className="text-dark-500 text-[10px]">{item.width}x{item.height}</p>

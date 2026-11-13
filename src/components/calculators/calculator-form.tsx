@@ -38,7 +38,7 @@ export function CalculatorForm({
   const hasErrors = Object.keys(errors).length > 0;
   const allFilled = definition.inputs.every((input) => {
     const val = values[input.key];
-    return val !== "" && val !== undefined;
+    return input.required === false || (val !== "" && val !== undefined);
   });
 
   const handleChange = useCallback(
@@ -58,7 +58,15 @@ export function CalculatorForm({
     const val = values[input.key] ?? input.defaultValue ?? "";
     const error = errors[input.key];
 
-    if (input.type === "date" || input.type === "time") {
+    if (definition.slug === "matrix-calculator" && ["matrixA", "matrixB"].includes(input.key)) {
+      const size = Number(values.matrixSize) === 3 ? 3 : 2;
+      let entries: (string | number)[][] = [];
+      try { entries = JSON.parse(String(val)); } catch { entries = []; }
+      const matrix = Array.from({length: size}, (_, row) => Array.from({length: size}, (_, column) => entries[row]?.[column] ?? 0));
+      return <fieldset key={input.key} className="space-y-3 rounded-xl border border-border p-4"><legend className="px-2 text-sm font-medium">{input.key === "matrixA" ? "Matrix A" : "Matrix B"}</legend><div className="grid gap-2" style={{gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))`}}>{matrix.flatMap((row, rowIndex) => row.map((value, columnIndex) => <Input key={`${rowIndex}-${columnIndex}`} type="number" step="any" value={value} aria-label={`${input.key === "matrixA" ? "Matrix A" : "Matrix B"}, row ${rowIndex + 1}, column ${columnIndex + 1}`} className="min-w-0 text-center font-mono" onChange={event => {const updated = matrix.map(entries => [...entries]); updated[rowIndex][columnIndex] = event.target.value; onChange(input.key, JSON.stringify(updated));}} />))}</div></fieldset>;
+    }
+
+    if (input.type === "date" || input.type === "time" || input.type === "text") {
       return (
         <div key={input.key} className="space-y-1.5">
           <Label htmlFor={input.key} className="text-sm font-medium text-text">
@@ -69,6 +77,7 @@ export function CalculatorForm({
             <Input
               id={input.key}
               type={input.type}
+              maxLength={input.type === "text" ? 4096 : undefined}
               placeholder={input.placeholder}
               value={String(val)}
               onChange={(e) => handleChange(input.key, e.target.value)}

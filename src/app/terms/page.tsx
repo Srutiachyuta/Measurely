@@ -8,15 +8,15 @@ import { AdSlot } from "@/components/AdSlot";
 import { TERMS_BOTTOM as AD_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
-  title: `Terms of Service | ${SITE_CONFIG.name}`,
+  title: `Terms of Service`,
   description: `${SITE_CONFIG.name} Terms of Service — Please read these terms carefully before using our calculators and website. Governs use, liability, and your legal rights.`,
   openGraph: {
-    title: `Terms of Service | ${SITE_CONFIG.name}`,
+    title: `Terms of Service`,
     description: `${SITE_CONFIG.name} Terms of Service governing the use of our calculators and website services.`,
     url: `${SITE_CONFIG.url}/terms`,
   },
   twitter: {
-    title: `Terms of Service | ${SITE_CONFIG.name}`,
+    title: `Terms of Service`,
     description: `${SITE_CONFIG.name} Terms of Service governing the use of our calculators and website services.`,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/terms` },

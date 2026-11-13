@@ -51,7 +51,7 @@ export default function CategoryManager() {
     if (!editingSlug) return
     setSaving(true)
     try {
-      let all = [...cmsCategories]
+      const all = [...cmsCategories]
       const idx = all.findIndex((c) => c.slug === editingSlug)
       const entry: CmsCategory = {
         slug: editingSlug,

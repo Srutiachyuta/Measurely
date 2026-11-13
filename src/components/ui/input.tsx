@@ -26,6 +26,8 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         <input
           id={inputId}
           type={type}
+          aria-invalid={Boolean(error) || props["aria-invalid"]}
+          aria-describedby={error && inputId ? `${inputId}-error` : props["aria-describedby"]}
           className={cn(
             "flex h-10 w-full rounded-xl border border-border bg-surface px-3.5 py-2 text-sm text-text placeholder:text-muted",
             "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500/30 focus-visible:border-primary-500",
@@ -38,7 +40,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {error && (
-          <p className="mt-1.5 text-sm text-red-500">{error}</p>
+          <p id={inputId ? `${inputId}-error` : undefined} role="alert" className="mt-1.5 text-sm text-red-500">{error}</p>
         )}
         {helperText && !error && (
           <p className="mt-1.5 text-sm text-muted">{helperText}</p>

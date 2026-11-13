@@ -1,19 +1,22 @@
 import { NextResponse } from "next/server"
-import { execSync } from "child_process"
+import { execFileSync } from "node:child_process"
+import { requireCms } from "@/cms/lib/server-auth"
 
 const REPO_DIR = process.cwd()
 
-function exec(cmd: string): string {
+function exec(args: string[]): string {
   try {
-    return execSync(cmd, { cwd: REPO_DIR, encoding: "utf-8", timeout: 15000 }).trim()
-  } catch (e: any) {
-    return e.stdout?.trim() || e.message || "Error"
+    return execFileSync("git", args, { cwd: REPO_DIR, encoding: "utf-8", timeout: 15000, maxBuffer: 1024 * 1024 }).trim()
+  } catch {
+    throw new Error("Git operation failed")
   }
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const denied = await requireCms(request)
+  if (denied) return denied
   try {
-    const statusRaw = exec('git status --porcelain')
+    const statusRaw = exec(["status", "--porcelain"])
     const lines = statusRaw ? statusRaw.split("\n").filter(Boolean) : []
 
     const files = lines.map((line: string) => ({
@@ -22,18 +25,18 @@ export async function GET() {
       staged: line[0] !== " " && line[0] !== "?",
     }))
 
-    const branch = exec('git rev-parse --abbrev-ref HEAD')
-    const log = exec('git log --oneline -10')
+    const branch = exec(["rev-parse", "--abbrev-ref", "HEAD"])
+    const log = exec(["log", "--oneline", "-10"])
     const commits = log ? log.split("\n").filter(Boolean).map((l: string) => {
       const m = l.match(/^([a-f0-9]+)\s+(.*)/)
       return m ? { hash: m[1], message: m[2] } : { hash: "", message: l }
     }) : []
 
     const stats = {
-      modified: files.filter((f: any) => f.status === "M" || f.status === "MM").length,
-      added: files.filter((f: any) => f.status === "A" || f.status === "??").length,
-      deleted: files.filter((f: any) => f.status === "D").length,
-      renamed: files.filter((f: any) => f.status === "R").length,
+      modified: files.filter(file => file.status === "M" || file.status === "MM").length,
+      added: files.filter(file => file.status === "A" || file.status === "??").length,
+      deleted: files.filter(file => file.status === "D").length,
+      renamed: files.filter(file => file.status === "R").length,
     }
 
     return NextResponse.json({ branch, files, commits, stats, success: true })
@@ -43,31 +46,35 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const denied = await requireCms(request)
+  if (denied) return denied
+  if (process.env.CMS_ALLOW_SERVER_OPERATIONS !== "true") return NextResponse.json({ error: "Server Git operations are disabled. Use your development workflow." }, { status: 403 })
   try {
     const { action, message, files } = await request.json()
+    if (files !== undefined && (!Array.isArray(files) || files.length > 100 || files.some((filename: unknown) => typeof filename !== "string" || filename.startsWith("-") || filename.includes("..") || /^[\\/]|^[A-Za-z]:/.test(filename)))) return NextResponse.json({ error: "Invalid file selection" }, { status: 400 })
 
     if (action === "stage-all") {
-      exec('git add -A')
+      exec(["add", "-A"])
       return NextResponse.json({ success: true, message: "All files staged" })
     }
 
     if (action === "stage") {
       if (files?.length) {
-        for (const f of files) exec(`git add "${f}"`)
+        exec(["add", "--", ...files])
       }
       return NextResponse.json({ success: true, message: `Staged ${files?.length || 0} file(s)` })
     }
 
     if (action === "commit") {
-      if (!message) return NextResponse.json({ error: "Commit message required" }, { status: 400 })
-      exec(`git commit -m "${message.replace(/"/g, '\\"')}"`)
+      if (typeof message !== "string" || !message.trim() || message.length > 2000) return NextResponse.json({ error: "Valid commit message required" }, { status: 400 })
+      exec(["commit", "-m", message])
       return NextResponse.json({ success: true, message: `Committed: ${message}` })
     }
 
     if (action === "diff") {
       const diff = files?.length
-        ? files.map((f: string) => `=== ${f} ===\n${exec(`git diff "${f}"`)}`).join("\n\n")
-        : exec('git diff --stat')
+        ? exec(["diff", "--", ...files])
+        : exec(["diff", "--stat"])
       return NextResponse.json({ success: true, diff })
     }
 

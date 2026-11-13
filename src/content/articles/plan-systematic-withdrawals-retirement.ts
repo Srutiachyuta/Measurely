@@ -294,13 +294,13 @@ The ideal time to start an SWP depends on your financial readiness rather than y
 3. You have no high-interest debt remaining
 4. Your monthly expenses are clearly understood and relatively stable
 
-Use our <a href="/retirement-calculator">Retirement Calculator</a> to assess your overall retirement readiness before setting up an SWP.
+Use our Retirement Calculator to assess your overall retirement readiness before setting up an SWP.
 
 ## Conclusion
 
 An <a href="/swp-calculator">SWP Calculator</a> is one of the most valuable retirement planning tools available. It answers the crucial question that saving alone cannot: how do I actually spend my savings without running out? By modeling different withdrawal rates, return assumptions, and inflation scenarios, you can build a retirement income plan that adapts to your needs and market conditions. The peace of mind that comes from knowing your numbers — rather than guessing — makes the difference between a stressful retirement and a secure one.
 
-Pair the SWP calculator with our <a href="/sip-calculator">SIP Calculator</a> for the accumulation phase and the <a href="/fd-calculator">FD Calculator</a> for guaranteed-return allocations. Also explore our <a href="/retirement-calculator">Retirement Calculator</a> for a complete retirement readiness assessment and the <a href="/understanding-compound-interest">guide to compound interest</a> to understand how your investments grow during the accumulation years. Ready to build your retirement income plan? Use our SWP calculator to find your sustainable withdrawal rate today.`,
+Pair the SWP calculator with our <a href="/sip-calculator">SIP Calculator</a> for the accumulation phase and the <a href="/fd-calculator">FD Calculator</a> for guaranteed-return allocations. Also explore our Retirement Calculator for a complete retirement readiness assessment and the <a href="/understanding-compound-interest">guide to compound interest</a> to understand how your investments grow during the accumulation years. Ready to build your retirement income plan? Use our SWP calculator to find your sustainable withdrawal rate today.`,
     category: "Finance",
     categorySlug: "finance",
     publishedAt: "2026-06-05",

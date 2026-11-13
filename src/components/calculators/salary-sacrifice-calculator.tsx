@@ -389,7 +389,7 @@ export function SalarySacrificeCalculator() {
     const years = Math.min(results.yearsToRetirement, 40);
     const data: number[] = [];
     let balance = 0;
-    let annualContribution = results.pensionContribution;
+    const annualContribution = results.pensionContribution;
     for (let y = 0; y < years; y++) {
       balance = (balance + annualContribution) * (1 + (inputs.investmentReturn / 100));
       data.push(Math.round(balance));
@@ -429,10 +429,10 @@ export function SalarySacrificeCalculator() {
   const isValid = inputs.salary > 0;
 
   return (
-    <div className="min-h-screen bg-background" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <nav className="flex items-center gap-2 text-sm text-muted mb-6">
-          <a href="/calculators" className="hover:text-text transition-colors">Calculators</a>
+          <Link href="/calculators" className="hover:text-text transition-colors">Calculators</Link>
           <span>/</span>
           <span className="text-text">Salary Sacrifice Calculator</span>
         </nav>
@@ -473,12 +473,12 @@ export function SalarySacrificeCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5 sm:col-span-2">
                   <Label htmlFor="salary" className="text-sm font-medium text-text">Annual Gross Salary (\u00A3)<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="salary" type="number" placeholder="e.g., 50000" min={0} step={1000} value={inputs.salary} onChange={(e) => handleChange("salary", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="salary" type="number" placeholder="e.g., 50000" min={0} step={1000} value={inputs.salary} onChange={(e) => handleChange("salary", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="age" className="text-sm font-medium text-text">Age</Label>
-                  <Input id="age" type="number" placeholder="e.g., 30" min={18} max={80} step={1} value={inputs.age} onChange={(e) => handleChange("age", e.target.value === "" ? 18 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="age" type="number" placeholder="e.g., 30" min={18} max={80} step={1} value={inputs.age} onChange={(e) => handleChange("age", e.target.value === "" ? 18 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -552,12 +552,12 @@ export function SalarySacrificeCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="employerMatch" className="text-sm font-medium text-text">Employer Pension Match (%)</Label>
-                  <Input id="employerMatch" type="number" placeholder="e.g., 3" min={0} max={100} step={0.5} value={inputs.employerMatch} onChange={(e) => handleChange("employerMatch", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="employerMatch" type="number" placeholder="e.g., 3" min={0} max={100} step={0.5} value={inputs.employerMatch} onChange={(e) => handleChange("employerMatch", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="employerNiShare" className="text-sm font-medium text-text">Employer NI Share to You (%)</Label>
-                  <Input id="employerNiShare" type="number" placeholder="e.g., 50" min={0} max={100} step={10} value={inputs.employerNiShare} onChange={(e) => handleChange("employerNiShare", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="employerNiShare" type="number" placeholder="e.g., 50" min={0} max={100} step={10} value={inputs.employerNiShare} onChange={(e) => handleChange("employerNiShare", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
               </div>
 
@@ -567,17 +567,17 @@ export function SalarySacrificeCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="salaryGrowth" className="text-sm font-medium text-text">Salary Growth (%/yr)</Label>
-                  <Input id="salaryGrowth" type="number" placeholder="e.g., 2" min={0} max={20} step={0.5} value={inputs.salaryGrowth} onChange={(e) => handleChange("salaryGrowth", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="salaryGrowth" type="number" placeholder="e.g., 2" min={0} max={20} step={0.5} value={inputs.salaryGrowth} onChange={(e) => handleChange("salaryGrowth", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="investmentReturn" className="text-sm font-medium text-text">Investment Return (%/yr)</Label>
-                  <Input id="investmentReturn" type="number" placeholder="e.g., 5" min={0} max={20} step={0.5} value={inputs.investmentReturn} onChange={(e) => handleChange("investmentReturn", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="investmentReturn" type="number" placeholder="e.g., 5" min={0} max={20} step={0.5} value={inputs.investmentReturn} onChange={(e) => handleChange("investmentReturn", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="retirementAge" className="text-sm font-medium text-text">Retirement Age</Label>
-                  <Input id="retirementAge" type="number" placeholder="e.g., 68" min={inputs.age + 1} max={85} step={1} value={inputs.retirementAge} onChange={(e) => handleChange("retirementAge", e.target.value === "" ? 68 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="retirementAge" type="number" placeholder="e.g., 68" min={inputs.age + 1} max={85} step={1} value={inputs.retirementAge} onChange={(e) => handleChange("retirementAge", e.target.value === "" ? 68 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
               </div>
 
