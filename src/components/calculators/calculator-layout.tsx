@@ -2,11 +2,10 @@
 
 import { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ArrowLeft, Calculator as CalcIcon, Sparkles, RotateCcw, Info } from "lucide-react";
+import { ArrowLeft, Calculator as CalcIcon, RotateCcw, Info } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton";
 import { PremiumSkeleton } from "@/components/ui/premium-skeleton";
 import { CalculatorForm } from "./calculator-form";
 import { CalculatorResults } from "./calculator-results";
@@ -18,11 +17,9 @@ import { calculators } from "@/data/calculators";
 import { RelatedTools } from "@/components/tool/related-tools";
 import { RelatedArticles } from "@/components/tool/related-articles";
 import { ToolFAQ } from "@/components/tool/tool-faq";
-import { ReadingProgress } from "@/components/ui/reading-progress";
 import { ShareButtons } from "@/components/ui/share-buttons";
-import { RecentlyUsed, trackRecentlyUsed } from "@/components/ui/recently-used";
-import { TableOfContents } from "@/components/ui/table-of-contents";
-import { motion } from "framer-motion";
+import { trackRecentlyUsed } from "@/components/ui/recently-used";
+import { UNIT_GROUPS, type UnitGroup } from "@/data/unit-converter";
 
 interface CalculatorLayoutProps {
   slug: string;
@@ -83,6 +80,11 @@ export function CalculatorLayout({ slug, children, relatedArticles = [] }: Calcu
   const handleChange = useCallback(
     (key: string, value: number | string) => {
       const newValues = { ...values, [key]: value };
+      if (definition.slug === "unit-converter" && key === "group") {
+        const units = UNIT_GROUPS[value as UnitGroup].units;
+        newValues.from = units[0].value;
+        newValues.to = units[1].value;
+      }
       if (definition.slug === "matrix-calculator" && key === "matrixSize") {
         const size = Number(value) === 3 ? 3 : 2;
         for (const matrixKey of ["matrixA", "matrixB"]) {
@@ -92,10 +94,14 @@ export function CalculatorLayout({ slug, children, relatedArticles = [] }: Calcu
         }
       }
       setValues(newValues);
+      clearTimeout(calcTimeoutRef.current);
+      setIsCalculating(false);
+      setHasCalculated(false);
+      setCalculationError("");
       const errs = validate(newValues);
       setErrors(errs);
     },
-    [values, validate]
+    [values, validate, definition.slug]
   );
 
   const handleCalculate = useCallback(() => {
@@ -192,15 +198,14 @@ export function CalculatorLayout({ slug, children, relatedArticles = [] }: Calcu
 
   const relatedBlogs = relatedArticles;
 
-  const autoRelatedTools = useMemo(() => calculators.filter(tool => tool.slug !== slug && tool.category === definition.category).slice(0, 6), [slug]);
-  const autoRelatedArticles = useMemo(() => relatedArticles, [slug]);
+  const autoRelatedTools = useMemo(() => calculators.filter(tool => tool.slug !== slug && tool.category === definition.category).slice(0, 6), [slug, definition.category]);
+  const autoRelatedArticles = relatedArticles;
 
   const displayRelatedTools = relatedTools.length > 0 ? relatedTools : autoRelatedTools;
   const displayRelatedArticles = relatedBlogs.length > 0 ? relatedBlogs : autoRelatedArticles;
 
   return (
-    <div className="min-h-screen bg-background">
-      <ReadingProgress />
+    <div className="calculator-workspace min-h-screen bg-surface-secondary">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         {/* Breadcrumb */}
         <div className="flex items-center justify-between mb-6">
@@ -215,11 +220,11 @@ export function CalculatorLayout({ slug, children, relatedArticles = [] }: Calcu
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-cyan flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-primary-600 flex items-center justify-center shrink-0">
               <definition.icon className="w-5 h-5 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold text-text">{definition.name}</h1>
+              <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-text">{definition.name}</h1>
               <p className="text-sm text-muted mt-1">{definition.description}</p>
             </div>
           </div>
@@ -235,7 +240,7 @@ export function CalculatorLayout({ slug, children, relatedArticles = [] }: Calcu
           <div className="lg:col-span-3 space-y-6">
             {/* Inputs */}
             <div className="bg-surface rounded-2xl border border-border p-5 space-y-4">
-              <h2 className="text-sm font-semibold text-text">Input Values</h2>
+              <h2 className="text-sm font-semibold text-text">Your inputs</h2>
               <CalculatorForm
                 definition={definition}
                 values={values}
@@ -248,34 +253,11 @@ export function CalculatorLayout({ slug, children, relatedArticles = [] }: Calcu
               />
             </div>
 
-            {/* Results */}
-            {isCalculating ? (
-              <PremiumSkeleton variant="result" />
-            ) : hasCalculated && results.length > 0 ? (
-              <div role="status" aria-live="polite">
-                <CalculatorResults
-                  results={results}
-                  chart={chart}
-                  onReset={handleReset}
-                />
-                <SaveCalculation slug={slug} name={definition.name} results={results} />
-              </div>
-            ) : (
-              <div className="bg-surface-secondary rounded-2xl border border-border p-8 text-center">
-                <CalcIcon className="h-10 w-10 text-muted mx-auto mb-3" />
-                <h3 className="text-base font-semibold text-text mb-1">Ready to Calculate</h3>
-                <p className="text-sm text-muted">Enter values and click Calculate to see results.</p>
-              </div>
-            )}
-
-            {calculationError && <p role="alert" className="rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:bg-red-950 dark:text-red-200">{calculationError}</p>}
-
             {/* Example */}
             {definition.example.inputs && Object.keys(definition.example.inputs).length > 0 && (
               <div className="bg-surface rounded-2xl border border-border p-5 space-y-4">
                 <h2 className="text-sm font-semibold text-text flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-accent-amber" />
-                  Example
+                  Worked example
                 </h2>
                 <div className="space-y-2">
                   {Object.entries(definition.example.inputs).map(([key, value]) => {
@@ -305,6 +287,29 @@ export function CalculatorLayout({ slug, children, relatedArticles = [] }: Calcu
 
           {/* Right column - Sidebar */}
           <div className="lg:col-span-2 space-y-6">
+            {/* Results */}
+            {isCalculating ? (
+              <PremiumSkeleton variant="result" />
+            ) : hasCalculated && results.length > 0 ? (
+              <div role="status" aria-live="polite">
+                <CalculatorResults
+                  results={results}
+                  chart={chart}
+                  onReset={handleReset}
+                />
+                <SaveCalculation slug={slug} name={definition.name} results={results} />
+              </div>
+            ) : (
+              <div className="bg-surface-secondary rounded-2xl border border-border p-8 text-center">
+                <CalcIcon className="h-10 w-10 text-muted mx-auto mb-3" />
+                <h3 className="text-base font-semibold text-text mb-1">Your result, explained</h3>
+                <p className="text-sm text-muted">Enter your values and select Calculate. Your result will appear here.</p>
+              </div>
+            )}
+
+            {calculationError && <p role="alert" className="rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:bg-red-950 dark:text-red-200">{calculationError}</p>}
+
+
             {hasCalculated && (
               <Button variant="outline" size="lg" fullWidth onClick={handleReset} className="h-11">
                 <RotateCcw className="h-4 w-4" />
@@ -342,10 +347,8 @@ export function CalculatorLayout({ slug, children, relatedArticles = [] }: Calcu
                 </div>
               </div>
 
-              <RecentlyUsed />
-              <RelatedTools tools={displayRelatedTools} maxCount={8} />
-              <RelatedArticles articles={displayRelatedArticles} maxCount={6} />
-              <TableOfContents contentSelector="[data-tool-content]" />
+              <RelatedTools tools={displayRelatedTools} maxCount={3} />
+              <RelatedArticles articles={displayRelatedArticles} maxCount={2} />
 
               <Link
                 href="/calculators"

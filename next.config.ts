@@ -19,12 +19,13 @@ const csp = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  distDir: process.env.MEASURELY_BUILD_DIR || ".next",
   allowedDevOrigins: ["192.168.1.11", "192.168.1.4"],
   images: {
     formats: ["image/avif", "image/webp"],
   },
   async redirects() {
-    return [];
+    return [{ source: "/watt-calculator", destination: "/power-calculator", permanent: true }];
   },
   async headers() {
     return [

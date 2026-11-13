@@ -1,4 +1,5 @@
 import { indianSalaryTax } from "@/lib/india-tax";
+import { unitConverter } from "./unit-converter";
 import { loanPayment, annuityValue } from "@/lib/finance-math";
 import { evaluateExpression, matrixCalculation } from "@/lib/math-expression";
 import type { CalculatorDefinition, CalculatorResult } from "@/types/calculators";
@@ -50,7 +51,7 @@ import {
 } from "lucide-react";
 
 
-export const calculators: CalculatorDefinition[] = [
+const calculatorDefinitions: CalculatorDefinition[] = [
   {
     icon: TrendingUp,
     name: "EMI Calculator",
@@ -2392,10 +2393,10 @@ export const calculators: CalculatorDefinition[] = [
     metaTitle: "Power & Watt Calculator | Calculate Watts, Volts, Amps, Ohms",
     metaDescription: "Free power and watt calculator using P=VI, P=I^2R, P=V^2/R formulas. Calculate watts, volts, amps, or ohms — enter any two values.",
     inputs: [
-      { label: "Power (W)", key: "power", type: "number", placeholder: "Leave blank", step: 0.1 },
-      { label: "Voltage (V)", key: "voltage", type: "number", placeholder: "Leave blank", step: 0.1 },
-      { label: "Current (I)", key: "current", type: "number", placeholder: "Leave blank", step: 0.01 },
-      { label: "Resistance (R)", key: "resistance", type: "number", placeholder: "Leave blank", step: 0.1 },
+      { label: "Power (W)", key: "power", type: "number", placeholder: "Leave blank", step: 0.1, required: false, min: 0.000001 },
+      { label: "Voltage (V)", key: "voltage", type: "number", placeholder: "Leave blank", step: 0.1, required: false, min: 0.000001 },
+      { label: "Current (I)", key: "current", type: "number", placeholder: "Leave blank", step: 0.01, required: false, min: 0.000001 },
+      { label: "Resistance (R)", key: "resistance", type: "number", placeholder: "Leave blank", step: 0.1, required: false, min: 0.000001 },
     ],
     compute: (inputs) => {
       const p = inputs.power !== "" ? Number(inputs.power) : null;
@@ -2403,7 +2404,8 @@ export const calculators: CalculatorDefinition[] = [
       const i = inputs.current !== "" ? Number(inputs.current) : null;
       const r = inputs.resistance !== "" ? Number(inputs.resistance) : null;
       const filled = [p, v, i, r].filter(x => x !== null).length;
-      if (filled < 2) return [{ label: "Status", key: "status", value: "Enter at least two values", color: "amber" }];
+      if (filled !== 2) throw new Error("Enter exactly two known values; leave the other two blank.");
+      if ([p, v, i, r].some(value => value !== null && (!Number.isFinite(value) || value <= 0))) throw new Error("Known values must be positive and finite. This tool models a simple DC resistive circuit.");
       let P = p, V = v, I = i, R = r;
       if (P === null && V !== null && I !== null) P = V * I;
       else if (P === null && I !== null && R !== null) P = I*I * R;
@@ -6159,3 +6161,10 @@ export const calculators: CalculatorDefinition[] = [
     formula: "Conversion Tax = Conversion Amount × (Federal Rate + State Rate). Roth Value = Converted Amount × (1 + r)^n. Lifetime Savings = Tax Avoided - Tax Paid.",
   },
 ];
+
+// Keep the old definition in source for review; its public URL redirects to the
+// equivalent combined tool, which is the sole entry in search and navigation.
+export const calculators: CalculatorDefinition[] = [
+  ...calculatorDefinitions.filter(tool => tool.slug !== "watt-calculator"),
+  unitConverter,
+].map(tool => ({ ...tool, relatedSlugs: [...new Set(tool.relatedSlugs.map(slug => slug === "watt-calculator" ? "power-calculator" : slug))].filter(slug => slug !== tool.slug) }));
