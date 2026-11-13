@@ -69,6 +69,7 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" className="h-full antialiased" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
+        <script id="measurely-adsense" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774" crossOrigin="anonymous" />
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

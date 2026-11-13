@@ -63,6 +63,17 @@ export function ThirdPartyScripts({
   const [prefs, setPrefs] = useState<CookiePreferences | null>(null);
 
   useEffect(() => {
+    const ready = () => {
+      (window as {measurelyAdsReady?: boolean}).measurelyAdsReady = true;
+      window.dispatchEvent(new Event("measurelyAdsReady"));
+    };
+    const script = document.getElementById("measurely-adsense");
+    script?.addEventListener("load", ready);
+    if (window.adsbygoogle) ready();
+    return () => script?.removeEventListener("load", ready);
+  }, []);
+
+  useEffect(() => {
     setPrefs(readPreferences());
 
     const handleUpdate = () => setPrefs(readPreferences());
@@ -100,16 +111,6 @@ export function ThirdPartyScripts({
         />
       )}
 
-      {prefs.marketing && (
-        <Script
-          id="measurely-adsense"
-          strategy="afterInteractive"
-          onReady={() => { (window as {measurelyAdsReady?: boolean}).measurelyAdsReady = true; window.dispatchEvent(new Event("measurelyAdsReady")); }}
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8154961694177774"
-          async
-          crossOrigin="anonymous"
-        />
-      )}
     </>
   );
 }
