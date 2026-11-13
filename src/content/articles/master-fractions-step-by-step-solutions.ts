@@ -383,7 +383,7 @@ Use any of three methods: convert to a common denominator and compare numerators
 
 Fractions are everywhere in daily life — cooking, shopping, measuring, splitting costs, and budgeting. Getting comfortable with them makes everything easier. Our <a href="/fraction-calculator">Fraction Calculator</a> gives you instant, error-free answers with step-by-step explanations so you learn as you go.
 
-For more math tools, check out our <a href="/scientific-calculator">Scientific Calculator</a>, <a href="/master-greatest-common-factor-least-common">GCF and LCM Calculator</a>, <a href="/master-matrix-operations">Matrix Calculator</a>, and <a href="/percentage-calculator">Percentage Calculator</a>. Start mastering fractions today — one step at a time.`,
+For more math tools, check out our <a href="/scientific-calculator">Scientific Calculator</a>, <a href="/master-greatest-common-factor-least-common">GCF and LCM Calculator</a>, <a href="/master-matrix-operations-step-by-step-solutions">Matrix Calculator</a>, and <a href="/percentage-calculator">Percentage Calculator</a>. Start mastering fractions today — one step at a time.`,
     category: "Math",
     categorySlug: "math",
     publishedAt: "2026-01-15",

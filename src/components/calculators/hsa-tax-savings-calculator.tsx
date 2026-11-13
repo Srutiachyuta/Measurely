@@ -24,6 +24,7 @@ import { useToast } from "@/components/ui/toast";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { HSA_2026 } from "@/data/hsa-limits";
 
 const ChartComponent = dynamic(() => import("./calculator-chart"), {
   ssr: false,
@@ -77,7 +78,7 @@ const defaultInputs: Inputs = {
   stateRate: 5,
   ficaEligible: true,
   currentBalance: 0,
-  annualContribution: 4150,
+  annualContribution: 3400,
   employerContribution: 1000,
   annualWithdrawal: 500,
   investmentReturn: 7,
@@ -86,11 +87,7 @@ const defaultInputs: Inputs = {
   healthcareInflation: 5,
 };
 
-const IRS_LIMITS_2026 = {
-  individual: 4150,
-  family: 8300,
-  catchUp: 1000,
-};
+const IRS_LIMITS_2026 = HSA_2026;
 
 const stateNames: Record<string, string> = {
   AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California",
@@ -109,11 +106,11 @@ function calculate(inputs: Inputs): Results {
   const age = Math.max(18, inputs.age || 30);
   const retirementAge = Math.max(age + 1, inputs.retirementAge || 65);
   const yearsToRetirement = retirementAge - age;
-  const federalRate = Math.max(0, Math.min(50, inputs.federalRate || 22)) / 100;
+  const federalRate = Math.max(0, Math.min(50, inputs.federalRate ?? 22)) / 100;
   const stateRate = Math.max(0, Math.min(15, inputs.stateRate || 0)) / 100;
-  const investmentReturn = Math.max(0, Math.min(25, inputs.investmentReturn || 7)) / 100;
+  const investmentReturn = Math.max(0, Math.min(25, inputs.investmentReturn ?? 7)) / 100;
   const inflationRate = Math.max(0, Math.min(15, inputs.inflationRate || 3)) / 100;
-  const healthcareInflation = Math.max(0, Math.min(20, inputs.healthcareInflation || 5)) / 100;
+  const healthcareInflation = Math.max(0, Math.min(20, inputs.healthcareInflation ?? 5)) / 100;
   const increasePct = Math.max(0, Math.min(20, inputs.increaseContribution || 0)) / 100;
 
   const ficaRate = inputs.ficaEligible ? 0.0765 : 0;
@@ -125,7 +122,7 @@ function calculate(inputs: Inputs): Results {
   const totalAnnualContribution = annualContribution + employerContribution;
 
   const federalTaxSavings = annualContribution * federalRate;
-  const stateTaxSavings = annualContribution * stateRate;
+  const stateTaxSavings = annualContribution * (["CA", "NJ"].includes(inputs.state) ? 0 : stateRate);
   const ficaSavings = annualContribution * ficaRate;
   const annualTaxSavings = federalTaxSavings + stateTaxSavings + ficaSavings;
 
@@ -139,7 +136,8 @@ function calculate(inputs: Inputs): Results {
   for (let y = 0; y < yearsToRetirement; y++) {
     totalContributions += currentContribution;
     hsaBalance = (hsaBalance + currentContribution) * (1 + investmentReturn);
-    const withdrawal = currentWithdrawal * (1 + healthcareInflation);
+    const withdrawal = Math.min(hsaBalance, currentWithdrawal);
+    currentWithdrawal *= 1 + healthcareInflation;
     hsaBalance = Math.max(0, hsaBalance - withdrawal);
     totalMedicalWithdrawals += withdrawal;
     currentContribution *= (1 + increasePct);
@@ -191,9 +189,14 @@ export function HsaTaxSavingsCalculator() {
   }, []);
 
   const handleCalculate = useCallback(() => {
+    const limit = (inputs.filingStatus === "single" ? HSA_2026.individual : HSA_2026.family) + (inputs.age >= 55 ? HSA_2026.catchUp : 0);
+    if (inputs.annualContribution + inputs.employerContribution > limit) {
+      addToast({ title: `Employee and employer contributions together must not exceed $${limit.toLocaleString()} for this coverage and age.`, variant: "error" });
+      return;
+    }
     const res = calculate(inputs);
     setResults(res);
-  }, [inputs]);
+  }, [inputs, addToast]);
 
   const handleReset = useCallback(() => {
     setInputs(defaultInputs);
@@ -275,9 +278,9 @@ export function HsaTaxSavingsCalculator() {
     const contributions: number[] = [];
     let balance = inputs.currentBalance;
     let currentContribution = inputs.annualContribution + inputs.employerContribution;
-    let currentWithdrawal = inputs.annualWithdrawal;
-    const invReturn = Math.max(0, Math.min(25, inputs.investmentReturn || 7)) / 100;
-    const healthInf = Math.max(0, Math.min(20, inputs.healthcareInflation || 5)) / 100;
+    const currentWithdrawal = inputs.annualWithdrawal;
+    const invReturn = Math.max(0, Math.min(25, inputs.investmentReturn ?? 7)) / 100;
+    const healthInf = Math.max(0, Math.min(20, inputs.healthcareInflation ?? 5)) / 100;
     const incPct = Math.max(0, Math.min(20, inputs.increaseContribution || 0)) / 100;
     let cumContributions = inputs.currentBalance;
     const labels: string[] = [];
@@ -390,13 +393,13 @@ export function HsaTaxSavingsCalculator() {
     };
   }, [results]);
 
-  const isValid = inputs.annualContribution > 0;
+  const isValid = inputs.annualContribution >= 0 && inputs.employerContribution >= 0 && inputs.retirementAge > inputs.age && Object.values(inputs).every(value => typeof value !== "number" || Number.isFinite(value));
 
   return (
-    <div className="min-h-screen bg-background" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <nav className="flex items-center gap-2 text-sm text-muted mb-6">
-          <a href="/calculators" className="hover:text-text transition-colors">Calculators</a>
+          <Link href="/calculators" className="hover:text-text transition-colors">Calculators</Link>
           <span>/</span>
           <span className="text-text">HSA Tax Savings Calculator</span>
         </nav>
@@ -437,25 +440,23 @@ export function HsaTaxSavingsCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="age" className="text-sm font-medium text-text">Age</Label>
-                  <Input id="age" type="number" placeholder="e.g., 30" min={18} max={80} step={1} value={inputs.age} onChange={(e) => handleChange("age", e.target.value === "" ? 18 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="age" type="number" placeholder="e.g., 30" min={18} max={80} step={1} value={inputs.age} onChange={(e) => handleChange("age", e.target.value === "" ? 18 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="retirementAge" className="text-sm font-medium text-text">Retirement Age</Label>
-                  <Input id="retirementAge" type="number" placeholder="e.g., 65" min={inputs.age + 1} max={85} step={1} value={inputs.retirementAge} onChange={(e) => handleChange("retirementAge", e.target.value === "" ? 65 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="retirementAge" type="number" placeholder="e.g., 65" min={inputs.age + 1} max={85} step={1} value={inputs.retirementAge} onChange={(e) => handleChange("retirementAge", e.target.value === "" ? 65 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
-                  <Label htmlFor="filingStatus" className="text-sm font-medium text-text">Filing Status</Label>
+                  <Label htmlFor="filingStatus" className="text-sm font-medium text-text">HSA Coverage</Label>
                   <Select value={inputs.filingStatus} onValueChange={(v) => handleChange("filingStatus", v)}>
                     <SelectTrigger id="filingStatus" className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="single">Single</SelectItem>
-                      <SelectItem value="married-joint">Married Filing Jointly</SelectItem>
-                      <SelectItem value="married-separate">Married Filing Separately</SelectItem>
-                      <SelectItem value="head">Head of Household</SelectItem>
+                      <SelectItem value="single">Self-only coverage</SelectItem>
+                      <SelectItem value="family">Family coverage</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -467,7 +468,7 @@ export function HsaTaxSavingsCalculator() {
                       <SelectValue placeholder="Select..." />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="">Select...</SelectItem>
+                      <SelectItem value="none">No selection</SelectItem>
                       {Object.entries(stateNames).map(([code, name]) => (
                         <SelectItem key={code} value={code}>{name}</SelectItem>
                       ))}
@@ -482,17 +483,17 @@ export function HsaTaxSavingsCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="salary" className="text-sm font-medium text-text">Annual Salary ($)</Label>
-                  <Input id="salary" type="number" placeholder="e.g., 75000" min={0} step={5000} value={inputs.salary} onChange={(e) => handleChange("salary", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="salary" type="number" placeholder="e.g., 75000" min={0} step={5000} value={inputs.salary} onChange={(e) => handleChange("salary", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="federalRate" className="text-sm font-medium text-text">Marginal Federal Tax Rate (%)</Label>
-                  <Input id="federalRate" type="number" placeholder="e.g., 22" min={0} max={50} step={1} value={inputs.federalRate} onChange={(e) => handleChange("federalRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="federalRate" type="number" placeholder="e.g., 22" min={0} max={50} step={1} value={inputs.federalRate} onChange={(e) => handleChange("federalRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="stateRate" className="text-sm font-medium text-text">State Tax Rate (%)</Label>
-                  <Input id="stateRate" type="number" placeholder="e.g., 5" min={0} max={15} step={0.5} value={inputs.stateRate} onChange={(e) => handleChange("stateRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="stateRate" type="number" placeholder="e.g., 5" min={0} max={15} step={0.5} value={inputs.stateRate} onChange={(e) => handleChange("stateRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5 flex items-end pb-2">
@@ -510,22 +511,22 @@ export function HsaTaxSavingsCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="currentBalance" className="text-sm font-medium text-text">Current HSA Balance ($)</Label>
-                  <Input id="currentBalance" type="number" placeholder="e.g., 0" min={0} step={500} value={inputs.currentBalance} onChange={(e) => handleChange("currentBalance", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="currentBalance" type="number" placeholder="e.g., 0" min={0} step={500} value={inputs.currentBalance} onChange={(e) => handleChange("currentBalance", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="annualContribution" className="text-sm font-medium text-text">Annual Contribution ($)</Label>
-                  <Input id="annualContribution" type="number" placeholder="e.g., 4150" min={0} step={100} value={inputs.annualContribution} onChange={(e) => handleChange("annualContribution", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="annualContribution" type="number" placeholder="e.g., 4150" min={0} step={100} value={inputs.annualContribution} onChange={(e) => handleChange("annualContribution", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="employerContribution" className="text-sm font-medium text-text">Employer Contribution ($)</Label>
-                  <Input id="employerContribution" type="number" placeholder="e.g., 1000" min={0} step={100} value={inputs.employerContribution} onChange={(e) => handleChange("employerContribution", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="employerContribution" type="number" placeholder="e.g., 1000" min={0} step={100} value={inputs.employerContribution} onChange={(e) => handleChange("employerContribution", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="annualWithdrawal" className="text-sm font-medium text-text">Annual Medical Withdrawal ($)</Label>
-                  <Input id="annualWithdrawal" type="number" placeholder="e.g., 500" min={0} step={100} value={inputs.annualWithdrawal} onChange={(e) => handleChange("annualWithdrawal", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="annualWithdrawal" type="number" placeholder="e.g., 500" min={0} step={100} value={inputs.annualWithdrawal} onChange={(e) => handleChange("annualWithdrawal", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
               </div>
 
@@ -535,22 +536,22 @@ export function HsaTaxSavingsCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="investmentReturn" className="text-sm font-medium text-text">Expected Investment Return (%)</Label>
-                  <Input id="investmentReturn" type="number" placeholder="e.g., 7" min={0} max={25} step={0.5} value={inputs.investmentReturn} onChange={(e) => handleChange("investmentReturn", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="investmentReturn" type="number" placeholder="e.g., 7" min={0} max={25} step={0.5} value={inputs.investmentReturn} onChange={(e) => handleChange("investmentReturn", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="increaseContribution" className="text-sm font-medium text-text">Increase Contribution (%/yr)</Label>
-                  <Input id="increaseContribution" type="number" placeholder="e.g., 2" min={0} max={20} step={0.5} value={inputs.increaseContribution} onChange={(e) => handleChange("increaseContribution", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="increaseContribution" type="number" placeholder="e.g., 2" min={0} max={20} step={0.5} value={inputs.increaseContribution} onChange={(e) => handleChange("increaseContribution", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="inflationRate" className="text-sm font-medium text-text">Inflation Rate (%)</Label>
-                  <Input id="inflationRate" type="number" placeholder="e.g., 3" min={0} max={15} step={0.5} value={inputs.inflationRate} onChange={(e) => handleChange("inflationRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="inflationRate" type="number" placeholder="e.g., 3" min={0} max={15} step={0.5} value={inputs.inflationRate} onChange={(e) => handleChange("inflationRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="healthcareInflation" className="text-sm font-medium text-text">Healthcare Inflation (%)</Label>
-                  <Input id="healthcareInflation" type="number" placeholder="e.g., 5" min={0} max={20} step={0.5} value={inputs.healthcareInflation} onChange={(e) => handleChange("healthcareInflation", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="healthcareInflation" type="number" placeholder="e.g., 5" min={0} max={20} step={0.5} value={inputs.healthcareInflation} onChange={(e) => handleChange("healthcareInflation", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
               </div>
 
@@ -739,11 +740,11 @@ export function HsaTaxSavingsCalculator() {
                 </p>
                 <Separator className="my-3" />
                 <p className="text-xs text-muted">
-                  <strong className="text-text">2026 IRS limits:</strong>
+                  <strong className="text-text">2026 IRS limits:</strong> <a href={HSA_2026.source} target="_blank" rel="noopener noreferrer" className="underline">IRS source</a>
                 </p>
                 <ul className="text-xs text-muted mt-1 space-y-1 list-disc list-inside">
-                  <li><strong className="text-text">Individual:</strong> $4,150</li>
-                  <li><strong className="text-text">Family:</strong> $8,300</li>
+                  <li><strong className="text-text">Individual:</strong> $4,400</li>
+                  <li><strong className="text-text">Family:</strong> $8,750</li>
                   <li><strong className="text-text">Catch-up (55+):</strong> +$1,000</li>
                 </ul>
                 <Separator className="my-3" />

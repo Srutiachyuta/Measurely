@@ -8,15 +8,15 @@ import { AdSlot } from "@/components/AdSlot";
 import { ABOUT_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
-  title: `Cookie Policy | ${SITE_CONFIG.name}`,
+  title: `Cookie Policy`,
   description: `${SITE_CONFIG.name} Cookie Policy — Learn how we use cookies and similar tracking technologies. Understand your choices and how to manage cookie preferences.`,
   openGraph: {
-    title: `Cookie Policy | ${SITE_CONFIG.name}`,
+    title: `Cookie Policy`,
     description: `${SITE_CONFIG.name} Cookie Policy — learn about cookies, analytics, and advertising technologies used on our website.`,
     url: `${SITE_CONFIG.url}/cookie-policy`,
   },
   twitter: {
-    title: `Cookie Policy | ${SITE_CONFIG.name}`,
+    title: `Cookie Policy`,
     description: `${SITE_CONFIG.name} Cookie Policy — learn about cookies, analytics, and advertising technologies used on our website.`,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/cookie-policy` },

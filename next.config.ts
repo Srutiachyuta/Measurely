@@ -40,6 +40,14 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: "/admin/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }, { key: "Cache-Control", value: "private, no-store" }],
+      },
+      {
+        source: "/api/cms/:path*",
+        headers: [{ key: "Cache-Control", value: "private, no-store" }, { key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
         source: "/:path*.(css|js|woff2|png|jpg|jpeg|gif|ico|svg|webp|avif)",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },

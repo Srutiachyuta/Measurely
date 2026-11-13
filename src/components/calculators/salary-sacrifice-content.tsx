@@ -32,7 +32,7 @@ export function SalarySacrificeContent() {
           <p className="text-sm font-medium text-primary-800 dark:text-primary-200"><strong>Quick Answer:</strong> Salary sacrifice is a formal agreement between you and your employer where you give up part of your salary in exchange for a non-cash benefit. Your taxable pay reduces, so you pay less Income Tax and NI, and the benefit you receive is often tax-free.</p>
         </div>
 
-        <p className="text-text-secondary leading-relaxed mb-4">Salary sacrifice (also called "salary exchange" or "salary swap") is an arrangement where an employee agrees to reduce their contractual salary by a certain amount. In return, the employer provides a non-cash benefit of equivalent value. The key financial advantage is that the sacrificed amount is not subject to Income Tax or National Insurance, creating immediate savings for both employee and employer.</p>
+        <p className="text-text-secondary leading-relaxed mb-4">Salary sacrifice (also called &quot;salary exchange&quot; or &quot;salary swap&quot;) is an arrangement where an employee agrees to reduce their contractual salary by a certain amount. In return, the employer provides a non-cash benefit of equivalent value. The key financial advantage is that the sacrificed amount is not subject to Income Tax or National Insurance, creating immediate savings for both employee and employer.</p>
 
         <p className="text-text-secondary leading-relaxed mb-4">Common examples include pension salary sacrifice (the most popular), electric vehicle schemes, cycle-to-work programs, childcare vouchers, and technology schemes. Each type has specific rules and tax treatments, but the underlying principle is the same: you pay less tax by earning less taxable income.</p>
 
@@ -169,7 +169,7 @@ export function SalarySacrificeContent() {
           </table>
         </div>
 
-        <p className="text-text-secondary leading-relaxed mb-4"><strong>Worked example — Basic-rate taxpayer (\u00A330,000 salary, 5% sacrifice):</strong> Sacrificing \u00A31,500/year into your pension saves \u00A3300 in Income Tax (20% of \u00A31,500) and \u00A3120 in Employee NI (8% of \u00A31,500). Total saving: \u00A3420. Your pension receives the full \u00A31,500 plus your employer's NI saving if shared.</p>
+        <p className="text-text-secondary leading-relaxed mb-4"><strong>Worked example — Basic-rate taxpayer (\u00A330,000 salary, 5% sacrifice):</strong> Sacrificing \u00A31,500/year into your pension saves \u00A3300 in Income Tax (20% of \u00A31,500) and \u00A3120 in Employee NI (8% of \u00A31,500). Total saving: \u00A3420. Your pension receives the full \u00A31,500 plus your employer&apos;s NI saving if shared.</p>
 
         <p className="text-text-secondary leading-relaxed mb-4"><strong>Worked example — Higher-rate taxpayer (\u00A360,000 salary, 5% sacrifice):</strong> Sacrificing \u00A33,000/year saves \u00A31,200 in Income Tax (40% of \u00A33,000) and \u00A3240 in Employee NI (8% of first \u00A32,270, 2% of remaining \u00A3730). Total saving: \u00A31,440. Your effective cost is just \u00A31,560 for a \u00A33,000 pension contribution.</p>
 
@@ -320,7 +320,7 @@ export function SalarySacrificeContent() {
               Can I cancel a salary sacrifice agreement?
             </summary>
             <div className="pt-3 px-4 pb-4 text-sm text-text-secondary leading-relaxed">
-              It depends on your employer's policy and the type of benefit. Pension salary sacrifice is usually flexible — you can change or stop contributions at any time. EV schemes typically have fixed 2-4 year contracts. Cycle-to-work agreements usually run for 12 months. Check your employer's salary sacrifice policy for specific terms.
+              It depends on your employer&apos;s policy and the type of benefit. Pension salary sacrifice is usually flexible — you can change or stop contributions at any time. EV schemes typically have fixed 2-4 year contracts. Cycle-to-work agreements usually run for 12 months. Check your employer&apos;s salary sacrifice policy for specific terms.
             </div>
           </details>
 
@@ -381,7 +381,7 @@ export function SalarySacrificeContent() {
 
         <p className="text-text-secondary leading-relaxed mb-4">The key is understanding your personal tax position, choosing the right benefit, and being aware of the trade-offs with statutory payments and borrowing capacity. For most employees, the savings far outweigh the drawbacks.</p>
 
-        <p className="text-text-secondary leading-relaxed mb-4"><strong>Ready to see your potential savings?</strong> Use our <Link href="/salary-sacrifice-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">free Salary Sacrifice Calculator</Link> to estimate your tax and NI savings instantly. Then explore our <Link href="/income-tax-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Income Tax Calculator</Link>, <Link href="/take-home-pay-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Take Home Pay Calculator</Link>, and <Link href="/pension-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Pension Calculator</Link> for a complete picture of your finances.</p>
+        <p className="text-text-secondary leading-relaxed mb-4"><strong>Ready to see your potential savings?</strong> Use our <Link href="/salary-sacrifice-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">free Salary Sacrifice Calculator</Link> to estimate your tax and NI savings instantly. Then explore our <Link href="/tax-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Income Tax Calculator</Link>, <Link href="/salary-calculator" className="text-primary-600 dark:text-primary-400 hover:underline">Take Home Pay Calculator</Link>, and Pension Calculator for a complete picture of your finances.</p>
 
         <div className="p-4 text-xs text-muted bg-surface-secondary rounded-xl border border-border/60 mt-8">
           <strong className="text-text">Disclaimer:</strong> This calculator provides estimates for illustrative purposes only. Actual tax and NI savings depend on your individual circumstances, employer policies, and current HMRC rules. Always consult a qualified tax advisor or financial professional before making decisions about salary sacrifice arrangements.

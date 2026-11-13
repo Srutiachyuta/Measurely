@@ -194,7 +194,7 @@ export function SeverancePayContent() {
             </div>
             <div className="text-sm text-muted leading-relaxed space-y-4">
               <p>
-                Our Severance Pay Calculator follows a systematic process to estimate the total compensation you may receive after a layoff or termination. It factors in your salary, years of service, employer's severance policy, and additional benefits to give you a comprehensive picture of your exit package.
+                Our Severance Pay Calculator follows a systematic process to estimate the total compensation you may receive after a layoff or termination. It factors in your salary, years of service, employer&apos;s severance policy, and additional benefits to give you a comprehensive picture of your exit package.
               </p>
               <div className="space-y-3">
                 <div className="flex items-start gap-3 p-3 rounded-xl bg-surface-secondary dark:bg-dark-800/30 border border-border/60">
@@ -258,10 +258,10 @@ export function SeverancePayContent() {
                 Severance pay is financial and benefits compensation that an employer provides to an employee whose job is eliminated through no fault of their own. It serves as a bridge between employment and the next opportunity, giving you financial runway while you search for a new position. Severance packages typically include a lump sum cash payment, continued health insurance benefits, outplacement services, and payout of accrued but unused vacation time.
               </p>
               <p>
-                Employers offer severance for several reasons. First, it maintains goodwill and protects the company's reputation during difficult transitions. Second, severance serves as consideration in exchange for signing a separation agreement that typically includes a release of legal claims against the employer. This means you give up your right to sue in exchange for the severance package. Third, severance helps retain and motivate remaining employees by demonstrating that the company treats departing staff fairly.
+                Employers offer severance for several reasons. First, it maintains goodwill and protects the company&apos;s reputation during difficult transitions. Second, severance serves as consideration in exchange for signing a separation agreement that typically includes a release of legal claims against the employer. This means you give up your right to sue in exchange for the severance package. Third, severance helps retain and motivate remaining employees by demonstrating that the company treats departing staff fairly.
               </p>
               <p>
-                It is important to understand that severance pay is not the same as your final paycheck. Your final paycheck covers wages and compensation earned up to your last day of employment — including your final week's pay, commissions already earned, and reimbursable expenses. Severance is additional compensation provided beyond what you have already earned, and it comes with legal strings attached through the separation agreement.
+                It is important to understand that severance pay is not the same as your final paycheck. Your final paycheck covers wages and compensation earned up to your last day of employment — including your final week&apos;s pay, commissions already earned, and reimbursable expenses. Severance is additional compensation provided beyond what you have already earned, and it comes with legal strings attached through the separation agreement.
               </p>
               <p>
                 Legally, severance pay is not required under US federal law. The Fair Labor Standards Act does not mandate severance, and no federal statute requires employers to provide it. However, severance may be required by your employment contract, company policy, or state law in certain circumstances. Some states like New York have specific rules about severance timing, and the WARN Act requires advance notice for mass layoffs. In other countries like Canada, the UK, and Australia, minimum severance or redundancy pay is legally mandated.
@@ -290,7 +290,7 @@ export function SeverancePayContent() {
               <h2 className="text-base font-semibold text-text">How Severance Is Calculated</h2>
             </div>
             <div className="text-sm text-muted leading-relaxed space-y-4">
-              <p>Severance pay follows a straightforward formula that starts with your weekly salary and applies your employer's severance multiplier. Here is the complete calculation broken down step by step:</p>
+              <p>Severance pay follows a straightforward formula that starts with your weekly salary and applies your employer&apos;s severance multiplier. Here is the complete calculation broken down step by step:</p>
 
               <div className="bg-dark-800/40 dark:bg-dark-900/50 border border-border/60 rounded-xl p-4 sm:p-5 font-mono text-sm space-y-2">
                 <div className="text-text font-semibold">Step 1: Calculate Weekly Salary</div>
@@ -421,7 +421,7 @@ export function SeverancePayContent() {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-primary-600 dark:text-primary-400 mb-1">Key Takeaway</p>
-                    <p className="text-xs text-muted">This marketing manager's gross severance is $13,077 (about 1.5 months of salary), but the total exit package reaches $21,981 when PTO and bonus are included. After 25% tax withholding, they receive approximately $16,486 in net compensation, providing roughly 10 weeks of income replacement during their job search.</p>
+                    <p className="text-xs text-muted">This marketing manager&apos;s gross severance is $13,077 (about 1.5 months of salary), but the total exit package reaches $21,981 when PTO and bonus are included. After 25% tax withholding, they receive approximately $16,486 in net compensation, providing roughly 10 weeks of income replacement during their job search.</p>
                   </div>
                 </div>
               </div>

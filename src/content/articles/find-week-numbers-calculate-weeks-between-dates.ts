@@ -277,7 +277,7 @@ Break your project into weekly sprints or milestones. Use the week calculator to
 Divide current inventory by weekly usage rate. If you have 5,000 units and sell 400 per week, you have 5,000 / 400 = 12.5 weeks of stock. This metric helps retailers time reorders and plan for seasonal demand fluctuations. Most businesses aim for 4-8 weeks of stock on hand.
 
 ### How do I calculate my pregnancy week-by-week?
-Pregnancy is measured from the first day of your last menstrual period (LMP). Each week is one of 40 total weeks. The current pregnancy week is calculated as: weeks = floor((current date - LMP) / 7). Our <a href="/pregnancy-week-tracker">Pregnancy Week Calculator</a> handles this automatically.
+Pregnancy is measured from the first day of your last menstrual period (LMP). Each week is one of 40 total weeks. The current pregnancy week is calculated as: weeks = floor((current date - LMP) / 7). Our Pregnancy Week Calculator handles this automatically.
 
 ### How do bi-weekly payroll periods relate to week numbers?
 Bi-weekly payroll processes every two weeks, while week numbers reset annually. A bi-weekly schedule has 26 or 27 pay periods per year. You can align payroll with week numbers by setting your pay period start to the first week of the year.

@@ -271,7 +271,7 @@ export default function QualityAudit() {
           <div className="text-center py-16">
             <CheckSquare className="w-12 h-12 text-dark-600 mx-auto mb-4" />
             <p className="text-dark-400">No audit results yet.</p>
-            <p className="text-dark-500 text-sm mt-1">Click "Run Audit" to scan the project for issues across all content types.</p>
+            <p className="text-dark-500 text-sm mt-1">Click &quot;Run Audit&quot; to scan the project for issues across all content types.</p>
           </div>
         ) : filtered.length === 0 ? (
           <div className="text-center py-16">

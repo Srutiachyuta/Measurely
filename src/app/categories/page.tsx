@@ -11,10 +11,10 @@ const breadcrumbItems: BreadcrumbItem[] = [
 ];
 
 export const metadata: Metadata = {
-  title: `All Categories | ${SITE_CONFIG.name}`,
+  title: `All Categories`,
   description: `Browse all ${CATEGORIES.length} categories of calculators. Find the right tool for finance, health, math, engineering and more.`,
   openGraph: {
-    title: `All Categories | ${SITE_CONFIG.name}`,
+    title: `All Categories`,
     description: `Browse all ${CATEGORIES.length} categories of calculators.`,
     url: `${SITE_CONFIG.url}/categories`,
     siteName: SITE_CONFIG.siteName,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `All Categories | ${SITE_CONFIG.name}`,
+    title: `All Categories`,
     description: `Browse all ${CATEGORIES.length} categories of calculators.`,
     images: [`${SITE_CONFIG.url}${SITE_CONFIG.ogImage}`],
     creator: SITE_CONFIG.twitterHandle,

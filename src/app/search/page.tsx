@@ -97,7 +97,6 @@ export default function SearchPage() {
                 setPage(0);
               }}
               className="pl-10 h-12 text-base"
-              autoFocus
               aria-label="Search calculators and articles"
             />
             {query && (

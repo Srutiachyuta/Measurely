@@ -4,13 +4,13 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from "
 
 interface AuthContextType {
   isAuthenticated: boolean
-  login: (password: string) => boolean
+  login: (password: string) => Promise<boolean>
   logout: () => void
 }
 
 const AuthContext = createContext<AuthContextType>({
   isAuthenticated: false,
-  login: () => false,
+  login: async () => false,
   logout: () => {},
 })
 
@@ -20,22 +20,22 @@ export function AdminAuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    const stored = sessionStorage.getItem("cms_auth")
-    if (stored === "true") setIsAuthenticated(true)
+    fetch("/api/cms/auth", { cache: "no-store" })
+      .then(response => setIsAuthenticated(response.ok))
+      .catch(() => setIsAuthenticated(false))
   }, [])
 
-  const login = (password: string): boolean => {
-    const valid = password === "admin123" || password === process.env.NEXT_PUBLIC_CMS_PASSWORD
-    if (valid) {
-      setIsAuthenticated(true)
-      sessionStorage.setItem("cms_auth", "true")
-    }
-    return valid
+  const login = async (password: string): Promise<boolean> => {
+    try {
+      const response = await fetch("/api/cms/auth", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ password }) })
+      setIsAuthenticated(response.ok)
+      return response.ok
+    } catch { return false }
   }
 
   const logout = () => {
     setIsAuthenticated(false)
-    sessionStorage.removeItem("cms_auth")
+    void fetch("/api/cms/auth", { method: "DELETE" })
   }
 
   return (

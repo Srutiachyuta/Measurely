@@ -8,15 +8,15 @@ import { AdSlot } from "@/components/AdSlot";
 import { ABOUT_BOTTOM } from "@/config/adPlacements";
 
 export const metadata: Metadata = {
-  title: `Editorial Policy | ${SITE_CONFIG.name}`,
+  title: `Editorial Policy`,
   description: `${SITE_CONFIG.name} editorial policy — how we create, review, and maintain accurate calculators and content.`,
   openGraph: {
-    title: `Editorial Policy | ${SITE_CONFIG.name}`,
+    title: `Editorial Policy`,
     description: `${SITE_CONFIG.name} editorial policy governing content accuracy and review processes.`,
     url: `${SITE_CONFIG.url}/editorial-policy`,
   },
   twitter: {
-    title: `Editorial Policy | ${SITE_CONFIG.name}`,
+    title: `Editorial Policy`,
     description: `${SITE_CONFIG.name} editorial policy governing content accuracy and review processes.`,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/editorial-policy` },
@@ -60,8 +60,8 @@ export default function EditorialPolicyPage() {
                 industry-standard conversion factors. The key principles guiding content creation are:
               </p>
               <ul className="list-disc pl-6 text-text-secondary space-y-2">
-                <li><strong className="text-text">Formula verification:</strong> Every calculation is cross-checked against authoritative sources — financial formulas follow standard time-value-of-money principles, health metrics use WHO and peer-reviewed medical guidelines, and unit conversions reference NIST and BIPM standards.</li>
-                <li><strong className="text-text">Test-case validation:</strong> Each tool includes predefined test cases with known outputs to verify correctness across normal, edge, and boundary conditions.</li>
+                <li><strong className="text-text">Formula verification:</strong> Our review process prioritizes checking calculations against authoritative sources — financial formulas follow standard time-value-of-money principles, health metrics use WHO and peer-reviewed medical guidelines, and unit conversions reference NIST and BIPM standards.</li>
+                <li><strong className="text-text">Test-case validation:</strong> We review example inputs and add numerical reference checks and boundary cases as calculators are maintained. An example alone is not proof that every scenario has been verified.</li>
                 <li><strong className="text-text">Real-world relevance:</strong> Tools are designed around practical use cases identified through user feedback and common calculation needs.</li>
               </ul>
             </section>

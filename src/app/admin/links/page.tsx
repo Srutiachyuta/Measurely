@@ -292,8 +292,8 @@ export default function InternalLinkManager() {
       </div>
 
       {addingTo && (
-        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" onClick={() => setAddingTo(null)}>
-          <div className="bg-dark-800 border border-dark-700 rounded-xl p-5 w-full max-w-md" onClick={(e) => e.stopPropagation()}>
+        <div role="presentation" className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" onClick={() => setAddingTo(null)}>
+          <div role="presentation" className="bg-dark-800 border border-dark-700 rounded-xl p-5 w-full max-w-md" onClick={(e) => e.stopPropagation()}>
             <h3 className="text-white font-semibold mb-3">Add Related Link to {calculators.find((c) => c.slug === addingTo)?.name || addingTo}</h3>
             <select value={addSlug} onChange={(e) => setAddSlug(e.target.value)}
               className="w-full px-3 py-2 bg-dark-900 border border-dark-700 rounded-lg text-white text-sm mb-3">

@@ -428,7 +428,7 @@ export function CdLadderCalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-background" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <nav className="flex items-center gap-2 text-sm text-muted mb-6">
           <Link href="/calculators" className="hover:text-text transition-colors">Calculators</Link>
@@ -458,7 +458,7 @@ export function CdLadderCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5 sm:col-span-2">
                   <Label htmlFor="totalInvestment" className="text-sm font-medium text-text">Total Investment Amount ($)<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="totalInvestment" type="number" placeholder="e.g., 10000" min={100} step={500} value={inputs.totalInvestment} onChange={(e) => handleChange("totalInvestment", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="totalInvestment" type="number" placeholder="e.g., 10000" min={100} step={500} value={inputs.totalInvestment} onChange={(e) => handleChange("totalInvestment", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="numCds" className="text-sm font-medium text-text">Ladder Type<span className="text-red-400 ml-0.5">*</span></Label>
@@ -501,15 +501,15 @@ export function CdLadderCalculator() {
                     <div className="grid grid-cols-3 gap-3">
                       <div className="space-y-1">
                         <Label className="text-[11px] text-muted">Term (months)</Label>
-                        <Input type="number" min={1} max={120} step={1} value={rung.termMonths} onChange={(e) => handleRungChange(i, "termMonths", e.target.value === "" ? 0 : Number(e.target.value))} className="h-10 text-sm bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                        <Input onKeyDown={handleKeyDown} type="number" min={1} max={120} step={1} value={rung.termMonths} onChange={(e) => handleRungChange(i, "termMonths", e.target.value === "" ? 0 : Number(e.target.value))} className="h-10 text-sm bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                       </div>
                       <div className="space-y-1">
                         <Label className="text-[11px] text-muted">Rate (%)</Label>
-                        <Input type="number" min={0} max={100} step={0.1} value={rung.rate} onChange={(e) => handleRungChange(i, "rate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-10 text-sm bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                        <Input onKeyDown={handleKeyDown} type="number" min={0} max={100} step={0.1} value={rung.rate} onChange={(e) => handleRungChange(i, "rate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-10 text-sm bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                       </div>
                       <div className="space-y-1">
                         <Label className="text-[11px] text-muted">Allocation (%)</Label>
-                        <Input type="number" min={0} max={100} step={0.01} value={rung.allocation} onChange={(e) => handleRungChange(i, "allocation", e.target.value === "" ? 0 : Number(e.target.value))} className="h-10 text-sm bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                        <Input onKeyDown={handleKeyDown} type="number" min={0} max={100} step={0.01} value={rung.allocation} onChange={(e) => handleRungChange(i, "allocation", e.target.value === "" ? 0 : Number(e.target.value))} className="h-10 text-sm bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                       </div>
                     </div>
                   </div>
@@ -542,11 +542,11 @@ export function CdLadderCalculator() {
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="futureRate" className="text-sm font-medium text-text">Future Rate (%)</Label>
-                  <Input id="futureRate" type="number" placeholder="e.g., 4" min={0} max={100} step={0.1} value={inputs.futureRate} onChange={(e) => handleChange("futureRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="futureRate" type="number" placeholder="e.g., 4" min={0} max={100} step={0.1} value={inputs.futureRate} onChange={(e) => handleChange("futureRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="taxRate" className="text-sm font-medium text-text">Tax Rate (%)</Label>
-                  <Input id="taxRate" type="number" placeholder="e.g., 22" min={0} max={100} step={0.1} value={inputs.taxRate} onChange={(e) => handleChange("taxRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="taxRate" type="number" placeholder="e.g., 22" min={0} max={100} step={0.1} value={inputs.taxRate} onChange={(e) => handleChange("taxRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
               </div>
 

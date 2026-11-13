@@ -49,41 +49,41 @@ export function HeroSection() {
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 lg:pt-12 pb-20 sm:pb-28 lg:pb-32">
         <div className="mx-auto max-w-3xl text-center">
           <motion.div
-            initial={{ opacity: 0, y: 12 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-primary-500/10 dark:bg-primary-500/20 text-primary-600 dark:text-primary-400 text-xs sm:text-sm font-medium mb-6 border border-primary-500/20"
           >
             <Sparkles className="h-3.5 w-3.5" />
-            <span>{calculators.length}+ Free Calculators & AI Tools</span>
+            <span>{calculators.length} Free Online Calculators</span>
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]"
           >
-            The Smartest Place for{" "}
-            <span className="text-gradient">Online Calculators</span>
+            Clear answers for{" "}
+            <span className="text-gradient">everyday decisions</span>
             <br className="hidden sm:block" />
-            <span className="text-text">& </span>
-            <span className="text-gradient-cyan">AI Tools</span>
+            <span className="text-text">With </span>
+            <span className="text-gradient-cyan">tools you can use</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
             className="mt-6 text-base sm:text-lg md:text-xl text-text-secondary leading-relaxed mx-auto max-w-[700px]"
           >
-            Access hundreds of powerful free calculators and AI-powered tools
+            Explore free calculators with clear inputs and practical guides
             for finance, health, math, engineering, and everyday life. Instant
             results, no signup required.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
             className="mt-10 mx-auto max-w-xl"
@@ -121,7 +121,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
             className="mt-8"
@@ -141,7 +141,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
             className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted"

@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import { SITE, DEFAULT_SEO } from "@/lib/constants";
 import { Providers } from "@/components/layout/providers";
 import { SiteShell } from "@/components/layout/site-shell";
@@ -8,16 +7,11 @@ import { Analytics } from "@/components/seo/analytics";
 import { ThirdPartyScripts } from "@/lib/thirdPartyScripts";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: {
     default: DEFAULT_SEO.title,
-    template: `%s | ${SITE.name}`,
+    template: "%s",
   },
   description: DEFAULT_SEO.description,
   keywords: [...SITE.keywords],
@@ -39,12 +33,7 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  alternates: {
-    canonical: SITE.url,
-    languages: {
-      "en": SITE.url,
-    },
-  },
+
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -78,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" className={`${inter.variable} h-full antialiased`} suppressHydrationWarning data-scroll-behavior="smooth">
+    <html lang="en" dir="ltr" className="h-full antialiased" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

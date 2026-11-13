@@ -64,9 +64,9 @@ export function Newsletter({ variant = "sidebar" }: NewsletterProps) {
       return (
         <div className="p-5 rounded-2xl bg-gradient-to-br from-accent-green/5 to-accent-green/10 dark:from-accent-green/10 dark:to-accent-green/20 border border-accent-green/20 text-center">
           <CheckCircle2 className="h-8 w-8 text-accent-green mx-auto mb-2" />
-          <h3 className="font-semibold text-text mb-1">You&apos;re Subscribed!</h3>
+          <h3 className="font-semibold text-text mb-1">Request sent</h3>
           <p className="text-xs text-text-secondary leading-relaxed">
-            Thanks for subscribing. We&apos;ll send you the latest articles and guides.
+            Your request was sent. Delivery could not be confirmed here; please check for a confirmation email.
           </p>
         </div>
       );
@@ -141,7 +141,7 @@ export function Newsletter({ variant = "sidebar" }: NewsletterProps) {
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-text mb-3">You&apos;re In!</h2>
           <p className="text-text-secondary mb-6">
-            Thanks for subscribing. We&apos;ll send you the latest articles, guides, and new tool announcements.
+            Your request was sent. Delivery could not be confirmed here; please check for a confirmation email.
           </p>
           <button
             onClick={() => setSubmitted(false)}

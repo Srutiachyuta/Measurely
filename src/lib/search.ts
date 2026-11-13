@@ -293,7 +293,7 @@ export function getHighlightSegments(text: string, query: string): { text: strin
     .filter((kw) => kw.length >= 2);
 
   let remaining = text;
-  let pos = 0;
+  const pos = 0;
 
   while (remaining.length > 0) {
     let bestMatch: { index: number; keyword: string } | null = null;

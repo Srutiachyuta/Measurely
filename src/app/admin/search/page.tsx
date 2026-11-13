@@ -132,7 +132,7 @@ export default function SiteSearchPage() {
         <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-dark-400" />
         <input ref={inputRef} type="text" value={query} onChange={(e) => setQuery(e.target.value)}
           className="w-full pl-12 pr-4 py-3.5 bg-dark-800 border-2 border-dark-700 focus:border-primary-500 rounded-xl text-white placeholder-dark-400 text-lg focus:outline-none transition-colors"
-          placeholder="Search anything... (Ctrl+K)" autoFocus />
+          placeholder="Search anything... (Ctrl+K)" />
         {query && (
           <button onClick={() => setQuery("")} className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-500 hover:text-white text-sm">Clear</button>
         )}

@@ -10,13 +10,11 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { PremiumSkeleton } from "@/components/ui/premium-skeleton";
 import { CalculatorForm } from "./calculator-form";
 import { CalculatorResults } from "./calculator-results";
+import { SaveCalculation } from "./saved-calculations";
 import { AdSlot } from "@/components/AdSlot";
 import { CALCULATOR_AFTER_RESULT, CALCULATOR_BEFORE_FAQ } from "@/config/adPlacements";
 import type { CalculatorDefinition, CalculatorResult, ChartConfig } from "@/types/calculators";
 import { calculators } from "@/data/calculators";
-import { ToolBlogLink, ToolContentSections } from "@/components/tool-content";
-import { findBlogsForTool } from "@/lib/tool-content";
-import { getRelatedToolsByCategory, getRelatedArticlesByCategory } from "@/lib/tool-relations";
 import { RelatedTools } from "@/components/tool/related-tools";
 import { RelatedArticles } from "@/components/tool/related-articles";
 import { ToolFAQ } from "@/components/tool/tool-faq";
@@ -28,9 +26,11 @@ import { motion } from "framer-motion";
 
 interface CalculatorLayoutProps {
   slug: string;
+  children?: React.ReactNode;
+  relatedArticles?: import("@/types").BlogPost[];
 }
 
-export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
+export function CalculatorLayout({ slug, children, relatedArticles = [] }: CalculatorLayoutProps) {
   const definition = calculators.find((c) => c.slug === slug)!;
 
   const [values, setValues] = useState<Record<string, number | string>>(() => {
@@ -45,6 +45,7 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
   const [chart, setChart] = useState<ChartConfig | null>(null);
   const [isCalculating, setIsCalculating] = useState(false);
   const [hasCalculated, setHasCalculated] = useState(false);
+  const [calculationError, setCalculationError] = useState("");
   const calcTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   useEffect(() => () => clearTimeout(calcTimeoutRef.current), []);
@@ -56,14 +57,14 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
       const errs: Record<string, string> = {};
       for (const input of definition.inputs) {
         const val = vals[input.key];
-        if (input.required === false && (!val || val === "")) continue;
+        if (input.required === false && (val === undefined || val === "")) continue;
         if (input.type === "date" || input.type === "time") {
           if (!val || val === "") {
             errs[input.key] = `Please select a ${input.label.toLowerCase()}`;
           }
         } else if (input.type === "number" && val !== "") {
           const num = Number(val);
-          if (isNaN(num)) errs[input.key] = "Please enter a valid value";
+          if (!Number.isFinite(num)) errs[input.key] = "Please enter a valid value";
           else if (input.min !== undefined && num < input.min)
             errs[input.key] = `Minimum value is ${input.min}`;
           else if (input.max !== undefined && num > input.max)
@@ -82,6 +83,14 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
   const handleChange = useCallback(
     (key: string, value: number | string) => {
       const newValues = { ...values, [key]: value };
+      if (definition.slug === "matrix-calculator" && key === "matrixSize") {
+        const size = Number(value) === 3 ? 3 : 2;
+        for (const matrixKey of ["matrixA", "matrixB"]) {
+          let previous: (string | number)[][] = [];
+          try { previous = JSON.parse(String(values[matrixKey])); } catch { previous = []; }
+          newValues[matrixKey] = JSON.stringify(Array.from({length: size}, (_, row) => Array.from({length: size}, (_, column) => previous[row]?.[column] ?? 0)));
+        }
+      }
       setValues(newValues);
       const errs = validate(newValues);
       setErrors(errs);
@@ -113,6 +122,8 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
       return;
     }
 
+    setCalculationError("");
+    clearTimeout(calcTimeoutRef.current);
     setIsCalculating(true);
 
     calcTimeoutRef.current = setTimeout(() => {
@@ -120,7 +131,7 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
         const computed = definition.compute(values);
         const mapped = computed.map((r) => ({
           ...r,
-          value: typeof r.value === "number" && isNaN(r.value) ? "---" : r.value,
+          value: typeof r.value === "number" && !Number.isFinite(r.value) ? "Unavailable: check input values" : r.value,
         }));
         setResults(mapped);
 
@@ -132,16 +143,20 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
         }
 
         setHasCalculated(true);
-      } catch {
+      } catch (error) {
+        setCalculationError(error instanceof Error ? error.message : "Check your inputs and try again.");
         setResults([]);
         setChart(null);
       } finally {
         setIsCalculating(false);
       }
-    }, 300);
+    }, 0);
   }, [values, definition, validate]);
 
   const handleReset = useCallback(() => {
+    clearTimeout(calcTimeoutRef.current);
+    setIsCalculating(false);
+    setCalculationError("");
     const initial: Record<string, number | string> = {};
     for (const input of definition.inputs) {
       initial[input.key] = input.defaultValue ?? "";
@@ -155,7 +170,7 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
 
   const handleLoadExample = useCallback(() => {
     if (definition.example.inputs) {
-      const newVals: Record<string, number | string> = {};
+      const newVals: Record<string, number | string> = Object.fromEntries(definition.inputs.map(input => [input.key, input.defaultValue ?? ""]));
       for (const [key, value] of Object.entries(definition.example.inputs)) {
         newVals[key] = value;
       }
@@ -165,7 +180,7 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
       setChart(null);
       setHasCalculated(false);
     }
-  }, [definition.example.inputs]);
+  }, [definition.example.inputs, definition.inputs]);
 
   const relatedTools = useMemo(
     () =>
@@ -175,10 +190,10 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
     [definition.relatedSlugs]
   );
 
-  const relatedBlogs = useMemo(() => findBlogsForTool(slug), [slug]);
+  const relatedBlogs = relatedArticles;
 
-  const autoRelatedTools = useMemo(() => getRelatedToolsByCategory(slug, 6), [slug]);
-  const autoRelatedArticles = useMemo(() => getRelatedArticlesByCategory(slug, 6), [slug]);
+  const autoRelatedTools = useMemo(() => calculators.filter(tool => tool.slug !== slug && tool.category === definition.category).slice(0, 6), [slug]);
+  const autoRelatedArticles = useMemo(() => relatedArticles, [slug]);
 
   const displayRelatedTools = relatedTools.length > 0 ? relatedTools : autoRelatedTools;
   const displayRelatedArticles = relatedBlogs.length > 0 ? relatedBlogs : autoRelatedArticles;
@@ -190,7 +205,7 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
         {/* Breadcrumb */}
         <div className="flex items-center justify-between mb-6">
           <nav className="flex items-center gap-2 text-sm text-muted">
-            <a href="/calculators" className="hover:text-text transition-colors">Calculators</a>
+            <Link href="/calculators" className="hover:text-text transition-colors">Calculators</Link>
             <span>/</span>
             <span className="text-text">{definition.name}</span>
           </nav>
@@ -243,6 +258,7 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
                   chart={chart}
                   onReset={handleReset}
                 />
+                <SaveCalculation slug={slug} name={definition.name} results={results} />
               </div>
             ) : (
               <div className="bg-surface-secondary rounded-2xl border border-border p-8 text-center">
@@ -251,6 +267,8 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
                 <p className="text-sm text-muted">Enter values and click Calculate to see results.</p>
               </div>
             )}
+
+            {calculationError && <p role="alert" className="rounded-xl border border-red-300 bg-red-50 p-4 text-sm text-red-800 dark:bg-red-950 dark:text-red-200">{calculationError}</p>}
 
             {/* Example */}
             {definition.example.inputs && Object.keys(definition.example.inputs).length > 0 && (
@@ -327,7 +345,6 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
               <RecentlyUsed />
               <RelatedTools tools={displayRelatedTools} maxCount={8} />
               <RelatedArticles articles={displayRelatedArticles} maxCount={6} />
-              <ToolBlogLink slug={slug} />
               <TableOfContents contentSelector="[data-tool-content]" />
 
               <Link
@@ -344,7 +361,7 @@ export function CalculatorLayout({ slug }: CalculatorLayoutProps) {
         <AdSlot placement={CALCULATOR_BEFORE_FAQ} />
 
         <div data-tool-content>
-          <ToolContentSections slug={slug} />
+          {children}
         </div>
 
         {/* FAQ */}

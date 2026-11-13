@@ -1,3 +1,6 @@
+import { indianSalaryTax } from "@/lib/india-tax";
+import { loanPayment, annuityValue } from "@/lib/finance-math";
+import { evaluateExpression, matrixCalculation } from "@/lib/math-expression";
 import type { CalculatorDefinition, CalculatorResult } from "@/types/calculators";
 import {
   Calculator,
@@ -68,7 +71,7 @@ export const calculators: CalculatorDefinition[] = [
       const tenure = Number(inputs.tenure);
       const N = inputs.tenureType === "years" ? tenure * 12 : tenure;
       const monthlyRate = R / 12 / 100;
-      const emi = P * monthlyRate * Math.pow(1 + monthlyRate, N) / (Math.pow(1 + monthlyRate, N) - 1);
+      const emi = loanPayment(P, monthlyRate, N);
       const totalPayment = emi * N;
       const totalInterest = totalPayment - P;
       return [
@@ -128,7 +131,7 @@ export const calculators: CalculatorDefinition[] = [
       const term = Number(inputs.loanTerm);
       const N = inputs.termType === "years" ? term * 12 : term;
       const monthlyRate = R / 12 / 100;
-      const monthly = P * monthlyRate * Math.pow(1 + monthlyRate, N) / (Math.pow(1 + monthlyRate, N) - 1);
+      const monthly = loanPayment(P, monthlyRate, N);
       const total = monthly * N;
       const interest = total - P;
       return [
@@ -197,7 +200,7 @@ export const calculators: CalculatorDefinition[] = [
       const years = Number(inputs.loanTerm);
       const N = years * 12;
       const monthlyRate = R / 12 / 100;
-      const pi = P * monthlyRate * Math.pow(1 + monthlyRate, N) / (Math.pow(1 + monthlyRate, N) - 1);
+      const pi = loanPayment(P, monthlyRate, N);
       const taxMonthly = Number(inputs.propertyTax) / 12;
       const insuranceMonthly = Number(inputs.insurance) / 12;
       const totalMonthly = pi + taxMonthly + insuranceMonthly;
@@ -373,7 +376,7 @@ export const calculators: CalculatorDefinition[] = [
       const tenure = Number(inputs.tenure);
       const n = inputs.tenureType === "years" ? tenure * 12 : tenure;
       const monthlyRate = R / 12 / 100;
-      const maturity = P * (Math.pow(1 + monthlyRate, n) - 1) / monthlyRate * (1 + monthlyRate);
+      const maturity = annuityValue(P, monthlyRate, n, true);
       const invested = P * n;
       const returns = maturity - invested;
       return [
@@ -560,7 +563,7 @@ export const calculators: CalculatorDefinition[] = [
       const years = Number(inputs.tenure);
       const n = years * 12;
       const monthlyRate = rate / 12 / 100;
-      const maturity = R * (Math.pow(1 + monthlyRate, n) - 1) / (1 - Math.pow(1 + monthlyRate, -1 / 3));
+      const maturity = annuityValue(R, Math.pow(1 + rate / 400, 1 / 3) - 1, n, true);
       const invested = R * n;
       return [
         { label: "Maturity Amount", key: "maturityAmount", value: Math.round(maturity * 100) / 100, unit: "₹", color: "green" },
@@ -722,44 +725,19 @@ export const calculators: CalculatorDefinition[] = [
     name: "Tax Calculator",
     slug: "tax-calculator",
     category: "finance",
-    description: "Estimate your income tax liability under old and new tax regimes.",
+    description: "India AY 2026–27 salary estimate for resident individuals under 60, up to ₹50 lakh. Excludes surcharge, special-rate income and credits.",
     metaTitle: "Tax Calculator | Free Online Income Tax Calculator",
     metaDescription: "Calculate your income tax with our free tax calculator. Compare old and new tax regimes.",
     inputs: [
-      { label: "Annual Income", key: "income", type: "number", placeholder: "e.g., 1200000", min: 1, step: 10000, defaultValue: 1200000 },
+      { label: "Gross Annual Salary (₹, AY 2026–27)", key: "income", type: "number", placeholder: "e.g., 1200000", min: 0, max: 5000000, step: 10000, defaultValue: 1200000 },
       { label: "Tax Regime", key: "regime", type: "radio", options: [
         { label: "New Regime", value: "new" }, { label: "Old Regime", value: "old" },
       ], defaultValue: "new" },
+      {label: "Eligible old-regime deductions (excluding standard deduction)", key: "oldDeductions", type: "number", min: 0, defaultValue: 0, required: false},
     ],
     compute: (inputs) => {
       const income = Number(inputs.income);
-      let tax = 0;
-      if (inputs.regime === "new") {
-        const remaining = income;
-        const slabs = [{ limit: 300000, rate: 0 }, { limit: 600000, rate: 5 }, { limit: 900000, rate: 10 }, { limit: 1200000, rate: 15 }, { limit: 1500000, rate: 20 }];
-        let prevLimit = 0;
-        for (const s of slabs) {
-          const taxable = Math.min(Math.max(remaining - prevLimit, 0), s.limit - prevLimit);
-          tax += taxable * s.rate / 100;
-          prevLimit = s.limit;
-          if (remaining <= s.limit) break;
-        }
-        if (remaining > 1500000) tax += (remaining - 1500000) * 30 / 100;
-        if (income <= 1200000) tax = 0;
-      } else {
-        const taxable = Math.max(0, income - 50000 - 150000);
-        const remaining = taxable;
-        const slabs = [{ limit: 250000, rate: 0 }, { limit: 500000, rate: 5 }, { limit: 1000000, rate: 20 }];
-        let prevLimit = 0;
-        for (const s of slabs) {
-          const t = Math.min(Math.max(remaining - prevLimit, 0), s.limit - prevLimit);
-          tax += t * s.rate / 100;
-          prevLimit = s.limit;
-          if (remaining <= s.limit) break;
-        }
-        if (remaining > 1000000) tax += (remaining - 1000000) * 30 / 100;
-        if (taxable <= 500000) tax = 0;
-      }
+      let { tax } = indianSalaryTax(income, String(inputs.regime), Number(inputs.oldDeductions) || 0);
       tax = Math.round(tax * 100) / 100;
       const cess = Math.round(tax * 4 / 100 * 100) / 100;
       const totalTax = Math.round((tax + cess) * 100) / 100;
@@ -769,7 +747,7 @@ export const calculators: CalculatorDefinition[] = [
         { label: "Total Tax Payable", key: "totalTax", value: totalTax, unit: "₹", color: "red" },
         { label: "Monthly Tax", key: "monthlyTax", value: Math.round(totalTax / 12 * 100) / 100, unit: "₹/mo", color: "default" },
         { label: "Effective Tax Rate", key: "effectiveRate", value: income > 0 ? Math.round(totalTax / income * 10000) / 100 : 0, unit: "%", color: "default" },
-        { label: "Monthly In-Hand", key: "inHandMonthly", value: Math.round((income / 12 - totalTax / 12) * 100) / 100, unit: "₹/mo", color: "green" },
+        { label: "Monthly After Income Tax (before other payroll deductions)", key: "inHandMonthly", value: Math.round((income / 12 - totalTax / 12) * 100) / 100, unit: "₹/mo", color: "green" },
       ];
     },
     chart: (results) => {
@@ -779,9 +757,9 @@ export const calculators: CalculatorDefinition[] = [
       return {
         type: "doughnut",
         data: {
-          labels: ["Income Tax", "Cess", "Take-Home (Monthly)"],
+          labels: ["Income Tax", "Cess", "After-Tax Salary (Annual)"],
           datasets: [{
-            data: [incomeTax, cess, inHand],
+            data: [incomeTax, cess, inHand * 12],
             backgroundColor: ["rgba(239, 68, 68, 0.8)", "rgba(245, 158, 11, 0.8)", "rgba(34, 197, 94, 0.8)"],
             borderColor: ["rgba(239, 68, 68, 1)", "rgba(245, 158, 11, 1)", "rgba(34, 197, 94, 1)"],
             borderWidth: 2,
@@ -808,13 +786,16 @@ export const calculators: CalculatorDefinition[] = [
     name: "Salary Calculator",
     slug: "salary-calculator",
     category: "finance",
-    description: "Calculate your in-hand salary from CTC with breakup and deductions.",
+    description: "Estimate take-home pay from CTC, employer costs, employee PF and deductions you enter. Tax is not calculated automatically.",
     metaTitle: "Salary Calculator | Calculate In-Hand Salary from CTC",
     metaDescription: "Free salary calculator to estimate your in-hand salary from CTC with detailed breakup of components and deductions.",
     inputs: [
       { label: "Annual CTC", key: "ctc", type: "number", placeholder: "e.g., 1800000", min: 1, step: 10000, defaultValue: 1800000 },
       { label: "Basic Salary %", key: "basicPercent", type: "number", placeholder: "e.g., 50", min: 10, max: 80, step: 1, defaultValue: 50 },
       { label: "HRA % of Basic", key: "hraPercent", type: "number", placeholder: "e.g., 50", min: 0, max: 100, step: 1, defaultValue: 50 },
+      {label: "Annual Employer Benefits Included in CTC", key: "employerCosts", type: "number", min: 0, defaultValue: 0},
+      {label: "Annual Income Tax Withheld", key: "annualTax", type: "number", min: 0, defaultValue: 0},
+      {label: "Other Annual Employee Deductions", key: "otherDeductions", type: "number", min: 0, defaultValue: 0},
     ],
     compute: (inputs) => {
       const ctc = Number(inputs.ctc);
@@ -822,9 +803,12 @@ export const calculators: CalculatorDefinition[] = [
       const hraPct = Number(inputs.hraPercent);
       const annualBasic = Math.round(ctc * basicPct / 100 * 100) / 100;
       const annualHRA = Math.round(annualBasic * hraPct / 100 * 100) / 100;
-      const annualGross = Math.round((annualBasic + annualHRA) * 100) / 100;
-      const annualPF = Math.round(Math.min(annualBasic * 12 / 100, 180000) * 100) / 100;
-      const inHandAnnual = Math.round((annualGross - annualPF) * 100) / 100;
+      const annualGross = ctc - Number(inputs.employerCosts || 0);
+      const deductions = Number(inputs.annualTax || 0) + Number(inputs.otherDeductions || 0);
+      if (annualGross < annualBasic + annualHRA) throw new Error("Basic plus HRA cannot exceed gross salary. Adjust the salary percentages or employer costs.");
+      const annualPF = Math.round(annualBasic * 12 / 100 * 100) / 100;
+      const inHandAnnual = Math.round((annualGross - annualPF - deductions) * 100) / 100;
+      if (annualGross < annualPF + deductions) throw new Error("Deductions cannot exceed gross salary.");
       return [
         { label: "Annual Gross Salary", key: "annualGross", value: annualGross, unit: "₹", color: "blue" },
         { label: "Monthly Gross", key: "monthlyGross", value: Math.round(annualGross / 12 * 100) / 100, unit: "₹/mo", color: "default" },
@@ -840,9 +824,9 @@ export const calculators: CalculatorDefinition[] = [
       return {
         type: "doughnut",
         data: {
-          labels: ["Gross Salary", "PF Deduction", "In-Hand Salary"],
+          labels: ["Tax and Other Deductions", "PF Deduction", "In-Hand Salary"],
           datasets: [{
-            data: [gross, pf, inHand],
+            data: [gross - pf - inHand, pf, inHand],
             backgroundColor: ["rgba(99, 102, 241, 0.8)", "rgba(239, 68, 68, 0.8)", "rgba(34, 197, 94, 0.8)"],
             borderColor: ["rgba(99, 102, 241, 1)", "rgba(239, 68, 68, 1)", "rgba(34, 197, 94, 1)"],
             borderWidth: 2,
@@ -987,7 +971,7 @@ export const calculators: CalculatorDefinition[] = [
       const familySize = Number(inputs.familySize);
       const plan = inputs.repaymentPlan as string;
 
-      let effectiveTerm = plan === "extended" ? Math.max(years, 25) : plan === "ibr" ? 25 : years;
+      const effectiveTerm = plan === "extended" ? Math.max(years, 25) : plan === "ibr" ? 25 : years;
       const N_total = effectiveTerm * 12;
 
       let monthlyPayment: number;
@@ -1751,12 +1735,15 @@ export const calculators: CalculatorDefinition[] = [
     description: "Full scientific calculator with trigonometric, logarithmic, and advanced functions.",
     metaTitle: "Scientific Calculator | Free Online Scientific Calculator",
     metaDescription: "Free online scientific calculator with trigonometric, logarithmic, exponential, and advanced mathematical functions.",
-    inputs: [],
-    compute: () => [],
-    example: { inputs: {}, results: [] },
+    inputs: [
+      { label: "Expression (for example sqrt(9) + 2^3)", key: "expression", type: "text", defaultValue: "sqrt(9) + 2^3" },
+      { label: "Angle mode", key: "angleMode", type: "select", options: [{label: "Radians", value: "radians"}, {label: "Degrees", value: "degrees"}], defaultValue: "radians" },
+    ],
+    compute: (inputs) => [{ label: "Result", key: "result", value: evaluateExpression(String(inputs.expression), inputs.angleMode === "degrees"), color: "green" }],
+    example: { inputs: { expression: "sqrt(9) + 2^3", angleMode: "radians" }, results: [{label: "Result", key: "result", value: 11}] },
     faqs: [
-      { question: "What functions are available?", answer: "Basic arithmetic, trig functions (sin, cos, tan), log, ln, sqrt, power, pi, e, and memory." },
-      { question: "How to use trigonometric functions?", answer: "Enter a number then press sin, cos, or tan. Use inv for inverse functions." },
+      { question: "What functions are available?", answer: "Arithmetic (+, -, *, /, ^), sin, cos, tan, asin, acos, atan, log, ln, sqrt, abs, exp, fact, pi and e. Use parentheses after functions." },
+      { question: "How to use trigonometric functions?", answer: "Enter sin(30), cos(60) or tan(45) and select Degrees, or select Radians for radian inputs. Use asin, acos and atan for inverse functions." },
       { question: "What is the difference between log and ln?", answer: "Log is base 10 logarithm. Ln is natural logarithm with base e (approximately 2.71828)." },
       { question: "How do I calculate powers and roots?", answer: "Use the power key (x^y or ^) for exponents. Use the sqrt key for square roots or the y-root function for other roots." },
       { question: "What is scientific notation?", answer: "Scientific notation expresses numbers as a x 10^b, like 6.022 x 10^23. Use EE or EXP key to enter the exponent." },
@@ -1782,9 +1769,11 @@ export const calculators: CalculatorDefinition[] = [
         { label: "Add (A+B)", value: "add" }, { label: "Subtract (A-B)", value: "subtract" },
         { label: "Multiply (AxB)", value: "multiply" },
       ], defaultValue: "add" },
+      { label: "Matrix A entries", key: "matrixA", type: "text", defaultValue: "[[1,2],[3,4]]" },
+      { label: "Matrix B entries", key: "matrixB", type: "text", defaultValue: "[[5,6],[7,8]]" },
     ],
-    compute: () => [],
-    example: { inputs: { matrixSize: "2", matrixOp: "add" }, results: [] },
+    compute: (inputs) => [{ label: "Result matrix (rows separated by semicolons)", key: "matrix", value: matrixCalculation(String(inputs.matrixA), String(inputs.matrixB), Number(inputs.matrixSize), String(inputs.matrixOp)), color: "green" }],
+    example: { inputs: { matrixSize: "2", matrixOp: "add", matrixA: "[[1,2],[3,4]]", matrixB: "[[5,6],[7,8]]" }, results: [] },
     faqs: [
       { question: "What are the rules?", answer: "Addition/subtraction needs same dimensions. Multiplication needs columns of A = rows of B." },
       { question: "Is multiplication commutative?", answer: "No, A x B does not equal B x A in most cases." },
@@ -3207,9 +3196,9 @@ export const calculators: CalculatorDefinition[] = [
       const maxDebtRatio = income / 12 * 0.36 - debts;
       const affordablePayment = Math.min(maxPayment, maxDebtRatio);
 
-      const principal = affordablePayment > 0 ? affordablePayment * (Math.pow(1 + rate, term) - 1) / (rate * Math.pow(1 + rate, term)) : 0;
+      const principal = affordablePayment > 0 ? affordablePayment / loanPayment(1, rate, term) : 0;
       const homePrice = principal + down;
-      const monthlyPI = principal * rate * Math.pow(1 + rate, term) / (Math.pow(1 + rate, term) - 1);
+      const monthlyPI = loanPayment(principal, rate, term);
       const monthlyTax = homePrice * taxRate / 12;
       const totalMonthly = monthlyPI + monthlyTax + insurance;
 
@@ -3288,7 +3277,7 @@ export const calculators: CalculatorDefinition[] = [
       const years = Number(inputs.timeHorizon);
       const invReturn = Number(inputs.investmentReturn) / 100 / 12;
 
-      const monthlyPI = loanAmount * rate * Math.pow(1 + rate, term) / (Math.pow(1 + rate, term) - 1);
+      const monthlyPI = loanPayment(loanAmount, rate, term);
       const taxEst = homePrice * 0.012 / 12;
       const insuranceEst = 1200 / 12;
       const maintenanceEst = homePrice * 0.01 / 12;
@@ -4147,9 +4136,9 @@ export const calculators: CalculatorDefinition[] = [
       const stressTestRate = Math.max(rate + 0.02, 0.0525);
       const numPayments = amortYears * 12;
       const monthlyContractRate = rate / 12;
-      const monthlyPaymentContract = mortgage * monthlyContractRate * Math.pow(1 + monthlyContractRate, numPayments) / (Math.pow(1 + monthlyContractRate, numPayments) - 1);
+      const monthlyPaymentContract = loanPayment(mortgage, monthlyContractRate, numPayments);
       const monthlyStressRate = stressTestRate / 12;
-      const monthlyPaymentStress = mortgage * monthlyStressRate * Math.pow(1 + monthlyStressRate, numPayments) / (Math.pow(1 + monthlyStressRate, numPayments) - 1);
+      const monthlyPaymentStress = loanPayment(mortgage, monthlyStressRate, numPayments);
       const monthlyPropertyTax = propertyPrice * taxRate / 12;
       const grossMonthlyIncome = annualIncome / 12;
       const gds = (monthlyPaymentStress + monthlyPropertyTax + heating) / grossMonthlyIncome;
@@ -4508,7 +4497,7 @@ export const calculators: CalculatorDefinition[] = [
       };
       const bracketSet = brackets[filingStatus] || brackets.single;
       let incomeTax = 0;
-      let remaining = taxableIncome;
+      const remaining = taxableIncome;
       let prevLimit = 0;
       for (const b of bracketSet) {
         const taxable = Math.min(Math.max(remaining - prevLimit, 0), b.limit - prevLimit);
@@ -4862,7 +4851,7 @@ export const calculators: CalculatorDefinition[] = [
       const P = currentInvestments;
       const PMT = monthlyInvestment * 12;
 
-      const fv = P * Math.pow(1 + r, n) + PMT * ((Math.pow(1 + r, n) - 1) / r);
+      const fv = P * Math.pow(1 + r, n) + annuityValue(PMT, r, n);
 
       const investmentGap = Math.max(0, fireNumber - fv);
       const monthlyIncome = fireNumber * withdrawalRate / 12;
@@ -4898,7 +4887,7 @@ export const calculators: CalculatorDefinition[] = [
       for (let y = 0; y <= years; y++) {
         const age = currentAge + y;
         labels.push(String(age));
-        const fv = P * Math.pow(1 + r, y) + PMT * ((Math.pow(1 + r, y) - 1) / r);
+        const fv = P * Math.pow(1 + r, y) + annuityValue(PMT, r, y);
         portfolioValues.push(Math.round(fv * 100) / 100);
         fireTargetLine.push(fireNumber);
       }
@@ -5997,7 +5986,7 @@ export const calculators: CalculatorDefinition[] = [
     ],
     compute: (inputs) => {
       const contribution = Number(inputs.annualContribution) || 0;
-      const federalRate = (Number(inputs.federalRate) || 22) / 100;
+      const federalRate = (Number(inputs.federalRate) || 0) / 100;
       const stateRate = (Number(inputs.stateRate) || 0) / 100;
       const ficaRate = 0.0765;
       const federalSavings = contribution * federalRate;

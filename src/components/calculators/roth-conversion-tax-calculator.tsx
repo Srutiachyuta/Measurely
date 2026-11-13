@@ -293,7 +293,7 @@ function calculate(inputs: Inputs): Results {
   const portfolioGrowthTraditional = traditionalIraBalance * Math.pow(1 + expectedReturn, yearsToRetirement);
   const retirementPortfolio = portfolioGrowthTraditional;
 
-  let rangeLow = Math.max(5000, Math.floor(currentTaxableIncome * 0.05 / 1000) * 1000);
+  const rangeLow = Math.max(5000, Math.floor(currentTaxableIncome * 0.05 / 1000) * 1000);
   let rangeHigh = Math.min(traditionalIraBalance, Math.ceil(currentTaxableIncome * 0.15 / 1000) * 1000);
   if (rangeLow >= rangeHigh) {
     rangeHigh = rangeLow + 10000;
@@ -545,10 +545,10 @@ export function RothConversionTaxCalculator() {
     "Head of Household";
 
   return (
-    <div className="min-h-screen bg-background" onKeyDown={handleKeyDown}>
+    <div className="min-h-screen bg-background">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <nav className="flex items-center gap-2 text-sm text-muted mb-6">
-          <a href="/calculators" className="hover:text-text transition-colors">Calculators</a>
+          <Link href="/calculators" className="hover:text-text transition-colors">Calculators</Link>
           <span>/</span>
           <span className="text-text">Roth Conversion Tax Calculator</span>
         </nav>
@@ -581,12 +581,12 @@ export function RothConversionTaxCalculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="age" className="text-sm font-medium text-text">Age<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="age" type="number" placeholder="e.g., 40" min={0} max={120} step={1} value={inputs.age} onChange={(e) => handleChange("age", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="age" type="number" placeholder="e.g., 40" min={0} max={120} step={1} value={inputs.age} onChange={(e) => handleChange("age", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="retirementAge" className="text-sm font-medium text-text">Retirement Age<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="retirementAge" type="number" placeholder="e.g., 65" min={1} max={120} step={1} value={inputs.retirementAge} onChange={(e) => handleChange("retirementAge", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="retirementAge" type="number" placeholder="e.g., 65" min={1} max={120} step={1} value={inputs.retirementAge} onChange={(e) => handleChange("retirementAge", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -621,35 +621,35 @@ export function RothConversionTaxCalculator() {
 
                 <div className="space-y-1.5">
                   <Label htmlFor="annualIncome" className="text-sm font-medium text-text">Annual Income ($)<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="annualIncome" type="number" placeholder="e.g., 120000" min={0} step={1000} value={inputs.annualIncome} onChange={(e) => handleChange("annualIncome", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="annualIncome" type="number" placeholder="e.g., 120000" min={0} step={1000} value={inputs.annualIncome} onChange={(e) => handleChange("annualIncome", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="otherIncome" className="text-sm font-medium text-text">Other Income ($)</Label>
-                  <Input id="otherIncome" type="number" placeholder="e.g., 5000" min={0} step={500} value={inputs.otherIncome} onChange={(e) => handleChange("otherIncome", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="otherIncome" type="number" placeholder="e.g., 5000" min={0} step={500} value={inputs.otherIncome} onChange={(e) => handleChange("otherIncome", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="socialSecurity" className="text-sm font-medium text-text">Social Security Income ($)</Label>
-                  <Input id="socialSecurity" type="number" placeholder="e.g., 0" min={0} step={500} value={inputs.socialSecurity} onChange={(e) => handleChange("socialSecurity", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="socialSecurity" type="number" placeholder="e.g., 0" min={0} step={500} value={inputs.socialSecurity} onChange={(e) => handleChange("socialSecurity", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="traditionalIraBalance" className="text-sm font-medium text-text">Traditional IRA Balance ($)<span className="text-red-400 ml-0.5">*</span></Label>
-                  <Input id="traditionalIraBalance" type="number" placeholder="e.g., 500000" min={0} step={10000} value={inputs.traditionalIraBalance} onChange={(e) => handleChange("traditionalIraBalance", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="traditionalIraBalance" type="number" placeholder="e.g., 500000" min={0} step={10000} value={inputs.traditionalIraBalance} onChange={(e) => handleChange("traditionalIraBalance", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="conversionAmount" className="text-sm font-medium text-text">One-Time Conversion Amount ($)</Label>
                   <div className="relative">
-                    <Input id="conversionAmount" type="number" placeholder="e.g., 50000" min={0} step={1000} value={inputs.conversionAmount} onChange={(e) => handleChange("conversionAmount", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                    <Input onKeyDown={handleKeyDown} id="conversionAmount" type="number" placeholder="e.g., 50000" min={0} step={1000} value={inputs.conversionAmount} onChange={(e) => handleChange("conversionAmount", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                   </div>
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="annualPlannedConversion" className="text-sm font-medium text-text">Annual Planned Conversion ($)</Label>
                   <div className="relative">
-                    <Input id="annualPlannedConversion" type="number" placeholder="e.g., 0" min={0} step={1000} value={inputs.annualPlannedConversion} onChange={(e) => handleChange("annualPlannedConversion", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                    <Input onKeyDown={handleKeyDown} id="annualPlannedConversion" type="number" placeholder="e.g., 0" min={0} step={1000} value={inputs.annualPlannedConversion} onChange={(e) => handleChange("annualPlannedConversion", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                   </div>
                 </div>
 
@@ -658,7 +658,7 @@ export function RothConversionTaxCalculator() {
                     Expected Return (%)
                     <TooltipProvider><Tooltip><TooltipTrigger><Info className="h-3.5 w-3.5 text-muted ml-1 inline-block align-middle" /></TooltipTrigger><TooltipContent>Average annual investment return before retirement</TooltipContent></Tooltip></TooltipProvider>
                   </Label>
-                  <Input id="expectedReturn" type="number" placeholder="e.g., 7" min={0} max={30} step={0.25} value={inputs.expectedReturn} onChange={(e) => handleChange("expectedReturn", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="expectedReturn" type="number" placeholder="e.g., 7" min={0} max={30} step={0.25} value={inputs.expectedReturn} onChange={(e) => handleChange("expectedReturn", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -666,7 +666,7 @@ export function RothConversionTaxCalculator() {
                     Current Marginal Tax Rate (%)
                     <TooltipProvider><Tooltip><TooltipTrigger><Info className="h-3.5 w-3.5 text-muted ml-1 inline-block align-middle" /></TooltipTrigger><TooltipContent>Your current top federal tax bracket</TooltipContent></Tooltip></TooltipProvider>
                   </Label>
-                  <Input id="federalRate" type="number" placeholder="e.g., 24" min={0} max={50} step={1} value={inputs.federalRate} onChange={(e) => handleChange("federalRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="federalRate" type="number" placeholder="e.g., 24" min={0} max={50} step={1} value={inputs.federalRate} onChange={(e) => handleChange("federalRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -674,7 +674,7 @@ export function RothConversionTaxCalculator() {
                     State Tax Rate (%)
                     <TooltipProvider><Tooltip><TooltipTrigger><Info className="h-3.5 w-3.5 text-muted ml-1 inline-block align-middle" /></TooltipTrigger><TooltipContent>Your state income tax rate</TooltipContent></Tooltip></TooltipProvider>
                   </Label>
-                  <Input id="stateRate" type="number" placeholder="e.g., 5" min={0} max={15} step={0.25} value={inputs.stateRate} onChange={(e) => handleChange("stateRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="stateRate" type="number" placeholder="e.g., 5" min={0} max={15} step={0.25} value={inputs.stateRate} onChange={(e) => handleChange("stateRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -682,7 +682,7 @@ export function RothConversionTaxCalculator() {
                     Inflation Assumption (%)
                     <TooltipProvider><Tooltip><TooltipTrigger><Info className="h-3.5 w-3.5 text-muted ml-1 inline-block align-middle" /></TooltipTrigger><TooltipContent>Expected long-term inflation rate</TooltipContent></Tooltip></TooltipProvider>
                   </Label>
-                  <Input id="inflationAssumption" type="number" placeholder="e.g., 3" min={0} max={20} step={0.25} value={inputs.inflationAssumption} onChange={(e) => handleChange("inflationAssumption", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="inflationAssumption" type="number" placeholder="e.g., 3" min={0} max={20} step={0.25} value={inputs.inflationAssumption} onChange={(e) => handleChange("inflationAssumption", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
@@ -690,12 +690,12 @@ export function RothConversionTaxCalculator() {
                     Expected Future Tax Rate (%)
                     <TooltipProvider><Tooltip><TooltipTrigger><Info className="h-3.5 w-3.5 text-muted ml-1 inline-block align-middle" /></TooltipTrigger><TooltipContent>Estimated tax bracket in retirement</TooltipContent></Tooltip></TooltipProvider>
                   </Label>
-                  <Input id="expectedFutureRate" type="number" placeholder="e.g., 22" min={0} max={50} step={1} value={inputs.expectedFutureRate} onChange={(e) => handleChange("expectedFutureRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="expectedFutureRate" type="number" placeholder="e.g., 22" min={0} max={50} step={1} value={inputs.expectedFutureRate} onChange={(e) => handleChange("expectedFutureRate", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
 
                 <div className="space-y-1.5">
                   <Label htmlFor="rmdStartAge" className="text-sm font-medium text-text">RMD Start Age</Label>
-                  <Input id="rmdStartAge" type="number" placeholder="e.g., 73" min={55} max={85} step={1} value={inputs.rmdStartAge} onChange={(e) => handleChange("rmdStartAge", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
+                  <Input onKeyDown={handleKeyDown} id="rmdStartAge" type="number" placeholder="e.g., 73" min={55} max={85} step={1} value={inputs.rmdStartAge} onChange={(e) => handleChange("rmdStartAge", e.target.value === "" ? 0 : Number(e.target.value))} className="h-12 text-base bg-white dark:bg-dark-800/50 border-border/60 rounded-xl font-mono" />
                 </div>
               </div>
 

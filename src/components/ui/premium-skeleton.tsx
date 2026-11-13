@@ -36,7 +36,7 @@ export function PremiumSkeleton({ className, variant = "text" }: PremiumSkeleton
             <div
               key={i}
               className="flex-1 rounded-md bg-dark-200 dark:bg-dark-700"
-              style={{ height: `${30 + Math.random() * 70}%` }}
+              style={{ height: `${30 + ((i * 17 + 23) % 70)}%` }}
             />
           ))}
         </div>

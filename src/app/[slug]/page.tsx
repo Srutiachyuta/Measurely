@@ -1,3 +1,4 @@
+import { ToolContentSections } from "@/components/tool-content";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { SITE, CATEGORIES, SITE_CONFIG } from "@/lib/constants";
@@ -74,11 +75,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (category) {
     return {
-      title: `${category.name} | ${SITE_CONFIG.name}`,
+      title: `${category.name}`,
       description: category.description,
       alternates: { canonical: url },
       openGraph: {
-        title: `${category.name} | ${SITE_CONFIG.name}`,
+        title: `${category.name}`,
         description: category.description,
         url,
         siteName: SITE_CONFIG.siteName,
@@ -86,7 +87,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       },
       twitter: {
         card: "summary_large_image",
-        title: `${category.name} | ${SITE_CONFIG.name}`,
+        title: `${category.name}`,
         description: category.description,
         images: [SITE.ogImage],
       },
@@ -229,7 +230,7 @@ export default async function ToolSlugPage({ params }: PageProps) {
           url={url}
         />
       )}
-      <CalculatorLayout slug={slug} />
+      <CalculatorLayout slug={slug} relatedArticles={blogs.filter(post => post.relatedTools?.some(tool => tool.slug === slug)).slice(0, 6).map(post => ({...post, content: ""}))}><ToolContentSections slug={slug} /></CalculatorLayout>
     </>
   );
 }

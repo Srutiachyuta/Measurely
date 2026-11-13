@@ -186,12 +186,12 @@ export function InheritanceTaxContent() {
                   <div className="w-6 h-6 rounded-lg bg-primary-500 text-white flex items-center justify-center shrink-0 text-xs font-bold">5</div>
                   <div>
                     <p className="text-sm font-medium text-text">Distribute Net Inheritance</p>
-                    <p className="text-xs text-muted mt-0.5">After taxes and deductions, the remaining estate is divided by the number of beneficiaries to show each person's estimated inheritance.</p>
+                    <p className="text-xs text-muted mt-0.5">After taxes and deductions, the remaining estate is divided by the number of beneficiaries to show each person&apos;s estimated inheritance.</p>
                   </div>
                 </div>
               </div>
               <p>
-                The calculator automatically detects which country's rules to apply based on your selection. It adjusts exemptions, tax rates, and spousal deductions accordingly. Visual charts and detailed breakdowns help you understand exactly how the tax is calculated and where every dollar goes.
+                The calculator automatically detects which country&apos;s rules to apply based on your selection. It adjusts exemptions, tax rates, and spousal deductions accordingly. Visual charts and detailed breakdowns help you understand exactly how the tax is calculated and where every dollar goes.
               </p>
             </div>
           </div>
@@ -212,7 +212,7 @@ export function InheritanceTaxContent() {
             </div>
             <div className="text-sm text-muted leading-relaxed space-y-4">
               <p>
-                Inheritance tax is a tax paid by individuals who receive money or property from someone who has died. Unlike estate tax, which is deducted from the estate before beneficiaries receive their share, inheritance tax is calculated based on what each individual beneficiary inherits. This distinction is important because it means the same estate can result in different tax outcomes for different beneficiaries, depending on their relationship to the deceased and the jurisdiction's rules.
+                Inheritance tax is a tax paid by individuals who receive money or property from someone who has died. Unlike estate tax, which is deducted from the estate before beneficiaries receive their share, inheritance tax is calculated based on what each individual beneficiary inherits. This distinction is important because it means the same estate can result in different tax outcomes for different beneficiaries, depending on their relationship to the deceased and the jurisdiction&apos;s rules.
               </p>
               <p>
                 In the United States, inheritance tax exists only at the state level. Six states currently impose it: Iowa, Kentucky, Maryland, Nebraska, New Jersey, and Pennsylvania. Each state has its own rate structure, exemption thresholds, and relationship-based classifications. Spouses are universally exempt, and direct descendants generally receive the most favorable treatment. The federal government does not impose an inheritance tax — it levies an estate tax, which is paid by the estate itself rather than by beneficiaries.
@@ -221,10 +221,10 @@ export function InheritanceTaxContent() {
                 Internationally, inheritance tax rules vary dramatically. The United Kingdom charges inheritance tax at 40% on estates valued above £325,000, with additional allowances for passing a home to children. Canada does not have a formal inheritance tax but applies capital gains tax through deemed disposition rules at death. Australia and New Zealand abolished inheritance tax decades ago — in 1979 and 1992 respectively — making them tax-free jurisdictions for inheritance purposes.
               </p>
               <p>
-                Whether inheritance tax applies depends on three factors: the deceased person's country or state of residence, the total value of the estate, and the relationship between each beneficiary and the deceased. Some jurisdictions exempt all transfers to close family members, while others tax even direct descendants. Understanding these rules is essential for effective estate planning and ensuring your assets pass to your loved ones with minimal tax burden.
+                Whether inheritance tax applies depends on three factors: the deceased person&apos;s country or state of residence, the total value of the estate, and the relationship between each beneficiary and the deceased. Some jurisdictions exempt all transfers to close family members, while others tax even direct descendants. Understanding these rules is essential for effective estate planning and ensuring your assets pass to your loved ones with minimal tax burden.
               </p>
               <p>
-                Why do countries have different rules? Inheritance tax policy reflects each nation's approach to wealth redistribution, family protection, and revenue generation. Countries with high inheritance taxes often fund social programs and aim to reduce wealth inequality. Countries without inheritance taxes tend to prioritize capital accumulation, family wealth preservation, and attracting wealthy residents. The trend in recent decades has been toward reducing or eliminating inheritance taxes — several countries have abolished them since 2000, and the US federal estate tax exemption has risen dramatically.
+                Why do countries have different rules? Inheritance tax policy reflects each nation&apos;s approach to wealth redistribution, family protection, and revenue generation. Countries with high inheritance taxes often fund social programs and aim to reduce wealth inequality. Countries without inheritance taxes tend to prioritize capital accumulation, family wealth preservation, and attracting wealthy residents. The trend in recent decades has been toward reducing or eliminating inheritance taxes — several countries have abolished them since 2000, and the US federal estate tax exemption has risen dramatically.
               </p>
             </div>
           </div>

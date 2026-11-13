@@ -175,6 +175,7 @@ function PrimaryIcon({ resultKey, className }: { resultKey: string; className?: 
 
 function formatCalculatedValue(value: number | string, unit?: string): string {
   if (typeof value === "number") {
+    if (!unit) return value !== 0 && Math.abs(value) < 0.000000001 ? value.toPrecision(12) : value.toLocaleString("en-US", { maximumFractionDigits: 12 });
     if (unit === "₹" || unit?.startsWith("₹/")) {
       return formatIndianNumber(value);
     }
@@ -193,7 +194,7 @@ export function CalculatorResults({ results, chart, onReset, title = "Results" }
 
   const formatResults = useCallback(() => {
     return results
-      .map((r) => `${r.label}: ${isNaN(Number(r.value)) ? "---" : r.value}${r.unit ? " " + r.unit : ""}`)
+      .map((result) => `${result.label}: ${result.value}${result.unit ? " " + result.unit : ""}`)
       .join("\n");
   }, [results]);
 

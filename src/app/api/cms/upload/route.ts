@@ -3,6 +3,7 @@ import fs from "fs"
 import path from "path"
 import crypto from "crypto"
 import sharp from "sharp"
+import { requireCms } from "@/cms/lib/server-auth"
 
 const DATA_DIR = path.join(process.cwd(), "src/cms/data")
 const IMAGES_DIR = path.join(process.cwd(), "public/images")
@@ -34,7 +35,9 @@ function slugify(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9.-]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "")
 }
 
-export async function GET() {
+export async function GET(request: Request) {
+  const denied = await requireCms(request)
+  if (denied) return denied
   try {
     return NextResponse.json(readMedia())
   } catch {
@@ -43,14 +46,21 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
+  const denied = await requireCms(request)
+  if (denied) return denied
   try {
     const formData = await request.formData()
     const file = formData.get("file") as File | null
     if (!file) return NextResponse.json({ error: "No file provided" }, { status: 400 })
+    if (file.size > 8 * 1024 * 1024) return NextResponse.json({ error: "Images must be smaller than 8 MB" }, { status: 413 })
+    if (!["image/jpeg", "image/png", "image/webp", "image/avif"].includes(file.type)) return NextResponse.json({ error: "Upload a JPEG, PNG, WebP or AVIF image" }, { status: 415 })
 
     const buffer = Buffer.from(await file.arrayBuffer())
     const originalName = file.name
     const ext = path.extname(originalName).toLowerCase()
+    if (![".jpg", ".jpeg", ".png", ".webp", ".avif"].includes(ext)) return NextResponse.json({ error: "Unsupported image extension" }, { status: 415 })
+    await sharp(buffer, { limitInputPixels: 40000000 }).metadata()
+    fs.mkdirSync(IMAGES_DIR, { recursive: true })
     const baseName = path.basename(originalName, ext)
     const ts = Date.now()
 
@@ -105,6 +115,8 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
+  const denied = await requireCms(request)
+  if (denied) return denied
   try {
     const { id } = await request.json()
     if (!id) return NextResponse.json({ error: "Missing id" }, { status: 400 })
@@ -114,7 +126,7 @@ export async function DELETE(request: Request) {
     if (index === -1) return NextResponse.json({ error: "Not found" }, { status: 404 })
 
     const item = media[index]
-    const filePath = path.join(IMAGES_DIR, item.filename)
+    const filePath = path.join(IMAGES_DIR, path.basename(item.filename))
     if (fs.existsSync(filePath)) fs.unlinkSync(filePath)
 
     media.splice(index, 1)

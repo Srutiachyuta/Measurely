@@ -49,14 +49,16 @@ export default function NotFound() {
             </Link>
           </div>
 
-          <div className="relative max-w-sm mx-auto">
+          <form action="/search" className="relative max-w-sm mx-auto">
             <Search className="absolute left-3.5 top-1/2 h-4.5 w-4.5 -translate-y-1/2 text-muted" />
             <Input
               placeholder="Search for what you need..."
               className="pl-10 h-12 text-base bg-surface-secondary/50"
-              readOnly
+              name="q"
+              aria-label="Search calculators"
             />
-          </div>
+            <button type="submit" className="mt-3 rounded-xl bg-primary-600 px-5 py-2 text-white">Search tools</button>
+          </form>
 
           <p className="mt-4 text-xs text-muted">
             Try searching for a calculator instead

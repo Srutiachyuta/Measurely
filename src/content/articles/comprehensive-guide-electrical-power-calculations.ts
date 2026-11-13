@@ -258,7 +258,7 @@ Determine the current from I = P / V, then check wire ampacity charts. For 120V 
 
 Power calculations are essential for safe, efficient circuit design and energy management. Understanding the difference between DC and AC power, real and apparent power, and the role of power factor helps you make better engineering decisions and avoid costly mistakes.
 
-Our <a href="/power-calculator">Power Calculator</a> handles DC and AC with ease, providing step-by-step solutions for any scenario. Pair it with our <a href="/master-voltage-current-resistance-calculations">Ohm's Law Calculator</a>, <a href="/watt-calculator-guide">Watt Calculator</a>, and <a href="/complete-guide-resistor-values-color-codes">Resistor Calculator</a> for a complete electrical engineering toolkit.`,
+Our <a href="/power-calculator">Power Calculator</a> handles DC and AC with ease, providing step-by-step solutions for any scenario. Pair it with our <a href="/master-voltage-current-resistance-calculations">Ohm's Law Calculator</a>, <a href="/comprehensive-guide-electrical-power-calculations">Watt Calculator</a>, and <a href="/complete-guide-resistor-values-color-codes">Resistor Calculator</a> for a complete electrical engineering toolkit.`,
     category: "Engineering",
     categorySlug: "engineering",
     publishedAt: "2026-06-10",
