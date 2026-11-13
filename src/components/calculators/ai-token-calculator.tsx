@@ -14,7 +14,7 @@ import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, Command
 import { AI_MODELS, PROVIDER_ORDER, PROVIDER_LABELS, type AIModel } from "@/data/ai-model-pricing";
 import { ToolBlogLink, ToolContentSections } from "@/components/tool-content";
 
-const DEFAULT_MODEL_ID = "openai-gpt4o-mini";
+const DEFAULT_MODEL_ID = "openai-gpt6-luna";
 
 function formatCost(value: number): string {
   if (value < 0.000_001) return `$${value.toFixed(10)}`;
@@ -108,7 +108,7 @@ export function AITokenCalculator() {
   const selectedModel = useMemo(() => AI_MODELS.find((m) => m.id === selectedModelId), [selectedModelId]);
   const currentPriceInput = customPriceInput !== "" ? Number(customPriceInput) : (selectedModel?.inputPrice ?? 0);
   const currentPriceOutput = customPriceOutput !== "" ? Number(customPriceOutput) : (selectedModel?.outputPrice ?? 0);
-  const currentCachedInputPrice = selectedModel?.cachedInputPrice ?? currentPriceInput;
+  const currentCachedInputPrice = customPriceInput !== "" ? currentPriceInput : selectedModel?.cachedInputPrice ?? currentPriceInput;
 
   const uncachedInput = Math.max(0, inputTokens - cachedInputTokens);
   const inputCost = (uncachedInput * currentPriceInput / 1_000_000) + (cachedInputTokens * currentCachedInputPrice / 1_000_000);
@@ -157,7 +157,7 @@ export function AITokenCalculator() {
             </div>
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-text">AI Token Cost Calculator</h1>
-              <p className="text-sm text-muted mt-1">Estimate API costs across 50+ AI models with comparison mode</p>
+              <p className="text-sm text-muted mt-1">Compare published token rates or enter your own model pricing</p>
             </div>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -483,6 +483,7 @@ export function AITokenCalculator() {
             {/* Quick tips */}
             <div className="bg-surface rounded-2xl border border-border p-5">
               <h2 className="text-sm font-semibold text-text mb-3">Quick Tips</h2>
+              <p className="text-xs text-muted mb-3">Standard token estimates from published provider rates. Tool calls, cache writes, long-context premiums, taxes and hosting cost extra. Use custom prices for any other model or negotiated rate. Confirm rates with your provider before budgeting.</p>
               <ul className="space-y-2 text-xs text-muted">
                 <li className="flex items-start gap-2">
                   <DollarSign className="w-3 h-3 mt-0.5 shrink-0 text-accent-green" />

@@ -51,7 +51,6 @@ export default function CookiePolicyPage() {
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
               Cookie <span className="text-gradient">Policy</span>
             </h1>
-            <p className="text-text-secondary">Last updated: June 20, 2026</p>
           </div>
 
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
@@ -258,7 +257,7 @@ export default function CookiePolicyPage() {
               <h2 className="text-2xl font-bold text-text mb-4">Changes to This Cookie Policy</h2>
               <p className="text-text-secondary leading-relaxed">
                 We may update this Cookie Policy from time to time to reflect changes in our practices, legal requirements, or the cookies and technologies we use.
-                When we make changes, we will update the &ldquo;Last updated&rdquo; date at the top of this page.
+                Changes to this policy will be published on this page.
               </p>
               <p className="text-text-secondary leading-relaxed mt-3">
                 We encourage you to review this Cookie Policy periodically to stay informed about how we use cookies and similar technologies.

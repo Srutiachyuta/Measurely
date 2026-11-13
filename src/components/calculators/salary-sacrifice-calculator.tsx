@@ -81,12 +81,6 @@ const defaultInputs: Inputs = {
   retirementAge: 68,
 };
 
-const TAX_BANDS_2026 = [
-  { name: "Personal Allowance", from: 0, to: 12570, rate: 0 },
-  { name: "Basic Rate", from: 12570, to: 50270, rate: 0.20 },
-  { name: "Higher Rate", from: 50270, to: 125140, rate: 0.40 },
-  { name: "Additional Rate", from: 125140, to: Infinity, rate: 0.45 },
-];
 
 const NI_BANDS_2026 = [
   { from: 0, to: 12570, employeeRate: 0, employerRate: 0 },
@@ -95,19 +89,16 @@ const NI_BANDS_2026 = [
 ];
 
 function calculateTax(taxableIncome: number): number {
-  let totalTax = 0;
-  for (const band of TAX_BANDS_2026) {
-    if (taxableIncome > band.from) {
-      const taxableInBand = Math.min(taxableIncome, band.to) - band.from;
-      if (taxableInBand > 0) {
-        totalTax += taxableInBand * band.rate;
-      }
-    }
-  }
-  return totalTax;
+  // Standard allowance tapers by £1 for every £2 of income above £100,000.
+  const allowance = Math.max(0, 12570 - Math.max(0, taxableIncome - 100000) / 2);
+  const taxable = Math.max(0, taxableIncome - allowance);
+  return Math.min(taxable, 37700) * .2
+    + Math.max(0, Math.min(taxable - 37700, 87440)) * .4
+    + Math.max(0, taxable - 125140) * .45;
 }
 
 function calculateNi(income: number, isEmployer: boolean): number {
+  if (isEmployer) return Math.max(0, income - 5000) * 0.15;
   let totalNi = 0;
   for (const band of NI_BANDS_2026) {
     if (income > band.from) {
@@ -804,7 +795,7 @@ export function SalarySacrificeCalculator() {
                   About This Tool
                 </h3>
                 <p className="text-xs text-muted leading-relaxed">
-                  Estimate your income tax and National Insurance savings from salary sacrifice arrangements. The calculator supports pension contributions, EV schemes, cycle to work, childcare, and other benefits.
+                  Pension-style estimate using standard England, Wales and Northern Ireland rates. Scotland, student loans, minimum-wage checks and benefit-in-kind charges are excluded. Selecting another benefit does not calculate its special tax rules; confirm those separately before relying on the result.
                 </p>
                 <Separator className="my-3" />
                 <p className="text-xs text-muted">
@@ -813,7 +804,7 @@ export function SalarySacrificeCalculator() {
                 <ul className="text-xs text-muted mt-1 space-y-1 list-disc list-inside">
                   <li><strong className="text-text">Income Tax:</strong> 0%, 20%, 40%, 45% bands</li>
                   <li><strong className="text-text">Employee NI:</strong> 8% / 2% above \u00A312,570</li>
-                  <li><strong className="text-text">Employer NI:</strong> 13.8% above \u00A39,100</li>
+                  <li><strong className="text-text">Employer NI:</strong> 15% above \u00A35,000</li>
                   <li><strong className="text-text">Personal Allowance:</strong> \u00A312,570</li>
                 </ul>
                 <Separator className="my-3" />

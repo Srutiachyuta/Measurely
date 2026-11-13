@@ -327,10 +327,6 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Last updated */}
-          <p className="text-center text-xs text-text-secondary/60 mb-6">
-            Last updated: June 22, 2026
-          </p>
 
           {/* CTA */}
           <div className="text-center p-8 sm:p-12 rounded-3xl bg-gradient-to-br from-primary-500/5 to-accent-cyan/5 dark:from-primary-500/10 dark:to-accent-cyan/10 border border-primary-500/10">

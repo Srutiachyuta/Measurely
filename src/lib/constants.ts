@@ -36,7 +36,7 @@ export const SITE = {
 export const NAV_ITEMS: NavItem[] = [
   { label: "Home", href: "/", icon: "Home" },
   { label: "Calculators", href: "/calculators", icon: "Calculator" },
-  { label: "Blog", href: "/blog", icon: "FileText" },
+  { label: "Guides", href: "/blog", icon: "FileText" },
   { label: "About", href: "/about", icon: "Info" },
   { label: "Contact", href: "/contact", icon: "Mail" },
 ];

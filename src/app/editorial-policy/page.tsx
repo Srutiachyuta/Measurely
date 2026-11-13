@@ -39,7 +39,6 @@ export default function EditorialPolicyPage() {
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
               Editorial <span className="text-gradient">Policy</span>
             </h1>
-            <p className="text-text-secondary">Last updated: June 19, 2026</p>
           </div>
 
           <div className="space-y-8">

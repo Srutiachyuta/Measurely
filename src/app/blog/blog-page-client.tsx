@@ -504,7 +504,6 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
     setShowSuggestions(true);
   }, []);
 
-  const lastUpdated = sortedByDate.length > 0 ? sortedByDate[0].publishedAt : "";
 
   return (
     <>
@@ -553,7 +552,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
-              <span className="text-gradient">Measurely</span> Blog
+              Guides
             </h1>
 
             <p className="text-lg sm:text-xl text-text-secondary max-w-2xl mx-auto mb-8 leading-relaxed">
@@ -630,15 +629,6 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
               ))}
             </div>
 
-            {/* Stats */}
-            <div className="flex items-center justify-center gap-6 text-sm text-text-secondary">
-              {lastUpdated && (
-                <span className="flex items-center gap-1.5">
-                  <CalendarDays className="h-4 w-4 text-primary-500" />
-                  Updated {formatDate(lastUpdated)}
-                </span>
-              )}
-            </div>
           </motion.div>
         </div>
       </section>
@@ -734,7 +724,7 @@ export function BlogPageClient({ blogs, breadcrumbItems }: BlogPageClientProps) 
           <div>
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold text-text">
-                {isSearching ? `Search Results (${displayBlogs.length})` : selectedCategory === "all" ? "Latest Articles" : `${categories.find(c => c.slug === selectedCategory)?.name ?? selectedCategory}`}
+                {isSearching ? `Search Results (${displayBlogs.length})` : selectedCategory === "all" ? "Explore guides" : `${categories.find(c => c.slug === selectedCategory)?.name ?? selectedCategory}`}
               </h2>
               {isSearching && displayBlogs.length > 0 && (
                 <button

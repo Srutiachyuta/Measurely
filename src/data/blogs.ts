@@ -3,6 +3,7 @@ import type { ContentBlock, blocksToHtml } from "@/cms/types/content";
 import { getBlogImageUrl, getBlogImageAlt } from "@/lib/blog-images";
 import articles from "@/content";
 import cmsData from "@/cms/data/articles.json";
+import { applyReviewedGuide } from "@/data/reviewed-guide-content";
 
 const cmsArticles: {
   slug: string;
@@ -89,6 +90,7 @@ const cmsOnlyArticles: BlogPost[] = cmsArticles
 
 // Retire the outdated 2026 tax guide without allowing CMS overrides to republish it.
 export const blogs: BlogPost[] = [...merged, ...cmsOnlyArticles]
+  .map(applyReviewedGuide)
   .filter(post => post.slug !== "tax-saving-tips-2026")
   .map(post => ({
     ...post,

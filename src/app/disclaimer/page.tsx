@@ -51,7 +51,6 @@ export default function DisclaimerPage() {
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
               <span className="text-gradient">Disclaimer</span>
             </h1>
-            <p className="text-text-secondary">Last updated: June 20, 2026</p>
           </div>
 
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">

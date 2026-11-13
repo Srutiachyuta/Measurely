@@ -33,6 +33,7 @@ async function main() {
   const find = slug => tools.find(tool => tool.slug === slug);
   const value = (slug, inputs, key) => find(slug).compute({...Object.fromEntries(find(slug).inputs.map(input => [input.key,input.defaultValue ?? ""])),...find(slug).example.inputs,...inputs}).find(result => result.key === key)?.value;
   for (const tool of tools) {
+    assert.equal(new Set(tool.inputs.map(input=>input.key)).size,tool.inputs.length,tool.slug+" duplicate input key");
     const inputs = {...Object.fromEntries(tool.inputs.map(input => [input.key, input.defaultValue ?? ""])), ...tool.example.inputs};
     const results = tool.compute(inputs);
     assert.ok(results.length > 0, tool.slug + " returns no example outputs");
@@ -45,6 +46,23 @@ async function main() {
   assert.equal(value("loan-calculator", {loanAmount: 1000, interestRate: 12, loanTerm: 12, termType: "months"}, "monthlyPayment"), 88.85);
   assert.equal(value("sip-calculator", {monthlyInvestment: 1000, expectedReturn: 0, tenure: 1, tenureType: "years"}, "maturityValue"), 12000);
   const math = load(path.join(root, "src/lib/math-expression"));
+  const tax2026=load(path.join(root,"src/lib/us-tax-2026"));
+  assert.equal(tax2026.federalIncomeTax2026(50400,"single"),5800);
+  assert.equal(tax2026.federalIncomeTax2026(100800,"married"),11600);
+  assert.equal(tax2026.federalIncomeTax2026(67450,"head"),7740);
+  const payroll=load(path.join(root,"src/lib/ontario-tax-2026")).ontarioPayroll2026(100000);
+  assert.ok(Math.abs(payroll.cpp-4646.45)<.001);
+  assert.ok(Math.abs(payroll.ei-1123.07)<.001);
+  assert.equal(value("canada-child-benefit-calculator-by-income",{childrenUnder6:1,children6to17:0,adjustedFamilyNetIncome:0,province:"bc"},"totalCCB"),8157);
+  assert.equal(value("canada-child-benefit-calculator-by-income",{childrenUnder6:2,children6to17:0,adjustedFamilyNetIncome:125000,province:"bc"},"totalCCB"),7889.28);
+  const publishedGuides=load(path.join(root,"src/data/blogs")).blogs;
+  const pictures=load(path.join(root,"src/lib/blog-images"));
+  for(const post of publishedGuides){
+    const cover=pictures.getBlogImageUrl(post.slug,post.category);
+    assert.ok(cover.startsWith("/images/guides/photos/"),post.slug);
+    assert.ok(fs.existsSync(path.join(root,"public",cover)),cover);
+    assert.ok(pictures.getBlogImageAlt(post.slug,post.category).length>30);
+  }
   const configSource = ts.transpileModule(fs.readFileSync(path.join(root,"next.config.ts"),"utf8"), {compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2022,esModuleInterop:true}}).outputText;
   const readConfig = env => {
     const exports = {};

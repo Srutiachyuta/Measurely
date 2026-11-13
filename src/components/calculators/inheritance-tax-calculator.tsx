@@ -97,23 +97,23 @@ function calculate(inputs: Inputs): Results {
   const country = inputs.country;
 
   if (country === "US") {
-    taxExemption = spouseExemption ? 13610000 : 13610000;
+    taxExemption = spouseExemption ? netEstate : Math.max(0,15000000 - Math.max(0,inputs.lifetimeGifts || 0));
     const taxableBeforeExemption = Math.max(0, netEstate - taxExemption);
     taxableEstate = taxableBeforeExemption;
     taxRate = 0.40;
     estimatedTax = taxableEstate * taxRate;
   } else if (country === "UK") {
     const nilRateBand = 325000;
-    const residenceBand = spouseExemption ? 175000 : 0;
-    taxExemption = nilRateBand + residenceBand;
+    taxExemption = spouseExemption ? netEstate : nilRateBand;
     taxableEstate = Math.max(0, netEstate - taxExemption);
     taxRate = 0.40;
     estimatedTax = taxableEstate * taxRate;
   } else if (country === "CA") {
-    taxExemption = spouseExemption ? netEstate : 0;
-    taxableEstate = spouseExemption ? 0 : netEstate * 0.5;
-    taxRate = 0.25;
-    estimatedTax = taxableEstate * taxRate;
+    // No general inheritance tax: final-return income/gains need cost-basis data.
+    taxExemption = netEstate;
+    taxableEstate = 0;
+    taxRate = 0;
+    estimatedTax = 0;
   } else {
     taxExemption = netEstate;
     taxableEstate = 0;
@@ -412,7 +412,7 @@ export function InheritanceTaxCalculator() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <Label className="text-sm font-medium text-text">Spouse Exemption?</Label>
+                  <Label className="text-sm font-medium text-text">Entire net estate qualifies for spouse exemption?</Label>
                   <div className="flex gap-2">
                     {["yes", "no"].map((opt) => (
                       <label key={opt} className={cn(
@@ -685,16 +685,16 @@ export function InheritanceTaxCalculator() {
                   About This Tool
                 </h3>
                 <p className="text-xs text-muted leading-relaxed">
-                  Estimate inheritance and estate taxes based on your jurisdiction. The calculator applies country-specific tax rules, exemptions, and rates.
+                  Simplified federal estate illustration. State taxes, UK residence relief, special trusts and final-return income taxes are excluded. The spouse option assumes the entire transfer qualifies. Canada/Australia/New Zealand outputs exclude income or capital gains tax at death; zero inheritance tax does not mean zero total tax.
                 </p>
                 <Separator className="my-3" />
                 <p className="text-xs text-muted">
                   <strong className="text-text">Country rules applied:</strong>
                 </p>
                 <ul className="text-xs text-muted mt-1 space-y-1 list-disc list-inside">
-                  <li><strong className="text-text">US:</strong> $13.61M exemption, 40% rate</li>
+                  <li><strong className="text-text">US:</strong> $15M 2026 exclusion before taxable lifetime gifts, 40% marginal illustration</li>
                   <li><strong className="text-text">UK:</strong> £325K threshold, 40% rate</li>
-                  <li><strong className="text-text">Canada:</strong> Capital gains model</li>
+                  <li><strong className="text-text">Canada:</strong> No general inheritance tax; capital gains are excluded</li>
                   <li><strong className="text-text">AU/NZ:</strong> No inheritance tax</li>
                 </ul>
                 <Separator className="my-3" />
@@ -718,7 +718,7 @@ export function InheritanceTaxCalculator() {
                   {[
                     { label: "Estate Value", value: "$2,000,000" },
                     { label: "Deductions", value: "$175,000" },
-                    { label: "Tax Exemption", value: "$13,610,000" },
+                    { label: "2026 Federal Exclusion", value: "$15,000,000 before taxable gifts" },
                     { label: "Tax Due", value: "$0 (under limit)" },
                   ].map((item) => (
                     <div key={item.label} className="flex items-center justify-between py-1.5 px-2 rounded-lg bg-surface-secondary dark:bg-dark-800/30">

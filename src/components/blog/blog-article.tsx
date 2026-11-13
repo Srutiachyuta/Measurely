@@ -153,12 +153,6 @@ export function BlogArticle({ post, blogs }: { post: BlogPost; blogs: BlogPost[]
                 {post.excerpt}
               </p>
 
-              {post.updatedAt && post.updatedAt !== post.publishedAt && (
-                <div className="text-sm text-text-secondary mb-4">
-                  Published <time dateTime={post.publishedAt}>{formatDate(post.publishedAt, { style: "long" })}</time>
-                  {' · '}Updated <time dateTime={post.updatedAt}>{formatDate(post.updatedAt, { style: "long" })}</time>
-                </div>
-              )}
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-surface-secondary/50 dark:bg-dark-800/30 border border-border/60">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-sm font-bold text-white shrink-0">

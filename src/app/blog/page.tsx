@@ -9,40 +9,40 @@ import { blogs } from "@/data/blogs";
 import { BlogPageClient } from "@/app/blog/blog-page-client";
 
 export const metadata: Metadata = {
-  title: `Blog`,
-  description: `Explore ${SITE_CONFIG.name}'s blog for articles about calculators, measurement tips, financial planning, health metrics, and more.`,
+  title: `Guides`,
+  description: `Explore ${SITE_CONFIG.name}'s guides for articles about calculators, measurement tips, financial planning, health metrics, and more.`,
   openGraph: {
-    title: "Blog",
-    description: `Explore ${SITE_CONFIG.name}'s blog for articles about calculators and measurement tools.`,
+    title: "Guides",
+    description: `Explore ${SITE_CONFIG.name}'s guides for articles about calculators and measurement tools.`,
     url: `${SITE_CONFIG.url}/blog`,
     siteName: SITE_CONFIG.siteName,
-    images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: `${SITE_CONFIG.name} Blog` }],
+    images: [{ url: SITE_CONFIG.ogImage, width: 1200, height: 630, alt: `${SITE_CONFIG.name} Guides` }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog",
-    description: `Explore ${SITE_CONFIG.name}'s blog for articles about calculators and measurement tools.`,
+    title: "Guides",
+    description: `Explore ${SITE_CONFIG.name}'s guides for articles about calculators and measurement tools.`,
     images: [SITE_CONFIG.ogImage],
     creator: SITE_CONFIG.twitterHandle,
   },
   alternates: { canonical: `${SITE_CONFIG.url}/blog` },
-  keywords: ["measurely blog", "calculator tips", "measurement guides", "financial articles", "health calculators"],
+  keywords: ["measurely guides", "calculator tips", "measurement guides", "financial articles", "health calculators"],
 };
 
-const breadcrumbItems: BreadcrumbItem[] = [{ label: "Blog" }];
+const breadcrumbItems: BreadcrumbItem[] = [{ label: "Guides" }];
 
 export default function BlogPage() {
   return (
     <>
-      <BreadcrumbJsonLd items={[{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }, { name: "Blog", url: `${SITE_CONFIG.url}/blog` }]} />
+      <BreadcrumbJsonLd items={[{ name: SITE_CONFIG.name, url: SITE_CONFIG.url }, { name: "Guides", url: `${SITE_CONFIG.url}/blog` }]} />
       <WebPageJsonLd
-        title={`Blog | ${SITE_CONFIG.name}`}
-        description={`Explore ${SITE_CONFIG.name}'s blog for articles about calculators and measurement tools.`}
+        title={`Guides | ${SITE_CONFIG.name}`}
+        description={`Explore ${SITE_CONFIG.name}'s guides for articles about calculators and measurement tools.`}
         url={`${SITE_CONFIG.url}/blog`}
       />
       <CollectionPageJsonLd
-        title={`Blog | ${SITE_CONFIG.name}`}
-        description={`Explore ${SITE_CONFIG.name}'s blog for articles about calculators and measurement tools.`}
+        title={`Guides | ${SITE_CONFIG.name}`}
+        description={`Explore ${SITE_CONFIG.name}'s guides for articles about calculators and measurement tools.`}
         url={`${SITE_CONFIG.url}/blog`}
       />
       <ItemListJsonLd

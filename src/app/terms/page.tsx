@@ -51,7 +51,6 @@ export default function TermsPage() {
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight mb-4">
               Terms of <span className="text-gradient">Service</span>
             </h1>
-            <p className="text-text-secondary">Last updated: June 20, 2026</p>
           </div>
 
           <div className="prose prose-lg dark:prose-invert max-w-none space-y-8">
@@ -226,7 +225,7 @@ export default function TermsPage() {
               <p className="text-text-secondary leading-relaxed">
                 We reserve the right to modify or replace these Terms at any time.
                 Changes will be effective immediately upon posting to this page.
-                We will update the &ldquo;Last updated&rdquo; date at the top of this page.
+                Changes will be published on this page.
                 For material changes, we will provide a prominent notice on our website.
               </p>
               <p className="text-text-secondary leading-relaxed mt-3">

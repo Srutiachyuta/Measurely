@@ -161,7 +161,7 @@ export default async function ToolSlugPage({ params }: PageProps) {
         <BreadcrumbJsonLd
           items={[
             { name: SITE.name, url: SITE.url },
-            { name: "Blog", url: `${SITE.url}/blog` },
+            { name: "Guides", url: `${SITE.url}/blog` },
             { name: blog.title, url },
           ]}
         />

@@ -1,3 +1,6 @@
+import { ontarioPayroll2026, ontarioAnnualTax2026 } from "@/lib/ontario-tax-2026";
+import { AI_MODELS } from "@/data/ai-model-pricing";
+import { standardDeduction2026, federalBrackets2026, federalIncomeTax2026, SOCIAL_SECURITY_BASE } from "@/lib/us-tax-2026";
 import { indianSalaryTax } from "@/lib/india-tax";
 import { unitConverter } from "./unit-converter";
 import { loanPayment, annuityValue } from "@/lib/finance-math";
@@ -3073,15 +3076,13 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       const grossPerPay = salary / perPeriod;
 
       const filing = inputs.filingStatus as string;
-      const stdDeduction = filing === "single" ? 14600 : filing === "head" ? 21900 : 29200;
-      const taxableIncome = Math.max(0, salary - stdDeduction);
+      const stdDeduction = standardDeduction2026(filing);
+      const retirementAnnual = Math.min(24500, salary * Number(inputs.retirement401k) / 100);
+      const healthAnnual = Number(inputs.healthInsurance) * perPeriod;
+      const taxableIncome = Math.max(0, salary - retirementAnnual - healthAnnual - stdDeduction);
 
       let federalTax = 0;
-      const brackets: { rate: number; limit: number }[] = filing === "married"
-        ? [{ rate: 10, limit: 23200 }, { rate: 12, limit: 94300 }, { rate: 22, limit: 201050 }, { rate: 24, limit: 383900 }, { rate: 32, limit: 487450 }, { rate: 35, limit: 731200 }]
-        : filing === "head"
-        ? [{ rate: 10, limit: 16550 }, { rate: 12, limit: 63100 }, { rate: 22, limit: 100500 }, { rate: 24, limit: 191950 }, { rate: 32, limit: 243700 }, { rate: 35, limit: 609350 }]
-        : [{ rate: 10, limit: 11600 }, { rate: 12, limit: 47150 }, { rate: 22, limit: 100525 }, { rate: 24, limit: 191950 }, { rate: 32, limit: 243725 }, { rate: 35, limit: 609350 }];
+      const brackets = federalBrackets2026(filing);
 
       let remaining = taxableIncome;
       let prevLimit = 0;
@@ -3096,8 +3097,8 @@ const calculatorDefinitions: CalculatorDefinition[] = [
 
       const federalPerPay = federalTax / perPeriod;
 
-      const socialSecurity = Math.min(salary, 168600) * 0.062 / perPeriod;
-      const medicare = salary * 0.0145 / perPeriod;
+      const socialSecurity = Math.min(salary, SOCIAL_SECURITY_BASE) * 0.062 / perPeriod;
+      const medicare = (salary * 0.0145 + Math.max(0,salary-200000)*.009) / perPeriod;
       const ficaPerPay = socialSecurity + medicare;
 
       const stateTaxRates: Record<string, number> = {
@@ -3113,8 +3114,7 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       const stateRate = stateTaxRates[inputs.state as string] || 0;
       const statePerPay = (salary * stateRate) / perPeriod;
 
-      const retirementPct = Number(inputs.retirement401k) / 100;
-      const retirementPerPay = salary * retirementPct / perPeriod;
+      const retirementPerPay = retirementAnnual / perPeriod;
 
       const healthPerPay = Number(inputs.healthInsurance);
 
@@ -3160,9 +3160,9 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       { question: "What is take-home pay?", answer: "Take-home pay, also called net pay, is your income after all deductions including federal/state taxes, FICA, and benefits." },
       { question: "What is FICA?", answer: "FICA stands for Federal Insurance Contributions Act. It includes Social Security (6.2%) and Medicare (1.45%) taxes." },
       { question: "How are federal income taxes calculated?", answer: "The US uses a progressive tax system. Income is taxed at different rates across brackets. Our calculator applies the standard deduction and marginal rates." },
-      { question: "What is the standard deduction for 2025?", answer: "For 2025: Single $14,600, Married Filing Jointly $29,200, Head of Household $21,900." },
+      { question: "What is the standard deduction for 2026?", answer: "For 2026: Single $16,100, Married Filing Jointly $32,200, Head of Household $24,150." },
       { question: "How does pay frequency affect my paycheck?", answer: "Weekly pay gives 52 paychecks, bi-weekly gives 26, semi-monthly gives 24, and monthly gives 12. Annual salary divided by pay periods equals gross per check." },
-      { question: "What is the Social Security wage base?", answer: "For 2025, the Social Security tax applies only to income up to $168,600. Earnings above this are not subject to SS tax." },
+      { question: "What is the Social Security wage base?", answer: "For 2026, the Social Security tax applies only to income up to $184,500. Earnings above this are not subject to SS tax." },
       { question: "Are 401(k) contributions pre-tax?", answer: "Yes, traditional 401(k) contributions reduce your taxable income, lowering your current tax bill. Roth 401(k) contributions are post-tax." },
       { question: "How do state taxes affect my paycheck?", answer: "Some states (TX, FL, NV, etc.) have no state income tax. Others have flat or progressive rates. Our calculator includes many state rates." },
     ],
@@ -3435,7 +3435,7 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       { question: "What is employer matching?", answer: "Employer matching is when your employer contributes additional money to your 401(k) based on your contributions, typically up to a certain percentage of your salary." },
       { question: "What is the 4% rule?", answer: "The 4% rule suggests withdrawing 4% of your retirement savings annually to provide income while preserving principal for 30 years." },
       { question: "What is the difference between traditional and Roth 401(k)?", answer: "Traditional 401(k) contributions are pre-tax (taxed on withdrawal). Roth 401(k) contributions are post-tax (tax-free withdrawals)." },
-      { question: "What is the 2025 401(k) contribution limit?", answer: "For 2025, the employee contribution limit is $23,500 ($31,000 for age 50+ including catch-up)." },
+      { question: "What is the 2026 401(k) contribution limit?", answer: "For 2026, the employee deferral limit is $24,500. Most eligible participants age 50+ can add $8,000; ages 60–63 can add $11,250 if the plan permits." },
       { question: "When can I withdraw from my 401(k) without penalty?", answer: "You can withdraw penalty-free after age 59. Additionally, some plans allow hardship withdrawals or loans." },
       { question: "What happens to my 401(k) if I change jobs?", answer: "You can roll it into your new employer's plan, roll into an IRA, leave it with your former employer, or cash out (subject to taxes and penalties)." },
       { question: "How much should I contribute to my 401(k)?", answer: "At minimum, contribute enough to get the full employer match. Aim for 10-15% of your income including the match for adequate retirement savings." },
@@ -3860,7 +3860,7 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     faqs: [
       { question: "How is TFSA contribution room calculated?", answer: "Your TFSA room accumulates each year starting from the year you turn 18 (or 2009, whichever is later). Unused room carries forward indefinitely. Withdrawals are added back to your room the following calendar year." },
       { question: "What is the total TFSA contribution room for 2026?", answer: "For someone 18+ since 2009 with no prior contributions, the cumulative room through 2026 is approximately $109,000. The 2026 annual limit is $7,000." },
-      { question: "What happens if I over-contribute to my TFSA?", answer: "Over-contributions are subject to a 1% per month penalty tax on the excess amount. The CRA allows a lifetime over-contribution buffer of $2,000." },
+      { question: "What happens if I over-contribute to my TFSA?", answer: "Over-contributions are subject to a 1% per month penalty tax on the excess amount. There is no $2,000 TFSA over-contribution buffer; that rule concerns RRSPs." },
       { question: "Do TFSA withdrawals affect my contribution room?", answer: "Yes, any amount withdrawn from your TFSA is added back to your contribution room at the beginning of the following calendar year. This makes TFSA flexible for short-term saving." },
       { question: "What is the TFSA annual limit for 2025 and 2026?", answer: "The TFSA annual limit is $7,000 for both 2025 and 2026. The cumulative contribution room for someone eligible since 2009 is $102,000 through 2025 and $109,000 through 2026." },
       { question: "Can I have multiple TFSA accounts?", answer: "Yes, you can have multiple TFSA accounts at different financial institutions, but your total contributions across all accounts cannot exceed your available contribution room." },
@@ -3880,56 +3880,23 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     inputs: [
       { label: "Annual Income ($)", key: "annualIncome", type: "number", placeholder: "e.g., 80000", min: 1, step: 1000, defaultValue: 80000 },
       { label: "RRSP Contribution Amount ($)", key: "contributionAmount", type: "number", placeholder: "e.g., 10000", min: 0, step: 500, defaultValue: 10000 },
-      { label: "Province", key: "province", type: "select", options: [{ label: "Ontario", value: "ontario" }, { label: "British Columbia", value: "bc" }, { label: "Alberta", value: "ab" }, { label: "Quebec", value: "qc" }, { label: "Manitoba", value: "mb" }, { label: "Saskatchewan", value: "sk" }, { label: "Nova Scotia", value: "ns" }, { label: "New Brunswick", value: "nb" }, { label: "Newfoundland and Labrador", value: "nl" }, { label: "Prince Edward Island", value: "pe" }], defaultValue: "ontario" },
+      { label: "Province (estimate currently supports Ontario)", key: "province", type: "select", options: [{label: "Ontario", value: "ontario"}], defaultValue: "ontario" },
+      { label: "2025 Earned Income ($)", key: "previousYearIncome", type: "number", min: 0, defaultValue: 80000 },
+      { label: "Available RRSP Deduction Room — CRA Notice of Assessment ($)", key: "availableRoom", type: "number", min: 0, defaultValue: 14400 },
       { label: "Employment Type", key: "employmentType", type: "select", options: [{ label: "Employed", value: "employed" }, { label: "Self-Employed", value: "self-employed" }], defaultValue: "employed" },
     ],
     compute: (inputs) => {
       const income = Number(inputs.annualIncome);
       const contribution = Number(inputs.contributionAmount);
-      const rrspLimit = Math.min(income * 0.18, 32490);
+      const rrspLimit = Number(inputs.availableRoom ?? Math.min(Number(inputs.previousYearIncome ?? income) * 0.18, 33810));
       const usableContribution = Math.min(contribution, rrspLimit);
-      const calculateTax = (taxableIncome: number, brackets: { min: number; max: number; rate: number }[]): number => {
-        let tax = 0;
-        for (const b of brackets) {
-          const taxableInBracket = Math.min(Math.max(taxableIncome - b.min, 0), b.max - b.min);
-          tax += taxableInBracket * b.rate;
-        }
-        return tax;
-      };
-      const getMarginalRate = (taxableIncome: number, brackets: { min: number; max: number; rate: number }[]): number => {
-        for (const b of brackets) {
-          if (taxableIncome > b.min && taxableIncome <= b.max) return b.rate;
-        }
-        return brackets[brackets.length - 1].rate;
-      };
-      const federalBrackets = [
-        { min: 0, max: 57375, rate: 0.15 },
-        { min: 57375, max: 114750, rate: 0.205 },
-        { min: 114750, max: 177882, rate: 0.26 },
-        { min: 177882, max: 253414, rate: 0.29 },
-        { min: 253414, max: Infinity, rate: 0.33 },
-      ];
-      const ontarioBrackets = [
-        { min: 0, max: 51446, rate: 0.0505 },
-        { min: 51446, max: 102894, rate: 0.0915 },
-        { min: 102894, max: 150000, rate: 0.1116 },
-        { min: 150000, max: 220000, rate: 0.1216 },
-        { min: 220000, max: Infinity, rate: 0.1316 },
-      ];
-      const federalBPA = 15705;
-      const ontarioBPA = 12843;
-      const taxableIncome = Math.max(0, income - federalBPA);
-      const ontarioTaxableIncome = Math.max(0, income - ontarioBPA);
-      const taxWithoutFederal = calculateTax(taxableIncome, federalBrackets);
-      const taxWithFederal = calculateTax(Math.max(0, taxableIncome - usableContribution), federalBrackets);
-      const federalSavings = taxWithoutFederal - taxWithFederal;
-      const taxWithoutOntario = calculateTax(ontarioTaxableIncome, ontarioBrackets);
-      const taxWithOntario = calculateTax(Math.max(0, ontarioTaxableIncome - usableContribution), ontarioBrackets);
-      const ontarioSavings = taxWithoutOntario - taxWithOntario;
-      const totalSavings = federalSavings + ontarioSavings;
-      const marginalFederal = getMarginalRate(taxableIncome, federalBrackets);
-      const marginalOntario = getMarginalRate(ontarioTaxableIncome, ontarioBrackets);
-      const combinedMarginalRate = marginalFederal + marginalOntario;
+      const before = ontarioAnnualTax2026(income, 0, 0, inputs.employmentType === "employed" ? income : 0);
+      const after = ontarioAnnualTax2026(Math.max(0,income-usableContribution),0,0,inputs.employmentType === "employed" ? income : 0);
+      const federalSavings = before.federal-after.federal;
+      const ontarioSavings = before.provincial-after.provincial;
+      const totalSavings = federalSavings+ontarioSavings;
+      const next = ontarioAnnualTax2026(income+1,0,0,inputs.employmentType === "employed" ? income : 0);
+      const combinedMarginalRate = next.federal+next.provincial-before.federal-before.provincial;
       const afterTaxCost = usableContribution - totalSavings;
       return [
         { label: "RRSP Contribution Amount", key: "contributionAmount", value: usableContribution, unit: "$", color: "blue" },
@@ -3962,7 +3929,7 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     example: { inputs: { annualIncome: 80000, contributionAmount: 10000, province: "ontario", employmentType: "employed" }, results: [] },
     faqs: [
       { question: "How much tax will I save by contributing to my RRSP?", answer: "Your tax savings equal your RRSP contribution multiplied by your marginal tax rate. For example, a $10,000 contribution at a 29.65% marginal rate saves you $2,965 in taxes." },
-      { question: "What is the 2025 RRSP contribution limit?", answer: "The 2025 RRSP contribution limit is $32,490, which is 18% of your 2024 earned income, whichever is lower. The 2026 limit is approximately $34,000." },
+      { question: "What is the 2026 RRSP contribution limit?", answer: "New 2026 room is generally 18% of 2025 earned income, capped at $33,810, adjusted for pension amounts. Use the actual deduction limit on your CRA Notice of Assessment; unused room carries forward." },
       { question: "What happens if I contribute more than my RRSP limit?", answer: "Excess RRSP contributions exceeding your deduction limit by more than $2,000 are subject to a 1% per month penalty tax on the excess amount." },
       { question: "What is the difference between RRSP and TFSA?", answer: "RRSP contributions are tax-deductible but withdrawals are taxed as income. TFSA contributions are after-tax but withdrawals are tax-free. RRSP is better for high earners; TFSA is better for lower earners." },
       { question: "Can I carry forward unused RRSP contribution room?", answer: "Yes, unused RRSP contribution room carries forward indefinitely. You can also carry forward unused deductions to future years without penalty." },
@@ -3978,8 +3945,8 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     slug: "ontario-take-home-pay-calculator-after-tax",
     category: "finance",
     description: "Calculate your net take-home pay after CPP, EI, federal tax, and Ontario provincial tax deductions.",
-    metaTitle: "Ontario Take Home Pay Calculator After Tax 2025 | Measurely",
-    metaDescription: "Free Ontario take-home pay calculator for 2025. Calculate your net salary after federal and provincial taxes, CPP, and EI deductions. Accurate Ontario tax brackets and rates.",
+    metaTitle: "Ontario Take Home Pay Calculator After Tax 2026 | Measurely",
+    metaDescription: "Free Ontario take-home pay calculator for 2026. Calculate your net salary after federal and provincial taxes, CPP, and EI deductions. Accurate Ontario tax brackets and rates.",
     inputs: [
       { label: "Annual Salary ($)", key: "annualSalary", type: "number", placeholder: "e.g., 75000", min: 1, step: 1000, defaultValue: 75000 },
       { label: "Pay Frequency", key: "payFrequency", type: "select", options: [{ label: "Monthly (12/year)", value: "monthly" }, { label: "Semi-Monthly (24/year)", value: "semi-monthly" }, { label: "Bi-Weekly (26/year)", value: "bi-weekly" }, { label: "Weekly (52/year)", value: "weekly" }], defaultValue: "semi-monthly" },
@@ -3987,49 +3954,7 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     compute: (inputs) => {
       const salary = Number(inputs.annualSalary);
       const frequency = String(inputs.payFrequency);
-      const cppRate = 0.0595;
-      const cppExemption = 3500;
-      const cppMaxPensionable = 71300;
-      const cppMaxContribution = (cppMaxPensionable - cppExemption) * cppRate;
-      const cppAnnual = Math.min(Math.max(0, salary - cppExemption) * cppRate, cppMaxContribution);
-      const eiRate = 0.0164;
-      const eiMaxInsurable = 56300;
-      const eiMaxContribution = eiMaxInsurable * eiRate;
-      const eiAnnual = Math.min(salary * eiRate, eiMaxContribution);
-      const calculateTax = (taxableIncome: number, brackets: { min: number; max: number; rate: number }[]): number => {
-        let tax = 0;
-        for (const b of brackets) {
-          const taxableInBracket = Math.min(Math.max(taxableIncome - b.min, 0), b.max - b.min);
-          tax += taxableInBracket * b.rate;
-        }
-        return tax;
-      };
-      const getMarginalRate = (taxableIncome: number, brackets: { min: number; max: number; rate: number }[]): number => {
-        for (const b of brackets) {
-          if (taxableIncome > b.min && taxableIncome <= b.max) return b.rate;
-        }
-        return brackets[brackets.length - 1].rate;
-      };
-      const federalBrackets = [
-        { min: 0, max: 57375, rate: 0.15 },
-        { min: 57375, max: 114750, rate: 0.205 },
-        { min: 114750, max: 177882, rate: 0.26 },
-        { min: 177882, max: 253414, rate: 0.29 },
-        { min: 253414, max: Infinity, rate: 0.33 },
-      ];
-      const ontarioBrackets = [
-        { min: 0, max: 51446, rate: 0.0505 },
-        { min: 51446, max: 102894, rate: 0.0915 },
-        { min: 102894, max: 150000, rate: 0.1116 },
-        { min: 150000, max: 220000, rate: 0.1216 },
-        { min: 220000, max: Infinity, rate: 0.1316 },
-      ];
-      const federalBPA = 15705;
-      const ontarioBPA = 12843;
-      const federalTaxable = Math.max(0, salary - federalBPA);
-      const ontarioTaxable = Math.max(0, salary - ontarioBPA);
-      const federalTax = calculateTax(federalTaxable, federalBrackets);
-      const ontarioTax = calculateTax(ontarioTaxable, ontarioBrackets);
+      const {cpp: cppAnnual, ei: eiAnnual, federal: federalTax, provincial: ontarioTax} = ontarioPayroll2026(salary);
       const totalDeductions = cppAnnual + eiAnnual + federalTax + ontarioTax;
       const annualNetPay = salary - totalDeductions;
       const periodMap: Record<string, number> = { monthly: 12, "semi-monthly": 24, "bi-weekly": 26, weekly: 52 };
@@ -4042,9 +3967,8 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       const deductionsPeriod = totalDeductions / periods;
       const netPeriod = annualNetPay / periods;
       const effectiveTaxRate = totalDeductions / salary * 100;
-      const marginalFederal = getMarginalRate(federalTaxable, federalBrackets);
-      const marginalOntario = getMarginalRate(ontarioTaxable, ontarioBrackets);
-      const combinedMarginal = marginalFederal + marginalOntario;
+      const nextDollar = ontarioPayroll2026(salary + 1);
+      const combinedMarginal = nextDollar.federal + nextDollar.provincial - federalTax - ontarioTax;
       return [
         { label: "Gross Pay Per Period", key: "grossPeriod", value: Math.round(grossPeriod * 100) / 100, unit: "$", color: "blue" },
         { label: "CPP Deduction", key: "cppDeduction", value: Math.round(cppPeriod * 100) / 100, unit: "$", color: "amber" },
@@ -4083,11 +4007,11 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     },
     example: { inputs: { annualSalary: 75000, payFrequency: "semi-monthly" }, results: [] },
     faqs: [
-      { question: "How is Ontario take-home pay calculated?", answer: "Your take-home pay is calculated by subtracting CPP contributions, EI premiums, federal income tax, and Ontario provincial tax from your gross salary. Each deduction uses 2025 tax brackets and rates." },
-      { question: "What are the CPP rates and limits for 2025?", answer: "The 2025 CPP rate is 5.95% on earnings between $3,500 and $71,300. The maximum annual CPP contribution is $4,034.10. The Year's Basic Exemption is $3,500." },
-      { question: "What are the EI rates and limits for 2025?", answer: "The 2025 EI premium rate is 1.64% on maximum insurable earnings of $56,300. The maximum annual EI premium is $923.32." },
-      { question: "What is the Ontario basic personal amount for 2025?", answer: "The federal basic personal amount is $15,705 for 2025. The Ontario basic personal amount is $12,843. These are the amounts you can earn before paying any income tax." },
-      { question: "What are the Ontario tax brackets for 2025?", answer: "Ontario 2025 brackets: 5.05% up to $51,446, 9.15% $51,447-$102,894, 11.16% $102,895-$150,000, 12.16% $150,001-$220,000, and 13.16% over $220,000." },
+      { question: "How is Ontario take-home pay calculated?", answer: "Your take-home pay is calculated by subtracting CPP contributions, EI premiums, federal income tax, and Ontario provincial tax from your gross salary. Each deduction uses 2026 tax brackets and rates." },
+      { question: "What are the CPP rates and limits for 2026?", answer: "The 2026 CPP rate is 5.95% on earnings between $3,500 and $74,600. The maximum annual CPP contribution is $4,230.45. CPP2 adds 4% on earnings from $74,600 to $85,000, up to $416. The basic exemption is $3,500." },
+      { question: "What are the EI rates and limits for 2026?", answer: "The 2026 EI premium rate is 1.63% on maximum insurable earnings of $68,900. The maximum annual EI premium is $1,123.07." },
+      { question: "What is the Ontario basic personal amount for 2026?", answer: "The federal basic personal amount is $16,452 for 2026. The Ontario basic personal amount is $12,989. These produce non-refundable tax credits; the federal amount phases down at higher incomes. This annual estimate includes the Ontario health premium and surtax, but excludes dependants and income-tested benefits." },
+      { question: "What are the Ontario tax brackets for 2026?", answer: "Ontario 2026 brackets: 5.05% up to $53,891, 9.15% $53,892-$107,785, 11.16% $107,786-$150,000, 12.16% $150,001-$220,000, and 13.16% over $220,000." },
       { question: "What is the difference between marginal and effective tax rate?", answer: "Your marginal tax rate is the rate on your next dollar of income. Your effective (average) tax rate is total tax divided by total income. The effective rate is always lower than the marginal rate." },
       { question: "Does this calculator include Ontario Health Premium?", answer: "No, the Ontario Health Premium was eliminated in 2019. Current Ontario income tax is calculated solely on the provincial tax brackets shown." },
       { question: "How does overtime affect my take-home pay?", answer: "Overtime is taxed at your marginal tax rate. Some of your overtime earnings may fall into a higher tax bracket, but only the portion above the bracket threshold is taxed at the higher rate." },
@@ -4211,7 +4135,7 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       { question: "What is the current stress test qualifying rate?", answer: "The minimum qualifying rate for the stress test is 5.25% (the Bank of Canada floor) or your contract rate plus 2%, whichever is higher. As of 2025-2026, most borrowers qualify at contract rate + 2%." },
       { question: "How does the stress test affect how much I can borrow?", answer: "The stress test reduces your borrowing power by roughly 20-25% compared to qualifying at the contract rate. You may qualify for a smaller mortgage than the monthly payment on your desired home suggests." },
       { question: "Are first-time home buyers exempt from the stress test?", answer: "No, the stress test applies to all federally regulated lenders. However, first-time buyers can use the Home Buyers' Plan (withdraw up to $60,000 from RRSP) and may qualify for first-time home buyer incentives." },
-      { question: "Does the stress test apply to mortgage renewals?", answer: "As of 2025, the stress test does not apply to straight renewals with the same lender where there is no increase in the mortgage amount. It applies to new mortgages and switches to new lenders." },
+      { question: "Does the stress test apply to mortgage renewals?", answer: "As of 2025, the stress test does not apply to straight renewals with the same lender where there is no increase in the mortgage amount. OSFI also exempts eligible uninsured straight switches at renewal with no increase in loan amount or amortization; lender underwriting still applies." },
     ],
     relatedSlugs: ["home-affordability-calculator", "mortgage-calculator", "rent-vs-buy-calculator", "loan-calculator", "home-equity-loan-calculator"],
   },
@@ -4221,12 +4145,12 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     slug: "canada-child-benefit-calculator-by-income",
     category: "finance",
     description: "Estimate your Canada Child Benefit (CCB) and Ontario Child Benefit (OCB) payments based on income and number of children.",
-    metaTitle: "Canada Child Benefit Calculator by Income 2025-2026 | Measurely",
-    metaDescription: "Free Canada Child Benefit calculator for 2025-2026. Estimate your CCB and OCB payments based on adjusted family net income, number of children, and province. Accurate CRA benefit calculations.",
+    metaTitle: "Canada Child Benefit Calculator by Income July 2026–June 2027 | Measurely",
+    metaDescription: "Free Canada Child Benefit calculator for July 2026–June 2027. Estimate your CCB and OCB payments based on adjusted family net income, number of children, and province. Estimate for full custody; other provincial programs and disability benefits are excluded.",
     inputs: [
       { label: "Number of Children Under 6", key: "childrenUnder6", type: "number", placeholder: "e.g., 1", min: 0, max: 20, step: 1, defaultValue: 1 },
       { label: "Number of Children Ages 6-17", key: "children6to17", type: "number", placeholder: "e.g., 1", min: 0, max: 20, step: 1, defaultValue: 1 },
-      { label: "Adjusted Family Net Income ($)", key: "adjustedFamilyNetIncome", type: "number", placeholder: "e.g., 80000", min: 0, step: 1000, defaultValue: 80000 },
+      { label: "2025 Adjusted Family Net Income ($)", key: "adjustedFamilyNetIncome", type: "number", placeholder: "e.g., 80000", min: 0, step: 1000, defaultValue: 80000 },
       { label: "Province", key: "province", type: "select", options: [{ label: "Ontario", value: "ontario" }, { label: "British Columbia", value: "bc" }, { label: "Alberta", value: "ab" }, { label: "Quebec", value: "qc" }, { label: "Manitoba", value: "mb" }, { label: "Saskatchewan", value: "sk" }, { label: "Nova Scotia", value: "ns" }, { label: "New Brunswick", value: "nb" }, { label: "Newfoundland and Labrador", value: "nl" }, { label: "Prince Edward Island", value: "pe" }, { label: "Northwest Territories", value: "nt" }, { label: "Nunavut", value: "nu" }, { label: "Yukon", value: "yt" }], defaultValue: "ontario" },
       { label: "Marital Status", key: "maritalStatus", type: "select", options: [{ label: "Married / Common-Law", value: "married" }, { label: "Single / Divorced / Separated", value: "single" }, { label: "Widowed", value: "widowed" }], defaultValue: "married" },
     ],
@@ -4236,9 +4160,9 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       const income = Number(inputs.adjustedFamilyNetIncome);
       const province = String(inputs.province);
       const totalChildren = under6 + age6to17;
-      const maxUnder6 = 7787;
-      const max6to17 = 6570;
-      const incomeThreshold = 36502;
+      const maxUnder6 = 8157;
+      const max6to17 = 6883;
+      const incomeThreshold = 38237;
       const baseCCB = under6 * maxUnder6 + age6to17 * max6to17;
       let reductionRate: number;
       if (totalChildren <= 0) reductionRate = 0;
@@ -4246,10 +4170,11 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       else if (totalChildren === 2) reductionRate = 0.135;
       else if (totalChildren === 3) reductionRate = 0.19;
       else reductionRate = 0.23;
-      const reduction = income > incomeThreshold ? (income - incomeThreshold) * reductionRate : 0;
+      const index = Math.min(4, totalChildren)-1;
+      const reduction = totalChildren === 0 ? 0 : income <= 82847 ? Math.max(0,income-incomeThreshold)*reductionRate : [3123,6022,8476,10260][index]+(income-82847)*[.032,.057,.08,.095][index];
       const netCCB = Math.max(0, baseCCB - reduction);
-      const ocbPerChild = 1683;
-      const ocb = province === "ontario" ? totalChildren * ocbPerChild : 0;
+      const ocbPerChild = 1760;
+      const ocb = province === "ontario" ? Math.max(0, totalChildren * ocbPerChild - Math.max(0,income-26865)*.08) : 0;
       const totalBenefits = netCCB + ocb;
       const monthlyPayment = totalBenefits / 12;
       const ccbPerChildUnder6 = under6 > 0 && baseCCB > 0 ? netCCB * (under6 * maxUnder6 / baseCCB) / under6 : 0;
@@ -4285,14 +4210,14 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     },
     example: { inputs: { childrenUnder6: 1, children6to17: 1, adjustedFamilyNetIncome: 80000, province: "ontario", maritalStatus: "married" }, results: [] },
     faqs: [
-      { question: "How is the Canada Child Benefit calculated?", answer: "CCB is calculated based on the number of children, their ages, and your adjusted family net income. For 2025-2026, maximum benefits are $7,787 per child under 6 and $6,570 per child aged 6-17. Benefits are reduced when income exceeds $36,502." },
-      { question: "What is the Ontario Child Benefit (OCB)?", answer: "The Ontario Child Benefit provides up to $1,683 per child per year (2025-2026) to low- and middle-income families in Ontario. It is paid together with the CCB as a single monthly payment." },
+      { question: "How is the Canada Child Benefit calculated?", answer: "CCB is calculated based on the number of children, their ages, and your adjusted family net income. For July 2026–June 2027, maximum benefits are $8,157 per child under 6 and $6,883 per child aged 6-17. Benefits are reduced when income exceeds $38,237." },
+      { question: "What is the Ontario Child Benefit (OCB)?", answer: "The Ontario Child Benefit provides up to $1,760 per child per year (July 2026–June 2027) to low- and middle-income families in Ontario. It is paid together with the CCB as a single monthly payment." },
       { question: "What income counts as adjusted family net income?", answer: "Adjusted family net income is line 23600 of your tax return plus any universal child care benefit (UCCB) and registered disability savings plan (RDSP) income, minus any RDSP contributions and child care expenses." },
       { question: "How does the number of children affect the CCB reduction rate?", answer: "The reduction rate increases with more children: 7% for 1 child, 13.5% for 2 children, 19% for 3 children, and 23% for 4 or more children." },
       { question: "When is the CCB paid?", answer: "CCB payments are made monthly (typically on the 20th) from July to June, based on the previous year's tax return. Your benefit year runs from July 1 to June 30." },
       { question: "Do I need to apply for the Canada Child Benefit?", answer: "Yes, you must apply. You can register your child's birth through your province and consent to share information with the CRA, or apply directly through your CRA My Account." },
       { question: "Can separated parents both receive CCB?", answer: "No, CCB is paid to the parent who primarily resides with the child. In shared custody situations (at least 40% of the time with each parent), each parent receives 50% of the calculated benefit." },
-      { question: "What is the CCB reduction threshold for 2025-2026?", answer: "The CCB income threshold is $36,502 for the 2025-2026 benefit year. Income below this amount results in the maximum CCB payment." },
+      { question: "What is the CCB reduction threshold for July 2026–June 2027?", answer: "The CCB income threshold is $38,237 for the July 2026–June 2027 benefit year. Income below this amount results in the maximum CCB payment." },
     ],
     relatedSlugs: ["tfsa-contribution-room-calculator-canada", "rrsp-contribution-tax-savings-calculator", "ontario-take-home-pay-calculator-after-tax", "salary-calculator", "tax-calculator"],
   },
@@ -4465,8 +4390,8 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     slug: "1099-tax-calculator-for-freelancers",
     category: "business",
     description: "Estimate your quarterly and annual self-employment tax, federal income tax, and balance due as a 1099 freelancer.",
-    metaTitle: "1099 Tax Calculator for Freelancers | Self-Employment Tax 2025",
-    metaDescription: "Free 1099 tax calculator for freelancers. Estimate self-employment tax (15.3%), federal income tax, deductions, and quarterly payments for 2025 tax year.",
+    metaTitle: "1099 Tax Calculator for Freelancers | Self-Employment Tax 2026",
+    metaDescription: "Free 1099 tax calculator for freelancers. Estimate self-employment tax (15.3%), federal income tax, deductions, and quarterly payments for 2026 tax year.",
     inputs: [
       { label: "Total 1099 Income ($)", key: "totalIncome", type: "number", placeholder: "e.g., 80000", min: 1, step: 1000, defaultValue: 80000 },
       { label: "Business Expenses ($)", key: "businessExpenses", type: "number", placeholder: "e.g., 12000", min: 0, step: 500, defaultValue: 12000 },
@@ -4484,31 +4409,14 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       const state = String(inputs.state);
       const netProfit = Math.max(0, totalIncome - expenses);
       const seTaxableEarnings = netProfit * 0.9235;
-      const socialSecurityTax = Math.min(seTaxableEarnings, 176100) * 0.124;
+      const socialSecurityTax = Math.min(seTaxableEarnings, SOCIAL_SECURITY_BASE) * 0.124;
       const medicareTax = seTaxableEarnings * 0.029;
       const seTax = Math.round((socialSecurityTax + medicareTax) * 100) / 100;
       const seDeduction = Math.round(seTax * 0.5 * 100) / 100;
       const agi = Math.round((netProfit + otherIncome - seDeduction) * 100) / 100;
-      const stdDeductions: Record<string, number> = { single: 15000, married: 30000, "head-of-household": 22500 };
-      const standardDeduction = stdDeductions[filingStatus] ?? 15000;
+      const standardDeduction = standardDeduction2026(filingStatus);
       const taxableIncome = Math.max(0, Math.round((agi - standardDeduction) * 100) / 100);
-      const brackets: Record<string, { limit: number; rate: number }[]> = {
-        single: [{ limit: 11925, rate: 0.10 }, { limit: 48475, rate: 0.12 }, { limit: 103350, rate: 0.22 }, { limit: 197300, rate: 0.24 }, { limit: 250525, rate: 0.32 }, { limit: 626350, rate: 0.35 }],
-        married: [{ limit: 23850, rate: 0.10 }, { limit: 96950, rate: 0.12 }, { limit: 206700, rate: 0.22 }, { limit: 394600, rate: 0.24 }, { limit: 501050, rate: 0.32 }, { limit: 751600, rate: 0.35 }],
-        "head-of-household": [{ limit: 17000, rate: 0.10 }, { limit: 70950, rate: 0.12 }, { limit: 107500, rate: 0.22 }, { limit: 197300, rate: 0.24 }, { limit: 250525, rate: 0.32 }, { limit: 626350, rate: 0.35 }],
-      };
-      const bracketSet = brackets[filingStatus] || brackets.single;
-      let incomeTax = 0;
-      const remaining = taxableIncome;
-      let prevLimit = 0;
-      for (const b of bracketSet) {
-        const taxable = Math.min(Math.max(remaining - prevLimit, 0), b.limit - prevLimit);
-        incomeTax += taxable * b.rate;
-        prevLimit = b.limit;
-        if (remaining <= b.limit) break;
-      }
-      if (remaining > prevLimit) incomeTax += (remaining - prevLimit) * 0.37;
-      incomeTax = Math.round(incomeTax * 100) / 100;
+      const incomeTax = Math.round(federalIncomeTax2026(taxableIncome, filingStatus) * 100) / 100;
       const stateRates: Record<string, number> = { none: 0, california: 0.093, "new-york": 0.0685, texas: 0, florida: 0, illinois: 0.0495, pennsylvania: 0.0307, ohio: 0.0399, other: 0.05 };
       const stateTax = Math.round(netProfit * (stateRates[state] ?? 0) * 100) / 100;
       const totalTax = Math.round((incomeTax + seTax + stateTax) * 100) / 100;
@@ -4554,11 +4462,11 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     faqs: [
       { question: "What is self-employment tax?", answer: "Self-employment tax is 15.3% of your net earnings, covering Social Security (12.4%) and Medicare (2.9%). It is the self-employed equivalent of the employer + employee FICA tax." },
       { question: "Can I deduct half of my self-employment tax?", answer: "Yes, you can deduct 50% of your self-employment tax as an adjustment to income on Form 1040, reducing your adjusted gross income (AGI) and federal income tax." },
-      { question: "What is the Social Security wage base for 2025?", answer: "For 2025, the Social Security portion (12.4%) applies to the first $176,100 of net earnings. The Medicare portion (2.9%) applies to all net earnings with no cap." },
+      { question: "What is the Social Security wage base for 2026?", answer: "For 2026, the Social Security portion (12.4%) applies to the first $184,500 of net earnings. The Medicare portion (2.9%) applies to all net earnings with no cap." },
       { question: "Do I need to make quarterly estimated tax payments?", answer: "Yes, if you expect to owe $1,000+ in federal tax, you should make quarterly payments using Form 1040-ES to avoid underpayment penalties." },
       { question: "What business expenses can freelancers deduct?", answer: "Common deductions include home office, software, equipment, internet, phone, marketing, travel, education, health insurance premiums, and retirement contributions." },
-      { question: "How is the standard deduction different for filing statuses?", answer: "For 2025: Single $15,000, Married Filing Jointly $30,000, Head of Household $22,500. This amount is subtracted from AGI to determine taxable income." },
-      { question: "What are the 2025 federal income tax brackets?", answer: "For single filers: 10% up to $11,925, 12% up to $48,475, 22% up to $103,350, 24% up to $197,300, 32% up to $250,525, 35% up to $626,350, 37% above that." },
+      { question: "How is the standard deduction different for filing statuses?", answer: "For 2026: Single $16,100, Married Filing Jointly $32,200, Head of Household $24,150. This amount is subtracted from AGI to determine taxable income." },
+      { question: "What are the 2026 federal income tax brackets?", answer: "For single filers: 10% up to $12,400, 12% up to $50,400, 22% up to $105,700, 24% up to $201,775, 32% up to $256,225, 35% up to $640,600, 37% above that." },
       { question: "How does state tax affect my total tax bill?", answer: "State income tax rates vary from 0% (Texas, Florida) to 13.3% (California top bracket). This calculator applies a flat estimated rate for the selected state." },
     ],
     relatedSlugs: ["tax-calculator", "freelance-rate-calculator", "roi-calculator", "salary-calculator", "paycheck-calculator"],
@@ -4740,11 +4648,11 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     name: "AI Token Cost Calculator",
     slug: "ai-token-cost-calculator",
     category: "business",
-    description: "Estimate your AI API costs for GPT-5, GPT-4o, Claude, Gemini, and custom models based on token usage and request volume.",
+    description: "Estimate AI API token costs using verified model presets or your own input and output prices.",
     metaTitle: "AI Token Cost Calculator | Estimate AI API Pricing | Measurely",
     metaDescription: "Free AI token cost calculator. Estimate GPT, Claude, and Gemini API costs based on input/output token usage, requests per day, and custom pricing.",
     inputs: [
-      { label: "Model", key: "model", type: "select", options: [{ label: "GPT-5", value: "gpt5" }, { label: "GPT-4o", value: "gpt4o" }, { label: "Claude 3.5 Sonnet", value: "claude" }, { label: "Gemini 2.0 Flash", value: "gemini" }, { label: "Custom", value: "custom" }], defaultValue: "gpt4o" },
+      { label: "Model", key: "model", type: "select", options: [...AI_MODELS.map(model => ({label:model.name,value:model.id})), {label:"Custom",value:"custom"}], defaultValue: "openai-gpt6-luna" },
       { label: "Input Tokens", key: "inputTokens", type: "number", placeholder: "e.g., 1000", min: 0, step: 1, defaultValue: 1000 },
       { label: "Output Tokens", key: "outputTokens", type: "number", placeholder: "e.g., 500", min: 0, step: 1, defaultValue: 500 },
       { label: "Requests Per Day", key: "requestsPerDay", type: "number", placeholder: "e.g., 100", min: 0, step: 1, defaultValue: 100 },
@@ -4761,15 +4669,8 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       const customInputPrice = Number(inputs.customInputPrice);
       const customOutputPrice = Number(inputs.customOutputPrice);
 
-      const pricing: Record<string, { input: number; output: number }> = {
-        gpt5: { input: 15, output: 60 },
-        gpt4o: { input: 2.5, output: 10 },
-        claude: { input: 3, output: 15 },
-        gemini: { input: 0.1, output: 0.4 },
-        custom: { input: customInputPrice, output: customOutputPrice },
-      };
-
-      const prices = pricing[model] || pricing.gpt4o;
+      const preset = AI_MODELS.find(item=>item.id===model) ?? AI_MODELS[0];
+      const prices = model === "custom" ? {input:customInputPrice,output:customOutputPrice} : {input:preset.inputPrice,output:preset.outputPrice};
       const inputPrice = prices.input;
       const outputPrice = prices.output;
 
@@ -4809,9 +4710,9 @@ const calculatorDefinitions: CalculatorDefinition[] = [
     example: { inputs: { model: "gpt4o", inputTokens: 1000, outputTokens: 500, requestsPerDay: 100, daysPerMonth: 30, customInputPrice: 0, customOutputPrice: 0 }, results: [] },
     faqs: [
       { question: "What is an AI token?", answer: "A token is the basic unit of text that AI models process. One token is roughly 0.75 words in English. Tokens include words, subwords, punctuation, and spaces. For example, 'Hello, world!' is about 3 tokens." },
-      { question: "How much does GPT API cost?", answer: "GPT-4o costs $2.50 per million input tokens and $10 per million output tokens. GPT-5 is priced higher at $15 input and $60 output per million tokens. Prices vary by model and tier." },
+      { question: "How much does GPT API cost?", answer: "Rates depend on the exact model, service tier and endpoint. Use the published standard-price presets or enter your quoted prices. Tool calls, cache writes, taxes and context premiums may cost extra." },
       { question: "Can I calculate AI costs before launching?", answer: "Yes, use our AI Token Cost Calculator to estimate costs before launching. Enter your expected token usage, request volume, and model choice to get accurate monthly and annual projections." },
-      { question: "Which AI model is cheapest?", answer: "Gemini 2.0 Flash is currently the most cost-effective option at $0.10 per million input tokens and $0.40 per million output tokens. It is ideal for high-volume, simple tasks." },
+      { question: "Which AI model is cheapest?", answer: "Compare cost for your actual input/output mix and task quality. The lowest per-token price does not guarantee the lowest cost per successful task. Presets are a curated selection, not every available model." },
       { question: "How many tokens does a chatbot use?", answer: "A typical customer support chatbot uses 500-1500 input tokens (conversation history + prompt) and 100-500 output tokens per request. Complex tasks like content generation use significantly more." },
       { question: "Is AI API pricing predictable?", answer: "AI API pricing is generally predictable since providers charge fixed rates per token. However, final costs depend on actual usage patterns, which can vary. Our calculator helps you forecast costs accurately." },
       { question: "Can small businesses afford AI APIs?", answer: "Yes. A small business can run AI-powered customer support for $20-100/month using GPT-4o or Gemini. Costs scale with usage, making AI APIs accessible for businesses of all sizes." },
@@ -5161,15 +5062,16 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       { label: "Retirement Contributions", key: "retirementContrib", type: "number", placeholder: "e.g., 7000", min: 0, step: 500, defaultValue: 0 },
       { label: "Health Insurance Deduction", key: "healthInsurance", type: "number", placeholder: "e.g., 6000", min: 0, step: 500, defaultValue: 0 },
       { label: "Estimated Tax Already Paid", key: "taxPaid", type: "number", placeholder: "e.g., 2000", min: 0, step: 500, defaultValue: 0 },
-      { label: "Business Mileage (miles)", key: "mileage", type: "number", placeholder: "e.g., 5000", min: 0, step: 100, defaultValue: 0 },
+      { label: "Business Mileage, Jan–Jun 2026 (miles)", key: "mileage", type: "number", placeholder: "e.g., 5000", min: 0, step: 100, defaultValue: 0 },
+      { label: "Business Mileage, Jul–Dec 2026 (miles)", key: "mileageSecondHalf", type: "number", min: 0, step: 100, defaultValue: 0 },
       { label: "Home Office Deduction", key: "homeOffice", type: "number", placeholder: "e.g., 1500", min: 0, step: 100, defaultValue: 0 },
       { label: "Age", key: "age", type: "number", placeholder: "e.g., 35", min: 18, max: 100, step: 1, defaultValue: 35 },
-      { label: "Dependents", key: "dependents", type: "number", placeholder: "e.g., 0", min: 0, max: 20, step: 1, defaultValue: 0 },
+      { label: "Qualifying Children Under 17 (valid SSNs)", key: "dependents", type: "number", placeholder: "e.g., 0", min: 0, max: 20, step: 1, defaultValue: 0 },
       { label: "Quarter", key: "quarter", type: "select", options: [
         { label: "Q1 (Jan-Mar)", value: "1" },
-        { label: "Q2 (Apr-Jun)", value: "2" },
-        { label: "Q3 (Jul-Sep)", value: "3" },
-        { label: "Q4 (Oct-Dec)", value: "4" },
+        { label: "Q2 (Apr-May)", value: "2" },
+        { label: "Q3 (Jun-Aug)", value: "3" },
+        { label: "Q4 (Sep-Dec)", value: "4" },
       ], defaultValue: "1" },
     ],
     compute: (inputs) => {
@@ -5187,12 +5089,14 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       const filing = inputs.filingStatus as string;
       const state = inputs.state as string;
 
-      const mileageRate = 0.70;
-      const mileageDeduction = mileage * mileageRate;
-      const netBusinessIncome = Math.max(0, income - expenses);
-      const additionalDeductions = retirementContrib + healthInsurance + homeOffice + mileageDeduction;
+      const mileageDeduction = mileage * 0.725 + Number(inputs.mileageSecondHalf ?? 0) * 0.76;
+      const netBusinessIncome = Math.max(0, income - expenses - homeOffice - mileageDeduction);
+      const selfEmploymentBase = netBusinessIncome * 0.9235;
+      const selfEmploymentTax = Math.min(selfEmploymentBase, SOCIAL_SECURITY_BASE) * 0.124 + selfEmploymentBase * 0.029;
+      const seDeduction = selfEmploymentTax / 2;
+      const additionalDeductions = retirementContrib + healthInsurance + seDeduction;
 
-      const stdDeduction = filing === "single" ? 14600 : filing === "head" ? 21900 : 29200;
+      const stdDeduction = standardDeduction2026(filing);
       const personalExemption = dependents * 0;
       const totalDeductions = stdDeduction + additionalDeductions + personalExemption;
 
@@ -5200,15 +5104,11 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       const taxableIncome = Math.max(0, totalIncome - totalDeductions);
 
       const isOlder = age >= 65;
-      const additionalStdDeduction = isOlder ? (filing === "single" || filing === "head" ? 1950 : 1550) : 0;
+      const additionalStdDeduction = isOlder ? (filing === "single" || filing === "head" ? 2050 : 1650) : 0;
       const adjustedTaxableIncome = Math.max(0, taxableIncome - additionalStdDeduction);
 
       let federalTax = 0;
-      const brackets = filing === "married"
-        ? [{ rate: 10, limit: 23200 }, { rate: 12, limit: 94300 }, { rate: 22, limit: 201050 }, { rate: 24, limit: 383900 }, { rate: 32, limit: 487450 }, { rate: 35, limit: 731200 }]
-        : filing === "head"
-        ? [{ rate: 10, limit: 16550 }, { rate: 12, limit: 63100 }, { rate: 22, limit: 100500 }, { rate: 24, limit: 191950 }, { rate: 32, limit: 243700 }, { rate: 35, limit: 609350 }]
-        : [{ rate: 10, limit: 11600 }, { rate: 12, limit: 47150 }, { rate: 22, limit: 100525 }, { rate: 24, limit: 191950 }, { rate: 32, limit: 243725 }, { rate: 35, limit: 609350 }];
+      const brackets = federalBrackets2026(filing);
 
       let remaining = adjustedTaxableIncome;
       let prevLimit = 0;
@@ -5221,34 +5121,27 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       }
       if (remaining > 0) federalTax += remaining * 37 / 100;
 
-      const selfEmploymentBase = netBusinessIncome * 0.9235;
-      const socialSecuritySE = Math.min(selfEmploymentBase, 168600) * 0.124;
-      const medicareSE = selfEmploymentBase * 0.029;
-      const selfEmploymentTax = socialSecuritySE + medicareSE;
-      const seDeduction = selfEmploymentTax / 2;
-
-      const childTaxCredit = dependents * 2000;
-      const earnedIncomeCredit = 0;
-      const totalCredits = childTaxCredit + earnedIncomeCredit;
-
-      const annualTaxBeforeCredits = federalTax + selfEmploymentTax - seDeduction;
+      const creditPhaseout = Math.ceil(Math.max(0, totalIncome - seDeduction - (filing === "married" ? 400000 : 200000)) / 1000) * 50;
+      const childTaxCredit = Math.max(0, dependents * 2200 - creditPhaseout);
+      const totalCredits = Math.min(federalTax, childTaxCredit);
+      const annualTaxBeforeCredits = federalTax + selfEmploymentTax;
       const totalAnnualTax = Math.max(0, annualTaxBeforeCredits - totalCredits);
 
       const effectiveRate = totalIncome > 0 ? Math.round(totalAnnualTax / totalIncome * 10000) / 100 : 0;
 
-      const safeHarborAmount = totalAnnualTax;
+      const safeHarborAmount = totalAnnualTax * 0.9;
       const remainingTax = Math.max(0, totalAnnualTax - taxPaid);
 
       const quarterFactors: Record<number, number> = { 1: 0.25, 2: 0.50, 3: 0.75, 4: 1.0 };
       const factor = quarterFactors[quarter] || 0.25;
-      const quarterlyPayment = Math.round(remainingTax * factor * 100) / 100;
+      const quarterlyPayment = Math.round(Math.max(0, safeHarborAmount * factor - taxPaid) * 100) / 100;
       const fullQuarterlyPayment = Math.round(remainingTax * 0.25 * 100) / 100;
 
       const refundOrDue = taxPaid > totalAnnualTax ? taxPaid - totalAnnualTax : 0;
       const balanceDue = totalAnnualTax > taxPaid ? totalAnnualTax - taxPaid : 0;
 
       const grossIncome = income + otherIncome;
-      const netProfit = netBusinessIncome - expenses;
+      const netProfit = netBusinessIncome;
 
       return [
         { label: "Quarterly Payment", key: "quarterlyPayment", value: quarterlyPayment, unit: "$", color: "red" },
@@ -5259,7 +5152,7 @@ const calculatorDefinitions: CalculatorDefinition[] = [
         { label: "Taxable Income", key: "taxableIncome", value: Math.round(adjustedTaxableIncome * 100) / 100, unit: "$", color: "default" },
         { label: "Deductions Total", key: "totalDeductions", value: Math.round(totalDeductions * 100) / 100, unit: "$", color: "green" },
         { label: "Net Business Income", key: "netBusinessIncome", value: Math.round(netBusinessIncome * 100) / 100, unit: "$", color: "blue" },
-        { label: "Safe Harbor Amount", key: "safeHarborAmount", value: Math.round(safeHarborAmount * 100) / 100, unit: "$", color: "default" },
+        { label: "90% Current-Year Federal Target", key: "safeHarborAmount", value: Math.round(safeHarborAmount * 100) / 100, unit: "$", color: "default" },
         { label: "Remaining Tax Due", key: "remainingTax", value: Math.round(remainingTax * 100) / 100, unit: "$", color: balanceDue > 0 ? "red" : "green" },
         { label: "Estimated Refund", key: "estimatedRefund", value: refundOrDue > 0 ? Math.round(refundOrDue * 100) / 100 : 0, unit: "$", color: "green" },
         { label: "Balance Due", key: "balanceDue", value: balanceDue > 0 ? Math.round(balanceDue * 100) / 100 : 0, unit: "$", color: "red" },
@@ -5735,7 +5628,7 @@ const calculatorDefinitions: CalculatorDefinition[] = [
       let spouseDeduction = 0;
 
       if (country === "US") {
-        taxExemption = spouseExemption ? 13610000 : 13610000;
+        taxExemption = spouseExemption ? netEstate : Math.max(0,15000000 - lifetimeGifts);
         spouseDeduction = spouseExemption ? netEstate : 0;
         const taxableBeforeExemption = Math.max(0, netEstate - taxExemption);
         taxableEstate = taxableBeforeExemption;
@@ -5743,18 +5636,17 @@ const calculatorDefinitions: CalculatorDefinition[] = [
         estimatedTax = taxableEstate * taxRate;
       } else if (country === "UK") {
         const nilRateBand = 325000;
-        const residenceBand = spouseExemption ? 175000 : 0;
-        taxExemption = nilRateBand + residenceBand;
+        taxExemption = spouseExemption ? netEstate : nilRateBand;
         spouseDeduction = spouseExemption ? netEstate : 0;
         taxableEstate = Math.max(0, netEstate - taxExemption);
         taxRate = 0.40;
         estimatedTax = taxableEstate * taxRate;
       } else if (country === "CA") {
-        taxExemption = spouseExemption ? netEstate : 0;
+        taxExemption = netEstate;
         spouseDeduction = spouseExemption ? netEstate : 0;
-        taxableEstate = spouseExemption ? 0 : netEstate * 0.5;
-        taxRate = 0.25;
-        estimatedTax = taxableEstate * taxRate;
+        taxableEstate = 0;
+        taxRate = 0;
+        estimatedTax = 0;
       } else {
         taxExemption = spouseExemption ? netEstate : netEstate;
         spouseDeduction = spouseExemption ? netEstate : 0;

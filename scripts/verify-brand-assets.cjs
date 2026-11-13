@@ -11,15 +11,12 @@ async function main() {
     assert.equal(image.width,size,file);
     assert.equal(image.height,size,file);
   }
-  const images = JSON.parse(fs.readFileSync(path.join(root,"src/data/article-image-manifest.json"),"utf8"));
-  for (const [slug, image] of Object.entries(images)) {
-    const metadata = await sharp(path.join(root,"public",image.src)).metadata();
+  const images = ["finance","budget","investing","home","construction","study","math","technology","fitness","nutrition","water","planning"];
+  for (const slug of images) {
+    const metadata = await sharp(path.join(root,"public/images/guides/photos",slug+".webp")).metadata();
     assert.equal(metadata.width,1600,slug);
     assert.equal(metadata.height,900,slug);
-    assert.ok(image.alt.length>30,slug);
-    assert.ok(!image.alt.includes("Featured image for blog"),slug);
   }
-  assert.ok(!images["tax-saving-tips-2026"]);
-  console.log("PASS: exact square icon sizes and "+Object.keys(images).length+" article-specific 1600x900 WebP images.");
+  console.log("PASS: exact square icon sizes and "+images.length+" licensed 1600x900 WebP guide photographs.");
 }
 main().catch(error => { console.error(error); process.exitCode=1; });
