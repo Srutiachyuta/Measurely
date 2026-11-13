@@ -66,9 +66,6 @@ export function HeroSection() {
           >
             Clear answers for{" "}
             <span className="text-gradient">everyday decisions</span>
-            <br className="hidden sm:block" />
-            <span className="text-text">With </span>
-            <span className="text-gradient-cyan">tools you can use</span>
           </motion.h1>
 
           <motion.p
