@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer"
 import { ScrollToTop } from "@/components/layout/scroll-to-top"
 import { SearchCommandLoader } from "@/components/layout/search-command-loader"
 import { CookieConsentBanner } from "@/lib/thirdPartyScripts"
+import { LegacyCacheCleanup } from "./legacy-cache-cleanup"
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -15,6 +16,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <LegacyCacheCleanup />
       <ScrollToTop />
       <Navbar />
       <main id="main-content" className="flex-1 pt-16" role="main" tabIndex={-1}>

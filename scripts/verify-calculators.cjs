@@ -45,6 +45,17 @@ async function main() {
   assert.equal(value("loan-calculator", {loanAmount: 1000, interestRate: 12, loanTerm: 12, termType: "months"}, "monthlyPayment"), 88.85);
   assert.equal(value("sip-calculator", {monthlyInvestment: 1000, expectedReturn: 0, tenure: 1, tenureType: "years"}, "maturityValue"), 12000);
   const math = load(path.join(root, "src/lib/math-expression"));
+  const workerHandlers = new Map();
+  const deletedCaches = [];
+  vm.runInNewContext(fs.readFileSync(path.join(root,"public/sw.js"),"utf8"), {
+    self: {addEventListener:(name,handler)=>workerHandlers.set(name,handler),skipWaiting:async()=>{},clients:{claim:async()=>{}}},
+    caches: {keys:async()=>["measurely-v1","measurely-old","other-app-cache"],delete:async name=>{deletedCaches.push(name);return true;}}
+  });
+  assert.ok(!workerHandlers.has("fetch"),"Retired worker must never cache navigation or API responses");
+  let workerReady;
+  workerHandlers.get("activate")({waitUntil:promise=>{workerReady=promise;}});
+  await workerReady;
+  assert.deepEqual(deletedCaches,["measurely-v1","measurely-old"]);
   const units = load(path.join(root, "src/data/unit-converter"));
   assert.equal(units.convertUnit(1,"length","ft","in"),12);
   assert.equal(units.convertUnit(1,"length","mi","m"),1609.344);

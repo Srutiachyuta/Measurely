@@ -230,7 +230,7 @@ export default async function ToolSlugPage({ params }: PageProps) {
           url={url}
         />
       )}
-      <CalculatorLayout slug={slug} relatedArticles={blogs.filter(post => post.relatedTools?.some(tool => tool.slug === slug)).slice(0, 6).map(post => ({...post, content: ""}))}><ToolContentSections slug={slug} /></CalculatorLayout>
+      <CalculatorLayout key={slug} slug={slug} relatedArticles={blogs.filter(post => post.relatedTools?.some(tool => tool.slug === slug)).slice(0, 6).map(post => ({...post, content: ""}))}><ToolContentSections slug={slug} /></CalculatorLayout>
     </>
   );
 }

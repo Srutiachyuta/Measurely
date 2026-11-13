@@ -29,7 +29,7 @@ export default function Error({
 
           <h1 className="text-2xl sm:text-3xl font-bold text-text mb-3">Something went wrong!</h1>
           <p className="text-text-secondary mb-2">
-            An unexpected error occurred. Our team has been notified.
+            This page could not load. Try again, or reload to get the latest version.
           </p>
           {error.digest && (
             <p className="text-xs text-muted mb-8 font-mono bg-surface-secondary dark:bg-dark-800 inline-block px-3 py-1 rounded-lg">
@@ -45,6 +45,7 @@ export default function Error({
               <RefreshCw className="h-4 w-4" />
               Try Again
             </button>
+            <button onClick={() => window.location.reload()} className="inline-flex items-center justify-center h-11 px-6 rounded-xl border border-border text-sm font-medium">Reload page</button>
             <Link
               href="/"
               className="inline-flex items-center justify-center gap-2 h-11 px-6 rounded-xl border border-border/60 text-text text-sm font-medium hover:bg-surface-secondary transition-all"

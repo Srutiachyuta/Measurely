@@ -19,6 +19,7 @@ const csp = [
 ].join("; ");
 
 const nextConfig: NextConfig = {
+  deploymentId: process.env.NEXT_DEPLOYMENT_ID || process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA,
   distDir: process.env.MEASURELY_BUILD_DIR || ".next",
   allowedDevOrigins: ["192.168.1.11", "192.168.1.4"],
   images: {
@@ -29,6 +30,7 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }] },
       {
         source: "/:path*",
         headers: [
@@ -49,7 +51,7 @@ const nextConfig: NextConfig = {
         headers: [{ key: "Cache-Control", value: "private, no-store" }, { key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {
-        source: "/:path*.(css|js|woff2|png|jpg|jpeg|gif|ico|svg|webp|avif)",
+        source: "/_next/static/:path*",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
         ],
